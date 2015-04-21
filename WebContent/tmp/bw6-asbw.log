@@ -1,0 +1,44 @@
+1347 [main] INFO  com.tibco.thor.frwk - bwappnode TIBCO ActiveMatrix BusinessWorks version 6.2.0, hotfix 1, build V32, 2014-11-19 initialized using logging config /home/asbw/Tibco/asbw610/bw/6.2/domains/d1/appnodes/a1/n1/logback.xml
+33048 [Component Resolve Thread (Bundle 207)] INFO  com.tibco.bw.frwk.engine.BWEngine - TIBCO-BW-FRWK-300002: BW Engine [Main] started successfully.
+34550 [main] INFO  com.tibco.thor.frwk - AppNode (OSGi Framework) started in 33 seconds
+34587 [Framework Event Dispatcher] INFO  com.tibco.thor.frwk.Deployer - TIBCO-THOR-FRWK-300001: Started OSGi Framework of AppNode [n1] in AppSpace [a1] of Domain [d1]
+98401 [Refresh Packages] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300018: Deploying BW Application [testLog.application:1.0].
+98402 [Refresh Packages] INFO  com.tibco.thor.frwk.Application - Application bundle [testLog.application_1.0.0.201502061136 [641]] is resolved, but not started
+98407 [Refresh Packages] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300008: Stopped BW Application [testLog.application:1.0]
+98515 [qtp1071225723-36] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300005: Starting BW Application [testLog.application:1.0]
+98548 [qtp1071225723-36] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300021: All Application dependencies are resolved for Application [testLog.application:1.0]
+101550 [qtp1071225723-36] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300019: BW Application [testLog.application:1.0] is impaired.
+168074 [qtp1071225723-38] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300007: Stopping BW Application [testLog.application:1.0]
+168075 [qtp1071225723-38] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300020: BW Application [testLog.application:1.0] is stopping
+168119 [qtp1071225723-38] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300008: Stopped BW Application [testLog.application:1.0]
+180458 [qtp1071225723-35] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300009: Preparing to undeploy BW Application [testLog.application:1.0]
+180459 [qtp1071225723-35] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300010: Undeploying BW Application [testLog.application:1.0]
+180468 [qtp1071225723-35] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300011: Undeployed BW Application [testLog.application:1.0]
+349518 [Refresh Packages] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300018: Deploying BW Application [testLog.application:1.0].
+349518 [Refresh Packages] INFO  com.tibco.thor.frwk.Application - Application bundle [testLog.application_1.0.0.201502061306 [643]] is resolved, but not started
+349521 [Refresh Packages] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300008: Stopped BW Application [testLog.application:1.0]
+349557 [qtp1071225723-40] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300005: Starting BW Application [testLog.application:1.0]
+349571 [qtp1071225723-40] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300021: All Application dependencies are resolved for Application [testLog.application:1.0]
+354274 [qtp1071225723-40] ERROR c.t.b.p.a.r.EntryBrowserEventSource - TIBCO-BW-PALETTE-ACTIVESPACES-500005: Browser Type is not specified
+354274 [qtp1071225723-40] ERROR c.t.b.p.a.r.EntryBrowserEventSource - TIBCO-BW-PALETTE-ACTIVESPACES-500005: Browser Type is not specified
+354500 [qtp1071225723-40] DEBUG c.t.b.p.a.r.EntryBrowserEventSource - 
+Start of the Event Source ContinuousQuery
+354500 [qtp1071225723-40] DEBUG c.t.b.p.a.r.EntryBrowserEventSource - 
+Start of the Event Source ContinuousQuery
+354501 [qtp1071225723-40] INFO  com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300006: Started BW Application [testLog.application:1.0]
+355096 [pool-6-thread-1] DEBUG c.t.b.p.a.runtime.PutActivity - 
+Start of the Activity Put
+Input received: 
+<tns:ActivityInput xmlns:tns="http://tns.tibco.com/bw/activity/activespace/xsd/+testlog.Metaspace/Space/SpaceConnection+Put-input"><Tuple><key>12</key><value>adc d</value></Tuple><Tuple><key>121</key><value>adc d</value></Tuple></tns:ActivityInput>
+355096 [pool-6-thread-1] DEBUG c.t.b.p.a.runtime.PutActivity - 
+Start of the Activity Put
+Input received: 
+<tns:ActivityInput xmlns:tns="http://tns.tibco.com/bw/activity/activespace/xsd/+testlog.Metaspace/Space/SpaceConnection+Put-input"><Tuple><key>12</key><value>adc d</value></Tuple><Tuple><key>121</key><value>adc d</value></Tuple></tns:ActivityInput>
+361184 [bwEngThread:In-Memory Process Worker-2] DEBUG c.t.b.p.a.runtime.PutActivity - 
+Activity Put Output data: 
+<ns0:ResultList xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+testlog.Metaspace/Space/SpaceConnection+Put-output"><HasError>false</HasError><Result><Status>OK</Status><HasError>false</HasError></Result><Result><Status>OK</Status><HasError>false</HasError></Result></ns0:ResultList>
+Exit of Activity Put
+361184 [bwEngThread:In-Memory Process Worker-2] DEBUG c.t.b.p.a.runtime.PutActivity - 
+Activity Put Output data: 
+<ns0:ResultList xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+testlog.Metaspace/Space/SpaceConnection+Put-output"><HasError>false</HasError><Result><Status>OK</Status><HasError>false</HasError></Result><Result><Status>OK</Status><HasError>false</HasError></Result></ns0:ResultList>
+Exit of Activity Put

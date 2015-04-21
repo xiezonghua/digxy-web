@@ -1,0 +1,71 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>digxy 注册</title>
+	<link style="text/css" rel="stylesheet" href="../css/user.css" />
+	<link style="text/css" rel="stylesheet" href="../css/main.css" />
+	
+	<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="../js/site.js"></script>
+	<script type="text/javascript" src="../js/user.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<header class="big_header">
+			<section>
+				<img src="../images/yxylogo.png" alt="logo" title="logo" />
+				<h2>迪格学院</h2><span> | 注册</span>
+				<p>			
+					<span>我已注册，现在就</span><input type="button" value="登录">
+				</p>
+			</section>
+		</header>
+		
+		<section class="article_aside">
+			<article>
+				<section>
+					<form method="post" action="/user/regist">
+					<section>
+						<label for="userName">用户ID</label>
+						<input type="text" id="userName" name="userModel.userName" placeholder="邮箱"/>
+						<span id="userName_msg"></span>
+					</section>
+					
+					<section>
+						<label for="petName">昵称</label>
+						<input type="text" id="petName" name="userModel.petName" placeholder="昵称"/>
+						<span id="petName_msg"></span>
+					</section>
+					
+					<section>
+						<label for="password">密码</label>					
+						<input type="password" id="password" name="userModel.password" placeholder="密码"/>	
+						<span id="password_msg"></span>
+					</section>
+					
+					<section>
+						<p>
+						<input type="checkbox" id="readLicense" name="readLicense" >
+						<label >我已阅读并接受<a href="about_protocol.html">《用户协议》</a></label>
+						<span id="protocol_msg"></span>
+						</p>
+					</section>
+					
+					<section>
+						<input type="button" value="注册" onclick="user.reg()">
+						<p id="submit_msg"></p>
+					</section>		
+				
+				</form>
+				</section>
+			</article>
+			<aside>
+				<section>dad</section>
+			</aside>
+
+		</section>
+	</div>
+
+</body>
+</html>

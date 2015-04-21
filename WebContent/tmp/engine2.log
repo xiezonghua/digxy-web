@@ -1,0 +1,235 @@
+2014-11-21 22:48:25.361 INFO  [main] com.tibco.thor.frwk - bwappnode TIBCO ActiveMatrix BusinessWorks version 6.2.0, build V25, 2014-10-31 initialized using logging config C:/asbw602GA/bw/6.2/domains/domain_ASBW/appnodes/a2/n2/logback.xml
+2014-11-21 22:49:41.648 INFO  [Component Resolve Thread (Bundle 336)] com.tibco.bw.frwk.engine.BWEngine - TIBCO-BW-FRWK-300002: BW Engine [Main] started successfully.
+2014-11-21 22:49:45.680 INFO  [Framework Event Dispatcher] com.tibco.thor.frwk.Deployer - TIBCO-THOR-FRWK-300001: Started OSGi Framework of AppNode [n2] in AppSpace [a2] of Domain [domain_ASBW]
+2014-11-21 22:49:45.688 INFO  [main] com.tibco.thor.frwk - AppNode (OSGi Framework) started in 80 seconds
+2014-11-21 22:53:21.714 INFO  [qtp892724702-52] com.tibco.thor.frwk.Deployer - TIBCO-THOR-FRWK-300051: Shutting down OSGi Framework gracefully
+2014-11-21 22:53:21.716 INFO  [qtp892724702-52] com.tibco.bw.frwk.engine.BWEngine - TIBCO-BW-FRWK-300003: AppNode will be stopped. Gracefully shutting down all BW Engines.
+2014-11-21 22:53:21.923 INFO  [pool-1-thread-1] com.tibco.thor.frwk.Deployer - TIBCO-THOR-FRWK-300050: Shutting down OSGi Framework
+2014-11-21 22:53:24.330 INFO  [main] com.tibco.thor.frwk - TIBCO-THOR-ADMIN-CLI-300002: BusinessWorks is shut down.
+2014-11-21 22:53:24.331 INFO  [main] com.tibco.thor.frwk - AppNode status changed to Stopped
+2014-11-21 23:05:07.939 INFO  [main] com.tibco.thor.frwk - bwappnode TIBCO ActiveMatrix BusinessWorks version 6.2.0, build V25, 2014-10-31 initialized using logging config C:/asbw602GA/bw/6.2/domains/domain_ASBW/appnodes/a2/n2/logback.xml
+2014-11-21 23:05:30.482 INFO  [Component Resolve Thread (Bundle 336)] com.tibco.bw.frwk.engine.BWEngine - TIBCO-BW-FRWK-300002: BW Engine [Main] started successfully.
+2014-11-21 23:05:34.939 INFO  [main] com.tibco.thor.frwk - AppNode (OSGi Framework) started in 26 seconds
+2014-11-21 23:05:35.016 INFO  [Framework Event Dispatcher] com.tibco.thor.frwk.Deployer - TIBCO-THOR-FRWK-300001: Started OSGi Framework of AppNode [n2] in AppSpace [a2] of Domain [domain_ASBW]
+2014-11-21 23:05:54.266 INFO  [Refresh Packages] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300018: Deploying BW Application [EntryBro.app:1.0].
+2014-11-21 23:05:54.267 INFO  [Refresh Packages] com.tibco.thor.frwk.Application - Application bundle [EntryBro.app_1.0.0.201411212304 [378]] is resolved, but not started
+2014-11-21 23:05:54.290 INFO  [Refresh Packages] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300008: Stopped BW Application [EntryBro.app:1.0]
+2014-11-21 23:07:07.171 INFO  [qtp1843345827-54] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300005: Starting BW Application [EntryBro.app:1.0]
+2014-11-21 23:07:07.216 INFO  [qtp1843345827-54] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300021: All Application dependencies are resolved for Application [EntryBro.app:1.0]
+2014-11-21 23:07:44.827 DEBUG [qtp1843345827-54] c.t.b.p.a.r.EntryBrowserEventSource - 
+Start of the Event Source EntryBrowser
+2014-11-21 23:07:44.827 DEBUG [qtp1843345827-54] c.t.b.p.a.r.EntryBrowserEventSource - 
+Start of the Event Source EntryBrowser
+2014-11-21 23:07:44.832 INFO  [qtp1843345827-54] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300006: Started BW Application [EntryBro.app:1.0]
+2014-11-21 23:07:45.661 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>1</id><firstname>Jack</firstname><lastname>Jill</lastname><sex>M</sex><married>true</married><age>24</age><salary>1.0000025E5</salary><money2>3.139498E5</money2><length>200</length><birthday>2012-01-01T20:00:00Z</birthday><picture>aGVsbG8=</picture></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:07:45.661 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>1</id><firstname>Jack</firstname><lastname>Jill</lastname><sex>M</sex><married>true</married><age>24</age><salary>1.0000025E5</salary><money2>3.139498E5</money2><length>200</length><birthday>2012-01-01T20:00:00Z</birthday><picture>aGVsbG8=</picture></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:07:45.671 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>2</id><firstname>Harry</firstname><lastname>Potter</lastname><sex>M</sex><married>false</married><age>18</age><salary>2.0E5</salary></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:07:45.671 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>2</id><firstname>Harry</firstname><lastname>Potter</lastname><sex>M</sex><married>false</married><age>18</age><salary>2.0E5</salary></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:07:45.681 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>3</id><firstname>Alice</firstname><lastname>W</lastname><sex>F</sex><age>20</age></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:07:45.681 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>3</id><firstname>Alice</firstname><lastname>W</lastname><sex>F</sex><age>20</age></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:08:43.549 WARN  [qtp1843345827-54] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-400021: The constituent [EntryBro{<none>, [bw-appmodule,osgi-bundle,], 1.0.0.201411212304, EntryBro_1.0.0.201411212304 [379]}] was stopped, but the application was not. Stopping application.
+2014-11-21 23:08:43.550 INFO  [qtp1843345827-54] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300017: BW Application [EntryBro.app:1.0] has encountered and Application Error TIBCO-THOR-FRWK-400021: The constituent [EntryBro{<none>, [bw-appmodule,osgi-bundle,], 1.0.0.201411212304, EntryBro_1.0.0.201411212304 [379]}] was stopped, but the application was not. Stopping application..
+2014-11-21 23:08:45.971 INFO  [qtp1843345827-54] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300008: Stopped BW Application [EntryBro.app:1.0]
+2014-11-21 23:08:45.982 INFO  [qtp1843345827-54] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300009: Preparing to undeploy BW Application [EntryBro.app:1.0]
+2014-11-21 23:08:45.990 INFO  [qtp1843345827-54] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300010: Undeploying BW Application [EntryBro.app:1.0]
+2014-11-21 23:08:46.271 INFO  [qtp1843345827-54] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300011: Undeployed BW Application [EntryBro.app:1.0]
+2014-11-21 23:08:58.798 INFO  [qtp1843345827-48] com.tibco.thor.frwk.Deployer - TIBCO-THOR-FRWK-300051: Shutting down OSGi Framework gracefully
+2014-11-21 23:08:58.799 INFO  [qtp1843345827-48] com.tibco.bw.frwk.engine.BWEngine - TIBCO-BW-FRWK-300003: AppNode will be stopped. Gracefully shutting down all BW Engines.
+2014-11-21 23:08:58.810 INFO  [pool-1-thread-1] com.tibco.thor.frwk.Deployer - TIBCO-THOR-FRWK-300050: Shutting down OSGi Framework
+2014-11-21 23:09:01.648 INFO  [main] com.tibco.thor.frwk - TIBCO-THOR-ADMIN-CLI-300002: BusinessWorks is shut down.
+2014-11-21 23:09:01.649 INFO  [main] com.tibco.thor.frwk - AppNode status changed to Stopped
+2014-11-21 23:20:09.318 INFO  [main] com.tibco.thor.frwk - bwappnode TIBCO ActiveMatrix BusinessWorks version 6.2.0, build V25, 2014-10-31 initialized using logging config C:/asbw602GA/bw/6.2/domains/domain_ASBW/appnodes/a2/n2/logback.xml
+2014-11-21 23:20:31.989 INFO  [Component Resolve Thread (Bundle 336)] com.tibco.bw.frwk.engine.BWEngine - TIBCO-BW-FRWK-300002: BW Engine [Main] started successfully.
+2014-11-21 23:20:37.432 INFO  [Framework Event Dispatcher] com.tibco.thor.frwk.Deployer - TIBCO-THOR-FRWK-300001: Started OSGi Framework of AppNode [n2] in AppSpace [a2] of Domain [domain_ASBW]
+2014-11-21 23:20:37.446 INFO  [main] com.tibco.thor.frwk - AppNode (OSGi Framework) started in 27 seconds
+2014-11-21 23:21:00.054 INFO  [Refresh Packages] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300018: Deploying BW Application [EntryBro.app:1.0].
+2014-11-21 23:21:00.055 INFO  [Refresh Packages] com.tibco.thor.frwk.Application - Application bundle [EntryBro.app_1.0.0.201411212319 [380]] is resolved, but not started
+2014-11-21 23:21:00.069 INFO  [Refresh Packages] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300008: Stopped BW Application [EntryBro.app:1.0]
+2014-11-21 23:22:17.545 INFO  [qtp840626236-53] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300005: Starting BW Application [EntryBro.app:1.0]
+2014-11-21 23:22:17.581 INFO  [qtp840626236-53] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300021: All Application dependencies are resolved for Application [EntryBro.app:1.0]
+2014-11-21 23:22:42.594 ERROR [qtp840626236-53] c.t.b.s.a.r.m.MetaspaceResourceFactory - TIBCO-BW-SR-ACTIVESPACES-500002: Could not connect to the Metaspace [EntryBro6917a].
+2014-11-21 23:22:42.599 ERROR [qtp840626236-53] c.t.b.p.a.r.EntryBrowserEventSource - TIBCO-BW-PALETTE-ACTIVESPACES-500000: {0}
+2014-11-21 23:22:42.599 ERROR [qtp840626236-53] c.t.b.p.a.r.EntryBrowserEventSource - TIBCO-BW-PALETTE-ACTIVESPACES-500000: {0}
+2014-11-21 23:22:42.659 DEBUG [qtp840626236-53] c.t.b.p.a.r.EntryBrowserEventSource - 
+Start of the Event Source EntryBrowser
+2014-11-21 23:22:42.659 DEBUG [qtp840626236-53] c.t.b.p.a.r.EntryBrowserEventSource - 
+Start of the Event Source EntryBrowser
+2014-11-21 23:22:42.892 ERROR [qtp840626236-53] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-600026: Failed to start BW Application [EntryBro.app:1.0]. Reason: TIBCO-BW-CORE-500304: Failed to start BW Application [EntryBro.app:1.0] due to an activity error.
+   <CausedBy> com.tibco.bw.core.runtime.ActivityStartException: TIBCO-BW-CORE-500412: Failed to start the ProcessStarter activity [EntryBrowser] in process [EntryBro.EntryBrowser], module [EntryBro] due to unexpected activity lifecycle error.
+   <CausedBy> java.lang.NullPointerException
+
+
+2014-11-21 23:22:46.230 INFO  [qtp840626236-53] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300008: Stopped BW Application [EntryBro.app:1.0]
+2014-11-21 23:23:48.165 INFO  [qtp840626236-51] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300009: Preparing to undeploy BW Application [EntryBro.app:1.0]
+2014-11-21 23:23:48.186 INFO  [qtp840626236-51] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300010: Undeploying BW Application [EntryBro.app:1.0]
+2014-11-21 23:23:48.789 INFO  [qtp840626236-51] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300011: Undeployed BW Application [EntryBro.app:1.0]
+2014-11-21 23:24:05.208 INFO  [qtp840626236-49] com.tibco.thor.frwk.Deployer - TIBCO-THOR-FRWK-300051: Shutting down OSGi Framework gracefully
+2014-11-21 23:24:05.209 INFO  [qtp840626236-49] com.tibco.bw.frwk.engine.BWEngine - TIBCO-BW-FRWK-300003: AppNode will be stopped. Gracefully shutting down all BW Engines.
+2014-11-21 23:24:05.242 INFO  [pool-1-thread-1] com.tibco.thor.frwk.Deployer - TIBCO-THOR-FRWK-300050: Shutting down OSGi Framework
+2014-11-21 23:24:10.880 INFO  [main] com.tibco.thor.frwk - TIBCO-THOR-ADMIN-CLI-300002: BusinessWorks is shut down.
+2014-11-21 23:24:10.890 INFO  [main] com.tibco.thor.frwk - AppNode status changed to Stopped
+2014-11-21 23:44:49.717 INFO  [main] com.tibco.thor.frwk - bwappnode TIBCO ActiveMatrix BusinessWorks version 6.2.0, build V25, 2014-10-31 initialized using logging config C:/asbw602GA/bw/6.2/domains/domain_ASBW/appnodes/a2/n2/logback.xml
+2014-11-21 23:45:16.374 INFO  [Component Resolve Thread (Bundle 336)] com.tibco.bw.frwk.engine.BWEngine - TIBCO-BW-FRWK-300002: BW Engine [Main] started successfully.
+2014-11-21 23:45:20.434 INFO  [Framework Event Dispatcher] com.tibco.thor.frwk.Deployer - TIBCO-THOR-FRWK-300001: Started OSGi Framework of AppNode [n2] in AppSpace [a2] of Domain [domain_ASBW]
+2014-11-21 23:45:20.472 INFO  [main] com.tibco.thor.frwk - AppNode (OSGi Framework) started in 30 seconds
+2014-11-21 23:45:43.435 INFO  [Refresh Packages] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300018: Deploying BW Application [EntryBro.app:1.0].
+2014-11-21 23:45:43.436 INFO  [Refresh Packages] com.tibco.thor.frwk.Application - Application bundle [EntryBro.app_1.0.0.201411212344 [382]] is resolved, but not started
+2014-11-21 23:45:43.454 INFO  [Refresh Packages] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300008: Stopped BW Application [EntryBro.app:1.0]
+2014-11-21 23:47:07.985 INFO  [qtp1146541139-48] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300005: Starting BW Application [EntryBro.app:1.0]
+2014-11-21 23:47:08.034 INFO  [qtp1146541139-48] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300021: All Application dependencies are resolved for Application [EntryBro.app:1.0]
+2014-11-21 23:47:46.613 DEBUG [qtp1146541139-48] c.t.b.p.a.r.EntryBrowserEventSource - 
+Start of the Event Source EntryBrowser
+2014-11-21 23:47:46.613 DEBUG [qtp1146541139-48] c.t.b.p.a.r.EntryBrowserEventSource - 
+Start of the Event Source EntryBrowser
+2014-11-21 23:47:46.615 INFO  [qtp1146541139-48] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300006: Started BW Application [EntryBro.app:1.0]
+2014-11-21 23:47:47.426 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>3</id><firstname>Alice</firstname><lastname>W</lastname><sex>F</sex><age>20</age></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:47:47.426 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>3</id><firstname>Alice</firstname><lastname>W</lastname><sex>F</sex><age>20</age></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:47:47.509 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>2</id><firstname>Harry</firstname><lastname>Potter</lastname><sex>M</sex><married>false</married><age>18</age><salary>2.0E5</salary></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:47:47.509 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>2</id><firstname>Harry</firstname><lastname>Potter</lastname><sex>M</sex><married>false</married><age>18</age><salary>2.0E5</salary></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:47:47.546 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>1</id><firstname>Jack</firstname><lastname>Jill</lastname><sex>M</sex><married>true</married><age>24</age><salary>1.0000025E5</salary><money2>3.139498E5</money2><length>200</length><birthday>2012-01-01T20:00:00Z</birthday><picture>aGVsbG8=</picture></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:47:47.546 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>1</id><firstname>Jack</firstname><lastname>Jill</lastname><sex>M</sex><married>true</married><age>24</age><salary>1.0000025E5</salary><money2>3.139498E5</money2><length>200</length><birthday>2012-01-01T20:00:00Z</birthday><picture>aGVsbG8=</picture></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:47:47.755 ERROR [bwEngThread:In-Memory Process Worker-1] com.tibco.bw.core - TIBCO-BW-CORE-500050: The BW process [common.subWrite] instance faulted, JobId [bw0a100], ProcessInstanceId [bw0a107], ParentProcessInstanceId [bw0a100], Module [EntryBro:1.0.0.201411212343], Application [EntryBro.app:1.0].  
+   <CausedBy> TIBCO-BW-CORE-500051: Activity [JavaInvoke] fault.  
+   <CausedBy> com.tibco.bw.runtime.ActivityFault: TIBCO-BW-PALETTE-JAVA-500026: Unable to obtain information for the method [fsd.invoke] from the class [fsd]. Encountered NoSuchMethodException [java.lang.NoSuchMethodException: fsd.fsd.invoke()].-{ActivityName=JavaInvoke, ProcessName=common.subWrite, ModuleName=EntryBro}
+
+
+2014-11-21 23:47:47.758 ERROR [bwEngThread:In-Memory Process Worker-3] com.tibco.bw.core - TIBCO-BW-CORE-500050: The BW process [common.subWrite] instance faulted, JobId [bw0a102], ProcessInstanceId [bw0a104], ParentProcessInstanceId [bw0a102], Module [EntryBro:1.0.0.201411212343], Application [EntryBro.app:1.0].  
+   <CausedBy> TIBCO-BW-CORE-500051: Activity [JavaInvoke] fault.  
+   <CausedBy> com.tibco.bw.runtime.ActivityFault: TIBCO-BW-PALETTE-JAVA-500026: Unable to obtain information for the method [fsd.invoke] from the class [fsd]. Encountered NoSuchMethodException [java.lang.NoSuchMethodException: fsd.fsd.invoke()].-{ActivityName=JavaInvoke, ProcessName=common.subWrite, ModuleName=EntryBro}
+
+
+2014-11-21 23:47:47.810 ERROR [bwEngThread:In-Memory Process Worker-3] com.tibco.bw.core - TIBCO-BW-CORE-500050: The BW process [EntryBro.EntryBrowser] instance faulted, JobId [bw0a102], ProcessInstanceId [bw0a102], ParentProcessInstanceId [-], Module [EntryBro:1.0.0.201411212343], Application [EntryBro.app:1.0].  
+   <CausedBy> TIBCO-BW-CORE-500066: Invoke activity faulted due an error from the invoked subprocess.  
+   <CausedBy> com.tibco.bx.core.faults.BxException: BX-905009: Sub-process failed, reason: [{http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions}ActivityException: com.tibco.bx.core.faults.BxException: TIBCO-BW-PALETTE-JAVA-500026: Unable to obtain information for the method [fsd.invoke] from the class [fsd]. Encountered NoSuchMethodException [java.lang.NoSuchMethodException: fsd.fsd.invoke()].-{ActivityName=JavaInvoke, ProcessName=common.subWrite, ModuleName=EntryBro}
+Caused by: TIBCO-BW-PALETTE-JAVA-500026: Unable to obtain information for the method [fsd.invoke] from the class [fsd]. Encountered NoSuchMethodException [java.lang.NoSuchMethodException: fsd.fsd.invoke()].-{ActivityName=JavaInvoke, ProcessName=common.subWrite, ModuleName=EntryBro}
+]
+   <CausedBy> com.tibco.bx.core.faults.BxException: TIBCO-BW-PALETTE-JAVA-500026: Unable to obtain information for the method [fsd.invoke] from the class [fsd]. Encountered NoSuchMethodException [java.lang.NoSuchMethodException: fsd.fsd.invoke()].-{ActivityName=JavaInvoke, ProcessName=common.subWrite, ModuleName=EntryBro}
+   <CausedBy> com.tibco.bw.runtime.ActivityFault: TIBCO-BW-PALETTE-JAVA-500026: Unable to obtain information for the method [fsd.invoke] from the class [fsd]. Encountered NoSuchMethodException [java.lang.NoSuchMethodException: fsd.fsd.invoke()].-{ActivityName=JavaInvoke, ProcessName=common.subWrite, ModuleName=EntryBro}
+
+
+2014-11-21 23:47:47.822 ERROR [bwEngThread:In-Memory Process Worker-1] com.tibco.bw.core - TIBCO-BW-CORE-500050: The BW process [EntryBro.EntryBrowser] instance faulted, JobId [bw0a100], ProcessInstanceId [bw0a100], ParentProcessInstanceId [-], Module [EntryBro:1.0.0.201411212343], Application [EntryBro.app:1.0].  
+   <CausedBy> TIBCO-BW-CORE-500066: Invoke activity faulted due an error from the invoked subprocess.  
+   <CausedBy> com.tibco.bx.core.faults.BxException: BX-905009: Sub-process failed, reason: [{http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions}ActivityException: com.tibco.bx.core.faults.BxException: TIBCO-BW-PALETTE-JAVA-500026: Unable to obtain information for the method [fsd.invoke] from the class [fsd]. Encountered NoSuchMethodException [java.lang.NoSuchMethodException: fsd.fsd.invoke()].-{ActivityName=JavaInvoke, ProcessName=common.subWrite, ModuleName=EntryBro}
+Caused by: TIBCO-BW-PALETTE-JAVA-500026: Unable to obtain information for the method [fsd.invoke] from the class [fsd]. Encountered NoSuchMethodException [java.lang.NoSuchMethodException: fsd.fsd.invoke()].-{ActivityName=JavaInvoke, ProcessName=common.subWrite, ModuleName=EntryBro}
+]
+   <CausedBy> com.tibco.bx.core.faults.BxException: TIBCO-BW-PALETTE-JAVA-500026: Unable to obtain information for the method [fsd.invoke] from the class [fsd]. Encountered NoSuchMethodException [java.lang.NoSuchMethodException: fsd.fsd.invoke()].-{ActivityName=JavaInvoke, ProcessName=common.subWrite, ModuleName=EntryBro}
+   <CausedBy> com.tibco.bw.runtime.ActivityFault: TIBCO-BW-PALETTE-JAVA-500026: Unable to obtain information for the method [fsd.invoke] from the class [fsd]. Encountered NoSuchMethodException [java.lang.NoSuchMethodException: fsd.fsd.invoke()].-{ActivityName=JavaInvoke, ProcessName=common.subWrite, ModuleName=EntryBro}
+
+
+2014-11-21 23:47:47.837 DEBUG [pool-6-thread-1] c.t.b.p.a.runtime.PutActivity - 
+Start of the Activity Put
+Input received: 
+<ns0:ActivityInput xmlns:tns1="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace1/Space1/seeder+Put-input" xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+Put-input" xmlns:tns="http://www.tibco.com/subSpaceAllParseData/"><Tuple><id>1</id><firstname>Jack</firstname><lastname>Jill</lastname><sex>M</sex><married>true</married><age>24</age><salary>1.0000025E5</salary><money2>3.139498E5</money2><length>200</length><birthday>2012-01-01T12:00:00-08:00</birthday><picture>aGVsbG8=</picture></Tuple><Tuple><id>2</id><firstname>Harry</firstname><lastname>Potter</lastname><sex>M</sex><married>false</married><age>18</age><salary>2.0E5</salary></Tuple><Tuple><id>3</id><firstname>Alice</firstname><lastname>W</lastname><sex>F</sex><age>20</age></Tuple></ns0:ActivityInput>
+2014-11-21 23:47:47.837 DEBUG [pool-6-thread-1] c.t.b.p.a.runtime.PutActivity - 
+Start of the Activity Put
+Input received: 
+<ns0:ActivityInput xmlns:tns1="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace1/Space1/seeder+Put-input" xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+Put-input" xmlns:tns="http://www.tibco.com/subSpaceAllParseData/"><Tuple><id>1</id><firstname>Jack</firstname><lastname>Jill</lastname><sex>M</sex><married>true</married><age>24</age><salary>1.0000025E5</salary><money2>3.139498E5</money2><length>200</length><birthday>2012-01-01T12:00:00-08:00</birthday><picture>aGVsbG8=</picture></Tuple><Tuple><id>2</id><firstname>Harry</firstname><lastname>Potter</lastname><sex>M</sex><married>false</married><age>18</age><salary>2.0E5</salary></Tuple><Tuple><id>3</id><firstname>Alice</firstname><lastname>W</lastname><sex>F</sex><age>20</age></Tuple></ns0:ActivityInput>
+2014-11-21 23:47:47.982 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>2</id><firstname>Harry</firstname><lastname>Potter</lastname><sex>M</sex><married>false</married><age>18</age><salary>2.0E5</salary></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:47:47.982 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>2</id><firstname>Harry</firstname><lastname>Potter</lastname><sex>M</sex><married>false</married><age>18</age><salary>2.0E5</salary></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:47:47.991 DEBUG [bwEngThread:In-Memory Process Worker-7] c.t.b.p.a.runtime.PutActivity - 
+Activity Put Output data: 
+<ns0:ResultList xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+Put-output"><HasError>false</HasError><Result><Status>OK</Status><Tuple><id>1</id><firstname>Jack</firstname><lastname>Jill</lastname><sex>M</sex><married>true</married><age>24</age><salary>1.0000025E5</salary><money2>3.139498E5</money2><length>200</length><birthday>2012-01-01T20:00:00Z</birthday><picture>aGVsbG8=</picture></Tuple><HasError>false</HasError></Result><Result><Status>OK</Status><Tuple><id>2</id><firstname>Harry</firstname><lastname>Potter</lastname><sex>M</sex><married>false</married><age>18</age><salary>2.0E5</salary></Tuple><HasError>false</HasError></Result><Result><Status>OK</Status><Tuple><id>3</id><firstname>Alice</firstname><lastname>W</lastname><sex>F</sex><age>20</age></Tuple><HasError>false</HasError></Result></ns0:ResultList>
+Exit of Activity Put
+2014-11-21 23:47:47.991 DEBUG [bwEngThread:In-Memory Process Worker-7] c.t.b.p.a.runtime.PutActivity - 
+Activity Put Output data: 
+<ns0:ResultList xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+Put-output"><HasError>false</HasError><Result><Status>OK</Status><Tuple><id>1</id><firstname>Jack</firstname><lastname>Jill</lastname><sex>M</sex><married>true</married><age>24</age><salary>1.0000025E5</salary><money2>3.139498E5</money2><length>200</length><birthday>2012-01-01T20:00:00Z</birthday><picture>aGVsbG8=</picture></Tuple><HasError>false</HasError></Result><Result><Status>OK</Status><Tuple><id>2</id><firstname>Harry</firstname><lastname>Potter</lastname><sex>M</sex><married>false</married><age>18</age><salary>2.0E5</salary></Tuple><HasError>false</HasError></Result><Result><Status>OK</Status><Tuple><id>3</id><firstname>Alice</firstname><lastname>W</lastname><sex>F</sex><age>20</age></Tuple><HasError>false</HasError></Result></ns0:ResultList>
+Exit of Activity Put
+2014-11-21 23:47:48.006 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>3</id><firstname>Alice</firstname><lastname>W</lastname><sex>F</sex><age>20</age></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:47:48.006 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>3</id><firstname>Alice</firstname><lastname>W</lastname><sex>F</sex><age>20</age></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:47:48.033 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>1</id><firstname>Jack</firstname><lastname>Jill</lastname><sex>M</sex><married>true</married><age>24</age><salary>1.0000025E5</salary><money2>3.139498E5</money2><length>200</length><birthday>2012-01-01T20:00:00Z</birthday><picture>aGVsbG8=</picture></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:47:48.033 DEBUG [Thread-17] c.t.b.p.a.r.EntryBrowserEventSource - 
+Event Source EntryBrowser Output data: 
+<ns0:ActivityOutputType xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+EntryBrowser-output"><Tuple><id>1</id><firstname>Jack</firstname><lastname>Jill</lastname><sex>M</sex><married>true</married><age>24</age><salary>1.0000025E5</salary><money2>3.139498E5</money2><length>200</length><birthday>2012-01-01T20:00:00Z</birthday><picture>aGVsbG8=</picture></Tuple></ns0:ActivityOutputType>
+Exit of Event Source EntryBrowser
+2014-11-21 23:47:48.341 DEBUG [pool-5-thread-1] c.t.b.p.a.runtime.GetActivity - 
+Start of the Activity Get
+Input received: 
+<tns1:ActivityInput xmlns:tns="http://www.tibco.com/subSpaceAllParseData/" xmlns:tns1="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+Get-input"><Tuple><id>1</id><lastname>Jill</lastname></Tuple><Tuple><id>2</id><lastname>Potter</lastname></Tuple><Tuple><id>3</id><lastname>W</lastname></Tuple></tns1:ActivityInput>
+2014-11-21 23:47:48.341 DEBUG [pool-5-thread-1] c.t.b.p.a.runtime.GetActivity - 
+Start of the Activity Get
+Input received: 
+<tns1:ActivityInput xmlns:tns="http://www.tibco.com/subSpaceAllParseData/" xmlns:tns1="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+Get-input"><Tuple><id>1</id><lastname>Jill</lastname></Tuple><Tuple><id>2</id><lastname>Potter</lastname></Tuple><Tuple><id>3</id><lastname>W</lastname></Tuple></tns1:ActivityInput>
+2014-11-21 23:47:48.347 DEBUG [bwEngThread:In-Memory Process Worker-3] c.t.b.p.a.runtime.GetActivity - 
+Activity Get Output data: 
+<ns0:ResultList xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+Get-output"><HasError>false</HasError><Result><Status>OK</Status><Tuple><id>1</id><firstname>Jack</firstname><lastname>Jill</lastname><sex>M</sex><married>true</married><age>24</age><salary>1.0000025E5</salary><money2>3.139498E5</money2><length>200</length><birthday>2012-01-01T20:00:00Z</birthday><picture>aGVsbG8=</picture></Tuple><HasError>false</HasError></Result><Result><Status>OK</Status><Tuple><id>2</id><firstname>Harry</firstname><lastname>Potter</lastname><sex>M</sex><married>false</married><age>18</age><salary>2.0E5</salary></Tuple><HasError>false</HasError></Result><Result><Status>OK</Status><Tuple><id>3</id><firstname>Alice</firstname><lastname>W</lastname><sex>F</sex><age>20</age></Tuple><HasError>false</HasError></Result></ns0:ResultList>
+Exit of Activity Get
+2014-11-21 23:47:48.347 DEBUG [bwEngThread:In-Memory Process Worker-3] c.t.b.p.a.runtime.GetActivity - 
+Activity Get Output data: 
+<ns0:ResultList xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+Get-output"><HasError>false</HasError><Result><Status>OK</Status><Tuple><id>1</id><firstname>Jack</firstname><lastname>Jill</lastname><sex>M</sex><married>true</married><age>24</age><salary>1.0000025E5</salary><money2>3.139498E5</money2><length>200</length><birthday>2012-01-01T20:00:00Z</birthday><picture>aGVsbG8=</picture></Tuple><HasError>false</HasError></Result><Result><Status>OK</Status><Tuple><id>2</id><firstname>Harry</firstname><lastname>Potter</lastname><sex>M</sex><married>false</married><age>18</age><salary>2.0E5</salary></Tuple><HasError>false</HasError></Result><Result><Status>OK</Status><Tuple><id>3</id><firstname>Alice</firstname><lastname>W</lastname><sex>F</sex><age>20</age></Tuple><HasError>false</HasError></Result></ns0:ResultList>
+Exit of Activity Get
+2014-11-21 23:47:48.560 DEBUG [pool-4-thread-1] c.t.b.p.a.runtime.TakeActivity - 
+Start of the Activity Take
+Input received: 
+<tns1:ActivityInput xmlns:tns="http://www.tibco.com/subSpaceAllParseData/" xmlns:tns1="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+Take-input"><Tuple><id>1</id><lastname>Jill</lastname></Tuple><Tuple><id>2</id><lastname>Potter</lastname></Tuple><Tuple><id>3</id><lastname>W</lastname></Tuple></tns1:ActivityInput>
+2014-11-21 23:47:48.560 DEBUG [pool-4-thread-1] c.t.b.p.a.runtime.TakeActivity - 
+Start of the Activity Take
+Input received: 
+<tns1:ActivityInput xmlns:tns="http://www.tibco.com/subSpaceAllParseData/" xmlns:tns1="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+Take-input"><Tuple><id>1</id><lastname>Jill</lastname></Tuple><Tuple><id>2</id><lastname>Potter</lastname></Tuple><Tuple><id>3</id><lastname>W</lastname></Tuple></tns1:ActivityInput>
+2014-11-21 23:47:48.605 DEBUG [bwEngThread:In-Memory Process Worker-3] c.t.b.p.a.runtime.TakeActivity - 
+Activity Take Output data: 
+<ns0:ResultList xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+Take-output"><HasError>false</HasError><Result><Status>OK</Status><Tuple><id>1</id><firstname>Jack</firstname><lastname>Jill</lastname><sex>M</sex><married>true</married><age>24</age><salary>1.0000025E5</salary><money2>3.139498E5</money2><length>200</length><birthday>2012-01-01T20:00:00Z</birthday><picture>aGVsbG8=</picture></Tuple><HasError>false</HasError></Result><Result><Status>OK</Status><Tuple><id>2</id><firstname>Harry</firstname><lastname>Potter</lastname><sex>M</sex><married>false</married><age>18</age><salary>2.0E5</salary></Tuple><HasError>false</HasError></Result><Result><Status>OK</Status><Tuple><id>3</id><firstname>Alice</firstname><lastname>W</lastname><sex>F</sex><age>20</age></Tuple><HasError>false</HasError></Result></ns0:ResultList>
+Exit of Activity Take
+2014-11-21 23:47:48.605 DEBUG [bwEngThread:In-Memory Process Worker-3] c.t.b.p.a.runtime.TakeActivity - 
+Activity Take Output data: 
+<ns0:ResultList xmlns:ns0="http://tns.tibco.com/bw/activity/activespace/xsd/+spaceDefinitions.Metaspace/SpaceAll/seeder+Take-output"><HasError>false</HasError><Result><Status>OK</Status><Tuple><id>1</id><firstname>Jack</firstname><lastname>Jill</lastname><sex>M</sex><married>true</married><age>24</age><salary>1.0000025E5</salary><money2>3.139498E5</money2><length>200</length><birthday>2012-01-01T20:00:00Z</birthday><picture>aGVsbG8=</picture></Tuple><HasError>false</HasError></Result><Result><Status>OK</Status><Tuple><id>2</id><firstname>Harry</firstname><lastname>Potter</lastname><sex>M</sex><married>false</married><age>18</age><salary>2.0E5</salary></Tuple><HasError>false</HasError></Result><Result><Status>OK</Status><Tuple><id>3</id><firstname>Alice</firstname><lastname>W</lastname><sex>F</sex><age>20</age></Tuple><HasError>false</HasError></Result></ns0:ResultList>
+Exit of Activity Take
+2014-11-21 23:50:24.475 WARN  [qtp1146541139-50] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-400021: The constituent [EntryBro{<none>, [bw-appmodule,osgi-bundle,], 1.0.0.201411212343, EntryBro_1.0.0.201411212343 [383]}] was stopped, but the application was not. Stopping application.
+2014-11-21 23:50:24.477 INFO  [qtp1146541139-50] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300017: BW Application [EntryBro.app:1.0] has encountered and Application Error TIBCO-THOR-FRWK-400021: The constituent [EntryBro{<none>, [bw-appmodule,osgi-bundle,], 1.0.0.201411212343, EntryBro_1.0.0.201411212343 [383]}] was stopped, but the application was not. Stopping application..
+2014-11-21 23:50:25.952 INFO  [qtp1146541139-50] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300008: Stopped BW Application [EntryBro.app:1.0]
+2014-11-21 23:50:25.963 INFO  [qtp1146541139-50] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300009: Preparing to undeploy BW Application [EntryBro.app:1.0]
+2014-11-21 23:50:25.974 INFO  [qtp1146541139-50] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300010: Undeploying BW Application [EntryBro.app:1.0]
+2014-11-21 23:50:26.344 INFO  [qtp1146541139-50] com.tibco.thor.frwk.Application - TIBCO-THOR-FRWK-300011: Undeployed BW Application [EntryBro.app:1.0]
+2014-11-21 23:50:41.380 INFO  [qtp1146541139-52] com.tibco.thor.frwk.Deployer - TIBCO-THOR-FRWK-300051: Shutting down OSGi Framework gracefully
+2014-11-21 23:50:41.381 INFO  [qtp1146541139-52] com.tibco.bw.frwk.engine.BWEngine - TIBCO-BW-FRWK-300003: AppNode will be stopped. Gracefully shutting down all BW Engines.
+2014-11-21 23:50:41.397 INFO  [pool-1-thread-1] com.tibco.thor.frwk.Deployer - TIBCO-THOR-FRWK-300050: Shutting down OSGi Framework

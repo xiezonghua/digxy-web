@@ -1,0 +1,28 @@
+BW6 Training
+
+1. OSGI  -> bundle 
+     Import-package :
+     Export-package :
+     Required-bundle :
+     
+     class load sequene : import-package , required-bundle , class-path,
+2. plugin-in
+     扩展点，扩展项
+
+3. Designer time and Runtime 
+     model 修改在emf ，ecore 上修改后，进行统一生成。
+     Model 包括 -> icon的定义，绘画板元素的属性的定义（general tab ， advance tab）， 元素分为：动态的和静态的。     
+     Designer 包括 -> 定义palette上视图基本信息（唯一名称，图标显示， activityTypeID，paletteID ，信息显示）
+                              定义功能扩展点
+                                     输入输出 signature( schema 定义)； Model初始化定义（Eobject 初始化，process property的定义 in postCreate）；section （General Tab ， Advance Tab -> 数据绑定，数据监听）
+     
+     Runtime 
+           1. AsyncActivity , EventSource  关键函数 newEvent
+           2. 单例 Activity ，自己带一个threadPool 
+           3. Execute Thread ，完成input 解析 功能执行 output解析 process context
+               Service-Component : put.xml
+
+4. schema namespace definition and password , global variable
+      
+
+可以参考下： http://confluence.tibco.com/pages/viewpage.action?title=BW6+Plug-in+Developer%27s+Corner&spaceKey=AD

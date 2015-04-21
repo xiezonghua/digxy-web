@@ -1,0 +1,172 @@
+@CHARSET "UTF-8";
+
+section.aside_article {
+	overflow: hidden;
+	margin: 5px 0;
+}
+
+section.aside_article aside {
+	float: left;
+	width: 20%;
+}
+
+section.aside_article aside nav {
+	border: 1px solid #f2f2f2;
+	border-radius: 10px 0 10px 0;
+	overflow: hidden;
+	box-shadow: 0 12px 8px 1px #555;
+}
+
+section.aside_article article {
+	width: 80%;
+	height: 100%;
+	float: right;
+}
+
+section.aside_article article>section {
+	margin: 3px 0 3px 3px;
+	border: 1px solid #f2f2f2;
+	border-radius: 10px 0 0 0;
+	overflow: hidden;
+	box-shadow: 0 12px -1px 1px #555;
+}
+
+section.aside_article article>section>p {
+	line-height: 2;
+	background:#f3f3f3;
+}
+
+section.aside_article .tab1 {
+	float: left;
+	padding: 0 10px;
+	margin: 0px;
+	border: 1px solid #f2f2f2;
+	text-align: center;
+	letter-spacing: 0.1em; 
+	text-transform: uppercase;
+	border: 1px #dcdcdc solid;
+	border-radius:10px 0 0 0;
+	box-shadow: 0 12px -18px 2px #111;
+	cursor: pointer;
+}
+
+section.aside_article .tab_selected {
+	background: #fff;
+}
+
+section.aside_article .tab_unselected {
+	background:#eee;
+}
+
+.un-editable{
+	border: 0;
+	border-bottom: 1px solid ;
+	background-color: #efefef;
+	outline: none;
+}
+
+textarea{
+	vertical-align: bottom;
+}
+
+.portrait{
+	max-height: 180px;
+	max-width: 200px;	
+}
+
+.li_selected{
+	background-color: #aff;
+}
+
+/* reg page begin*/
+.big_header{
+	background-color: #efefef;
+	overflow: hidden;
+	padding: 40px 0 0px 0 ;
+}
+
+.big_header section>img{
+	float:left;
+}
+
+.big_header h2{
+	color: #000;
+}
+.big_header section>p{
+	float:right;	
+	padding:0 5em;
+	font-size:.9em;
+	letter-spacing: 0.2em;
+}
+
+.big_header section p>input{
+	padding:3px;
+	width: 4em;
+}
+
+form section{
+	line-height: 2.0;	
+	padding:12px;
+}
+
+form section>label{
+	font-weight: 600;
+	text-align:right;
+	width: 120px;
+	display:block;
+	float:left;
+	padding:0 10px;
+}
+
+ section input{
+	padding:5px;
+	/* letter-spacing: .4em; */
+}
+
+.singleton_input section>input{
+	width:25em;
+}
+
+p.white_button input{
+	padding:7px;
+	letter-spacing: .2em;
+}
+
+section.article_aside {
+	overflow: hidden;
+	margin: 5px 0;
+
+}
+
+section.article_aside aside {
+	float: right;
+	width: 40%;
+}
+
+section.article_aside aside nav {
+	border: 1px solid #f2f2f2;
+	border-radius: 10px 0 10px 0;
+	overflow: hidden;
+	box-shadow: 0 12px 8px 1px #555;
+}
+
+section.article_aside article {
+	width: 60%;
+	float: left;
+}
+
+section.article_aside article > section{
+	padding:5em;
+}
+
+.validate_msg {
+	color: red;
+	font-size:.8em;	
+}
+
+.tip_msg{
+	color:#eeffee;
+	font-size:.8em;
+}
+/* reg page end */
+

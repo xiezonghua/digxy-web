@@ -1,0 +1,107 @@
+#parse("/vm/header.vm")
+	<link style="text/css" rel="stylesheet" href="../css/jquery.fileupload.css" />
+	
+	<script type="text/javascript" src="../js/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../js/jquery.iframe-transport.js"></script>
+	<script type="text/javascript" src="../js/jquery.fileupload.js"></script>
+	
+	
+	<section id="uploadFileSection">
+			<form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+				<section style="text-align:center;">
+					<section class="hidden">
+						<input type="file" name="myFile1" id="myFile1" value="上传我的文档"  onchange="res.upload()"/>
+					</section>
+					<section>
+						<p class="white_button">
+						<input type="button" value="上传我的文档" onclick="site.click('myFile')">
+						</p>
+					</section>
+					<section>
+					    <span class="btn btn-success fileinput-button">
+					        <i class="glyphicon glyphicon-plus"></i>
+					        <span>上传我的文档</span>
+					        <!-- The file input field used as target for the file upload widget -->
+					        <input id="fileupload" type="file" name="myFile" multiple>
+					    </span>
+					    
+					    <!-- The global progress bar -->
+					    <div id="progress" class="progress">
+					        <div class="progress-bar progress-bar-success"></div>
+					    </div>
+					    <div id="fileMsg">
+					    </div>
+					</section>
+				</section>
+
+
+				<section>
+					<p>1.您可以上传日常积累和撰写的文档资料，如模板、总结，支持多种文档类型：</p>
+					<p>默认允许上传doc，xls，ppt，docx，xlsx，pptx，pdf 文件.</p>
+					<p>2.上传涉及侵权内容的文档将会被移除。如何判断文档是否侵权？查看网站协议和用户规则</p>
+					<p>3.上传有问题需要帮助？查看上传帮助和意见反馈</p>
+					<p>4.为营造绿色网络环境，严禁上传含有淫秽色情及低俗信息等文档，让我们一起携手共同打造健康文档分享环境</p>
+				</section>
+			</form>
+		
+		</section>
+
+		<section id="fileDetailSection" class="article_aside hidden">
+			<article class="singleton_input">
+				<form action="#">
+					<section>
+						<label for="docName">文档：</label>
+						<input class="un-editable" id="docName" name="docName" disabled="disabled"/> 
+					</section>
+					<section>
+						<label for="resName">标题：</label>
+						 <input type="text" id="resName" name="resName" placeholder="资源名称"> 
+						 <p id="resName_msg"></p>
+					</section>
+
+					<section>
+						<label for="resDesc">描述：</label>
+						<textarea rows="8" cols="47" id="resDesc" name="resDesc" placeholder="资源介绍"></textarea>
+						<p id="resDesc_msg"></p>
+					</section>
+
+					<section>
+						<label for="resType">分类：</label> 
+						<select id="resType" name="resType">
+							<option value="1">学习</option>
+							<option value="2">研究</option>
+						</select>
+						<select id="dicType" name="dicType">
+						 	<option value="1">基础理论</option>
+						 	<option value="2">实例资源</option>
+						</select>
+						<p id="resType"></p>
+						<p id="dicType"></p>
+					</section>
+					
+					<section>
+						 <label for="resLabel">文档标签：</label>
+						 <input type="text" id="resLabel" name="resLabel" placeholder="标签,分号隔开"> 
+						 <p id="resLabel_msg"></p>
+					</section>
+					
+					<section>
+						<p class="white_button" style="text-align: right;">
+							<input id="uploadSave" type="button" value="保存信息" onclick="res.add()" />
+							<input  type="button" value="取消" onclick="res.to" />
+							<input id="uploadSaveTwo" type="button" value="继续添加" onclick="res.toUpload(true)" />
+						</p>
+						<p id="res_add_msg"></p>
+					</section>
+
+				</form>
+			</article>
+			<aside>
+				<section>
+				</section>
+			</aside>
+		</section>
+		
+
+	<script type="text/javascript" src="../js/res.js"></script>	
+#parse("/vm/footer.vm")	
