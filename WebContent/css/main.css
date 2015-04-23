@@ -39,6 +39,15 @@ body {
 	margin: 0;
 }
 
+a { /*链接文本*/
+	text-decoration: none;
+	color: #777;
+}
+
+a:hover { /*悬停时突显链接*/
+	color: #111;
+}
+
 #wrapper {
 	width: 960px;
 	margin: 0 auto;

@@ -25,10 +25,10 @@ public class ResourceAction extends BasicModelAction {
 	@Resource(name="resourcesService")
 	private ResourcesService serivce;
 	
-	@Action(value="new" , results={@Result(type="velocity" , name=SUCCESS , location="/vm/upload.vm")})
-	public String index(){
-		return SUCCESS;
-	}
+//	@Action(value="new" , results={@Result(type="velocity" , name=SUCCESS , location="/vm/upload.vm")})
+//	public String index(){
+//		return SUCCESS;
+//	}
 	
 	@Action(value="add" , results={@Result(type="json" , name=SUCCESS)})
 	public String add(){

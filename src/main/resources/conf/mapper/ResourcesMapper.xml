@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.huayu.dao.mapper.ResourcesMapper">
+	<select id="selectResources" resultMap="BaseResultMap" parameterType="java.lang.Long">
+	    select 
+	    <include refid="Base_Column_List" />
+	    from tb_resources
+	    <where>
+	    	<if test="queryCondtion != null">
+	    		resName like CONCAT('%','${queryCondtion}','%' ) 
+	    		or  resDescribe  like CONCAT('%','${queryCondtion}','%' ) 
+	    		or  resLabel like CONCAT('%','${queryCondtion}','%' )  
+	    	</if>
+	    	
+	    	<if test="uploaderid != null">
+	    		and uploaderId = #{uploaderid}
+	    	</if>
+	    	
+	    	<if test="resStatus != null" >
+	    		and resStatus = #{resStatus}
+	    	</if>
+	    	
+	    	<if test="isDownLoad">
+	    		and downloadTimes > 0
+	    	</if>
+	    </where>
+	    <if test="beginNum != null and offset != null">
+		    limit #{beginNum} , #{offset}
+	    </if>
+	</select>
 	
+	<select id="selectResourcesDownload" resultMap="BaseResultMap" parameterType="java.lang.Long">
+	    select 
+	    <include refid="Base_Column_List" />
+	    from tb_resources  rs left join 
+	    	 tb_recorder rc on rs.id = rc.resid
+	    <where>
+	    	<if test="downloaderId != null">
+	    		and rc.downloaderId = #{downloaderId}
+	    	</if>
+	    	
+	    	<if test="resStatus != null" >
+	    		and resStatus = #{resStatus}
+	    	</if>
+	    </where>
+	    <if test="beginNum != null and offset != null">
+		    limit #{beginNum} , #{offset}
+	    </if>
+	</select>
 </mapper>
