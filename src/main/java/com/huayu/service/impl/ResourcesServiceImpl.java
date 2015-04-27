@@ -68,4 +68,24 @@ public class ResourcesServiceImpl extends AbstractBasicService<Resources , Long>
 		return queryList;
 	}
 
+	@Override
+	public List<Resources> queryWhoDownload(Long userId, Pagination pageInfo) {
+		Map<String , Object> query = new HashMap<String , Object>();
+		query.put("downloaderId", userId);
+		
+		query.put("resStatus", ResourceAuditStatusEnum.PASSED.getValue());
+		List<Resources> queryList =  resourcesDao.selectWhoDownload(query) ; 
+		return queryList;
+	}
+
+	@Override
+	public List<Resources> queryWhoCollect(Long collecterId, Pagination pageInfo) {
+		Map<String , Object> query = new HashMap<String , Object>();
+		query.put("collectionId", collecterId);
+		
+		query.put("resStatus", ResourceAuditStatusEnum.PASSED.getValue());
+		List<Resources> queryList =  resourcesDao.selectWhoCollect(query) ; 
+		return queryList;
+	}
+
 }

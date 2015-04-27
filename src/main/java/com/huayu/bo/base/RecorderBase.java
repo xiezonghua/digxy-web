@@ -14,6 +14,11 @@ public class RecorderBase {
 	private Long resid ; 
 
 	/**
+	*  who download id
+	*/
+	private Long downloaderid ; 
+
+	/**
 	*  who download
 	*/
 	private String downloader ; 
@@ -38,6 +43,14 @@ public class RecorderBase {
 
 	public Long getResid(){
 		return resid;
+	}  
+
+	public void setDownloaderid(Long downloaderid){
+		this.downloaderid = downloaderid;
+	} 
+
+	public Long getDownloaderid(){
+		return downloaderid;
 	}  
 
 	public void setDownloader(String downloader){

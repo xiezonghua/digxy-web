@@ -10,5 +10,7 @@ public interface ResourcesDao extends DBBasicDao<Resources, Long> {
 	
 	List<Resources> selectResources(Map<String, Object> query);
 	
-	List<Resources> selectResourcesDownload(Map<String , Object> query);
+	List<Resources> selectWhoDownload(Map<String , Object> query);
+	
+	List<Resources> selectWhoCollect(Map<String, Object> query);
 }

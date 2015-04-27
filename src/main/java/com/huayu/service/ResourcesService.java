@@ -15,4 +15,8 @@ public interface ResourcesService extends BasicService<Resources, Long> {
 	
 	public List<Resources> queryResourcesDownload(Long userId , ResourceAuditStatusEnum resStaus , Pagination pageInfo);
 	
+	public List<Resources> queryWhoDownload(Long userId , Pagination pageInfo );
+	
+	public List<Resources> queryWhoCollect(Long collecterId , Pagination pageInfo);
+	
 }

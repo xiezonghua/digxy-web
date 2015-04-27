@@ -22,8 +22,8 @@
 							<a href="#">文档资料</a>
 							<ul>
 								<li><a href="#">我要上传</a></li>
-								<li class="li_selected"><a href="../res/passed">我的文档</a></li>
-								<li ><a href="../res/mydownload">我的下载</a></li>
+								<li ><a href="../res/passed">我的文档</a></li>
+								<li class="li_selected"><a href="../res/mydownload">我的下载</a></li>
 							</ul>
 						</li>
 						<li>
@@ -46,17 +46,14 @@
 			<article>
 				<section>
 					<p class="clearfix" id="tab_header_res">
-						<span class="tab1 tab_selected" ><a href="passed">审核通过</a></span>
-						<span class="tab1 tab_unselected" ><a href="pending">待审核</a></span>
-						<span class="tab1 tab_unselected" ><a href="nopass">未通过</a></span>
-						<span class="tab1 tab_unselected"><a href="downloaded">被下载文档</a></span>
+						<span class="tab1 tab_selected">我的下载</span>
 					</p>
 					<section id="tab_detail_res">
 						<div>
 							#if( $data.size() > 0)
 							#foreach($elem in ${data})
 							<section class="basic_article">
-								<p class="article_title"><a href="#">${elem.resname}</a><span>分类：${elem.restype}  格式：$strUtils.toStr($elem.resformat,"PDF") 上传时间：$date.format($elem.uploaddate)</span></p>
+								<p class="article_title"><a href="#">${elem.resname}</a><span>分类：${elem.restype}  格式：$strUtils.toStr($elem.resformat,"PDF") 下载时间：$date.format($elem.downloaddate) 下载次数：$elem.downloadtimes</span></p>
 								<p class="article_context">${elem.resdescribe}</p>
 							</section>		
 							#end

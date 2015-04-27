@@ -39,9 +39,19 @@ public class ResourcesDaoImpl extends AbstractDBBasicDao<Resources , Long> imple
 	}
 
 	@Override
-	public List<Resources> selectResourcesDownload(Map<String, Object> query) {
+	public List<Resources> selectWhoDownload(Map<String, Object> query) {
 		if(query != null){
-			return resourcesMapper.selectResourcesDownload(query);
+			return resourcesMapper.selectWhoDownload(query);
+		}else{
+			logger.info("query condition is null");
+			return new ArrayList<Resources>();
+		}
+	}
+
+	@Override
+	public List<Resources> selectWhoCollect(Map<String, Object> query) {
+		if(query != null){
+			return resourcesMapper.selectWhoCollect(query);
 		}else{
 			logger.info("query condition is null");
 			return new ArrayList<Resources>();

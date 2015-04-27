@@ -11,7 +11,7 @@
 								<li><a href="#">修改密码</a></li>
 								<li><a href="#">修改头像</a></li>
 								<li><a href="#">我的关注</a></li>
-								<li><a href="#">我的收藏</a></li>
+								<li  class="li_selected"><a href="#">我的收藏</a></li>
 								<li><a href="#">我的分享</a></li>
 								<li><a href="#">我的项目</a></li>
 								<li><a href="#">我的评论</a></li>
@@ -46,17 +46,14 @@
 			<article>
 				<section>
 					<p class="clearfix" id="tab_header_res">
-						<span class="tab1 tab_selected" ><a href="passed">审核通过</a></span>
-						<span class="tab1 tab_unselected" ><a href="pending">待审核</a></span>
-						<span class="tab1 tab_unselected" ><a href="nopass">未通过</a></span>
-						<span class="tab1 tab_unselected"><a href="downloaded">被下载文档</a></span>
+						<span class="tab1 tab_selected">我的收藏</span>
 					</p>
 					<section id="tab_detail_res">
 						<div>
 							#if( $data.size() > 0)
 							#foreach($elem in ${data})
 							<section class="basic_article">
-								<p class="article_title"><a href="#">${elem.resname}</a><span>分类：${elem.restype}  格式：$strUtils.toStr($elem.resformat,"PDF") 上传时间：$date.format($elem.uploaddate)</span></p>
+								<p class="article_title"><a href="#">${elem.resname}</a><span>分类：${elem.restype}  格式：$strUtils.toStr($elem.resformat,"PDF") 收藏时间：$date.format($elem.collectiondate) </span></p>
 								<p class="article_context">${elem.resdescribe}</p>
 							</section>		
 							#end

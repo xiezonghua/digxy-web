@@ -29,9 +29,40 @@
 	    </if>
 	</select>
 	
-	<select id="selectResourcesDownload" resultMap="BaseResultMap" parameterType="java.lang.Long">
+	
+	<resultMap id="DownloadResultMap" type="com.huayu.bo.Resources">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="resName" property="resname" jdbcType="VARCHAR" />
+		<result column="resDescribe" property="resdescribe" jdbcType="VARCHAR" />
+		<result column="resLabel" property="reslabel" jdbcType="VARCHAR" />
+		<result column="resPath" property="respath" jdbcType="VARCHAR" />
+		<result column="pdfPath" property="pdfpath" jdbcType="VARCHAR" />
+		<result column="swfPath" property="swfpath" jdbcType="VARCHAR" />
+		<result column="resFormat" property="resformat" jdbcType="VARCHAR" />
+		<result column="resSrc" property="ressrc" jdbcType="VARCHAR" />
+		<result column="resType" property="restype" jdbcType="TINYINT" />
+		<result column="dicType" property="dictype" jdbcType="TINYINT" />
+		<result column="uploaderId" property="uploaderid" jdbcType="BIGINT" />
+		<result column="uploader" property="uploader" jdbcType="VARCHAR" />
+		<result column="uploadDate" property="uploaddate"  />
+		<result column="modifier" property="modifier" jdbcType="VARCHAR" />
+		<result column="modifyDate" property="modifydate"  />
+		<result column="clickTimes" property="clicktimes" jdbcType="INTEGER" />
+		<result column="downloadTimes" property="downloadtimes" jdbcType="INTEGER" />
+		<result column="resStar" property="resstar" jdbcType="TINYINT" />
+		<result column="resStatus" property="resstatus" jdbcType="TINYINT" />
+		<result column="pState" property="pstate" jdbcType="INTEGER" />
+		<result column="downloaderId" property="downloaderid" jdbcType="BIGINT" />
+		<result column="downloader" property="downloader" jdbcType="VARCHAR" />
+		<result column="downloadDate" property="downloaddate"  />
+		<result column="collection_id" property="collectionId" jdbcType="BIGINT" />
+		<result column="collectionDate" property="collectiondate"  />
+	</resultMap>
+	
+	<select id="selectWhoDownload" resultMap="DownloadResultMap" parameterType="java.lang.Long">
 	    select 
-	    <include refid="Base_Column_List" />
+	    		rs.id id, resName, resDescribe, resLabel, resPath, pdfPath, swfPath, resFormat, resSrc, resType, dicType, uploaderId, 
+	    		uploader, uploadDate, modifier, modifyDate, clickTimes, downloadTimes, resStar, resStatus, pState,downloaderId , downloader , downloadDate
 	    from tb_resources  rs left join 
 	    	 tb_recorder rc on rs.id = rc.resid
 	    <where>
@@ -47,4 +78,25 @@
 		    limit #{beginNum} , #{offset}
 	    </if>
 	</select>
+	
+	<select id="selectWhoCollect" resultMap="DownloadResultMap" parameterType="java.lang.Long">
+	    select 
+	    		rs.id id, resName, resDescribe, resLabel, resPath, pdfPath, swfPath, resFormat, resSrc, resType, dicType, uploaderId, 
+	    		uploader, uploadDate, modifier, modifyDate, clickTimes, downloadTimes, resStar, resStatus, pState,collection_id , collectionDate 
+	    from tb_resources  rs left join 
+	    	 tb_collection rc on rs.id = rc.resid
+	    <where>
+	    	<if test="collectionId != null">
+	    		and rc.collection_id = #{collectionId}
+	    	</if>
+	    	
+	    	<if test="resStatus != null" >
+	    		and resStatus = #{resStatus}
+	    	</if>
+	    </where>
+	    <if test="beginNum != null and offset != null">
+		    limit #{beginNum} , #{offset}
+	    </if>
+	</select>
+	
 </mapper>

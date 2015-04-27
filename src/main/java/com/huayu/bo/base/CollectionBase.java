@@ -14,6 +14,11 @@ public class CollectionBase {
 	private Long resid ; 
 
 	/**
+	*  collector id
+	*/
+	private Long collectionId ; 
+
+	/**
 	*  collector
 	*/
 	private String collectioner ; 
@@ -38,6 +43,14 @@ public class CollectionBase {
 
 	public Long getResid(){
 		return resid;
+	}  
+
+	public void setCollectionId(Long collectionId){
+		this.collectionId = collectionId;
+	} 
+
+	public Long getCollectionId(){
+		return collectionId;
 	}  
 
 	public void setCollectioner(String collectioner){

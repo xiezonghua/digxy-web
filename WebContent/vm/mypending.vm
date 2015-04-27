@@ -22,8 +22,8 @@
 							<a href="#">文档资料</a>
 							<ul>
 								<li><a href="#">我要上传</a></li>
-								<li class="li_selected"><a href="res/list.self">已上传文档</a></li>
-								<li><a href="#">已下载文档</a></li>
+								<li class="li_selected"><a href="../res/passed">我的文档</a></li>
+								<li ><a href="../res/download">我的下载</a></li>
 							</ul>
 						</li>
 						<li>

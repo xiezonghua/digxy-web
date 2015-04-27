@@ -6,9 +6,11 @@ import java.util.Map;
 import com.huayu.bo.Resources;
 import com.huayu.platform.db.DaoMapper;
 
-public interface ResourcesMapper extends DaoMapper<Resources , Long>{
-	
+public interface ResourcesMapper extends DaoMapper<Resources, Long> {
+
 	List<Resources> selectResources(Map<String, Object> query);
-	
-	List<Resources> selectResourcesDownload(Map<String , Object> query);
+
+	List<Resources> selectWhoDownload(Map<String, Object> query);
+
+	List<Resources> selectWhoCollect(Map<String, Object> query);
 }
