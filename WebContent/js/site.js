@@ -9,7 +9,14 @@ if( "undefined" == typeof(site) ){
 					dataType : "json",
 					async: true , 
 					success: function(data , textStatus , jqXHR){
-						success(data);
+						if(data.status == 200){
+							success(data.data);
+						}else if(data.status == 120){
+							alert("validate failure:"+ data.validateInfo);
+						}else{
+							alert(data.statusInfo);
+						}
+							
 					},
 					error: function(XMLHttpRequest, textStatus, errorThrown){
 						
@@ -71,6 +78,10 @@ if( "undefined" == typeof(site) ){
 			jq("#"+targetID).click();
 		},
 		
+		redirect:function( url ){
+			window.location = "/digxy"+url;
+		},
+		
 		validate : function(data){
 			var validateBool = true;
 			for(var i=0 ; i < data.length ; i++){
@@ -82,6 +93,32 @@ if( "undefined" == typeof(site) ){
 				}
 			}
 			return validateBool; 
+		},
+		show : function( width , height) {
+			var w_width = document.body.offsetWidth;
+			var w_height = document.body.offsetHeight;
+			
+			var bgDiv = document.getElementById("pop_divbg");
+			bgDiv.style.display = "";
+			bgDiv.style.width = w_width;
+			bgDiv.style.height = w_height;
+			
+			var content = document.getElementById("pop_diveditcontent");
+			content.style.display = "";
+			content.style.width = width + "px";
+			content.style.height = height +"px";	
+
+			content.style.left = (w_width - width)/2 +"px";
+			
+		},
+		
+		hide: function(){
+			document.getElementById("pop_divbg").style.display = "none";
+			document.getElementById("pop_diveditcontent").style.display = "none";
+		},
+		
+		alertTips : function( msg ){
+			alert(msg);
 		}
 	};
 };

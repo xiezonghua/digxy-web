@@ -6,10 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
-import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
@@ -39,7 +36,7 @@ public class UserAction extends BasicModelAction {
 
 	@Action(value="center" , results={@Result(type="velocity" , location="/vm/user.vm" , name=SUCCESS)})
 	public String center(){
-		User user = service.queryByPrimaryKey(userModel.getId());
+		User user = service.queryByPrimaryKey(getUserId());
 		setData(DigxyBoConverter.toUserModel(user));
 		return SUCCESS;
 	}
@@ -127,12 +124,10 @@ public class UserAction extends BasicModelAction {
 		return SUCCESS;
 	}
 	
-	@Action(value="attentive" , results={@Result(type="velocity" , name=SUCCESS , location="vm/attentive.vm")})
+	@Action(value="attentive" , results={@Result(type="velocity" , name=SUCCESS , location="/vm/myattentive.vm")})
 	public String attentive(){
-		User user = new User();
-		user.setId(2l);
-		List<User> attentives = service.selectAttentions(user);
-		List<User> followers = service.selectFollowers(user);
+		List<User> attentives = service.queryAttentions(getUserId());
+		List<User> followers = service.queryFollowers(getUserId());
 		
 		Map<String , Object> result = new HashMap<String, Object>();
 		result.put("attentives", attentives);

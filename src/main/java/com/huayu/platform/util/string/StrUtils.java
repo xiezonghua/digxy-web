@@ -11,4 +11,8 @@ public class StrUtils {
 	public static String toStr(String str , String defaultValue){
 		return StringUtils.isEmpty(str)? defaultValue:str;
 	}
+	
+	public static String equalsReturn(String myValue , String curValue , String returnValue){
+		return myValue.equals(curValue) ? returnValue : "";
+	}
 }

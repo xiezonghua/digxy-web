@@ -14,9 +14,9 @@ public class ShareBase {
 	private Integer resid ; 
 
 	/**
-	*  user name
+	*  share owner
 	*/
-	private String yhm ; 
+	private Long sharerId ; 
 
 	/**
 	*  share time
@@ -40,12 +40,12 @@ public class ShareBase {
 		return resid;
 	}  
 
-	public void setYhm(String yhm){
-		this.yhm = yhm;
+	public void setSharerId(Long sharerId){
+		this.sharerId = sharerId;
 	} 
 
-	public String getYhm(){
-		return yhm;
+	public Long getSharerId(){
+		return sharerId;
 	}  
 
 	public void setDate(Date date){

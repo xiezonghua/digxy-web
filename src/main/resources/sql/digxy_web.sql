@@ -131,7 +131,7 @@ DROP TABLE if exists tb_share;
 CREATE TABLE tb_share(
 	id BIGINT NOT NULL AUTO_INCREMENT COMMENT 'KEY ID',
 	resid INT NULL COMMENT 'resource id',
-	yhm VARCHAR(50) NULL COMMENT 'user name',
+	sharer_id BIGINT comment 'share owner',
 	`date` DATETIME NULL COMMENT 'share time',
 	PRIMARY KEY(id) 
 );

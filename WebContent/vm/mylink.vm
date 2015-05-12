@@ -1,0 +1,88 @@
+#parse("/vm/header.vm")
+
+<section class="aside_article">
+			<aside  >
+				#set($curPage = "link")
+				#parse("/vm/user_nav.vm")		
+			</aside>
+			<article>
+				<section>
+					<p class="clearfix" id="tab_header_res">
+						<span class="tab1 tab_selected" >友情链接</span>
+					</p>
+					<section>
+						<section>
+							<p><input type="button" value="添加" onclick="link.toAddPage();"/></p>
+							<div>
+								<section class="basic_article">
+									<p>
+										<span class="gd_u_title">名称</span>
+										<span class="gd_u_type">顺序</span>
+										<span class="">操作</span>
+									</p>	
+								</section>
+								#if( $data.size() > 0)
+								#foreach($elem in ${data})
+								<section class="mouse_hover basic_article">
+									<p class="article_title">
+										<span class="gd_u_title"><a href="${elem.yqhref}" target="_blank">${elem.yqtitle}</a></span>
+										<span class="gd_u_type">${elem.yqxh}</span> 
+										<span>
+											<a href="#" onclick="link.toUpdatePage($elem.id)" >修改</a>
+											<a href="#" onclick="link.del($elem.id)" >删除</a>
+										</span>
+									</p>
+								</section>		
+								#end
+								#else
+									<section class="basic_article">
+										<p>暂无数据</p>
+									</section>
+								#end
+							</div>
+						</section>
+						<section>
+							<div id="pop_divbg" style="display:none"></div>
+							<div id="pop_diveditcontent" style="display:none">
+								<div class="pop_divheader">
+									<span class="pop_title">编辑</span>
+									<span class="pop_close" onclick="site.hide()" >X</span>
+								</div>
+								<div class="pop_content">
+								  <form action="#">
+									<section>
+									<input type="text" id="id" name="id" class="hidden"/>
+									<label for="name">名称:</label> <input type="text" id="name"
+										name="name" />
+									<p id="name_msg"></p>
+									</section>
+									<section>
+										<label for="address">连接地址:</label> <input type="text" id="address"
+											name="address" />
+										<p id="address_msg"></p>
+									</section>
+									<section>
+										<label for="sequence">顺序:</label> <input type="text" id="sequence"
+											name="sequence" />
+										<p id="sequence_msg"></p>
+									</section>
+									<section>
+										<p>
+											<input type="button" id="addBtn" value="添加" onclick="link.add()" />
+											<input type="button" id="updateBtn" value="保存" onclick="link.update()" /> 
+											<input type="button" value="取消" onclick="site.hide()" /> 
+										</p>
+									</section>
+								  </form>
+								</div>
+							</div>
+						</section>	
+						
+					</section>
+						
+				</section>
+			</article>
+		</section>
+
+<script type="text/javascript" src="../js/link.js"></script>
+#parse("/vm/footer.vm")	

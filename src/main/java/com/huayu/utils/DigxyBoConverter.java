@@ -1,9 +1,13 @@
 package com.huayu.utils;
 
+import com.huayu.bo.Collection;
 import com.huayu.bo.Guanzhu;
 import com.huayu.bo.Resources;
 import com.huayu.bo.User;
+import com.huayu.bo.Yqlink;
 import com.huayu.model.AttentiveModel;
+import com.huayu.model.CollectionModel;
+import com.huayu.model.LinkModel;
 import com.huayu.model.ResourceModel;
 import com.huayu.model.UserModel;
 
@@ -68,5 +72,30 @@ public class DigxyBoConverter {
 		res.setRessrc(model.getDocName());
 		res.setResstatus(model.getResStatus());
 		return res;
+	}
+	
+	public static Collection toCollection(CollectionModel model){
+		Collection coll = new Collection();
+		coll.setId(model.getId());
+		coll.setResid(model.getResId());
+		return null;
+	}
+	
+	public static Yqlink toLink(LinkModel model){
+		Yqlink link = new Yqlink();
+		link.setId(model.getId());
+		link.setYqtitle(model.getName());
+		link.setYqhref(model.getAddress());
+		link.setYqxh(model.getSequence());
+		return link;
+	}
+	
+	public static LinkModel toLinkModel(Yqlink link){
+		LinkModel model = new LinkModel();
+		model.setId(link.getId());
+		model.setName(link.getYqtitle());
+		model.setAddress(link.getYqhref());
+		model.setSequence(link.getYqxh());
+		return model;
 	}
 }

@@ -1,0 +1,47 @@
+#parse("/vm/header.vm")
+
+		<section class="aside_article">
+			<aside  >
+				#set($curPage = "myattentive")
+				#parse("/vm/user_nav.vm")			
+			</aside>
+			<article>
+				<section>
+					<p class="clearfix" id="tab_header_user">
+						<span class="tab1 tab_selected" onclick="site.selectedTab('user',0)">我的关注</span>
+						<span class="tab1 tab_unselected" onclick="site.selectedTab('user',1)">关注我</span>
+					</p>
+					<section id="tab_detail_user">
+					<div >
+						<section class="aside_article">
+							<aside>
+								<ul>
+									#foreach( $elem in ${data.followers})
+									<li><a href="#">$elem.yhm</a></li>
+									#end
+								</ul>
+							</aside>
+							<article>
+							</article>
+						</section>
+					</div>					
+						
+					<div class="hidden">	
+					<section >
+						<aside>
+							<ul>
+								#foreach( $elem in ${data.attentives})
+								<li><a href="#">$elem.yhm</a></li>
+								#end
+							</ul>
+						</aside>
+						<article>
+						</article>
+					</section>
+					</div>
+					</section>
+				</section>
+			</article>
+		</section>
+
+#parse("/vm/footer.vm")	

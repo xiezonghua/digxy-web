@@ -1,19 +1,19 @@
 package com.huayu.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import com.huayu.bo.User;
 import com.huayu.dao.UserDao;
 import com.huayu.platform.db.DBBasicDao;
-import com.huayu.service.UserService;
 import com.huayu.platform.service.impl.AbstractBasicService;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.huayu.service.UserService;
 
 @Service("userService")
 public class UserServiceImpl extends AbstractBasicService<User, Long> implements
@@ -48,12 +48,18 @@ public class UserServiceImpl extends AbstractBasicService<User, Long> implements
 	}
 
 	@Override
-	public List<User> selectFollowers(User user) {
+	public List<User> queryFollowers(Long userId) {
+		if(null == userId) return new ArrayList<User>();
+		User user = new User();
+		user.setId(userId);
 		return userDao.selectFollowers(user);
 	}
 
 	@Override
-	public List<User> selectAttentions(User user) {
+	public List<User> queryAttentions(Long userId) {
+		if(null == userId) return new ArrayList<User>();
+		User user = new User();
+		user.setId(userId);
 		return userDao.selectAttentions(user);
 	}
 

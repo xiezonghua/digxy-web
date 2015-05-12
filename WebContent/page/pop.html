@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>javascript_test</title>
+<style type="text/css">
+#pop_divbg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 999;
+	top: 0px;
+	left: 0px;
+	filter: alpha(opacity = 50);
+	opacity: 0.5;
+	background-color: #666;
+}
+
+#pop_diveditcontent {
+	position: absolute;
+	z-index: 1000;
+	background-color:#fff;
+}
+
+.pop_divheader {
+	height: 30px;
+	line-height:30px;
+	padding:0px 5px;
+	background-color:#efefef;
+	border:1px solid #fff;
+	border-radius: 2px 0 2px 0;
+	box-shadow: 1px 1px 2px #888;
+}
+
+.pop_content{
+	padding:20px 20px;		
+}
+</style>
+<script type="text/javascript">
+	function show( width , height) {
+		var w_width = document.body.offsetWidth;
+		var w_height = document.body.offsetHeight;
+		
+		var bgDiv = document.getElementById("pop_divbg");
+		bgDiv.style.display = "";
+		bgDiv.style.width = w_width;
+		bgDiv.style.height = w_height;
+		
+		var content = document.getElementById("pop_diveditcontent");
+		content.style.display = "";
+		content.style.width = width + "px";
+		content.style.height = height +"px";	
+
+		content.style.left = (w_width - width)/2 +"px";
+		
+	}
+	
+	function hide(){
+		document.getElementById("pop_divbg").style.display = "none";
+		document.getElementById("pop_diveditcontent").style.display = "none";
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="add" onclick="show(300 , 200);" />
+	<section id="popModel">
+		<div id="pop_divbg" style="display:none"></div>
+		<div id="pop_diveditcontent" style="display:none">
+			<div class="pop_divheader">
+				<span style="font-weight: 600">biaoti</span>
+				<span style="float:right; cursor:pointer;" onclick="hide()" >X</span>
+			</div>
+			<div class="pop_content">
+				<section>
+				<label for="name">名车:</label> <input type="text" id="name"
+					name="name" />
+				<p id="name_msg"></p>
+				</section>
+				<section>
+					<label for="address">连接地址:</label> <input type="text" id="address"
+						name="address" />
+					<p id="address_msg"></p>
+				</section>
+				<section>
+					<label for="sequence">顺序:</label> <input type="text" id="sequence"
+						name="sequence" />
+					<p id="sequence_msg"></p>
+				</section>
+				<section>
+					<p>
+						<input type="button" value="添加" onclick="link.add()" />
+					</p>
+					<p>
+						<input type="button" value="编辑" onclick="link.toUpdateTab(true)" />
+						<input type="button" value="保存" onclick="link.update()" /> <input
+							type="button" value="取消" onclick="link.toUpdateTab(false)" /> <input
+							type="button" value="删除" onclick="link.del()" />
+					</p>
+				</section>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

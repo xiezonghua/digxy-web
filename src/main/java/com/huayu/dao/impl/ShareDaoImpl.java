@@ -1,5 +1,9 @@
 package com.huayu.dao.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +21,13 @@ public class ShareDaoImpl extends AbstractDBBasicDao<Share , Long> implements Sh
 	@Override
 	public DaoMapper<Share, Long> getDaoMapper() {		
 		return shareMapper;
+	}
+
+	@Override
+	public List<Share> selectShared(Map<String, Object> query) {
+		if(null == query || query.isEmpty()){
+			return new ArrayList<Share>();
+		}
+		return shareMapper.selectShared(query);
 	}
 }

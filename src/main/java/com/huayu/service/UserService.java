@@ -9,7 +9,7 @@ public interface UserService extends BasicService<User, Long> {
 
 	User userLogin(String userName, String password);
 	
-	List<User> selectFollowers(User user);
+	List<User> queryFollowers(Long userId);
 
-	List<User> selectAttentions(User user);
+	List<User> queryAttentions(Long userId);
 }

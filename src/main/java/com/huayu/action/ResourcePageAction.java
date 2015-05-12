@@ -66,12 +66,7 @@ public class ResourcePageAction extends BasicModelAction {
 		return SUCCESS;
 	}
 	
-	@Action(value="mycollect" , results={@Result(type="velocity" , name=SUCCESS , location="/vm/mycollection.vm")})
-	public String collect(){
-		List<Resources> queryList = serivce.queryWhoCollect(getUserId(), getPagination());
-		setData(queryList);
-		return SUCCESS;
-	}
+
 	
 	@Override
 	public BasicModel getModel() {

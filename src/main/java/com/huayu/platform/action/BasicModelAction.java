@@ -43,6 +43,10 @@ public abstract class BasicModelAction extends BasicAction implements
 		return model;
 	}
 
+	public BasicModel getModel() {
+		return getBasicModel();
+	}
+	
 	public String toJson(Object obj) {
 		JSONWriter jsonWriter = new JSONWriter();
 		String result = "";

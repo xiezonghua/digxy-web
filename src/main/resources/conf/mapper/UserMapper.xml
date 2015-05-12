@@ -57,7 +57,7 @@
 	
 	<select id="selectFollowers" resultMap="ResultMap" >
 		select 
-			<include refid="Base_Column_List"></include>
+			u.id id, yhm, pwd, jianjie, sex, email, sfz, qq, phone, zcsj, lastdlsj, nic, jifen, shengwang, yhtp, lev, levName, csrq, name, JiGuan, JDYuanXiao, ZhuanYe, JKZK, EnglishLevel, Edu, ZYJN, GZJH 
 		from tb_guanzhu gz left join 
 			 tb_user u on u.id = gz.user_id
 		<where>
@@ -69,7 +69,7 @@
 	
 	<select id="selectAttentions" resultMap="ResultMap" >
 		select 
-			<include refid="Base_Column_List"></include>
+			u.id id, yhm, pwd, jianjie, sex, email, sfz, qq, phone, zcsj, lastdlsj, nic, jifen, shengwang, yhtp, lev, levName, csrq, name, JiGuan, JDYuanXiao, ZhuanYe, JKZK, EnglishLevel, Edu, ZYJN, GZJH 
 		from tb_guanzhu gz left join 
 			 tb_user u on u.id = gz.follower_id
 		<where>

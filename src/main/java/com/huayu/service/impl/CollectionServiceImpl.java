@@ -1,16 +1,22 @@
 package com.huayu.service.impl;
 
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import com.huayu.bo.Collection;
-import com.huayu.dao.CollectionDao;
-import com.huayu.platform.db.DBBasicDao;
-import com.huayu.service.CollectionService;
-import com.huayu.platform.service.impl.AbstractBasicService;
+import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import com.huayu.bo.Collection;
+import com.huayu.constant.ResourceAuditStatusEnum;
+import com.huayu.dao.CollectionDao;
+import com.huayu.platform.Pagination;
+import com.huayu.platform.db.DBBasicDao;
+import com.huayu.platform.service.impl.AbstractBasicService;
+import com.huayu.service.CollectionService;
 
 @Service("collectionService")
 public class CollectionServiceImpl extends AbstractBasicService<Collection , Long> implements CollectionService{
@@ -24,4 +30,14 @@ public class CollectionServiceImpl extends AbstractBasicService<Collection , Lon
 	public DBBasicDao<Collection, Long> getDao() {		
 		return collectionDao;
 	}
+
+	@Override
+	public List<Collection> queryCollection(Long collecterId, Pagination pageInfo) {
+		Map<String ,Object> query = new HashMap<String , Object>();
+		query.put("collectionId", collecterId);
+		query.put("resStatus", ResourceAuditStatusEnum.PASSED.getValue());
+		query.putAll(pageInfo.toMap());
+		return collectionDao.selectCollection(query);
+	}
+
 }
