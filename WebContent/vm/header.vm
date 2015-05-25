@@ -5,6 +5,8 @@
 <link style="text/css" rel="stylesheet" href="../css/menu.css" />
 <link style="text/css" rel="stylesheet" href="../css/main.css" />
 <link style="text/css" rel="stylesheet" href="../css/user.css" />
+<link style="text/css" rel="stylesheet" href="../css/page.css" />
+<link href="../umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
 
 <script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="../js/site.js"></script>

@@ -141,12 +141,13 @@ CREATE TABLE tb_share(
  */
 DROP TABLE if exists tb_system;
 CREATE TABLE tb_system(
+	id INT NOT NULL AUTO_INCREMENT COMMENT 'key id' , 
 	aboutmy TEXT NULL COMMENT 'about for our information',
 	docupload TEXT NULL COMMENT 'document upload law information',
 	lxwm TEXT NULL COMMENT 'connect our ',
-	hyzc TEXT NULL COMMENT ''
+	hyzc TEXT NULL COMMENT '',
+	PRIMARY KEY(id)
 );
-
 /**
  * The user information 
  */

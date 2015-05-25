@@ -57,4 +57,9 @@ public class ResourcesDaoImpl extends AbstractDBBasicDao<Resources , Long> imple
 			return new ArrayList<Resources>();
 		}
 	}
+
+	@Override
+	public Long selectResourcesCount(Map<String, Object> query) {
+		return resourcesMapper.selectResourcesCount(query);
+	}
 }

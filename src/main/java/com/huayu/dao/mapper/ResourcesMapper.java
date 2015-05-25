@@ -13,4 +13,6 @@ public interface ResourcesMapper extends DaoMapper<Resources, Long> {
 	List<Resources> selectWhoDownload(Map<String, Object> query);
 
 	List<Resources> selectWhoCollect(Map<String, Object> query);
+	
+	Long selectResourcesCount(Map<String, Object> query);
 }

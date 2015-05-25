@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -32,10 +33,12 @@ public class ResourcesServiceImpl extends AbstractBasicService<Resources , Long>
 	}
 
 	@Override
-	public List<Resources> queryResources(String queryCondition,
-			Pagination pageInfo) {
+	public List<Resources> queryResources(String queryCondition, Byte[] includeTypes, Pagination pageInfo) {
 		Map<String , Object> query = new HashMap<String , Object>();
-		query.put("queryCondition", queryCondition);
+		if(StringUtils.isNotBlank(queryCondition)){
+			query.put("queryCondition", queryCondition);
+		}
+		query.put("includeTypes", includeTypes);
 		query.put("resStauts", ResourceAuditStatusEnum.PASSED.getValue());
 		query.putAll(pageInfo.toMap());
 		
@@ -88,4 +91,36 @@ public class ResourcesServiceImpl extends AbstractBasicService<Resources , Long>
 		return queryList;
 	}
 
+	@Override
+	public List<Resources> queryResources( Pagination pageInfo , Byte resType ) {
+		Map<String , Object> query = new HashMap<String , Object>();
+		query.put("resType", resType);
+		query.put("resStauts", ResourceAuditStatusEnum.PASSED.getValue());
+		query.putAll(pageInfo.toMap());
+		
+		List<Resources> queryList = resourcesDao.selectResources(query) ; 
+		return queryList ;
+	}
+
+	public Long queryResourcesCount(String queryCondition , Long userId , Byte resType ,  ResourceAuditStatusEnum auditStatus){
+		Map<String , Object> query = new HashMap<String , Object>();
+		query.put("queryCondition", queryCondition);
+		query.put("resStauts",  auditStatus);
+		query.put("resType", resType);
+		query.put("uploaderid", userId);
+		return resourcesDao.selectResourcesCount(query);
+	}
+
+	@Override
+	public Long queryResourcesCount(String queryCondition, Long userId,
+			Byte[] includeTypes, ResourceAuditStatusEnum auditStatus) {
+		Map<String , Object> query = new HashMap<String , Object>();
+		if(StringUtils.isNotBlank(queryCondition)){
+			query.put("queryCondition", queryCondition);
+		}
+		query.put("resStauts",  auditStatus);
+		query.put("includeTypes", includeTypes);
+		query.put("uploaderid", userId);
+		return resourcesDao.selectResourcesCount(query);	
+	}
 }

@@ -29,7 +29,7 @@
 				<li $strUtils.equalsReturn('mailmanage', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('')" >邮件管理</a></li>
 				<li $strUtils.equalsReturn('commentmanage', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('')" >评论管理</a></li>
 				<li $strUtils.equalsReturn('link', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/link/index')" >友情链接</a></li>
-				<li $strUtils.equalsReturn('helper', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('')" >帮助中心</a></li>
+				<li $strUtils.equalsReturn('helper', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/helper/resume')" >帮助中心</a></li>
 				<li $strUtils.equalsReturn('grower', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('')" >成才管理</a></li>
 			</ul>
 		</li>

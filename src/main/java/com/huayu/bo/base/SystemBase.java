@@ -3,6 +3,11 @@ package com.huayu.bo.base;
 
 public class SystemBase {
 	/**
+	*  key id
+	*/
+	private Integer id ; 
+
+	/**
 	*  about for our information
 	*/
 	private String aboutmy ; 
@@ -22,6 +27,14 @@ public class SystemBase {
 	*/
 	private String hyzc ; 
 
+
+	public void setId(Integer id){
+		this.id = id;
+	} 
+
+	public Integer getId(){
+		return id;
+	}  
 
 	public void setAboutmy(String aboutmy){
 		this.aboutmy = aboutmy;

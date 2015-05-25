@@ -1,0 +1,79 @@
+#parse("/vm/header_out.vm")
+		<nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="index">迪格学院</a></li>
+				<li>搜索</li>
+			</ul>
+		</nav>
+		
+		<section style="text-align:center;padding:1em;">
+				<form method="get" action="search">
+					<input id="searchKey" name="searchKey"  type="text" value="$searchKey" style="width: 20em;line-height:2em;" /> <input type="submit" id="searchSubmit" style="padding:5px" value="搜一下" />
+				<section>
+						<label for="all">全部</label>
+						<input type="checkbox"  name="type" id="type" value="0" $strUtils.isNull($resType, "checked") />
+						<label for="study">study</label>
+						<input type="checkbox" name="resType" id="study" value="1" $strUtils.contain($resType,'1',"checked") />
+						<label for="research">研究</label>
+						<input type="checkbox" name="resType" id="research" value="2" $strUtils.contain($resType,'2',"checked") />
+						<label for="grower">成才</label>
+						<input type="checkbox" name="resType" id="grower" value="3" $strUtils.contain($resType,'3',"checked") />
+				</section>
+				</form>
+		</section>
+	  	<section id="label_area">
+			<div>
+				<label >热点关键词：</label>
+				<span class="label_unselected" onclick="page.searchKey('全部')">全部</span>
+				<span class="label_selected" onclick="page.searchKey('全部')">热点</span>
+				<span class="label_unselected" onclick="page.searchKey('全部')">学习</span>
+				<span class="label_unselected" onclick="page.searchKey('全部')">研究</span>
+				<span class="label_unselected" onclick="page.searchKey('全部')">成才</span>
+			</div>
+		</section>
+		<p>查询 $strUtils.toStr($searchKey)（找到约${data.count}篇）</p>		
+		<section id="search_result_area">
+			#if( $data.results.size() > 0)
+			#foreach($elem in ${data.results})
+			<article class="result_area">
+				<img src="${elem.ressrc}" />
+				<div>
+					<p class="search_result_title">
+						<a href="result?id=${elem.id}">${elem.resname}</a>
+					</p>
+					<p class="search_result_desc">${elem.resdescribe} </p>
+				</div>
+				<aside>
+					<p><strong>分类：</strong>${elem.restype}</p>
+					<p><strong>浏览：</strong>${elem.clicktimes}次 </p>
+					<p><strong>格式：</strong>PDF</p> 
+					<div class="star_wrapper clearfix">
+						<label><strong>评星：</strong></label>
+						<div class="star star_light"></div>
+						<div class="star star_light"></div>
+						<div class="star star_unlight"></div>
+						<div class="star star_unlight"></div>
+						<div class="star star_unlight"></div>
+					</div>
+					<p>
+						<span>
+							<a href="#">$strUtils.toStr($elem.uploader)</a> 分享于$date.format($elem.uploaddate) 
+						</span>
+					</p>
+				</aside>
+			</article>		
+			#end
+			#else
+			 	<p> 暂无数据 </p>	
+			#end	
+			#if( $data.results.size() > 10)
+			  <div class="pagiation">
+                <div style="float: right; font-size: 12px; margin-top: 5px;">
+                   <span style='display:none'>页次:<font color='red'>"<font color='black'>", "</font>页&nbsp;</span>", "<span style='display:none'>&nbsp;每页<font color='red'>", "</font>条&nbsp;</span>", "<span style='display:none;'>>&nbsp;共<font color='red'>", "</font>个记录&nbsp;</span>", "首页", "上一页", "下一页", "尾页", "&nbsp;", "<font>", "</font>", "<font>", "</font>", "", "", "&nbsp;", "&nbsp;", '<%=Session["tzCount"] %>', 20, 4)
+                   
+                </div>
+            </div>
+            #end
+		</section>
+	 <script type="text/javascript" src="js/page.js"></script>	

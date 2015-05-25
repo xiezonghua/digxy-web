@@ -1,0 +1,40 @@
+#parse("/vm/header.vm")
+
+<section class="aside_article">
+			<aside  >
+				#set($curPage = "myfiles")
+				#parse("/vm/user_nav.vm")			
+			</aside>
+			<article>
+				<section>
+					<p class="clearfix" id="tab_header_res">
+						<span class="tab1 $strUtils.equalsReturn('resume' , $data.dataType,"tab_selected")" ><a href="resume">关于我们</a></span>
+						<span class="tab1 $strUtils.equalsReturn('docLaw' , $data.dataType,"tab_selected")" ><a href="docLaw">文档下载帮助</a></span>
+						<span class="tab1 $strUtils.equalsReturn('contact' , $data.dataType,"tab_selected")" ><a href="contact">联系我们</a></span>
+						<span class="tab1 $strUtils.equalsReturn('userLaw' , $data.dataType,"tab_selected")"><a href="userLaw">会员注册</a></span>
+						<span class="tab1 tab_unselected"><a href="">关键词</a></span>
+						<span class="tab1 tab_unselected"><a href="">专家在线管理</a></span>
+					</p>
+					<section id="tab_detail_res">
+						<div>
+							<script type="text/plain" id="myEditor" style="width:1000px;height:240px;">
+								$strUtils.toStr($data.content,"")
+							</script>	
+							
+							<input type="text" id="id" class="hidden" value="$data.id" />
+							<input type="text" id="selectedType" class="hidden" value="$data.dataType" />
+							<input type="button" value="保存" onclick="helper.save()" />
+						</div>
+						
+					</section>
+						
+				</section>
+			</article>
+		</section>
+    <script type="text/javascript" src="../umeditor/third-party/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../umeditor/umeditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../umeditor/umeditor.min.js"></script>
+    <script type="text/javascript" src="../umeditor/lang/zh-cn/zh-cn.js"></script>	
+    
+    <script type="text/javascript" src="../js/helper.js"></script>
+#parse("/vm/footer.vm")	

@@ -280,12 +280,15 @@ section#resource_repository {
 	overflow: hidden;
 }
 
+section#resource_repository  section+section{
+	border-top: 5px solid #19A97B;
+} 
+
 .resource_area article { /*四本书四栏*/
 	float: left;
-	width: 25%;
+	width: 20%;
 	padding: 10px 0;
 	background: none;
-	border-bottom: 5px solid #19A97B;
 }
 
 section#resource_repository section:last-child article {
@@ -411,7 +414,6 @@ section#resource_repository section:last-child article {
 /*footer css document begin*/
 footer {
 	padding: .5em 0 .35em 0; /*内容上下的间距*/
-	text-align: center; /*居中内容*/
 	border-radius: 10px 0px 10px 0px;
 	background: #fff;
 	box-shadow: 0 12px 8px -9px #555;
@@ -457,12 +459,34 @@ footer li+li a {
 
 footer li a {
 	text-decoration: none; /*去掉链接默认的下划线*/
-	color: #aaa;
+	color: #444;
 	padding: 0 5px; /*链接间距*/
 }
 
 footer a:hover {
 	color: #777;
+}
+
+.foot_li{
+	padding:5px 10px;
+}
+
+.foot_li label{
+	float:left;
+	color:#00a;
+	letter-spacing:0.09em;
+	font-weight: 600;
+	font-size:0.9em;
+}
+
+.foot_li section {
+	float:left;
+	font-size:0.9em;
+}
+
+
+.foot_law{
+	text-align: center;
 }
 /*footer css document end*/
 

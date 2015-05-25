@@ -10,7 +10,6 @@ import org.apache.struts2.convention.annotation.Result;
 
 import com.huayu.bo.Resources;
 import com.huayu.constant.ResourceAuditStatusEnum;
-import com.huayu.model.ResourceModel;
 import com.huayu.platform.action.BasicModel;
 import com.huayu.platform.action.BasicModelAction;
 import com.huayu.service.ResourcesService;
@@ -19,15 +18,13 @@ import com.huayu.service.ResourcesService;
 public class ResourcePageAction extends BasicModelAction {
 	
 	private static final long serialVersionUID = 1L;
-	private ResourceModel  resModel = new ResourceModel();
 	
 	@Resource(name="resourcesService")
 	private ResourcesService serivce;
 	
+	
 	@Action(value="new" , results={@Result(type="velocity" , name=SUCCESS , location="/vm/upload.vm")})
-	public String index(){
-
-		
+	public String add(){
 		return SUCCESS;
 	}
 	

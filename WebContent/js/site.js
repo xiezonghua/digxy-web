@@ -94,6 +94,8 @@ if( "undefined" == typeof(site) ){
 			}
 			return validateBool; 
 		},
+		
+		
 		show : function( width , height) {
 			var w_width = document.body.offsetWidth;
 			var w_height = document.body.offsetHeight;
@@ -112,6 +114,37 @@ if( "undefined" == typeof(site) ){
 			
 		},
 		
+		showSWF : function(){
+			 jq('#flashcontent').FlexPaperViewer(
+			            { config : {
+
+			                SWFFile : 'upload/',
+
+			                Scale : 0.6,
+			                ZoomTransition : 'easeOut',
+			                ZoomTime : 0.5,
+			                ZoomInterval : 0.2,
+			                FitPageOnLoad : true,
+			                FitWidthOnLoad : false,
+			                FullScreenAsMaxWindow : false,
+			                ProgressiveLoading : false,
+			                MinZoomSize : 0.2,
+			                MaxZoomSize : 5,
+			                SearchMatchAll : false,
+			                InitViewMode : 'Portrait',
+			                RenderingOrder : 'flash',
+			                StartAtPage : '',
+
+			                ViewModeToolsVisible : true,
+			                ZoomToolsVisible : true,
+			                NavToolsVisible : true,
+			                CursorToolsVisible : true,
+			                SearchToolsVisible : true,
+			                WMode : 'window',
+			                localeChain: 'en_US'
+			            }}
+			    );
+		},
 		hide: function(){
 			document.getElementById("pop_divbg").style.display = "none";
 			document.getElementById("pop_diveditcontent").style.display = "none";

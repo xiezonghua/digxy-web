@@ -6,12 +6,10 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 
-import com.huayu.bo.User;
 import com.huayu.model.AttentiveModel;
 import com.huayu.platform.action.BasicModel;
 import com.huayu.platform.action.BasicModelAction;
 import com.huayu.service.GuanzhuService;
-import com.huayu.service.UserService;
 import com.huayu.utils.DigxyBoConverter;
 
 @Namespace("/attentive")

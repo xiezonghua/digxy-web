@@ -40,7 +40,8 @@ section#search_result_area .result_area{
 
 article.result_area img{
 	float:left;
-	max-height: 150px;
+	width:120px;
+	height: 150px;
 	padding: 0 12px 3px 3px;
 }
 

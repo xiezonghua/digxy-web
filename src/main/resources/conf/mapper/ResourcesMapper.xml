@@ -6,10 +6,10 @@
 	    <include refid="Base_Column_List" />
 	    from tb_resources
 	    <where>
-	    	<if test="queryCondtion != null">
-	    		resName like CONCAT('%','${queryCondtion}','%' ) 
-	    		or  resDescribe  like CONCAT('%','${queryCondtion}','%' ) 
-	    		or  resLabel like CONCAT('%','${queryCondtion}','%' )  
+	    	<if test="queryCondition != null">
+	    			(resName like CONCAT('%','${queryCondition}','%' ) 
+	    		or  resDescribe  like CONCAT('%','${queryCondition}','%' ) 
+	    		or  resLabel like CONCAT('%','${queryCondition}','%' ) )
 	    	</if>
 	    	
 	    	<if test="uploaderid != null">
@@ -20,13 +20,66 @@
 	    		and resStatus = #{resStatus}
 	    	</if>
 	    	
-	    	<if test="isDownLoad">
+	    	<if test="resType != null">
+	    		and resType = #{resType}
+	    	</if>
+	    	
+	    	<if test="isDownLoad != null">
 	    		and downloadTimes > 0
 	    	</if>
+	    	
+	    	<if test="includeTypes != null">
+	    		and resType in 
+	    		<foreach collection="includeTypes" open="(" close=")" item="elem" separator=",">
+	    			#{elem}
+	    		</foreach> 
+	    	</if>
+	    	<if test="expectIds !=  null">
+	    		and id not in ( #{expectIds})
+	    	</if>
 	    </where>
+	    <if test="orderBy != null">
+	    	order by #{orderBy}
+	    </if>
 	    <if test="beginNum != null and offset != null">
 		    limit #{beginNum} , #{offset}
 	    </if>
+	</select>
+	
+	<select id="selectResourcesCount" resultType="java.lang.Long" >
+	    select 
+	  		count(id) 
+	    from tb_resources
+	    <where>
+	    	<if test="queryCondition != null">
+	    		(resName like CONCAT('%','${queryCondition}','%' ) 
+	    		or  resDescribe  like CONCAT('%','${queryCondition}','%' ) 
+	    		or  resLabel like CONCAT('%','${queryCondition}','%' ) )
+	    	</if>
+	    	
+	    	<if test="uploaderid != null">
+	    		and uploaderId = #{uploaderid}
+	    	</if>
+	    	
+	    	<if test="resStatus != null" >
+	    		and resStatus = #{resStatus}
+	    	</if>
+	    	
+	    	<if test="resType != null">
+	    		and resType = #{resType}
+	    	</if>
+	    	
+	    	<if test="includeTypes != null">
+	    		and resType in 
+	    		<foreach collection="includeTypes" open="(" close=")" item="elem" separator=",">
+	    			#{elem}
+	    		</foreach> 
+	    	</if>
+	    	
+	    	<if test="isDownLoad != null">
+	    		and downloadTimes > 0
+	    	</if>
+	    </where>
 	</select>
 	
 	

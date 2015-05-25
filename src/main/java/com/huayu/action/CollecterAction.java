@@ -11,13 +11,15 @@ import org.apache.struts2.convention.annotation.Result;
 
 import com.huayu.bo.Collection;
 import com.huayu.model.CollectionModel;
-import com.huayu.platform.action.BasicModel;
 import com.huayu.platform.action.BasicModelAction;
 import com.huayu.service.CollectionService;
 import com.huayu.utils.DigxyBoConverter;
 
 @Namespace("/collecter")
 public class CollecterAction extends BasicModelAction{
+	
+	private static final long serialVersionUID = 1L;
+
 	private CollectionModel collecterModel;
 	
 	@Resource(name="collectionService")
@@ -48,12 +50,6 @@ public class CollecterAction extends BasicModelAction{
 		return SUCCESS;
 	}
 	
-	@Override
-	public BasicModel getModel() {
-		return getBasicModel();
-	}
-
-
 	public CollectionModel getCollecterModel() {
 		return collecterModel;
 	}

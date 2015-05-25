@@ -7,6 +7,7 @@ import com.huayu.bo.User;
 import com.huayu.bo.Yqlink;
 import com.huayu.model.AttentiveModel;
 import com.huayu.model.CollectionModel;
+import com.huayu.model.HelperModel;
 import com.huayu.model.LinkModel;
 import com.huayu.model.ResourceModel;
 import com.huayu.model.UserModel;
@@ -98,4 +99,15 @@ public class DigxyBoConverter {
 		model.setSequence(link.getYqxh());
 		return model;
 	}
+	
+	public static com.huayu.bo.System toSystem(HelperModel model){
+		com.huayu.bo.System sys =  new com.huayu.bo.System();
+		sys.setId(model.getId());
+		sys.setAboutmy(model.getResume());
+		sys.setDocupload(model.getDocLaw());
+		sys.setHyzc(model.getUserLaw());
+		sys.setLxwm(model.getContactInfo());
+		return sys;
+	} 
+
 }

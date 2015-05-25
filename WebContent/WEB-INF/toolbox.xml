@@ -8,6 +8,6 @@
 	<tool>
 		<key>date</key>
 		<scope>application</scope>
-		<class>org.apache.velocity.tools.generic.DateTool</class>
+		<class>com.huayu.platform.util.DateUtils</class>
 	</tool>
 </toolbox>
