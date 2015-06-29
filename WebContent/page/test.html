@@ -43,26 +43,56 @@
 </style>
 <script type="text/javascript">
 	var paginate = {
-		init: function( config ){
-			var localConfig = extendConfig(config);
+		extendConfig : function( config){
+			var localConfig = {
+				selectedNum : config.selectedNum ? config.selectedNum : 1,
+				count : config.count,
+				limit : config.limit ? config.limit: 10 ,
+				pageCount : 1,
+				startNum : 1 , 
+				end : 0 ,
+				searchKey : config.searchKey,
+				url : config.url
+			};
 			
-			var url = "#";
+			localConfig.pageCount = (localConfig.count/localConfig.limit);
+			if(localConfig.count%localConfig.limit > 0){
+				localConfig.pageCount = localConfig.pageCount + 1;
+			}
+			var leftOffset = (localConfig.selectedNum + localConfig.limit/2);
+			if( leftOffset > localConfig.limit ){
+				if(localConfig.pageCount >= leftOffset){
+					localConfig.end = leftOffset - 1;
+				}else{
+					localConfig.end = localConfig.pageCount;
+				}
+			}else{
+				localConfig.end = localConfig.limit;
+			}
+			localConfig.startNum = localConfig.end - localConfig.limit;
+			return localConfig;
+		},
+		
+		init: function( config ){
+			var localConfig = this.extendConfig(config);
+			
+			var url = localConfig.url + localConfig.searchKey + "&curPage=";
 			var html = new Array();
 			var end ="</a>";
 			
-			if(selected > 1){
+			if(localConfig.selectedNum > 1){
 				html.push('<a href="');
-				html.push(url);
+				html.push(url + (localConfig.selectedNum - 1));
 				html.push('" class="n">&lt;上一页</a>');
 			}
 			
-			for(var i= localConfig.startNum ; i <= limit; i++){
-				if(i == selected){
+			for(var i= localConfig.startNum ; i <= localConfig.end; i++){
+				if(i == localConfig.selectedNum){
 					html.push("<strong");
 					end ="</strong>"; 
 				}else{
 					html.push("<a href=");
-					html.push(url)	
+					html.push(url + i)	
 				}
 				
 				html.push('><span class="pc">');
@@ -71,43 +101,28 @@
 				html.push(end);
 			}
 			
-			if(selected < limit){
+			if(localConfig.selectedNum <  localConfig.end){
 				html.push('<a href="');
-				html.push(url);
+				html.push(url + (localConfig.selectedNum + 1));
 				html.push('" class="n">下一页&gt;</a>');
 			}
 			
 			document.getElementById("page1").innerHTML = html.join("");
-		},
-		
-		extendConfig : function( config){
-			
-			var localConfig = {
-				selectedNum : config.selectedNum ? config.selectedNum : 0,
-				count : config.count,
-				limit : config.limit ? config.limit: 10 ,
-				pageCount : 0,
-				startNum : 0 
-			};
-			
-			localConfig.pageCount = (localConfig.count/localConfig.limit);
-			if(localConfig.count%localConfig.limit > 0){
-				localConfig.pageCount = localConfig.pageCount + 1;
-			}
-			
-			if(localConfig.pageCount > (localConfig.selectedNum + localConfig.limit/2)){
-				localConfig.startNum = localConfig.limit - localConfig.selectedNum ;
-			}
-			
-			return localConfig;
 		}
+		
+		
 	};
 </script>
 <body>
 <div id="page1" class="page">
 </div>
 <script type="text/javascript">
-paginate.init(1, 10, 9);
+paginate.init({
+	selectedNum: 11,
+	count: 140,
+	searchKey : "",
+	url : "/search?"
+});
 </script>
 
 <div class="page">

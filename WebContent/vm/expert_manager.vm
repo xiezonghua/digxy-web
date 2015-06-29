@@ -1,0 +1,89 @@
+#parse("/vm/header.vm")
+
+<section class="aside_article">
+			<aside  >
+				#set($curPage = "expert")
+				#parse("/vm/user_nav.vm")		
+			</aside>
+			<article>
+				<section>
+					<p class="clearfix" id="tab_header_res">
+						<span class="tab1 tab_selected" >专家管理</span>
+					</p>
+					<section>
+						<section>
+						<div class="result_header">
+							 共计 <span style="color:blue;font-style:italic;font-size:0.8em;">$data.size()</span> 条
+							 <span class="layout_right" style="margin-top:-5px;"><input type="button" value="添加" onclick="expert.toAddPage();"/></span>
+						</div>
+							<p></p>
+							<div>
+								<section class="basic_article">
+									<p>
+										<span class="gd_u_title">名称</span>
+										<span class="gd_u_type">qq</span>
+										<span class="gd_u_time">添加日期</span>
+										<span class="gd_handler">操作</span>
+									</p>	
+								</section>
+								#if( $data.size() > 0)
+								#foreach($elem in ${data})
+								<section class="mouse_hover basic_article">
+									<p class="article_title">
+										<span class="gd_u_title">${elem.name}</span>
+										<span class="gd_u_type">${elem.qq}</span> 
+										<span class="gd_u_time">$date.format(${elem.addDate})</span> 
+										<span class="gd_handler">
+											<a href="#" onclick="expert.toUpdatePage($elem.id)" >修改</a>
+											<a href="#" onclick="expert.del($elem.id)" >删除</a>
+										</span>
+									</p>
+								</section>		
+								#end
+								#else
+									<section class="basic_article">
+										<p>暂无数据</p>
+									</section>
+								#end
+							</div>
+						</section>
+						<section>
+							<div id="editDiv" class="hidden">
+								  <form action="#">
+									<section>
+									<input type="text" id="id" name="id" class="hidden"/>
+									<label for="name">名称:</label> <input type="text" id="name"
+										name="name" />
+									<span id="name_msg"></span>
+									</section>
+									<section>
+										<label for="qq">QQ:</label> 
+										<input type="text" id="qq" name="qq" />
+										<span id="qq_msg"></span>
+									</section>
+									<section>
+										<label for="profile">简介:</label> 
+										<textarea cols="24" rows="5" id="profile" name="profile"></textarea>	
+										<span id="profile_msg"></span>
+										
+									</section>
+								
+									<section>
+										<p>
+											<input type="button" id="addBtn" value="添加" onclick="expert.add()" />
+											<input type="button" id="updateBtn" value="保存" onclick="expert.update()" /> 
+											<input type="button" value="取消" onclick="hyCom.dialogClose('page')" /> 
+										</p>
+									</section>
+								  </form>
+							 </div>	
+						</section>	
+						
+					</section>
+						
+				</section>
+			</article>
+		</section>
+
+<script type="text/javascript" src="../js/expert.js"></script>
+#parse("/vm/footer.vm")	

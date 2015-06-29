@@ -11,16 +11,24 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 
+import com.huayu.bo.Keyword;
+import com.huayu.bo.Project;
 import com.huayu.bo.Resources;
 import com.huayu.bo.Share;
+import com.huayu.bo.User;
 import com.huayu.bo.Yqlink;
 import com.huayu.constant.ResourceAuditStatusEnum;
 import com.huayu.constant.ResourceTypeEnum;
 import com.huayu.platform.Pagination;
 import com.huayu.platform.action.BasicModelAction;
+import com.huayu.service.CommentService;
+import com.huayu.service.KeywordService;
+import com.huayu.service.ProjectService;
 import com.huayu.service.ResourcesService;
 import com.huayu.service.ShareService;
+import com.huayu.service.UserService;
 import com.huayu.service.YqlinkService;
+import com.huayu.utils.DigxyBoConverter;
 
 @Namespace("/")
 public class PageAction extends BasicModelAction {
@@ -42,6 +50,18 @@ public class PageAction extends BasicModelAction {
 	
 	@Resource(name="shareService")
 	private ShareService sharedService;
+	
+	@Resource(name="commentService")
+	private CommentService commentService;
+	
+	@Resource(name="userService")
+	private UserService userService;
+	
+	@Resource(name="keywordService")
+	private KeywordService keywordService;
+	
+	@Resource(name="projectService")
+	private ProjectService projectService;
 	
 	
 	
@@ -75,6 +95,15 @@ public class PageAction extends BasicModelAction {
 	public String result() {
 		Resources res = service.queryByPrimaryKey(id);
 		
+		Resources updateRes = new Resources();
+		updateRes.setId(id);
+		updateRes.setClicktimes(res.getClicktimes() + 1);
+		service.updateByPrimaryKeySelective(updateRes);
+		
+		Map<String, Object> query = new HashMap<String, Object>();
+		query.put("resId", res.getId());
+		Long count = commentService.queryCount(query);
+		
 		Pagination pageInfo = getPagination();
 		pageInfo.setOffset(5);
 		pageInfo.setOrderBy("clickTimes");
@@ -83,11 +112,65 @@ public class PageAction extends BasicModelAction {
 		List<Share> sharedHots = sharedService.queryShared(getUserId());
 		List<Resources> uploaderHots = service.queryResources(getUserId(), ResourceAuditStatusEnum.PASSED, pageInfo);
 		
+		Long uploadCount = service.queryResourcesCount(res.getUploaderid(),ResourceAuditStatusEnum.PASSED);
+		
+//		User user = userService.queryByPrimaryKey(res.getUploaderid());
+		
+		
 		Map<String , Object> result = new HashMap<String , Object>(3);
 		result.put("sharedHots",  sharedHots );
 		result.put("relationHots", relationHots );
 		result.put("uploaderHots", uploaderHots );	
 		result.put("res", res);
+		result.put("commentCount" , count);
+		result.put("uploadCount", uploadCount);
+//		result.put("uploader", DigxyBoConverter.toUserModel(user));
+		
+		setData(result);
+		return SUCCESS;
+	}
+	
+	@Action(value = "presult", results = { @Result(type = "velocity", location = "/vm/presult.vm") })
+	public String presult() {
+		Map<String, Object> query = new HashMap<String, Object>();
+		query.put("resId", id);
+		
+		Resources res = service.queryByPrimaryKey(id);
+		
+		Resources updateRes = new Resources();
+		updateRes.setId(id);
+		updateRes.setClicktimes(res.getClicktimes() + 1);
+		service.updateByPrimaryKeySelective(updateRes);
+		
+//		Map<String, Object> query = new HashMap<String, Object>();
+//		query.put("resId", res.getId());
+		Long count = commentService.queryCount(query);
+		
+		
+		Pagination pageInfo = getPagination();
+		pageInfo.setOffset(5);
+		List<Project> attenders = projectService.queryProjectAttenders(query);
+		
+		pageInfo.setOrderBy("clickTimes");
+		pageInfo.setExpectIds(getId().toString());
+		List<Resources> relationHots = service.queryResources(pageInfo , res.getRestype());
+		List<Share> sharedHots = sharedService.queryShared(getUserId());
+		List<Resources> uploaderHots = service.queryResources(getUserId(), ResourceAuditStatusEnum.PASSED, pageInfo);
+		
+		Long uploadCount = service.queryResourcesCount(res.getUploaderid(),ResourceAuditStatusEnum.PASSED);
+		
+		User user = userService.queryByPrimaryKey(res.getUploaderid());
+		
+		
+		Map<String , Object> result = new HashMap<String , Object>(3);
+		result.put("attenders", attenders);
+		result.put("sharedHots",  sharedHots );
+		result.put("relationHots", relationHots );
+		result.put("uploaderHots", uploaderHots );	
+		result.put("res", res);
+		result.put("commentCount" , count);
+		result.put("uploadCount", uploadCount);
+		result.put("uploader", DigxyBoConverter.toUserModel(user));
 		
 		setData(result);
 		return SUCCESS;
@@ -101,10 +184,46 @@ public class PageAction extends BasicModelAction {
 			searchs= service.queryResources(getSearchKey(), getResType(), getPagination());
 		}
 		
+		List<Keyword> keyList = keywordService.queryAll();
+		
 		Map<String , Object> result = new HashMap<String, Object>();
 		result.put("count", count);
 		result.put("results", searchs);
+		result.put("keywords", keyList);
 		setData(result);
+		return SUCCESS;
+	}
+	
+	@Action(value="user" , results={@Result(type="velocity" , location="/vm/user_out.vm" , name=SUCCESS)})
+	public String user(){
+		User user = userService.queryByPrimaryKey(getId());
+		setData(DigxyBoConverter.toUserModel(user));
+		return SUCCESS;
+	}
+	
+	@Action(value="userfile" , results={@Result(type="velocity" , name=SUCCESS , location="/vm/myupload_out.vm")})
+	public String passed(){
+		List<Resources> queryList  = service.queryResources(getId(), ResourceAuditStatusEnum.PASSED, getPagination());
+		setData(queryList);
+		return SUCCESS;
+	}
+	
+	@Action(value="attentive" , results={@Result(type="velocity" , name=SUCCESS , location="/vm/myattentive_out.vm")})
+	public String attentive(){
+		List<User> attentives = userService.queryAttentions(getId());
+		Map<String , Object> result = new HashMap<String, Object>();
+		result.put("attentives", attentives);
+		setData(result);
+		
+		return SUCCESS;
+	}
+	
+	@Resource(name="shareService")
+	private ShareService shareService ;
+
+	@Action(value="myshared"  , results={@Result(type="velocity" , name=SUCCESS , location="/vm/myshared_out.vm")})
+	public String shared(){
+		setData(shareService.queryShared(getId()));
 		return SUCCESS;
 	}
 

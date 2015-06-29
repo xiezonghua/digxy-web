@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link style="text/css" rel="stylesheet" href="../css/menu.css" />
+<link style="text/css" rel="stylesheet" href="../css/main1.css" />
+<link style="text/css" rel="stylesheet" href="../css/openRv.css" />
+<link style="text/css" rel="stylesheet" href="../css/imgPlayer.css" />
+
+<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../js/jQuery.imgPlayer.js"></script>
+<script type="text/javascript" src="../js/layer/layer.js"></script>
+<script type="text/javascript" src="../js/rv.js"></script>
+</head>
+
+<body>
+	<div class="body_fixed_header">
+		 <header>
+			<section id="title">
+				<img src="../images/yxylogo.png" alt="logo" title="logo" />
+				<h2>迪格学院</h2>
+			</section>
+	
+			<nav class="menu bolder">
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li><a href="#">学习</a></li>
+					<li><a href="#">研究</a></li>
+					<li><a href="#" style="cursor: pointer;">成才</a></li>
+				</ul>
+			</nav>
+			<form class="search" action="#" method="post">
+				<label for="search_content">Search</label> 
+				<input type="text" name="search_content" id="search_content" placeholder="Search" />
+			</form>
+			<section id="regist_login">
+				<ul>
+					<li><a href="#">登录</a>
+						<form class="login" action="#" method="post">
+							<fieldset>
+								<legend><span>用户登陆</span></legend>
+								<section>
+									<label for="login_name">用户名: </label>
+									<input type="text" id="login_name" name="login_name" placeholder="userName"/>
+								</section>
+								<section>
+									<label for="login_pwd">密码: </label>
+									<input type="text" id="login_pwd" name="login_pwd" placeholder="password"/>
+								</section>
+								<section>
+									
+									<input type="submit" value="登录">
+									<p >
+										<em><a href="#">如果忘记，找回密码?</a></em>
+									</p>
+								</section>
+							</fieldset>
+						</form>
+					</li>
+					<li><a href="reg.html">注册</a></li>
+				</ul>
+				<!-- end login regist -->
+			</section>
+		</header>
+	</div>
+   
+	<div id="wrapper">
+		<nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="index.html">迪格学院</a></li>
+				<li>OpenRV</li>
+			</ul>
+		</nav>
+		
+		<section id="flow_area">
+			<article>
+			<div class="imgPlayer1">
+				<section>
+					<img src="../images/index/001.jpg" style="width:350px;"  class="layout_left" alt="#" title="#"/>
+					<div>
+						<p class="aside_title"><span class="font_bold">Rov-结构分析 </span> <a href="#">Detail</a></p>
+						<p class="article_content">水下机器人是海洋等水下开发作业中的重要工具，在海洋石油工程、水下采矿、水产养殖、水下维修、水下搜寻、水下科研等方面有重要应用价值。随着中国海洋强国战略的实施，水下机器人将得到越来越广泛的应用，其重要性也必将越来越突出，因此水下机器人的石油工程、水下采矿、水产养殖、水下维修、水下搜寻、水下科研等方面有重要应用价值…… </p>
+					</div>
+				
+				</section>
+				<section>
+					<img src="../images/index/002.jpg" style="width:350px;" class="layout_left" alt="#" title="#"/>
+					<div>
+						<p class="aside_title"><span class="font_bold">Rov-结构分析2 </span> <a href="#">Detail</a></p>
+						<p class="article_content">水下机器人是海洋等水下开发作业中的重要工具，在海洋石油工程、水下采矿、水产养殖、水下维修、水下搜寻、水下科研等方面有重要应用价值。随着中国海洋强国战略的实施，水下机器人将得到越来越广泛的应用，其重要性也必将越来越突出，因此水下机器人的石油工程、水下采矿、水产养殖、水下维修、水下搜寻、水下科研等方面有重要应用价值…… </p>
+					</div>				</section>
+				<section>
+					<img src="../images/index/003.jpg" style="width:350px;" class="layout_left" alt="#" title="#"/>
+					<div>
+						<p class="aside_title"><span class="font_bold">Rov-结构分析3 </span> <a href="#">Detail</a></p>
+						<p class="article_content">水下机器人是海洋等水下开发作业中的重要工具，在海洋石油工程、水下采矿、水产养殖、水下维修、水下搜寻、水下科研等方面有重要应用价值。随着中国海洋强国战略的实施，水下机器人将得到越来越广泛的应用，其重要性也必将越来越突出，因此水下机器人的石油工程、水下采矿、水产养殖、水下维修、水下搜寻、水下科研等方面有重要应用价值…… </p>
+					</div>
+				</section>
+			</div>
+				<script>
+				$(".imgPlayer1").imgPlayer({
+					width: 630,
+				    showTitle:false,//不显示标题
+  			  	    bindEvent:'mouseover',//更改触发图片切换的鼠标事件为mouseover,默认为click
+  			  	    delay : 5000,
+				});
+				</script>
+			</article>
+			<aside>
+				<h1>服务与招募：</h1>
+				<section>
+					<section>
+						<p><a href="#" onclick="rv.aid();">项目资助</a></p>
+						<p>已收捐款12300元 明细 </p>
+					</section>
+					<section>
+						<p><a href="#" onclick="rv.addIn()">加入我们</a></p>
+						<p>机械/电子/控制/材料</p>
+					</section>						
+					
+					<section>
+						<p><a href="#" onclick="rv.contact()">联系我们</a></p>
+						<p>digxy@163.com</p>
+					</section>
+					<section>
+						<p><a href="#" onclick="rv.serviceTime()">产品与服务</a></p>
+						<p>倒计时：60D 18h 34m 12S </p>
+					</section>
+				</section>
+			</aside>
+		<!-- end flow_area -->
+		</section>
+
+		<section class="aside_article">
+			<aside>
+				<div class="aside_wrapper">
+				<section class="resource_area clearfix">
+				<p class="aside_title"><span class="font_bold">Rov-学习文档 </span> <a href="#">more</a></p>
+				<div class="layout_left">
+					<div class="inner">
+						<!-- 要旋转的文字-->
+						<img src="http://www.digxy.com/Images/img/17-16-55.png" alt="Stylin' with CSS cover" />
+						<p>学习文档</p>
+					</div>
+				</div>
+				<!-- 另外三本图书的标记也一样-->
+
+				<div class="layout_left">
+					<div class="inner">
+						<!-- 要旋转的文字-->
+						<img src="http://www.digxy.com/Images/img/17-16-55.png" alt="Stylin' with CSS cover" />
+						<p>学习文档</p>
+					</div>
+				</div>
+
+				<div class="layout_left">
+					<div class="inner">
+						<!-- 要旋转的文字-->
+						<img src="http://www.digxy.com/Images/img/17-16-55.png" alt="Stylin' with CSS cover" />
+						<p>学习文档</p>						
+						
+					</div>
+				</div>
+
+				<div class="layout_left">
+					<div class="inner">
+						<!-- 要旋转的文字-->
+						<img src="http://www.digxy.com/Images/img/17-16-55.png" alt="Stylin' with CSS cover" />
+						
+						<p>学习文档</p>						
+					</div>
+				</div>
+				
+			</section>
+			<section class="resource_area clearfix">
+				<p class="aside_title"><span class="font_bold">Rov-产品跟踪 </span> <a href="#">more</a></p>
+				<div class="layout_left">
+					<div class="inner">
+						<!-- 要旋转的文字-->
+						<img src="http://www.digxy.com/Images/img/17-16-55.png" alt="Stylin' with CSS cover" />
+						<p>产品跟踪</p>
+					</div>
+				</div>
+				<!-- 另外三本图书的标记也一样-->
+
+				<div class="layout_left">
+					<div class="inner">
+						<!-- 要旋转的文字-->
+						<img src="http://www.digxy.com/Images/img/17-16-55.png" alt="Stylin' with CSS cover" />
+						<p>产品跟踪</p>
+					</div>
+				</div>
+
+				<div class="layout_left">
+					<div class="inner">
+						<!-- 要旋转的文字-->
+						<img src="http://www.digxy.com/Images/img/17-16-55.png" alt="Stylin' with CSS cover" />
+						<p>产品跟踪</p>						
+						
+					</div>
+				</div>
+
+				<div class="layout_left">
+					<div class="inner">
+						<!-- 要旋转的文字-->
+						<img src="http://www.digxy.com/Images/img/17-16-55.png" alt="Stylin' with CSS cover" />
+						
+						<p>产品跟踪</p>						
+					</div>
+				</div>
+				
+			</section>
+			
+			<section class="resource_area clearfix">
+				<p class="aside_title"><span class="font_bold">Rov-结构分析 </span> <a href="#">more</a></p>
+				<div class="layout_left">
+					<div class="inner">
+						<!-- 要旋转的文字-->
+						<img src="http://www.digxy.com/Images/img/17-16-55.png" alt="Stylin' with CSS cover" />
+						<p>产品跟踪</p>
+					</div>
+				</div>
+				<!-- 另外三本图书的标记也一样-->
+
+				<div class="layout_left">
+					<div class="inner">
+						<!-- 要旋转的文字-->
+						<img src="http://www.digxy.com/Images/img/17-16-55.png" alt="Stylin' with CSS cover" />
+						<p>产品跟踪</p>
+					</div>
+				</div>
+
+				<div class="layout_left">
+					<div class="inner">
+						<!-- 要旋转的文字-->
+						<img src="http://www.digxy.com/Images/img/17-16-55.png" alt="Stylin' with CSS cover" />
+						<p>产品跟踪</p>						
+						
+					</div>
+				</div>
+
+				<div class="layout_left">
+					<div class="inner">
+						<!-- 要旋转的文字-->
+						<img src="http://www.digxy.com/Images/img/17-16-55.png" alt="Stylin' with CSS cover" />
+						
+						<p>产品跟踪</p>						
+					</div>
+				</div>
+				
+			</section>
+				</div>
+				
+			</aside>
+			<article>
+				<div class="article_wrapper">
+					<div class="aside_title"><img  src="../images/yxylogo.png" class="layout_left"/><span class="font_bold">开发•记录•探索•发现 </span> <a href="#">more</a></div>
+					<div>
+						<section>
+							<p class="article_title"><span>张某某</span> <span>2015.1.2</span></p>
+							<p class="article_content">水下机器人是海洋等水下开发作业中的重要工具，在海洋石油工程、水下采矿、水产养殖、水下维修、水下搜寻、水下科研等方面有重要应用价值。随着中国海洋强国战略的实施，水下机器人将得到越来越广泛的应用，其重要性也必将越来越突出，因此水下机器人的研制具有重大科学技术价值和经济价值。水下机器人根据运行方式分为自治型（AUV）（无缆自航）和遥控型（ROV）（缆绳控制），AUV通过安装在机器人上的计算机自动控制，而ROV通过线</p>
+						</section>
+					</div>
+					
+					<div>
+						<section>
+							<p class="article_title"><span>张某某</span> <span>2015.1.2</span></p>
+							<p class="article_content">水下机器人是海洋等水下开发作业中的重要工具，在海洋石油工程、水下采矿、水产养殖、水下维修、水下搜寻、水下科研等方面有重要应用价值。随着中国海洋强国战略的实施，水下机器人将得到越来越广泛的应用，其重要性也必将越来越突出，因此水下机器人的研制具有重大科学技术价值和经济价值。水下机器人根据运行方式分为自治型（AUV）（无缆自航）和遥控型（ROV）（缆绳控制），AUV通过安装在机器人上的计算机自动控制，而ROV通过线</p>
+						</section>
+					</div>
+					<div>
+						<section>
+							<p class="article_title"><span>张某某</span> <span>2015.1.2</span></p>
+							<p class="article_content">水下机器人是海洋等水下开发作业中的重要工具，在海洋石油工程、水下采矿、水产养殖、水下维修、水下搜寻、水下科研等方面有重要应用价值。随着中国海洋强国战略的实施，水下机器人将得到越来越广泛的应用，其重要性也必将越来越突出，因此水下机器人的研制具有重大科学技术价值和经济价值。水下机器人根据运行方式分为自治型（AUV）（无缆自航）和遥控型（ROV）（缆绳控制），AUV通过安装在机器人上的计算机自动控制，而ROV通过线</p>
+						</section>
+					</div>
+				</div>
+			</article>
+		</section>
+		
+		<footer>
+			<section class="foot_li clearfix">
+					<label>友情链接：</label>
+					<section >
+						<ul>
+							<li><a href="http://www.baidu.com" target="_blank">baidu</a></li>
+							<li><a href="http://www.baidu.com">百度</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+						</ul>
+					</section>
+			</section>
+			
+			<section class="foot_li clearfix">
+					<label>帮助中心：</label>
+					<section>
+						<ul>
+							<li><a href="http://www.baidu.com" target="_blank">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+						</ul>
+					</section>
+			</section>
+			
+			<section class="foot_law  ">
+			<p>迪格学苑&nbsp;版权所有&nbsp;&nbsp;©2014-2016 DiGe&nbsp;&nbsp;
+				京ICP备14054744号&nbsp;&nbsp; 京公网安备11010802016759号 &nbsp;&nbsp;</p>
+			<nav>
+				<ul>
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Contact Charles</a></li>
+				</ul>
+			</nav>
+			</section>
+		</footer>
+
+	</div>
+</body>
+</html>

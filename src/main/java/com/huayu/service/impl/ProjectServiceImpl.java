@@ -1,6 +1,10 @@
 package com.huayu.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 
 import com.huayu.bo.Project;
@@ -23,5 +27,25 @@ public class ProjectServiceImpl extends AbstractBasicService<Project , Long> imp
 	@Override
 	public DBBasicDao<Project, Long> getDao() {		
 		return projectDao;
+	}
+
+	@Override
+	public List<Project> queryProjectAttenders(Map<String, Object> query) {
+		return projectDao.selectProjectAttenders(query);
+	}
+
+	@Override
+	public List<Project> queryProjects(Map<String, Object> query) {
+		return projectDao.selectProjects(query);
+	}
+
+	@Override
+	public Long queryProjectsCount(Map<String, Object> query) {
+		return projectDao.selectProjectsCount(query);
+	}
+
+	@Override
+	public List<Project> queryProjectsSub(Map<String, Object> query) {
+		return projectDao.selectProjectsSub(query);
 	}
 }

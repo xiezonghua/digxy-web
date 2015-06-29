@@ -1,5 +1,6 @@
 package com.huayu.action;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -14,11 +15,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.huayu.bo.User;
+import com.huayu.constant.DictConst;
 import com.huayu.model.UserModel;
+import com.huayu.platform.AuthorityType;
 import com.huayu.platform.action.BasicModel;
 import com.huayu.platform.action.BasicModelAction;
 import com.huayu.platform.util.validate.ValidateUtils;
 import com.huayu.service.UserService;
+import com.huayu.utils.DictionaryHelper;
 import com.huayu.utils.DigxyBoConverter;
 import com.huayu.utils.SessionHelper;
 import com.opensymphony.xwork2.ActionContext;
@@ -59,15 +63,15 @@ public class UserAction extends BasicModelAction {
 			session.put(SessionHelper.SESSION_USER_ID, user.getId());
 			session.put(SessionHelper.SESSION_USERNAME, user.getYhm());
 			session.put(SessionHelper.SESSION_PASSWORD, user.getPwd());
+			session.put(SessionHelper.SESSION_USER_ROLE, user.getRole());
 		}
 		
 		return SUCCESS;
 	}
-
-	@Action(value="add" , results={@Result(type="json" , name=SUCCESS)})
-	public String add(){
-		
-		service.add(new User());
+	
+	@Action(value="signout" , results={@Result(type="json" , name=SUCCESS)})
+	public String signOut(){
+		ActionContext.getContext().getSession().clear();
 		return SUCCESS;
 	}
 	
@@ -76,11 +80,37 @@ public class UserAction extends BasicModelAction {
 		String[] validateNames = new String[]{"userName", "password","petName" , "email"};
 		String[] validateValues = new String[]{userModel.getUserName() , userModel.getPassword() , userModel.getPetName() , userModel.getEmail()};
 		if(!validate(validateNames, validateValues)) return SUCCESS;
-		userModel.setRegtime(new Date());
-		service.addSelective(DigxyBoConverter.toUser(userModel));
+		User user = DigxyBoConverter.toUser(userModel);
+		user.setZcsj(new Date());
+		user.setRole(AuthorityType.MEMBER.getValue());
+		user.setLev("1");
+		service.addSelective(user);
 		return SUCCESS;
 	}
-
+	
+	@Action(value="m" , results={@Result(type="velocity" , location="/vm/user_manager.vm" , name=SUCCESS)})
+	public String manage(){
+		Map<String, Object> query = new HashMap<String , Object>();
+		query.put("beginDate", getBeginDate());
+		query.put("endDate", getEndDate());
+		Long count =  service.queryUsersCount(query);
+		
+		List<User> users = new ArrayList<User>();
+		if(count > 0){
+			query.putAll(getPagination().toMap());
+			users = service.queryUsers(query);
+		}
+		
+		query.clear();
+		query.put("count" , count);
+		query.put("list", users);
+		query.put("userTypes", DictionaryHelper.getDictionaryByTypeCode(DictConst.MEMBER_AUTHORITY_TYPE));
+		
+		setData(query);
+		
+		return SUCCESS;
+	}
+	
 	@Action(value="update" , results={@Result(type="json" , name=SUCCESS)})
 	public String update(){
 		if(null == userModel.getId()){
@@ -107,7 +137,7 @@ public class UserAction extends BasicModelAction {
 		
 		return SUCCESS;
 	}
-	
+
 	@Action(value="getById" , results={@Result(type="json" , name=SUCCESS)})
 	public String getById(){
 		if( null == userModel.getId()){

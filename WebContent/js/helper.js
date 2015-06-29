@@ -3,8 +3,10 @@ if ("undefined" == typeof (helper)) {
 	var helper = {
 		umEdit : {}, 
 		init: function(){
-			 helper.umEdit = UM.getEditor('myEditor');
-			 helper.umEdit.setWidth("100%");
+			if("undefined" != typeof (UM)){
+				 helper.umEdit = UM.getEditor('myEditor');
+				 helper.umEdit.setWidth("100%");
+			}
 		},
 		
 	    save: function(){
@@ -27,8 +29,12 @@ if ("undefined" == typeof (helper)) {
 	    
 	    getInfo : function(type){
 			site.request(this.url.get,{"helperModel.helperType": type}, function(data){
-				$("#heplerInfo").html(data[type]);
-				site.show(500,500);
+				layer.open({
+					type: 1,
+				    skin: 'layui-layer-rim', //加上边框
+				    area: ['420px', '240px'], //宽高
+				    content: data[type] 
+				});	
 			});
 		},	   
 		url :{

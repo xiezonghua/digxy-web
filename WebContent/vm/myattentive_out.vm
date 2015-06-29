@@ -1,0 +1,67 @@
+#parse("/vm/header_out.vm")
+	  <nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="index.html">迪格学院</a></li>
+				<li>我的关注</li>
+			</ul>
+		</nav>
+		<section class="aside_article">
+			<article>
+				<section>
+					<p class="clearfix" id="tab_header_user">
+						<span class="tab1 tab_unselected" ><a href="user?id=${data.id}">用户首页</a></span>
+						<span class="tab1 tab_unselected" ><a href="userfile?id=${data.id}">用户文档</a></span>
+						<span class="tab1 tab_selected" ><a href="userat?id=${data.id}">关注</a></span>
+						<span class="tab1 tab_unselected"><a href="usershare?id=${data.id}">分享</a></span>
+
+					</p>
+					<section id="tab_detail_user">
+					<div >
+						<section class="aside_article">
+							#if($data.followers.size() > 0)
+								<section class="basic_article">
+									#foreach( $elem in ${data.followers})
+									<p>	
+										<span>$elem.yhm</span>
+										<a href="#" onclick="message.openDialog(${elem.id}, '${elem.yhm}' )">发消息</a>
+										<a href="#" onclick="">取消关注</a>	
+									</p>
+									#end
+								</section>
+							#else
+						   	<section class="basic_article">
+								<p>暂无数据</p>
+							<section>
+						   #end	
+						
+						</section>
+					</div>					
+						
+					<div class="hidden">	
+					<section >
+							#if($data.attentives.size() > 0)
+							<section class="basic_article">
+								#foreach( $elem in ${data.attentives})
+									<p>	
+										<span>$elem.yhm</span>
+										<a href="#" onclick="message.openDialog(${elem.id}, '${elem.yhm}' )">发消息</a>
+										<a href="#"  onclick="user.attentive(${data.res.uploaderid} , '${data.uploader.petName}' , 'attentiveId');" id="attentiveId">关注</a>	
+									</p>
+								#end
+							<section>
+						   #else
+						   	<section class="basic_article">
+								<p>暂无数据</p>
+							<section>
+						   #end	
+					</section>
+					</div>
+					</section>
+				</section>
+			</article>
+		</section>
+
+<script type="text/javascript" src="../js/message.js"></script>
+<script type="text/javascript" src="../js/user.js"></script>
+#parse("/vm/footer.vm")	

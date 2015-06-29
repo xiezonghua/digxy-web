@@ -28,9 +28,9 @@ public abstract class BasicModelAction extends BasicAction implements
 		model.setData(data);
 	}
 
-	public void setValidateInfo(Object validateDate) {
+	public void setValidateInfo(Object validateData) {
 		model.setStatus(ResponseStatusEnum.VALIDATE_FAILURE.getStatusCode());
-		model.setValidateInfo(validateDate);
+		model.setValidateInfo(validateData);
 	}
 	
 	public String setStautsInfo(String statusInfo){

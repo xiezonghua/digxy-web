@@ -1,5 +1,6 @@
 package com.huayu.platform.action;
 
+
 public class BasicModel {
 	private int status = 200;
 	private String statusInfo;

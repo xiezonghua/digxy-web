@@ -138,6 +138,11 @@ public class UserBase {
 	*/
 	private String gzjh ; 
 
+	/**
+	*  role
+	*/
+	private Byte role ; 
+
 
 	public void setId(Long id){
 		this.id = id;
@@ -353,6 +358,14 @@ public class UserBase {
 
 	public String getGzjh(){
 		return gzjh;
+	}  
+
+	public void setRole(Byte role){
+		this.role = role;
+	} 
+
+	public Byte getRole(){
+		return role;
 	}  
 
 }

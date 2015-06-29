@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link style="text/css" rel="stylesheet" href="../css/menu.css" />
+<link style="text/css" rel="stylesheet" href="../css/main1.css" />
+<link style="text/css" rel="stylesheet" href="../css/user.css" />
+<link style="text/css" rel="stylesheet" href="../css/jquery.Jcrop.min.css" />
+<link style="text/css" rel="stylesheet" href="../css/jquery.fileupload.css" />
+
+<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../js/jquery.Jcrop.min.js"></script>
+	
+<script type="text/javascript" src="../js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../js/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="../js/jquery.fileupload.js"></script>
+</head>
+
+<body>
+	<section>
+		<section class="aside_article">
+			<aside>
+				<p style="font-size:1.1em;font-weight: 700;padding:5px;">当前照片</p>
+				<img src="">
+			</aside>
+			<article>
+				<p style="font-size:1.1em;font-weight: 700;padding:5px;">设置新头像</p>
+				<form id="faceIcon" target="hid_frame" action="/digxy/upload/image" method="post" enctype="multipart/form-data">  
+			       
+			        <input type="hidden" id="originX" name="originX" />  
+			        <input type="hidden" id="originY" name="originY" />  
+			        <input type="hidden" id="destX" name="destX" />  
+			        <input type="hidden" id="destY" name="destY" />  
+			         <span class="btn btn-success fileinput-button">
+				        <i class="glyphicon glyphicon-plus"></i>
+				        <span>选择照片</span>
+				        <!-- The file input field used as target for the file upload widget -->
+				        <input class="photo-file" type="file" name="myFile" id="fcupload" onchange="readURL(this);" multiple/>  
+				    </span>
+				    
+			        <input type="button" class="upload-cover" value="上传图片" onclick="uploadImage();"/>  
+			        <input type="submit" value="上传" id="upload" />  
+			        <p>使用真实照片，展现真我风采！支持jpg、jpeg、gif、png、bmp格式在大照片中裁剪最满意的部分。</p>
+				    <!-- The global progress bar -->
+				    <div id="progress" class="progress">
+				        <div class="progress-bar progress-bar-success"></div>
+				    </div>
+				    <div id="fileMsg">
+				    </div>
+				    
+			    </form>	
+			    
+			    <img alt="" src="" id="displayImg"/>  
+			</article>
+		</section>
+		
+	</section>
+	  
+      
+    
+    <script type="text/javascript">
+		var jq = $;
+		jq('#fcupload').fileupload({
+	        url: "/digxy/upload/image",
+	        dataType: 'json',
+	        params: { "originX": jq("#originX").val(), "originY": jq("#originY").val(),"destX": jq("#destX").val(),"destY": jq("#destY").val()}
+	        singleFileUploads : false,
+	        limitMultiFileUploads : 2,
+	        autoUpload: false,
+	        maxFileSize: 5000000 ,
+	        disableValidation : true,
+	        add:function(e, data){
+	        	data.submit(); 
+	        },
+	        done: function (e, data) {
+	            jq.each(data.files, function (index, file) {
+	         
+	            });
+	        },
+	        progressall: function (e, data) {
+	            var progress = parseInt(data.loaded / data.total * 100, 10);
+	            jq('#progress .progress-bar').css(
+	                'width',
+	                progress + '%'
+	            );
+	        }
+	    }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+		
+		function uploadImage(){
+			
+		}
+		
+		
+		function readURL(input) {
+			
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+				
+                reader.onload = function (e) {
+                	$('#displayImg').removeAttr('src');
+                    $('#displayImg').attr('src', e.target.result);
+                    
+                    var api = $('#displayImg').Jcrop({
+                    	setSelect: [ 20, 20, 200, 200 ],
+                     	aspectRatio: 1,
+						onSelect: updateCoords
+						}
+		            );
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+            
+            
+        }
+        
+        function updateCoords(c){	
+			$('#originX').val(c.x);
+			$('#originY').val(c.y);
+			$('#destX').val(c.w);
+			$('#destY').val(c.h);
+		};
+		
+
+			
+	</script>
+</body>
+</html>

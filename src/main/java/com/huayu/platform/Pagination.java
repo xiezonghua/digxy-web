@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Pagination {
-	private Integer pageNum = 0;
+	private Integer pageNum = 1;
 	private Integer offset = 10;
 	private String orderBy;
 	private String expectIds;
@@ -34,7 +34,7 @@ public class Pagination {
 	}
 
 	public Integer getBeginNum() {
-		return pageNum * offset;
+		return (pageNum - 1) * offset;
 	}
 
 	public String getExpectIds() {

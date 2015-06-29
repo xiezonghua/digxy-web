@@ -123,4 +123,22 @@ public class ResourcesServiceImpl extends AbstractBasicService<Resources , Long>
 		query.put("uploaderid", userId);
 		return resourcesDao.selectResourcesCount(query);	
 	}
+
+	@Override
+	public Long queryResourcesCount(Long userId,
+			ResourceAuditStatusEnum auditStatus) {
+		Map<String , Object> query = new HashMap<String , Object>();	
+		query.put("resStauts",  auditStatus);
+		query.put("uploaderid", userId);
+		return resourcesDao.selectResourcesCount(query);	
+	}
+	
+	
+	public List<Resources> queryResources(Map<String , Object> query){
+		return resourcesDao.selectResources(query);
+	}
+	
+	public Long queryResourcesCount(Map<String,Object> query){
+		return resourcesDao.selectResourcesCount(query);
+	}
 }

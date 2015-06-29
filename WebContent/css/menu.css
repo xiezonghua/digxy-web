@@ -13,6 +13,7 @@ nav.menu ul li{
 	list-style-type:none;
 	position:relative;
 	line-height:1.15;
+	display:inline-block;
 }
 
 nav.menu li + li {
@@ -142,3 +143,44 @@ nav.left_menu li ul{
 nav.left_menu li ul li+li{
 	border-top: 1px dashed ;
 }
+
+nav.toolbox{
+	overflow: hidden;
+}
+
+nav.toolbox li{
+	float:left;
+	list-style: none;
+	letter-spacing: .09em;
+	padding:5px 10px;
+}
+
+nav.toolbox li+li{
+ 	border-left: 1px solid #fff;	
+}
+
+nav.toolbox li span{
+	margin:0;
+	padding:0;
+	
+}
+
+section.op {
+	position: absolute;
+	display: none;	
+	background-color: #fff;
+	right: 220px;
+}
+
+ul.dropDown{
+	z-index: 90;
+	width: 10em;
+	border: 1px solid;
+} 
+
+ul.dropDown li{
+	padding:5px;
+	border-bottom: 1px dashed ;	
+	list-style-type: none;
+}
+

@@ -4,16 +4,18 @@ section#label_area{
 	margin: 5px 0;
 	background:#fff;
 	padding:5px 12px 5px 20px;
-	border-radius:10px 0 10px 0;
+/* 	border-radius:10px 0 10px 0; */
 	box-shadow:0 12px 8px -9px #555;
 }
 
 section#label_area span{
-	padding:2px 15px;
+	padding:2px 5px;
 	border:1px solid;
-	border-radius:10px 0 10px 0;
+/* 	border-radius:10px 0 10px 0; */
 	box-shadow:0 10px 8px -10px #555;
 	line-height: 1.9;
+	cursor:pointer;
+	font-size: 0.8em;
 }
 
 section#label_area .label_selected{
@@ -29,6 +31,10 @@ section#search_result_area{
 
 }
 
+/* section#search_result_area:HOVER{
+	border:1px solid #ccffff;
+} */
+
 section#search_result_area .result_area{
 	position:relative;
 	clear:both;
@@ -36,6 +42,10 @@ section#search_result_area .result_area{
 	overflow: hidden;
 	border-bottom: 1px solid #19A97B;
 	padding-top: 12px;
+}
+
+.result_area:HOVER{
+	border:1px solid #ccc;
 }
 
 article.result_area img{

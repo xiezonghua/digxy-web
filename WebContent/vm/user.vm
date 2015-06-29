@@ -1,5 +1,13 @@
 #parse("/vm/header.vm")
 
+		<nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="index.html">迪格学院</a></li>
+				<li>个人信息</li>
+			</ul>
+		</nav>
+		
 		<section class="aside_article">
 			<aside  >
 				#set($curPage = "center")
@@ -39,19 +47,19 @@
 							</section>
 							<section>
 								<label for="regtime">注册时间：</label>
-								<input class="un-editable" type="text" value="$strUtils.toStr($data.regtime)" id="regtime"  disabled="disabled"/>
+								<input class="un-editable" type="text" value="$date.format($data.regtime)" id="regtime"  disabled="disabled"/>
 							</section>
 							<section>
 								<label for="profile">个人介绍：</label>
 								<textarea class="un-editable" rows="10" cols="20" id="profile"  disabled="disabled">$strUtils.toStr($data.profile)</textarea>
 							</section>
 							<section>
+							   <p id="update_p_message" />
 								<p id="edit_p"><input type="button" value="编辑" onclick="user.toUnEditBaseInfo(false)"/></p>
 								<p id="update_p" class="hidden">
 								   <input type="button" value="更新" onclick="user.updateBaseInfo()"/> 
 								   <input type="button" value="取消" onclick="user.toUnEditBaseInfo(true)"/> 
 								</p>
-							   <p id="update_p_message" />
 							</section>
 						</section>	
 						</form>
@@ -78,8 +86,8 @@
 							</section>
 							
 							<section>
-								<input type="button" value="确认" onclick="user.updatePassword()">
 								<p id="pwd_update_msg"></p>
+								<input type="button" value="确认" onclick="user.updatePassword()">
 							</section>
 						</form>
 					</div>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huayu.dao.mapper.MessageMapper">
+	
+	<select id="selectList" resultMap="BaseResultMap">
+	    select 
+	      m.id, sender_id, sender, receiver_id, u.yhm as receiver, title, content, add_date, status, sender_mark, receiver_mark 
+   		from tb_message m  left join tb_user u on m.receiver_id = u.id
+   		<where>
+		<if test="senderId != null">
+		 	and sender_id = #{senderId} 
+		</if>
+       		<if test="sender != null">
+		 	and sender = #{sender} 
+		</if>
+       		<if test="receiverId != null">
+		 	and receiver_id = #{receiverId} 
+		</if>
+       		<if test="receiver != null">
+		 	and receiver = #{receiver} 
+		</if>
+       		<if test="title != null">
+		 	and title = #{title} 
+		</if>
+       		<if test="content != null">
+		 	and content = #{content} 
+		</if>
+       		<if test="addDate != null">
+		 	and add_date = #{addDate} 
+		</if>
+       		<if test="status != null">
+		 	and status = #{status} 
+		</if>
+       		<if test="senderMark != null">
+		 	and sender_mark = #{senderMark} 
+		</if>
+       		<if test="receiverMark != null">
+		 	and receiver_mark = #{receiverMark} 
+		</if>
+       	</where>
+       	
+   	 	<if test="orderBy != null">
+	    	order by #{orderBy}
+	    </if>
+	    <if test="beginNum != null and offset != null">
+		    limit #{beginNum} , #{offset}
+	    </if>
+   			
+	</select>	
+	
+	
+	<select id="selectCount" resultType="java.lang.Long">
+	    select 
+	    	count(*)
+   		from tb_message 
+   		<where>
+		<if test="senderId != null">
+		 	and sender_id = #{senderId} 
+		</if>
+       		<if test="sender != null">
+		 	and sender = #{sender} 
+		</if>
+       		<if test="receiverId != null">
+		 	and receiver_id = #{receiverId} 
+		</if>
+       		<if test="receiver != null">
+		 	and receiver = #{receiver} 
+		</if>
+       		<if test="title != null">
+		 	and title = #{title} 
+		</if>
+       		<if test="content != null">
+		 	and content = #{content} 
+		</if>
+       		<if test="addDate != null">
+		 	and add_date = #{addDate} 
+		</if>
+       		<if test="status != null">
+		 	and status = #{status} 
+		</if>
+       		<if test="senderMark != null">
+		 	and sender_mark = #{senderMark} 
+		</if>
+       		<if test="receiverMark != null">
+		 	and receiver_mark = #{receiverMark} 
+		</if>
+       	</where>
+       	
+   	 	<if test="orderBy != null">
+	    	order by #{orderBy}
+	    </if>
+	    <if test="beginNum != null and offset != null">
+		    limit #{beginNum} , #{offset}
+	    </if>
+   			
+	</select>	
+</mapper>

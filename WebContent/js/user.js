@@ -4,13 +4,13 @@ if ("undefined" == typeof (user)) {
 			var requestData = {
 				"userModel.id" : 1
 			};
-			site.request(user.url.init, requestData, function(data) {
+			hyCom.request(user.url.init, requestData, function(data) {
 				console.log(data);
 			});
 		},
 		
 		reg : function(){
-			if(!site.validate(["petName" , "userName" , "password"])) return;
+			if(!hyCom.validate(["petName" , "userName" , "password"])) return;
 			if(!jq("#readLicense").is(":checked")){
 				jq("#protocol_msg").html("请阅读协议").addClass("validate_msg");
 				return;
@@ -23,7 +23,7 @@ if ("undefined" == typeof (user)) {
 			    "userModel.email" : jq("#userName").val()
 			};
 			
-			site.request(user.url.reg, requestData, function(data) {
+			hyCom.request(user.url.reg, requestData, function(data) {
 				console.log(data);
 			});
 		},
@@ -46,31 +46,77 @@ if ("undefined" == typeof (user)) {
 		},
 		
 		updateBaseInfo: function(){
-			if(!site.validate(["id" , "petName"   , "email"])) return;
+			if(!hyCom.validate(["id" , "petName"   , "email"])) return;
 			var requestData = site.modelConverter("userModel" , ["id" , "petName" , "email" , "imessager" , "phone", "profile"]);
 			
-			site.request(user.url.update, requestData, function(data) {
-				if(data.status == 200){
-					jq("#update_p_message").html("更新成功").addClass("validate_msg");
-					user.toUnEditBaseInfo(true);
-				}
+			hyCom.request(user.url.update, requestData, function(data) {
+//				jq("#update_p_message").html("更新成功").addClass("validate_msg");
+				hyCom.msg("更新成功");
+				user.toUnEditBaseInfo(true);
 			});
 		},
 		
 		updatePassword : function(){
-			if(!site.validate(["oldPassword" , "password" , "password2"])) return ;
+			if(!hyCom.validate(["oldPassword" , "password" , "password2"])) return ;
 			if(jq("#password").val() != jq("#password2").val()){
 				jq("#password2_msg").html("前后密码不一致").addClass("validate_msg");
 				return;
 			}
 			
-			site.requset(user.url.updatePwd , requestData, function(data){
-				if(data.status == 200){
-					jq("#pwd_update_msg").html("更新成功").addClass("validate_msg");
-				}
+			hyCom.request(user.url.updatePwd , requestData, function(data){
+				hyCom.msg("更新成功");
+//				jq("#pwd_update_msg").html("更新成功").addClass("validate_msg");
 			});
 		},
 		
+		showDetail : function(id , isDetail){
+			
+			hyCom.request(user.url.getById, {"userModel.id":id}, function(data){
+				jq("#userId").val(data.id);
+				jq("#userName").val(data.userName);
+				jq("#petName").val(data.petName);
+				jq("#email").val(data.email);
+				jq("#cardID").val(data.cardID);
+				jq("#imessager").val(data.imessager);
+				jq("#phone").val(data.phone);
+				
+				jq("#regtime").val(data.regtime);
+				jq("#level").val(data.level).attr("disabled", isDetail);
+				jq("#role").val(data.role).attr("disabled", isDetail);
+				if(isDetail){
+					jq("#user_opt").addClass("hidden");
+				}else{
+					jq("#user_opt").removeClass("hidden");
+				}
+				
+				hyCom.openHtml(jq("#detailDIV"));
+			});
+		},
+		updateM : function(){
+			var id = jq("#userId").val();
+			var paramData = {
+				"userModel.id" : id,
+				"userModel.level": jq("#level").val(),
+				"userModel.role": jq("#role").val(),
+				"userModel.petName": jq("#petName").val(),
+				"userModel.email": jq("#email").val(),
+			};
+			hyCom.request(user.url.update,paramData, function(data){
+					hyCom.msg("更新成功");
+					jq("#utype_"+id).html(jq("#role").find("option:selected").text());
+					jq("#level_"+id).html(jq("#level").val());
+					hyCom.dialogClose("page");
+				});
+		},
+		
+		attentive : function(userId, name , id){
+			hyCom.request(user.url.attentive,paramData, function(data){
+				hyCom.msg("关注成功");
+				jq("#utype_"+id).html(jq("#role").find("option:selected").text());
+				jq("#level_"+id).html(jq("#level").val());
+				hyCom.dialogClose("page");
+			});
+		}
 		
 	
 	};
@@ -79,7 +125,9 @@ if ("undefined" == typeof (user)) {
 		init : "/user/getById",
 		reg: "/user/regist"	,
 		update: "/user/update",
-		updatePwd: "/user/"
+		updatePwd: "/user/",
+		getById : "/user/getById" , 
+		attentive : "/attentive/add"
 		
 	};
 }

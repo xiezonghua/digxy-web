@@ -50,15 +50,13 @@ if ("undefined" == typeof (res)) {
 		},
 		
 		add : function(){
-			if(!site.validate(["docName" , "resName" , "resDesc" , "resType", "dicType"])) return;
-			var dataParam =  site.modelConverter("resModel" , ["docName" , "resName" , "resDesc" , "resType", "dicType", "resLabel"]);
+			if(!hyCom.validate(["docName" , "resName" , "resDesc" , "resType", "dicType"])) return;
+			var dataParam =  hyCom.modelConverter("resModel" , ["docName" , "resName" , "resDesc" , "resType", "dicType", "resLabel"]);
 			
-			site.request(res.url.add, dataParam, function(data){
-				if(data.status == 200){
+			hyCom.request(res.url.add, dataParam, function(data){
 					jq("#uploadSaveTwo").removeClass("hidden");
 					jq("#uploadSave").addClass("hidden");
 					jq("#res_add_msg").html("添加成功").addClass("validate_msg");
-				}
 			});
 		},
 		
@@ -67,9 +65,36 @@ if ("undefined" == typeof (res)) {
 		     jq("#fileDetailSection").addClass("hidden");
 		},
 		
+		audit : function(id , type){
+			if(!id || !type){
+				hyCom.msg("页面加载有误，请重新加载重试");
+				return;
+			}
+			
+			var dataParam = {
+				"resModel.id": id,
+				"resModel.resStatus" :type
+			};
+			
+			hyCom.request(res.url.audit , dataParam , function(data){
+				jq("#status_"+id).html(auditStatus[type].typeName);
+				hyCom.msg("处理完成");
+			});
+		},
+		
+		opt : function(id){
+			jq("#op"+id).show();
+
+			jq("section[class='op']").mouseleave(function(){
+					jq(this).hide();	
+			});
+		},
+		
 		url :{
 			upload : "/digxy/upload" , 
 			add: "/res/add",
+			audit : "/res/audit" ,
+			del : "res/del",
 		}
 	};
 	

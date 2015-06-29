@@ -1,69 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8" />
-<link style="text/css" rel="stylesheet" href="css/menu.css" />
-<link style="text/css" rel="stylesheet" href="css/main.css" />
-
-<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="js/site.js"></script>
- <script type="text/javascript" src="js/helper.js"></script>
-
-</head>
-
-<body>
-	<div id="wrapper">
-		<header>
-			<section id="title">
-				<img src="../images/yxylogo.png" alt="logo" title="logo" />
-				<h2>迪格学院</h2>
-			</section>
-	
-			<nav class="menu bolder">
-				<ul>
-					<li><a href="#">首页</a></li>
-					<li><a href="#">学习</a></li>
-					<li><a href="#">研究</a></li>
-					<li><a href="#">成才</a></li>
-				</ul>
-			</nav>
-			<form class="search" action="#" method="post">
-				<label for="search_content">Search</label> 
-				<input type="text" name="search_content" id="search_content" placeholder="Search" />
-			</form>
-			<section id="regist_login">
-				<ul>
-					<li><a href="#">登录</a>
-						<form class="login" action="#" method="post">
-							<fieldset>
-								<legend><span>用户登陆</span></legend>
-								<section>
-									<label for="login_name">用户名: </label>
-									<input type="text" id="login_name" name="login_name" placeholder="userName"/>
-								</section>
-								<section>
-									<label for="login_pwd">密码: </label>
-									<input type="text" id="login_pwd" name="login_pwd" placeholder="password"/>
-								</section>
-								<section>
-									
-									<input type="submit" value="登录">
-									<p >
-										<em><a href="#">如果忘记，找回密码?</a></em>
-									</p>
-								</section>
-							</fieldset>
-						</form>
-					</li>
-					<li><a href="reg.html">注册</a></li>
-				</ul>
-				<!-- end login regist -->
-			</section>
-		</header>
-
+#parse("/vm/header_out.vm")
+ <script type="text/javascript" src="js/jQuery.imgPlayer.js"></script>
 		<section id="flow_area">
 			<article>
-				<img src="http://www.digxy.com/Images/flash-bg-1.png" alt="#" title="#"/>
+			<div class="imgPlayer1">
+				<section>
+				<img src="images/index/001.jpg" alt="#" title="#"/>
+				</section>
+				<section><img src="images/index/002.jpg" alt="#" title="#"/>
+				</section>
+				<section>
+				
+				<img src="images/index/003.jpg" alt="#" title="#"/>
+				</section>
+			</div>
+			<script>
+				$(".imgPlayer1").imgPlayer({
+					width: 630,
+				    showTitle:false,//不显示标题
+  			  	    bindEvent:'mouseover',//更改触发图片切换的鼠标事件为mouseover,默认为click
+  			  	    delay : 5000,
+				});
+			</script>
 			</article>
 			<aside>
 				<h1>搜录摘要：</h1>
@@ -84,18 +41,13 @@
 			<section class="resource_area clearfix">
 				<h1>热点资源</h1>
 				#foreach($elem in ${data.hots})
+	
 				<article class="left">
 					<div class="inner">
 						<!-- 要旋转的文字-->
-						<img src="${elem.ressrc}" alt="${elem.resname}" />
-						<aside>
-							<!-- 弹出层-->
-							<ol>
-								<li><a href="#">Download the Code</a></li>
-								<li><a href="#">Table of Contents</a></li>
-								<li><a href="#">Buy this Book</a></li>
-							</ol>
-						</aside>
+						<a href="result?id=${elem.id}">
+						<img src="$strUtils.toStr(${elem.ressrc1},'images/doc/default.png')" alt="${elem.resname}" />
+						</a>
 						<p>${elem.resname}</p>
 					</div>
 				</article>
@@ -107,18 +59,12 @@
 			<section class="resource_area clearfix">
 				<h1>学习</h1>
 				#foreach($elem in ${data.studys})
-				<article class="left">
+							<article class="left">
 					<div class="inner">
 						<!-- 要旋转的文字-->
-						<img src="${elem.ressrc}" alt="${elem.resname}" />
-						<aside>
-							<!-- 弹出层-->
-							<ol>
-								<li><a href="#">Download the Code</a></li>
-								<li><a href="#">Table of Contents</a></li>
-								<li><a href="#">Buy this Book</a></li>
-							</ol>
-						</aside>
+						<a href="result?id=${elem.id}">
+						<img src="$strUtils.toStr(${elem.ressrc1},'images/doc/default.png')" alt="${elem.resname}" />
+						</a>
 						<p>${elem.resname}</p>
 					</div>
 				</article>
@@ -128,20 +74,14 @@
 			
 			#if( $data.researchs.size() > 0)
 			<section class="resource_area clearfix">
-				<h1>学习</h1>
+				<h1>研究</h1>
 				#foreach($elem in ${data.researchs})
-				<article class="left">
+							<article class="left">
 					<div class="inner">
 						<!-- 要旋转的文字-->
-						<img src="${elem.ressrc}" alt="${elem.resname}" />
-						<aside>
-							<!-- 弹出层-->
-							<ol>
-								<li><a href="#">Download the Code</a></li>
-								<li><a href="#">Table of Contents</a></li>
-								<li><a href="#">Buy this Book</a></li>
-							</ol>
-						</aside>
+						<a href="presult?id=${elem.id}">
+						<img src="$strUtils.toStr(${elem.ressrc},'../images/doc/default.png')" alt="${elem.resname}" />
+						</a>
 						<p>${elem.resname}</p>
 					</div>
 				</article>
@@ -151,20 +91,14 @@
 			
 			#if( $data.growers.size() > 0)
 			<section class="resource_area clearfix">
-				<h1>学习</h1>
+				<h1>成长</h1>
 				#foreach($elem in ${data.growers})
-				<article class="left">
+							<article class="left">
 					<div class="inner">
 						<!-- 要旋转的文字-->
-						<img src="${elem.ressrc}" alt="${elem.resname}" />
-						<aside>
-							<!-- 弹出层-->
-							<ol>
-								<li><a href="#">Download the Code</a></li>
-								<li><a href="#">Table of Contents</a></li>
-								<li><a href="#">Buy this Book</a></li>
-							</ol>
-						</aside>
+						<a href="result?id=${elem.id}">
+						<img src="$strUtils.toStr(${elem.ressrc},'../images/doc/default.png')" alt="${elem.resname}" />
+						</a>
 						<p>${elem.resname}</p>
 					</div>
 				</article>
@@ -224,6 +158,6 @@
 			</div>
 		</div>
 	</section>
-								
+	<script type="text/javascript" src="js/hy.user.common.js"></script>							
 </body>
 </html>

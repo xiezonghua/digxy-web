@@ -1,0 +1,82 @@
+#parse("/vm/header_out.vm")
+
+		<nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="index.html">迪格学院</a></li>
+				<li>个人信息</li>
+			</ul>
+		</nav>
+		
+		<section class="aside_article">
+			${id}
+			<article>
+				<section>
+					<p class="clearfix" id="tab_header_user">
+					
+						<span class="tab1 tab_selected" ><a href="user?id=${data.id}">用户首页</a></span>
+						<span class="tab1 tab_unselected" ><a href="userfile?id=${data.id}">用户文档</a></span>
+						<span class="tab1 tab_unselected" ><a href="userat?id=${data.id}">关注</a></span>
+						<span class="tab1 tab_unselected"><a href="usershare?id=${data.id}">分享</a></span>
+					</p>
+					<section id="tab_detail_user">
+					<div >
+						<section class="layout_right">
+						<img  class="portrait" src="/digxy/images/portrait/$strUtils.toStr($data.imgSrc , 'default.jpg')" />	
+						<p>${data.userName}</p>
+						</section>
+						<form action="#">
+						<section>
+							<section>
+								<input class="hidden" id="id" value="$data.id"/>
+								<label for="petName">昵称：</label>
+								<span>$strUtils.toStr($data.petName) </span>
+							</section>
+							<section>
+								<label >注册时间：</label>
+								<span>$date.format($data.regtime)</span>
+							</section>
+							<section>
+								<label for="profile">个人介绍：</label>
+								<span>$strUtils.toStr($data.profile)</span>
+							</section>
+							<section>
+								<p><a href="#">关注</a> 
+								<a href="#" onclick="message.openDialog(${data.res.uploaderid} , '${data.uploader.petName}')">发私信</a></p>
+							</section>		
+						</section>	
+						</form>
+					</div>					
+						
+						
+					<div class="hidden">
+						<form>
+							<section>
+								<label for="oldPassword">密码：</label>
+								<input type="text" id="oldPassword" />
+								<p id="oldPassword_msg"></p>
+							</section>
+							<section>
+								<label for="password">修改密码：</label>
+								<input type="text" 	id="password"  />
+								<p id="password_msg"></p>
+							</section>
+							
+							<section>
+								<label for="password2">修改密码确认：</label>
+								<input type="text" id="password2"/>
+								<p id="password2_msg"></p>
+							</section>
+							
+							<section>
+								<p id="pwd_update_msg"></p>
+								<input type="button" value="确认" onclick="user.updatePassword()">
+							</section>
+						</form>
+					</div>
+					</section>
+				</section>
+			</article>
+		</section>
+
+#parse("/vm/footer.vm")	

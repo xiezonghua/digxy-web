@@ -1,0 +1,78 @@
+#parse("/vm/header.vm")
+<nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="./index">迪格学院</a></li>
+				<li>我的项目</li>
+			</ul>
+		</nav>
+<section class="aside_article">
+			<aside  >
+				#set($curPage = "myproject")
+				#parse("/vm/user_nav.vm")			
+			</aside>
+			<article>
+				<section>
+					<p class="clearfix" id="tab_header_res">
+						<span class="tab1 tab_unselected"><a href="me">发起的项目</a></span>
+						<span class="tab1 tab_selected"><a href="attend">参与的项目</a></span>
+					</p>
+					<div class="result_header">
+						 共计 <span style="color:blue;font-style:italic;font-size:0.8em;">${data.count}</span> 条
+					</div>
+					<section id="tab_detail_res">
+						<div>
+							<section class="basic_article">
+								<p>
+									<span class="gd_u_title">项目名称</span>
+									<span class="gd_u_type">目前参与人数</span>
+									<span class="gd_u_type" >项目状态</span>
+									<span class="gd_u_time">上传时间</span>
+									<span class="gd_handler">申请状态</span>
+								</p>	
+							</section>
+							<script>
+							 var auditStatus = $strUtils.toJson($data.projectStatus);
+							 var attenderRoles = $strUtils.toJson($data.projectRoles);
+							 var attenderStatus = $strUtils.toJson($data.projectAttenderStatus);
+							</script>
+							#if( $data.list.size() > 0)
+							#foreach($elem in ${data.list})
+							<section class="mouse_hover basic_article">
+								<section class="article_title">
+									<!-- <p><img  style="width:100px;height:120px;" src="../upload/${elem.filePath}images/${elem.fileName}.png"/></p>-->
+									<span class="gd_u_title"><a href="../result?id=${elem.resId}" target="_blank">${elem.resName}</a></span>
+									<span class="gd_u_type"><a href="#" onclick="project.attenderInfo(${elem.resId} , true)">${elem.attenderCount}</a></span> 
+									<span class="gd_u_type "  style="color:#FF6666;"  id="status_${elem.resId}">$mapUtils.getValue($data.projectStatus , ${elem.projectStatus}).typeName</span>
+									<span class="gd_u_time">$date.format($elem.createDate) </span>
+									<span class="gd_handler" style="color:#FF6666;" >$mapUtils.getValue($data.projectAttenderStatus , ${elem.state}).typeName</span>
+									#if( $elem.msg )
+									<span class="validate_msg">${elem.msg}</span>
+									#end
+								</section>
+							</section>		
+							#end
+							#else
+								<section class="basic_article">
+									<p>暂无数据</p>
+								</section>
+							#end
+						</div>
+					
+							<div id="page" class="page"></div>
+<script type="text/javascript">
+paginate.init("page",{
+	selectedNum: $pageNum,
+	count: ${data.count},
+	searchKey : "",
+	url : "m?"
+});
+</script>
+					</section>
+				</section>
+			</article>
+		</section>
+	
+	
+<script type="text/javascript" src="../js/project.js"></script>
+#parse("/vm/footer.vm")	

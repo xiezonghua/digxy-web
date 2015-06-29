@@ -23,7 +23,7 @@ if ("undefined" == typeof (page)) {
 		},
 		
 		searchKey: function(key){
-			jq("#key").val(key);
+			jq("#searchKey").val(key);
 			jq("#searchSubmit").click();
 		}
 	

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link style="text/css" rel="stylesheet" href="../css/main.css" />
+
+<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../js/hy.com.js"></script>
+<script type="text/javascript" src="../js/hy.user.common.js"></script>
+<script type="text/javascript" src="../js/layer/layer.js"></script>
+<script type="text/javascript" src="../js/comment.js"></script>
+
+</head>
+
+<body>
+	<input type="text" class="hidden" id="userLogin" value="${uname}" />
+	#if( ${data.hasNotComment})
+	<div class="">
+		<p class="result_header">评论一下</p>
+		<section class="clearfix">
+			<section class="layout_left">								
+				<textarea rows="5" cols="70" id="content"></textarea>
+			</section>
+			<input type="button" onclick="comment.addInPage(${data.resId});" value="评一下" style="margin:5px;;width:5em;height:5em;" />
+		</section>
+	</div> 
+   #end
+	<div class="result_header">
+		共计 <span style="color:blue;font-style:italic;font-size:0.8em;">${data.count}</span> 条评论
+	</div>
+	
+	
+	<div >
+	#if( $data.list.size() > 0)
+		#foreach($elem in ${data.list})
+		<section class="user_comment">
+			<p class="say_content">${elem.content}</p>
+			<p class="user_title"><span class="title_dash"></span><a href="#">$strUtils.toStr(${elem.commenter},"匿名")</a> , &nbsp;&nbsp;评论于：$date.format($elem.commentDate)</p>
+		</section>
+		#end
+	#else
+		<section class="user_comment">
+			<p class="say_content">暂无评论</p>
+			<p class="user_title"><span class="title_dash"></span><a href="#">管理员</a></p>
+		</section>
+	#end	
+	
+		
+	</div>
+	
+	<div id="page" class="page"></div>
+<script type="text/javascript">
+paginate.init("page",{
+	selectedNum: 1,
+	count: ${data.count},
+	searchKey : "commentModel.resId=${data.resId}",
+	url : "index?"
+});
+</script>
+</body>
+</html>

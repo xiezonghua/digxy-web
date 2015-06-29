@@ -6,13 +6,69 @@
 			<include refid="Base_Column_List" />
 		from tb_user 
 		<where>
+			<if test="userName != null">
+				yhm = #{userName}
+			</if>
+			
+			<if test="password != null">
+				and	pwd = #{password}
+			</if>	
+			<if test="role != null">
+			 	and role = #{role} 
+			</if>
+			<if test="zcsj != null">
+		 		and zcsj = #{zcsj} 
+			</if>
+			<if test="beginDate != null">
+				<![CDATA[
+				and zcsj  >= #{beginDate}
+				]]>
+			</if>
+			<if test="endDate != null">
+				<![CDATA[
+				and zcsj <= #{endDate}
+				]]>
+			</if>
+		</where>
+		
+		<if test="orderBy != null">
+	    	order by #{orderBy}
+	    </if>
+	    <if test="beginNum != null and offset != null">
+		    limit #{beginNum} , #{offset}
+	    </if>
+		
+	</select>
+	
+	
+	<select id="selectUsersCount" resultType="java.lang.Long" >
+		select 
+			count(*)
+		from tb_user 
+		<where>
 			<if test="yhm != null">
-				yhm = #{yhm}
+				yhm = #{userName}
 			</if>
 			
 			<if test="pwd != null">
-				and	pwd = #{pwd}
+				and	pwd = #{password}
 			</if>	
+			<if test="role != null">
+			 	and role = #{role} 
+			</if>
+			<if test="zcsj != null">
+		 		and zcsj = #{zcsj} 
+			</if>
+			<if test="beginDate != null">
+				<![CDATA[
+				and zcsj  >= #{beginDate}
+				]]>
+			</if>
+			<if test="endDate != null">
+				<![CDATA[
+				and zcsj <= #{endDate}
+				]]>
+			</if>
 		</where>
 		
 	</select>

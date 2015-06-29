@@ -20,6 +20,21 @@ public class UserModel {
 	private String profile;
 	private String email;
 	private String imgSrc;
+	private String level;
+	private Byte role;
+	
+	//项目申请
+	private String name ;
+	private String birthplace;
+	private Date birthdate;
+	private String school;
+	private String major;
+	private String health;
+	private String englishLevel;
+	private String edu;
+	private String professionalSkill;
+	private String plan;
+	
 	
 	
 	public Long getId() {
@@ -129,4 +144,101 @@ public class UserModel {
 		this.imgSrc = imgSrc;
 	}
 
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+	public Byte getRole() {
+		return role;
+	}
+
+	public void setRole(Byte role) {
+		this.role = role;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getBirthplace() {
+		return birthplace;
+	}
+
+	public void setBirthplace(String birthplace) {
+		this.birthplace = birthplace;
+	}
+
+	public Date getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(Date birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public String getSchool() {
+		return school;
+	}
+
+	public void setSchool(String school) {
+		this.school = school;
+	}
+
+	public String getMajor() {
+		return major;
+	}
+
+	public void setMajor(String major) {
+		this.major = major;
+	}
+
+	public String getHealth() {
+		return health;
+	}
+
+	public void setHealth(String health) {
+		this.health = health;
+	}
+
+	public String getEnglishLevel() {
+		return englishLevel;
+	}
+
+	public void setEnglishLevel(String englishLevel) {
+		this.englishLevel = englishLevel;
+	}
+
+	public String getEdu() {
+		return edu;
+	}
+
+	public void setEdu(String edu) {
+		this.edu = edu;
+	}
+
+	public String getProfessionalSkill() {
+		return professionalSkill;
+	}
+
+	public void setProfessionalSkill(String professionalSkill) {
+		this.professionalSkill = professionalSkill;
+	}
+
+	public String getPlan() {
+		return plan;
+	}
+
+	public void setPlan(String plan) {
+		this.plan = plan;
+	}
+
+	
 }

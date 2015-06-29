@@ -5,18 +5,17 @@
 	<script type="text/javascript" src="../js/jquery.iframe-transport.js"></script>
 	<script type="text/javascript" src="../js/jquery.fileupload.js"></script>
 	
-	
 	<section id="uploadFileSection">
 			<form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
 				<section style="text-align:center;">
-					<section class="hidden">
+				<!--	<section class="hidden">
 						<input type="file" name="myFile1" id="myFile1" value="上传我的文档"  onchange="res.upload()"/>
 					</section>
 					<section>
 						<p class="white_button">
 						<input type="button" value="上传我的文档" onclick="site.click('myFile')">
 						</p>
-					</section>
+					</section> -->
 					<section>
 					    <span class="btn btn-success fileinput-button">
 					        <i class="glyphicon glyphicon-plus"></i>
@@ -88,7 +87,7 @@
 					<section>
 						<p class="white_button" style="text-align: right;">
 							<input id="uploadSave" type="button" value="保存信息" onclick="res.add()" />
-							<input  type="button" value="取消" onclick="res.to" />
+							<input  type="button" value="取消" onclick="res.toUpload()" />
 							<input id="uploadSaveTwo" type="button" value="继续添加" onclick="res.toUpload(true)" />
 						</p>
 						<p id="res_add_msg"></p>

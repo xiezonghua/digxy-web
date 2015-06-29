@@ -1,7 +1,9 @@
 package com.huayu.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -32,10 +34,10 @@ public class UserServiceImpl extends AbstractBasicService<User, Long> implements
 
 	@Override
 	public User userLogin(String userName, String password) {
-		User user = new User();
-		user.setYhm(userName);
-		user.setPwd(password);
-		List<User> users = userDao.selectUsers(user);
+		Map<String , Object> query = new HashMap<String , Object>();
+		query.put("userName", userName);
+		query.put("password", password);
+		List<User> users = userDao.selectUsers(query);
 
 		if (1 == users.size()) {
 			return users.get(0);
@@ -61,6 +63,16 @@ public class UserServiceImpl extends AbstractBasicService<User, Long> implements
 		User user = new User();
 		user.setId(userId);
 		return userDao.selectAttentions(user);
+	}
+
+	@Override
+	public List<User> queryUsers(Map<String, Object> query) {
+		return userDao.selectUsers(query);
+	}
+
+	@Override
+	public Long queryUsersCount(Map<String, Object> query) {
+		return userDao.selectUsersCount(query);
 	}
 
 }

@@ -11,22 +11,32 @@ public class ProjectBase {
 	/**
 	*  resource id
 	*/
-	private Long resid ; 
+	private Long resId ; 
 
 	/**
-	*  yhm
+	*  attender id
 	*/
-	private String yhm ; 
+	private Long attenderId ; 
 
 	/**
 	*  create date time
 	*/
-	private Date date ; 
+	private Date applyDate ; 
 
 	/**
-	*  state
+	*  attender role
 	*/
-	private Integer state ; 
+	private Byte role ; 
+
+	/**
+	*  state , 1 apply , 2 : working 3:completed 
+	*/
+	private Byte state ; 
+
+	/**
+	*  error info
+	*/
+	private String msg ; 
 
 
 	public void setId(Long id){
@@ -37,36 +47,52 @@ public class ProjectBase {
 		return id;
 	}  
 
-	public void setResid(Long resid){
-		this.resid = resid;
+	public void setResId(Long resId){
+		this.resId = resId;
 	} 
 
-	public Long getResid(){
-		return resid;
+	public Long getResId(){
+		return resId;
 	}  
 
-	public void setYhm(String yhm){
-		this.yhm = yhm;
+	public void setAttenderId(Long attenderId){
+		this.attenderId = attenderId;
 	} 
 
-	public String getYhm(){
-		return yhm;
+	public Long getAttenderId(){
+		return attenderId;
 	}  
 
-	public void setDate(Date date){
-		this.date = date;
+	public void setApplyDate(Date applyDate){
+		this.applyDate = applyDate;
 	} 
 
-	public Date getDate(){
-		return date;
+	public Date getApplyDate(){
+		return applyDate;
 	}  
 
-	public void setState(Integer state){
+	public void setRole(Byte role){
+		this.role = role;
+	} 
+
+	public Byte getRole(){
+		return role;
+	}  
+
+	public void setState(Byte state){
 		this.state = state;
 	} 
 
-	public Integer getState(){
+	public Byte getState(){
 		return state;
+	}  
+
+	public void setMsg(String msg){
+		this.msg = msg;
+	} 
+
+	public String getMsg(){
+		return msg;
 	}  
 
 }

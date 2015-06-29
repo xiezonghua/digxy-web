@@ -7,4 +7,6 @@ public class SessionHelper {
 	
 	public static String SESSION_USER_ID = "DIGXY_SESSION_USERID";
 	
+	public static String SESSION_USER_ROLE = "DIGXY_SESSION_USERROLE";
+	
 }

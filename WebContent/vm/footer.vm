@@ -1,4 +1,40 @@
 <footer>
+		#if( $exports.size() > 0 )
+		<div class="mag">
+		        <div id="magFloatingBar">
+		            <div id="magFloatingBarTab" title="专家在线指导" style="right: 0px;">
+		                <span>专</span><span>家</span><span>指</span><span>导</span></div>
+		            <div id="magFloatingBarContent" style="display:none;" >
+		                <div class="item">
+		                    <div class="itemText">
+		                        <img alt="" title="专家在线指导" style="cursor: pointer" onclick="javascript:window.open('http://bizapp.qq.com/webc.htm?new=0&amp;sid=258675226&amp;eid=&amp;o=&amp;q=7&amp;ref='+document.location, '_blank', 'height=544, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');" border="0" src="http://im.bizapp.qq.com:8000/zx_qq.gif">
+		                    </div>
+		                </div>
+		                <div class="lastItem">
+		                    <div id="ctl00_zjzhidao1" class="itemText">
+		                    	#foreach( $elem in $exports)
+		                    	<a target="_blank" title="本人来自中科院力学所，欢迎就ABAQUS应用中遇到的问题进行咨询。" href="http://wpa.qq.com/msgrd?v=3&amp;uin=${elem.qq}&amp;site=qq&amp;menu=yes">${elem.name}</a>
+		                    	#end
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		    <script >
+		        	 //在线客服___主窗口
+	jq("#magFloatingBarTab").toggle(function () {
+        jq("#magFloatingBarTab").css({ "right": "162px" }).show();
+        jq("#magFloatingBarContent").show();
+    } , function () {
+     	jq("#magFloatingBarTab").css({ "right": "0px" }).show();
+        jq("#magFloatingBarContent").hide();
+       
+    });
+		
+    
+		    	
+		    </script>
+		   #end
 			<p>迪格学苑&nbsp;版权所有&nbsp;&nbsp;©2014-2016 DiGe&nbsp;&nbsp;
 				京ICP备14054744号&nbsp;&nbsp; 京公网安备11010802016759号 &nbsp;&nbsp;</p>
 			<nav>

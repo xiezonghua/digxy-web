@@ -4,13 +4,13 @@ public enum ResourceTypeEnum {
 
 	STUDY((byte) 1), RESEARCH((byte) 2), GROWER((byte) 3);
 
-	private byte code;
+	private Byte code;
 
-	private ResourceTypeEnum(byte typeCode) {
+	private ResourceTypeEnum(Byte typeCode) {
 		code = typeCode;
 	}
 
-	public byte getCode() {
+	public Byte getCode() {
 		return code;
 	}
 

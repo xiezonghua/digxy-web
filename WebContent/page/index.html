@@ -4,10 +4,19 @@
 <meta charset="UTF-8" />
 <link style="text/css" rel="stylesheet" href="../css/menu.css" />
 <link style="text/css" rel="stylesheet" href="../css/main.css" />
+<link style="text/css" rel="stylesheet" href="../css/imgPlayer.css" />
+
+<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../js/site.js"></script>
+
+ <script type="text/javascript" src="../js/jQuery.imgPlayer.js"></script>
+ 
+ <script type="text/javascript" src="../js/layer/layer.js"></script>
 </head>
 
 <body>
 	<div id="wrapper">
+	
 		<header>
 			<section id="title">
 				<img src="../images/yxylogo.png" alt="logo" title="logo" />
@@ -19,7 +28,7 @@
 					<li><a href="#">首页</a></li>
 					<li><a href="#">学习</a></li>
 					<li><a href="#">研究</a></li>
-					<li><a href="#">成才</a></li>
+					<li><a href="#" style="cursor: pointer;">成才</a></li>
 				</ul>
 			</nav>
 			<form class="search" action="#" method="post">
@@ -55,10 +64,40 @@
 				<!-- end login regist -->
 			</section>
 		</header>
-
+		<button id="test2" class="button">运行上述例子</button>
 		<section id="flow_area">
 			<article>
-				<img src="http://www.digxy.com/Images/flash-bg-1.png" alt="#" title="#"/>
+			<div class="imgPlayer1">
+				<section>
+				<img src="../images/index/001.jpg" alt="#" title="#"/>
+				</section>
+				<section><img src="../images/index/002.jpg" alt="#" title="#"/>
+				</section>
+				<section>
+				
+				<img src="../images/index/003.jpg" alt="#" title="#"/>
+				</section>
+			</div>
+			<script>
+				$(".imgPlayer1").imgPlayer({
+					width: 630,
+				    showTitle:false,//不显示标题
+  			  	    bindEvent:'mouseover',//更改触发图片切换的鼠标事件为mouseover,默认为click
+  			  	    delay : 5000,
+				});
+					$('#test2').on('click', function(){
+	
+    layer.open({
+        type: 1,
+        area: ['600px', '360px'],
+        shadeClose: true, //点击遮罩关闭
+        content: '\<\div style="padding:20px;">自定义内容\<\/div>',
+        btn : ["确定" , "取消", "绑定" , "d"]
+    });
+});
+			</script>
+			
+			
 			</article>
 			<aside>
 				<h1>搜录摘要：</h1>
@@ -81,14 +120,7 @@
 					<div class="inner">
 						<!-- 要旋转的文字-->
 						<img src="http://www.digxy.com/Images/img/17-16-55.png" alt="Stylin' with CSS cover" />
-						<aside>
-							<!-- 弹出层-->
-							<ol>
-								<li><a href="#">Download the Code</a></li>
-								<li><a href="#">Table of Contents</a></li>
-								<li><a href="#">Buy this Book</a></li>
-							</ol>
-						</aside>
+					
 						<p>cadd</p>
 					</div>
 				</article>
@@ -129,6 +161,24 @@
 					</div>
 				</article>
 
+				<article class="left">
+					<div class="inner">
+						<h3>HTML5 + CSS3</h3>
+						<!-- 要旋转的文字-->
+						<img src="http://www.digxy.com/Images/img/17-16-55.png" alt="Stylin' with CSS cover" />
+						<aside>
+							<!-- 弹出层-->
+							<ol>
+								<li><a href="#">Download the Code</a></li>
+								<li><a href="#">Table of Contents</a></li>
+								<li><a href="#">Buy this Book</a></li>
+							</ol>
+						</aside>
+						
+						<p>dacdd</p>						
+					</div>
+				</article>
+				
 				<article class="left">
 					<div class="inner">
 						<h3>HTML5 + CSS3</h3>

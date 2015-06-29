@@ -12,6 +12,9 @@
 </head>
 
 <body>
+
+	
+
 	<div id="wrapper">
 		<header>
 			<section id="title">
@@ -112,6 +115,41 @@
 				</nav>
 			</aside>
 			<article>
+			<a href="#" onclick="opt(1);">删除</a>
+	<section id="op1"  class="op" >
+		<ul class="dropDown" >
+			<li><a href="#">审核通过</a></li>
+			<li><a href="#">待审核</a></li>
+			<li><a href="#">正在处理</a></li>
+			<li><a href="#">审核未通过</a></li>
+			<li><a href="#">标题或分类不准确</a></li>
+			<li><a href="#">系统处理失败</a></li>
+		</ul>
+	</section>
+		<a href="#" onclick="opt(2);">删除</a>
+	<section id="op2" class="op" >
+		<ul class="dropDown"   >
+			<li><a href="#">审核通过</a></li>
+			<li><a href="#">待审核</a></li>
+			<li><a href="#">正在处理</a></li>
+			<li><a href="#">审核未通过</a></li>
+			<li><a href="#">标题或分类不准确</a></li>
+			<li><a href="#">系统处理失败</a></li>
+		</ul>
+	</section>
+	
+	<script type="text/javascript">
+		function opt(num){
+			$("#op"+num).show();
+		}
+		function init(){
+			$("section[class='op']").mouseleave(function(){
+				$(this).hide();	
+			});
+		}
+		
+		init();
+	</script>
 				<section>
 					<p class="clearfix"><span class="tab1 tab_unselected">个人设置</span> <span class="tab1 tab_unselected">未选中</span></p>
 					<section id="tab_detail">

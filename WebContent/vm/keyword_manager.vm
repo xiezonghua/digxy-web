@@ -1,0 +1,73 @@
+#parse("/vm/header.vm")
+
+<script type="text/javascript" src="../js/keyword.js"></script>
+<section class="aside_article">
+			<aside  >
+				#set($curPage = "keyword")
+				#parse("/vm/user_nav.vm")		
+			</aside>
+			<article>
+				<section>
+					<p class="clearfix" id="tab_header_res">
+						<span class="tab1 tab_selected" >关键词管理</span>
+					</p>
+					<section>
+						<section>
+						<div class="result_header">
+							 共计 <span style="color:blue;font-style:italic;font-size:0.8em;">$data.size()</span> 条
+							 <span class="layout_right" style="margin-top:-5px;"><input type="button" value="添加" onclick="keyW.toAddPage();"/></span>
+						</div>
+							<p></p>
+							<div>
+								<section class="basic_article">
+									<p>
+										<span class="gd_u_title">名称</span>
+										<span class="gd_handler">操作</span>
+									</p>	
+								</section>
+								#if( $data.size() > 0)
+								#foreach($elem in ${data})
+								<section class="mouse_hover basic_article">
+									<p class="article_title">
+										<span class="gd_u_title">${elem.keywords}</span>
+										<span class="gd_handler">
+											<a href="#" onclick="keyW.toUpdatePage($elem.id)" >修改</a>
+											<a href="#" onclick="keyW.del($elem.id)" >删除</a>
+										</span>
+									</p>
+								</section>		
+								#end
+								#else
+									<section class="basic_article">
+										<p>暂无数据</p>
+									</section>
+								#end
+							</div>
+						</section>
+						<section>
+							<div id="editDiv" class="hidden">
+								  <form action="#">
+									<section>
+									<input type="text" id="id" name="id" class="hidden"/>
+									<label for="keywords">名称:</label> <input type="text" id="keywords"
+										name="keywords" />
+									<span id="keywords_msg"></span>
+									</section>
+									<section>
+										<p>
+											<input type="button" id="addBtn" value="添加" onclick="keyW.add()" />
+											<input type="button" id="updateBtn" value="保存" onclick="keyW.update();" /> 
+											<input type="button" value="取消" onclick="hyCom.dialogClose('page')" /> 
+										</p>
+									</section>
+								  </form>
+							 </div>	
+						</section>	
+						
+					</section>
+						
+				</section>
+			</article>
+		</section>
+
+#parse("/vm/footer.vm")	

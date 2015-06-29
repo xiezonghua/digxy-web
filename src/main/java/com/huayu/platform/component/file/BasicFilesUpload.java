@@ -86,7 +86,7 @@ public  class BasicFilesUpload extends ActionSupport {
 
 		return SUCCESS;
 	}
-
+	
 	public String getStorePath() {
 		return "/upload";
 	}

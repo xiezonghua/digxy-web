@@ -1,0 +1,216 @@
+#parse("/vm/header.vm")
+<nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="index.html">迪格学院</a></li>
+				<li>项目申请</li>
+			</ul>
+		</nav>
+<section class="table_page">
+		<section class="page_title">
+			<span>项目申请($data.projectName)</span> 
+			<input name="docid" type="hidden" id="docid"  class="aid" value="${data.projectId}">
+		</section>
+		<section class="page_content">
+			<section>
+				<p class="page_point">
+					<em>为保证项目正常进行和后续的人才认证工作顺利开展，请你填写以下更多信息！</em>
+				</p>
+			</section>
+			<section class="table_content">
+				<section>
+					<p class="table_title">
+						<span>一、基本信息:</span>
+					</p>
+				</section>
+				<section>
+					<table cellpadding="1" cellspacing="0">
+						<tbody>
+							<tr>
+								<td id="a" colspan="4" class="field_title">基本资料</td>
+							</tr>
+							<tr>
+								<td class="t_td">姓名</td>
+								<td style="width: 200px;">
+									<input type="text" value="" class="txt_bottom" id="name">
+									<span id="name_msg"></span>
+								</td>
+								<td class="t_td">性别</td>
+								<td style="width: 200px;">
+									<input type="radio" name="sex" value="1" class="txt_bottom" id="sex_boy" checked="checked">
+									<label for="sex_boy">男</label>
+									<input type="radio" name="sex" value="0" class="txt_bottom" id="sex_girl">
+									<label for="sex_girl">女</label>
+									<span id="sex_msg"></span>
+								</td>
+							</tr>
+							<tr>
+								<td class="t_td">籍贯</td>
+								<td>
+									<input type="text" value="" class="txt_bottom" id="birthplace">
+									<span id="birthplace_msg"></span>
+								</td>
+								<td class="t_td">出生年月</td>
+								<td>
+									<input type="text" value="" class="txt_bottom" id="birthdate">
+									<span id="birthdate_msg"></span>
+								</td>
+							</tr>
+							<tr>
+								<td class="t_td">当前就读院校</td>
+								<td>
+									<input type="text" value="" class="txt_bottom" id="school">
+									<span id="school_msg"></span>
+								</td>
+								<td class="t_td">身份证号</td>
+								<td>
+									<input type="text" value="" class="txt_bottom" id="cardID">
+									<span id="cardID_msg"></span>
+								</td>
+							</tr>
+							<tr>
+								<td class="t_td">专业</td>
+								<td>
+									<input type="text" value="" class="txt_bottom" id="major">
+									<span id="major_msg"></span>
+								</td>
+								<td class="t_td">健康状况</td>
+								<td>
+									<input type="text" value="" class="txt_bottom" id="health">
+									<span id="health_msg"></span>
+								</td>
+							</tr>
+							<tr>
+								<td class="t_td">英语水平</td>
+								<td colspan="3">	
+									<input type="text" value="" class="txt_bottom" id="englishLevel">
+									<span id="englishLevel_msg"></span>
+								</td>
+							</tr>
+							<tr>
+								<td id="b" colspan="4" class="field_title">
+									 此前教育经历
+								</td>
+							</tr>
+							<tr>
+								<td colspan="4">
+									<textarea name="edu" id="edu" class="edu"></textarea>
+									<span id="edu_msg"></span>
+								</td>
+							</tr>
+							<tr>
+								<td id="c" colspan="4" class="field_title">
+									专业技能和经验<a name="4"></a>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="4">
+									<textarea name="professionalSkill" id="professionalSkill" class="p_zyjn"></textarea>
+									<span id="professionalSkill_msg"></span>
+								</td>
+							</tr>
+							<tr>
+								<td id="d" colspan="4" class="field_title" >
+									参与项目后工作计划<a name="5"></a>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="4">
+									<textarea name="plan" id="plan" class="p_gzjh"></textarea>
+									<span id="plan_msg"></span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<p class="table_title" id="e">
+						<span>二、同意须知:</span>
+					</p>
+				</section>
+				<section class="table_content" style="border: 1px solid #ccc;">
+					<div class="Agreed_project"
+						style="text-indent: 2em;line-height:1.8em; font-size:0.9em;color: #999; padding: 5px;">
+						本人保证申请中所填写信息属实，保证参与项目后将积极主动的完成项目负责人分配的工作，及时提交工作成果，并将遵守与知识产权等相关的法律法规。
+					</div>
+					<div style="margin: 10px; margin-left: 200px;">
+						<label for="protocol_agree" style="color:#f70022;font-size:0.9em;">已阅读须知，并同意</label>
+						<input type="checkbox"  id="protocol_agree" />
+						&nbsp;
+						<span id="protocol_agree_msg"></span>
+					</div>
+				</section>
+				<section id="f">
+					<div style="padding-top:12px;margin-left: 200px;">
+						<input type="button" onclick="applyForProject()" value="提交申请" class="nobtn" id="submit_project" > 
+					    <input type="reset" value="重置修改" class="nobtn" id="reset_project">
+					</div>
+				</section>
+			</section>
+		</section>
+
+
+		<div class="page_catalog">
+			<div class="history">
+				<div class="history-date">
+					<dl>
+						<dt>
+							<span class="sequence circle"><span class="cricle_center"></span></span>
+							<span><a href="#" style="color: red;">项目申请</a></span>
+						</dt>
+						<dt>
+							<span class="sequence circle"><span class="cricle_center"></span></span>
+							<span><a href="#a" style="color: red;">基本信息</a></span>
+						</dt>
+						<dt>
+							<span class="sequence circle"><span class="cricle_center"></span></span>
+							<span><a href="#b">此前教育经历 </a></span>
+						</dt>
+						<dt>
+							<span class="sequence circle"><span class="cricle_center"></span></span>
+							<span><a href="#c">专业技能和经验</a></span>
+						</dt>
+						<dt>
+							<span class="sequence circle"><span class="cricle_center"></span></span>
+							<span><a href="#d">参与项目后工作计划</a></span>
+						</dt>	
+						<dt>
+							<span class="sequence circle"><span class="cricle_center"></span></span>
+							<span><a href="#e" style="color: red;">同意须知</a></span>
+						</dt>
+						<dt>
+							<span class="sequence circle"><span class="cricle_center"></span></span>
+							<span><a href="#f" style="color: red;">提交申请</a></span>
+						</dt>
+					</dl>
+				</div>
+			</div>
+		
+			<!-- 公司大事记时间轴 E -->
+		</div>
+</section>
+<script>
+function applyForProject(){
+		if(!jq("#docid").val()){
+			hyCom.msg("抱歉，加载数据失败，刷新重试");
+			return ;
+		}
+		
+		hyCom.validate(["name" ,"birthplace" , "birthdate" , "school" , "cardID" , "major" , "health" ,"englishLevel" , "edu" , "professionalSkill"  , "plan"]);
+        var	dataParam = hyCom.modelConverter("userModel", ["name" ,"birthplace" , "birthdate" , "school" , "cardID" , "major" , "health" ,"englishLevel" , "edu" , "professionalSkill"  , "plan"]);
+        dataParam["projectModel.projectId"] = jq("#docid").val();
+		if(!jq("#protocol_agree:checked").val()){
+			jq("#protocol_agree_msg").html("请确认已阅读须知，").addClass("validate_msg");
+			return ;
+		}else{
+			jq("#protocol_agree_msg").html("").removeClass("validate_msg");
+		}
+        
+		hyCom.request("/project/join", dataParam, function(data){
+			
+		} , function(){
+			hyCom.msg("申请失败");
+		})
+	}
+</script>
+#parse("/vm/footer.vm")

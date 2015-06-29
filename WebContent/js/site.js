@@ -152,6 +152,101 @@ if( "undefined" == typeof(site) ){
 		
 		alertTips : function( msg ){
 			alert(msg);
+		},
+		
+		openIframe : function(htmlURL){
+			layer.open({
+			    type: 2,
+			    area: ['650px', '440px'],
+			    fix: false, //不固定
+			    maxmin: true,
+			    content: htmlURL 
+			});	
+		},
+		openHtml : function(id){
+			  layer.open({
+			        type: 1,
+			        area: ['600px', '360px'],
+			        shadeClose: true, //点击遮罩关闭
+			        content: $("#"+id).html(),
+			    });
 		}
+	};
+};
+if( "undefined" == typeof(paginate) ){
+	var paginate = {
+		extendConfig : function( config){
+			var localConfig = {
+				selectedNum : config.selectedNum ? config.selectedNum : 1,
+				count : config.count,
+				limit : config.limit ? config.limit: 10 ,
+				pageCount : 1,
+				startNum : 1 , 
+				end : 0 ,
+				searchKey : config.searchKey,
+				url : config.url
+			};
+			
+			localConfig.pageCount = (localConfig.count/localConfig.limit);
+			if(localConfig.count%localConfig.limit > 0){
+				localConfig.pageCount = localConfig.pageCount + 1;
+			}
+			var leftOffset = (localConfig.selectedNum + localConfig.limit/2);
+			if( leftOffset > localConfig.limit ){
+				if(localConfig.pageCount >= leftOffset){
+					localConfig.end = leftOffset - 1;
+				}else{
+					localConfig.end = localConfig.pageCount;
+				}
+			}else{
+				localConfig.end = (localConfig.pageCount > localConfig.limit)? localConfig.limit: localConfig.pageCount;
+			}
+			localConfig.startNum = localConfig.end - localConfig.limit;
+			return localConfig;
+		},
+		
+		init: function( wrapperId, config ){
+			if(config.count < 2){return ;}
+			var localConfig = this.extendConfig(config);
+			
+			var url = localConfig.url + localConfig.searchKey + "&pageNum=";
+			if(!localConfig.searchKey){
+				url = localConfig.url + "pageNum=";
+			}
+				
+			var html = new Array();
+			var end ="</a>";
+			
+			if(localConfig.selectedNum > 1){
+				html.push('<a href="');
+				html.push(url + (localConfig.selectedNum - 1));
+				html.push('" class="n">&lt;上一页</a>');
+			}
+			
+			for(var i= localConfig.startNum ; i <= localConfig.end; i++){
+				if(i == localConfig.selectedNum){
+					html.push("<strong");
+					end ="</strong>"; 
+				}else{
+					html.push("<a href=");
+					html.push(url + i);	
+				}
+				
+				html.push('><span class="pc">');
+				html.push(i);
+				html.push("</span>");
+				html.push(end);
+			}
+			
+			if(localConfig.selectedNum <  localConfig.end){
+				html.push('<a href="');
+				html.push(url + (localConfig.selectedNum + 1));
+				html.push('" class="n">下一页&gt;</a>');
+			}
+			
+			document.getElementById(wrapperId).innerHTML = html.join("");
+		}
+		
+		
 	};
 };

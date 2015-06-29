@@ -3,29 +3,33 @@
 <head>
 <meta charset="UTF-8" />
 <link style="text/css" rel="stylesheet" href="css/menu.css" />
-<link style="text/css" rel="stylesheet" href="css/main.css" />
+<link style="text/css" rel="stylesheet" href="css/main1.css" />
 <link style="text/css" rel="stylesheet" href="css/page.css" />
 <link style="text/css" rel="stylesheet" href="css/result.css" />
 
 
 <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/layer/layer.js"></script>
+<script type="text/javascript" src="js/hy.com.js"></script>
+<script type="text/javascript" src="js/hy.user.common.js"></script>		
+
 <script type="text/javascript" src="js/site.js"></script>
 </head>
 
 <body>
-	<div id="wrapper">
+	<div class="body_fixed_header">
 		<header>
 			<section id="title">
-				<img src="../images/yxylogo.png" alt="logo" title="logo" />
-				<h2>迪格学院</h2>
+				<img src="images/yxylogo.png" alt="logo" title="logo" />
+				<h2>迪格学苑</h2>
 			</section>
 	
 			<nav class="menu bolder">
 				<ul>
-					<li><a href="#">首页</a></li>
-					<li><a href="#">学习</a></li>
-					<li><a href="#">研究</a></li>
-					<li><a href="#">成才</a></li>
+					<li><a href="index">首页</a></li>
+					<li><a href="search?resType=1">学习</a></li>
+					<li><a href="search?resType=2">研究</a></li>
+					<li><a href="search?resType=3">成才</a></li>
 				</ul>
 			</nav>
 			<form class="search" action="#" method="post">
@@ -33,10 +37,21 @@
 				<input type="text" name="search_content" id="search_content" placeholder="Search" />
 			</form>
 			<section id="regist_login">
-				<ul>
-					<li><a href="#">${data.userName}</a></li>
-				</ul>
+				#if( $uname )
+					<ul>
+						<li><a id="userLogin" href="user/center">${uname}</a></li>
+						<li><a href="#" onclick="hyUserCom.signout();">退出</a></li>
+					</ul>
+				#else
+					<ul>
+						<li><a href="#" onclick="hyUserCom.loginDialog();">登录</a></li>
+						<li><a href="#" onclick="hyUserCom.registDialog();">注册</a></li>
+					</ul>
+				#end
 				<!-- end login regist -->
 			</section>
 		</header>
-
+	</div>
+	<div id="wrapper">
+		
+		

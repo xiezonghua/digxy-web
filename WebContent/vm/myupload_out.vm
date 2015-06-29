@@ -1,0 +1,41 @@
+#parse("/vm/header_out.vm")
+<nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="index.html">迪格学院</a></li>
+				<li>我的文档</li>
+			</ul>
+		</nav>
+		<section class="aside_article">
+			<article>
+				<section>
+					<p class="clearfix" id="tab_header_res">
+						<span class="tab1 tab_unselected" ><a href="user?id=${data.id}">用户首页</a></span>
+						<span class="tab1 tab_selected" ><a href="userfile?id=${data.id}">用户文档</a></span>
+						<span class="tab1 tab_unselected" ><a href="userat?id=${data.id}">关注</a></span>
+						<span class="tab1 tab_unselected"><a href="usershare?id=${data.id}">分享</a></span>
+
+					</p>
+					<section id="tab_detail_res">
+						<div>
+							#if( $data.size() > 0)
+							#foreach($elem in ${data})
+							<section class="basic_article">
+								<p class="article_title"><a href="#">${elem.resname}</a><span>分类：${elem.restype}  格式：$strUtils.toStr($elem.resformat,"PDF") 上传时间：$date.format($elem.uploaddate)</span></p>
+								<p class="article_context">${elem.resdescribe}</p>
+							</section>		
+							#end
+							#else
+								<section class="basic_article">
+									<p>暂无数据</p>
+								</section>
+							#end
+						</div>
+						
+					</section>
+						
+				</section>
+			</article>
+		</section>
+	
+#parse("/vm/footer.vm")	

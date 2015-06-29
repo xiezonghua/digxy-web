@@ -1,6 +1,7 @@
 package com.huayu.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.huayu.bo.Resources;
 import com.huayu.constant.ResourceAuditStatusEnum;
@@ -15,6 +16,8 @@ public interface ResourcesService extends BasicService<Resources, Long> {
 	
 	public List<Resources> queryResources( Pagination pageInfo , Byte resType );
 	
+	public List<Resources> queryResources(Map<String , Object> query);
+	
 	public List<Resources> queryResourcesDownload(Long userId , ResourceAuditStatusEnum resStaus , Pagination pageInfo);
 	
 	public List<Resources> queryWhoDownload(Long userId , Pagination pageInfo );
@@ -24,4 +27,8 @@ public interface ResourcesService extends BasicService<Resources, Long> {
 	public Long queryResourcesCount(String queryCondition , Long userId , Byte resType ,  ResourceAuditStatusEnum auditStatus);
 	
 	public Long queryResourcesCount(String queryCondition , Long userId , Byte[] includeTypes,  ResourceAuditStatusEnum auditStatus);
+	
+	public Long queryResourcesCount( Long userId  ,  ResourceAuditStatusEnum auditStatus);
+	
+	public Long queryResourcesCount(Map<String,Object> query);
 }

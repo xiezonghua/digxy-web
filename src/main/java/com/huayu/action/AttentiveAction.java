@@ -29,7 +29,8 @@ public class AttentiveAction  extends BasicModelAction{
 			setStautsInfo("attentive add failure! because followerId is null");
 			return SUCCESS;
 		}
-		
+		attentiveModel.setFollowerId(getUserId());
+		attentiveModel.setFollowerName(getUserName());
 		service.add(DigxyBoConverter.toGuanzhu(attentiveModel));
 		
 		return SUCCESS;

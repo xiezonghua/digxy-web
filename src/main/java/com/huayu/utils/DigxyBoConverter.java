@@ -17,7 +17,6 @@ public class DigxyBoConverter {
 		User user = new User();
 		
 		user.setId(model.getId());
-		user.setName(model.getUserName());
 		user.setNic(model.getPetName());
 		user.setYhm(model.getUserName());
 		user.setPwd(model.getPassword());
@@ -26,7 +25,21 @@ public class DigxyBoConverter {
 		user.setPhone(model.getPhone());
 		user.setSfz(model.getCardID());
 		user.setJianjie(model.getProfile());
-
+		
+		user.setRole(model.getRole());
+		user.setLev(model.getLevel());
+		
+		//project apply
+		user.setName(model.getName());
+		user.setJiguan(model.getBirthplace());
+		user.setCsrq(model.getBirthdate());
+		user.setJdyuanxiao(model.getSchool());
+		user.setZhuanye(model.getMajor());
+		user.setJkzk(model.getHealth());
+		user.setEnglishlevel(model.getEnglishLevel());
+		user.setEdu(model.getEdu());
+		user.setZyjn(model.getProfessionalSkill());
+		user.setGzjh(model.getPlan());
 		return user;
 	}
 	
@@ -36,7 +49,8 @@ public class DigxyBoConverter {
 		model.setId(user.getId());
 		model.setUserName(user.getYhm());
 		model.setPetName(user.getNic());
-		model.setPassword(user.getPwd());
+		model.setImgSrc(user.getYhtp());
+//		model.setPassword(user.getPwd());
 		
 		model.setEmail(user.getEmail());
 		model.setImessager(user.getQq());
@@ -44,6 +58,19 @@ public class DigxyBoConverter {
 		model.setCardID(user.getSfz());
 		model.setProfile(user.getJianjie());
 		model.setRegtime(user.getZcsj());
+		model.setRole(user.getRole());
+		model.setLevel(user.getLev());
+		
+		model.setName(user.getName());
+		model.setBirthplace(user.getJiguan());
+		model.setBirthdate(user.getCsrq());
+		model.setSchool(user.getJdyuanxiao());
+		model.setMajor(user.getZhuanye());
+		model.setHealth(user.getJkzk());
+		model.setEnglishLevel(user.getEnglishlevel());
+		model.setEdu(user.getEdu());
+		model.setProfessionalSkill(user.getZyjn());
+		model.setPlan(user.getGzjh());
 		
 		return model;
 	}
@@ -111,3 +138,4 @@ public class DigxyBoConverter {
 	} 
 
 }
+

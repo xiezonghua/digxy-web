@@ -1,0 +1,166 @@
+#parse("/vm/header_out.vm")
+
+		<nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="index">迪格学苑</a></li>
+				<li>${data.res.resname}</li>
+			</ul>
+		</nav>
+		
+		    <script type="text/javascript" src="flex/flexpaper.js"></script>
+   		    <script type="text/javascript" src="flex/flexpaper_handlers.js"></script>
+		    <script type="text/javascript" src="js/comment.js"></script>
+		    
+		<section id="standard_lr_show">
+			<article>
+				<section>
+					<p class="content_title">
+						<span><img src="http://www.digxy.com/Images/image/PDF.png" /><strong>${data.res.resname}</strong></span>
+					</p>
+					<p class="title_seconder" style="text-align:right;">分类：     浏览：${data.res.clicktimes}次     </p>
+					<div class="content_show"  id="flashcontent" > </div>
+					 <script type="text/javascript">
+                                jq('#flashcontent').FlexPaperViewer(
+						            { config : {
+						                SWFFile : 'upload/${data.res.respath}/swf/${data.res.ressrc}.swf',
+						                Scale : 0.6,
+						                ZoomTransition : 'easeOut',
+						                ZoomTime : 0.5,
+						                ZoomInterval : 0.2,
+						                FitPageOnLoad : true,
+						                FitWidthOnLoad : false,
+						                FullScreenAsMaxWindow : false,
+						                ProgressiveLoading : true,
+						                MinZoomSize : 0.2,
+						                MaxZoomSize : 5,
+						                SearchMatchAll : false,
+						                InitViewMode : 'Portrait',
+						                RenderingOrder : 'flash',
+						                StartAtPage : '',
+										jsDirectory : 'tools/flex/',
+						                ViewModeToolsVisible : true,
+						                ZoomToolsVisible : true,
+						                NavToolsVisible : true,
+						                CursorToolsVisible : true,
+						                SearchToolsVisible : true,
+						                WMode : 'window',
+						                localeChain: 'en_US'
+						            }}
+						    );
+						    
+				    </script>
+					<section class="toolbox_header" >
+					<nav class=" toolbox " style="text-align: left;">
+						<ul>
+						<li><span>下载</span></li>
+						<li><span>分享</span></li>
+						<li><span style="cursor: pointer;" onclick="site.openIframe('comment/index?commentModel.resId=${data.res.id}')">评论(${data.commentCount})</span></li>
+						<li><span>浏览(${data.res.clicktimes})</span></li>
+					</ul>
+					</nav>
+					</section>
+				</section>	
+				
+				<section class="result_comment">
+					<p class="result_header">评论一下</p>
+					<section class="clearfix">
+						<section class="layout_left">								
+							<input type="text"  class="hidden" id="resId" />
+							<textarea rows="5" cols="80" id="content" placeholder="写点评论支持下文档贡献者~"   ></textarea>
+							<p class="layout_right">250</p>
+						</section>
+						<input type="button" onclick="comment.add(${data.res.id})" value="评一下" style="margin:5px;;width:5em;height:5em;" />
+					</section>
+				</section>
+				<section>
+					<section style="position: fixed; padding: 10px; background-color: #27AE60; top: 150px; width: 20px;left: 160px; ">
+					<a href="project/apply?id=${data.res.id}&name=${data.res.resname}" target="_blank">	<span style="color:#fff;">参与此项目</span></a>
+					</section>
+					<section style="position: fixed; padding: 10px; background-color: #e74c3c; top: 310px; width: 20px;left: 160px; ">
+						<a href="res/new" target="_blank"><span style="color:#fff;">发布新项目</span></a>
+					</section>
+				</section>
+			</article>
+			<aside>
+				<section class="owner_info">
+					<section class="clearfix">
+						<img src="images/portrait/${data.uploader.setImgSrc}" title="" />
+						<p><a href="user?id=${data.uploader.id}">${data.uploader.petName}</a></p>
+						<p>文档数：<span>15</span></p>
+						<p>关注：<span>0</span></p>
+							<p><a href="#" onclick="user.attentive(${data.res.uploaderid} , '${data.uploader.petName}' , 'attentiveId');" id="attentiveId">关注</a> 
+							<a href="#" onclick="message.openDialog(${data.res.uploaderid} , '${data.uploader.petName}')">发私信</a></p>
+					</section>
+					<p>该文档贡献者很忙，什么也没留下。</p>
+				
+				</section>
+				<section class="resource_list">
+					<p class="clearfix"><span class="layout_left font_bold">项目参与者列表</span>
+						
+						#if($data.attenders.size() > 5)
+							<span class="layout_right"><a href="search?resType=${data.res.restype}">更多</a></span>
+						#end
+					</p>
+					<nav>
+						<ul>
+							#if($data.attenders.size() > 0)
+							#foreach($elem in ${data.attenders})
+					
+							<li><a href="user?id=${elem.attenderId}">${elem.attenderPetName}</a></li>
+							#end
+							#else
+								<li>暂无数据</li>
+							#end	
+						</ul>
+					</nav>
+				</section>
+				<section class="resource_list">
+					<p class="clearfix"><span class="layout_left font_bold">同系列文档</span>
+						
+						#if($data.relationHots.size() > 5)
+							<span class="layout_right"><a href="search?resType=${data.res.restype}">更多</a></span>
+						#end
+					</p>
+					<nav>
+						<ul>
+							#if($data.relationHots.size() > 0)
+							#foreach($elem in ${data.relationHots})
+					
+							<li><a href="page?id=${elem.id}">${elem.resname}</a></li>
+							#end
+							#else
+								<li>暂无数据</li>
+							#end	
+						</ul>
+					</nav>
+				</section>
+				<section class="resource_list">
+					<p class="clearfix"><span class="layout_left font_bold">分享资料</span>
+						
+						#if($data.uploaderHots.size() > 5)
+						<span class="layout_right"><a href="#">更多</a></span>
+						#end
+					</p>
+					<nav>
+						<ul>
+							#if($data.uploaderHots.size() > 0)
+							#foreach($elem in ${data.uploaderHots})
+					
+							<li><a href="page/result?id=${elem.id}">${elem.resname}</a></li>
+							#end
+							#else
+								<li>暂无数据</li>
+							#end	
+						</ul>
+					</nav>
+				</section>
+			</aside>
+		</section>
+	
+	<script type="text/javascript" src="js/message.js"></script>
+	<script type="text/javascript" src="js/message.js"></script>
+	<script>
+		comment.init();
+	</script>
+#parse("/vm/footer.vm")	

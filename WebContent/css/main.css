@@ -8,14 +8,21 @@
 .layout_right {
 	float: right;
 }
+.layout_left {
+	float: left;
+}
+		
+.text_right {
+	text-align: right;
+}
+.text_left {
+	text-align: left;
+}
 
 .font_bold {
 	font-weight: 700;
 }
 
-.layout_left {
-	float: left;
-}
 
 .hidden {
 	display: none;
@@ -280,9 +287,9 @@ section#resource_repository {
 	overflow: hidden;
 }
 
-section#resource_repository  section+section{
+section#resource_repository  section+section {
 	border-top: 5px solid #19A97B;
-} 
+}
 
 .resource_area article { /*四本书四栏*/
 	float: left;
@@ -467,25 +474,24 @@ footer a:hover {
 	color: #777;
 }
 
-.foot_li{
-	padding:5px 10px;
+.foot_li {
+	padding: 5px 10px;
 }
 
-.foot_li label{
-	float:left;
-	color:#00a;
-	letter-spacing:0.09em;
+.foot_li label {
+	float: left;
+	color: #00a;
+	letter-spacing: 0.09em;
 	font-weight: 600;
-	font-size:0.9em;
+	font-size: 0.9em;
 }
 
 .foot_li section {
-	float:left;
-	font-size:0.9em;
+	float: left;
+	font-size: 0.9em;
 }
 
-
-.foot_law{
+.foot_law {
 	text-align: center;
 }
 /*footer css document end*/
@@ -584,12 +590,120 @@ nav.navigation {
 	padding: 20px 20px;
 }
 
-.pop_title{
+.pop_title {
 	font-weight: 600;
 }
 
-.pop_close{
-	float:right; 
-	cursor:pointer;
+.pop_close {
+	float: right;
+	cursor: pointer;
 }
 /* pop windows end*/
+
+/* pagination begin*/
+.page {
+	font: 14px arial;
+	white-space: nowrap;
+	padding-top:10px;
+	padding-left: 35px;
+}
+
+.page .n {
+	height: 28px;
+	padding: 0 18px;
+	border: 1px solid #e1e2e3;
+}
+
+.page a {
+	cursor: pointer;
+}
+
+.page .pc {
+	width: 28px;
+	height: 28px;
+	border: 1px solid #e1e2e3;
+	cursor: pointer;
+}
+
+.page span {
+	display: block;
+}
+
+.page a,.page strong {
+	display: inline-block;
+	vertical-align: text-bottom;
+	text-align: center;
+	line-height: 28px;
+	text-decoration: none;
+	overflow: hidden;
+	margin-right: 9px;
+	background: white;
+}
+
+.page strong .pc {
+	border: 0;
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+}
+/* pagination end*/
+
+/* comment of user begin*/
+.result_comment{
+	border:1px solid ;
+	margin:5px 0px;
+}
+
+.result_header{
+	padding:5px;
+	margin-bottom:5px;
+	border:1px solid #fff;	
+	background-color: #e5eef8;
+	font-size: 0.9em;
+		
+}
+.user_comment{
+	padding:12px;
+	border-bottom: 1px solid #ccc;
+}
+
+.user_comment .say_content{
+	font-size: 0.9em;
+}
+
+.title_dash{
+	display: inline-block;
+	width:40px;
+	border:1px dashed #aaa;
+	margin: 0.4em;
+}
+
+.user_comment .user_title{
+	text-align: right;
+	font-size:0.7em;
+	letter-spacing: 0.08em;
+	font-style: italic;
+}
+
+.user_comment .comment_title{
+	font-size:0.7em;
+	letter-spacing: 0.08em;
+	font-style: italic;
+	padding-bottom: 5px;
+}
+
+/* comment of user end*/
+
+.toolbox_header{
+	padding:0;
+	border:1px solid #fff;	
+	background-color: #e5eef8;
+	font-size: 0.9em;
+}
+
+/* Button begin */
+.btn{
+	
+}
+
+/* Button end */

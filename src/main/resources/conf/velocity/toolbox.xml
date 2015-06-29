@@ -10,4 +10,9 @@
 		<scope>application</scope>
 		<class>com.huayu.platform.util.DateUtils</class>
 	</tool>
+	<tool>
+		<key>mapUtils</key>
+		<scope>application</scope>
+		<class>com.huayu.platform.util.MapUtils</class>
+	</tool>
 </toolbox>

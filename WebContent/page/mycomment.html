@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link style="text/css" rel="stylesheet" href="../css/main.css" />
+
+<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../js/comment.js"></script>
+</head>
+
+<body>
+	<div class="result_header">
+		共计 <span style="color:blue;font-style:italic;font-size:0.8em;">2000</span> 条评论
+	</div>
+	
+	<div >
+		<section class="user_comment">
+			<p class="comment_title"><span class="title_dash"></span><a href="#">用户一</a> , &nbsp;&nbsp;评论于：2014-12-10 <span><a herf="">删除<a></span></p>
+			<p class="say_content">他说我们都是好孩子</p>
+		</section>
+		<section class="user_comment">
+			<p class="comment_title"><span class="title_dash"></span><a href="#">用户一</a> , &nbsp;&nbsp;评论于：2014-12-10</p>
+			<p class="say_content">他说我们都是好孩子</p>
+		</section>
+		<section class="user_comment">
+			<p class="comment_title"><span class="title_dash"></span><a href="#">用户一</a> , &nbsp;&nbsp;评论于：2014-12-10</p>
+			<p class="say_content">他说我们都是好孩子</p>
+		</section>
+		<section class="user_comment">
+			<p class="comment_title"><span class="title_dash"></span><a href="#">用户一</a> , &nbsp;&nbsp;评论于：2014-12-10</p>
+			<p class="say_content">他说我们都是好孩子</p>
+		</section>
+		<section class="user_comment">
+			<p class="comment_title"><span class="title_dash"></span><a href="#">用户一</a> , &nbsp;&nbsp;评论于：2014-12-10</p>
+			<p class="say_content">他说我们都是好孩子</p>
+		</section>
+		
+		<div>
+			<section>
+				<label>To:</label>
+				<input type="text" id="senderId" name="senderId" class="hidden"/>
+				<input type="text" name="sender" id="sender" disabled="disabled" />
+			</section>
+			<section>
+				<label>标题:</label>
+				<input type="text" name="title" id="title"  />
+			</section>
+			<section>
+				<label>内容:</label>
+				<textarea rows="5" cols="20" id="content" name="content"></textarea>
+			</section>
+			<section>
+				<input type="button" value="发送" />
+			</section>
+		</div>
+		
+	</div>
+	
+	<div id="page" class="page"></div>
+<script type="text/javascript">
+paginate.init("page",{
+	selectedNum: 11,
+	count: 140,
+	searchKey : "",
+	url : "/search?"
+});
+</script>
+</body>
+</html>

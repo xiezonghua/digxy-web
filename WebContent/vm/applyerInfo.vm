@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link style="text/css" rel="stylesheet" href="../css/main1.css" />
+</head>
+<body>
+
+<section class="table_page">
+		
+		<section class="page_content">
+			
+				<section>
+					<table cellpadding="1" cellspacing="0">
+						<tbody>
+							<tr>
+								<td id="a" colspan="4" class="field_title">基本资料</td>
+							</tr>
+							<tr>
+								<td class="t_td">姓名</td>
+								<td style="width: 200px;">
+									$strUtils.toStr(${data.name})
+								</td>
+								<td class="t_td">性别</td>
+								<td style="width: 200px;">
+									#if( $data.sex == 1)
+										男
+									#else
+										女
+									#end
+								</td>
+							</tr>
+							<tr>
+								<td class="t_td">籍贯</td>
+								<td>
+									$strUtils.toStr(${data.birthplace})	
+								</td>
+								<td class="t_td">出生年月</td>
+								<td>
+									$date.format($data.birthdate)	
+								</td>
+							</tr>
+							<tr>
+								<td class="t_td">当前就读院校</td>
+								<td>
+									$strUtils.toStr($data.school)	
+								</td>
+								<td class="t_td">身份证号</td>
+								<td>
+									$strUtils.toStr($data.cardID)
+								</td>
+							</tr>
+							<tr>
+								<td class="t_td">专业</td>
+								<td>
+									$strUtils.toStr($data.major)
+								</td>
+								<td class="t_td">健康状况</td>
+								<td>
+									$strUtils.toStr($data.health)
+								</td>
+							</tr>
+							<tr>
+								<td class="t_td">英语水平</td>
+								<td colspan="3">	
+									$strUtils.toStr($data.englishLevel)
+								</td>
+							</tr>
+							<tr>
+								<td id="b" colspan="4" class="field_title">
+									 此前教育经历
+								</td>
+							</tr>
+							<tr>
+								<td colspan="4">
+									$strUtils.toStr($data.edu)
+									<p>&nbsp;</p>
+								</td>
+							</tr>
+							<tr>
+								<td id="c" colspan="4" class="field_title">
+									专业技能和经验<a name="4"></a>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="4">
+									$strUtils.toStr($data.professionalSkill)
+									<p>&nbsp;</p>
+								</td>
+							</tr>
+							<tr>
+								<td id="d" colspan="4" class="field_title" >
+									参与项目后工作计划<a name="5"></a>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="4">
+									$strUtils.toStr($data.plan)	
+									
+									<p>&nbsp;</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+		</section>
+
+
+		<div class="page_catalog" class="hidden">
+			<div class="history">
+				<div class="history-date">
+					<dl>
+						<dt>
+							<span class="sequence circle"><span class="cricle_center"></span></span>
+							<span><a href="#a" style="color: red;">基本信息</a></span>
+						</dt>
+						<dt>
+							<span class="sequence circle"><span class="cricle_center"></span></span>
+							<span><a href="#b">此前教育经历 </a></span>
+						</dt>
+						<dt>
+							<span class="sequence circle"><span class="cricle_center"></span></span>
+							<span><a href="#c">专业技能和经验</a></span>
+						</dt>
+						<dt>
+							<span class="sequence circle"><span class="cricle_center"></span></span>
+							<span><a href="#d">参与项目后工作计划</a></span>
+						</dt>	
+					</dl>
+				</div>
+			</div>
+		
+			<!-- 公司大事记时间轴 E -->
+		</div>
+</section>
+
+</body>
+</html>

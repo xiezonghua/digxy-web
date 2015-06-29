@@ -1,8 +1,15 @@
 #parse("/vm/header.vm")
 
+<nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="index.html">迪格学院</a></li>
+				<li>帮助中心</li>
+			</ul>
+		</nav>
 <section class="aside_article">
 			<aside  >
-				#set($curPage = "myfiles")
+				#set($curPage = "helper")
 				#parse("/vm/user_nav.vm")			
 			</aside>
 			<article>

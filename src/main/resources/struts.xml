@@ -13,10 +13,17 @@
 		<result-types>
 			<result-type name="json" class="org.apache.struts2.json.JSONResult" />
 		</result-types>
-	<!-- 	<interceptors>
+		<interceptors>
 			<interceptor name="authCheckFilter" class="com.huayu.filter.AuthCheckFilter"></interceptor>
+			<interceptor-stack name="hy-default">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="authCheckFilter"></interceptor-ref>
+			</interceptor-stack>
 		</interceptors>
-		<default-interceptor-ref name="authCheckFilter">			
-		</default-interceptor-ref> -->
+		<default-interceptor-ref name="hy-default">			
+		</default-interceptor-ref>
+		<global-results>
+			<result name="login" type="redirect" >/index?login</result>
+		</global-results>
 	</package>
 </struts>

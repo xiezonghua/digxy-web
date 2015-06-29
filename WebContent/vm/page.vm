@@ -7,43 +7,57 @@
 			</ul>
 		</nav>
 		
-		<section style="text-align:center;padding:1em;">
+		<section style="text-align:center;">
 				<form method="get" action="search">
-					<input id="searchKey" name="searchKey"  type="text" value="$searchKey" style="width: 20em;line-height:2em;" /> <input type="submit" id="searchSubmit" style="padding:5px" value="搜一下" />
-				<section>
-						<label for="all">全部</label>
+					<div>
 						<input type="checkbox"  name="type" id="type" value="0" $strUtils.isNull($resType, "checked") />
-						<label for="study">study</label>
+						<label for="all">全部</label>
 						<input type="checkbox" name="resType" id="study" value="1" $strUtils.contain($resType,'1',"checked") />
-						<label for="research">研究</label>
+						<label for="study">study</label>
 						<input type="checkbox" name="resType" id="research" value="2" $strUtils.contain($resType,'2',"checked") />
-						<label for="grower">成才</label>
+						<label for="research">研究</label>
 						<input type="checkbox" name="resType" id="grower" value="3" $strUtils.contain($resType,'3',"checked") />
-				</section>
+						<label for="grower">成才</label>
+					</div>
+					<input id="searchKey" name="searchKey"  type="text" value="$strUtils.toStr($searchKey)" style="width: 20em;line-height:2em;" /> <input type="submit" id="searchSubmit" style="padding:5px" value="搜一下" />
+			
 				</form>
 		</section>
-	  	<section id="label_area">
+		#if( $data.keywords.size() > 0 )
+	  	<section id="label_area" >
 			<div>
 				<label >热点关键词：</label>
-				<span class="label_unselected" onclick="page.searchKey('全部')">全部</span>
-				<span class="label_selected" onclick="page.searchKey('全部')">热点</span>
-				<span class="label_unselected" onclick="page.searchKey('全部')">学习</span>
-				<span class="label_unselected" onclick="page.searchKey('全部')">研究</span>
-				<span class="label_unselected" onclick="page.searchKey('全部')">成才</span>
+				#foreach($elem in ${data.keywords} )
+				<span $strUtils.equalsReturn(${elem.keywords}, $searchKey,"class='label_selected'") onclick="page.searchKey('${elem.keywords}')">${elem.keywords}</span>
+				#end
 			</div>
 		</section>
-		<p>查询 $strUtils.toStr($searchKey)（找到约${data.count}篇）</p>		
+		#end
+		<p style="font-size:.8em;">查询 $strUtils.toStr($searchKey)（找到约${data.count}篇）</p>		
 		<section id="search_result_area">
 			#if( $data.results.size() > 0)
 			#foreach($elem in ${data.results})
 			<article class="result_area">
-				<img src="${elem.ressrc}" />
+				#if( $elem.restype == 2)
+				<a href="presult?id=${elem.id}">
+				#else
+				<a href="result?id=${elem.id}">
+				#end
+				
+				<img src="$strUtils.toStr(${elem.ressrc1},'images/doc/default.png')" />
+				</a>
 				<div>
 					<p class="search_result_title">
-						<a href="result?id=${elem.id}">${elem.resname}</a>
+						#if( $elem.restype == 2)
+				<a href="presult?id=${elem.id}">
+				#else
+				<a href="result?id=${elem.id}">
+				#end
+				 ${elem.resname} </a>
 					</p>
 					<p class="search_result_desc">${elem.resdescribe} </p>
 				</div>
+				
 				<aside>
 					<p><strong>分类：</strong>${elem.restype}</p>
 					<p><strong>浏览：</strong>${elem.clicktimes}次 </p>
@@ -68,12 +82,19 @@
 			 	<p> 暂无数据 </p>	
 			#end	
 			#if( $data.results.size() > 10)
-			  <div class="pagiation">
-                <div style="float: right; font-size: 12px; margin-top: 5px;">
-                   <span style='display:none'>页次:<font color='red'>"<font color='black'>", "</font>页&nbsp;</span>", "<span style='display:none'>&nbsp;每页<font color='red'>", "</font>条&nbsp;</span>", "<span style='display:none;'>>&nbsp;共<font color='red'>", "</font>个记录&nbsp;</span>", "首页", "上一页", "下一页", "尾页", "&nbsp;", "<font>", "</font>", "<font>", "</font>", "", "", "&nbsp;", "&nbsp;", '<%=Session["tzCount"] %>', 20, 4)
-                   
-                </div>
-            </div>
+				<div id="pagination"  class="page">
+				</div> 
+				<script type="text/javascript">
+					paginate.init("pagination" , {
+						selectedNum: $pageNum,
+						count: ${data.count},
+						searchKey : window.location.search,
+						url : "search"
+					});
+				</script>
             #end
 		</section>
 	 <script type="text/javascript" src="js/page.js"></script>	
+	 
+
+#parse("/vm/footer.vm")

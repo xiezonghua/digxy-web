@@ -1,0 +1,47 @@
+#parse("/vm/header_out.vm")
+<nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="index.html">迪格学院</a></li>
+				<li>我的分享</li>
+			</ul>
+		</nav>
+<section class="aside_article">
+			<article>
+				<section>
+					<p class="clearfix" id="tab_header_res">
+						<span class="tab1 tab_selected" ><a href="user?id=${data.id}">用户首页</a></span>
+						<span class="tab1 tab_unselected" ><a href="userfile?id=${data.id}">用户文档</a></span>
+						<span class="tab1 tab_unselected" ><a href="userat?id=${data.id}">关注</a></span>
+						<span class="tab1 tab_unselected"><a href="usershare?id=${data.id}">分享</a></span>
+
+					</p>
+					<section id="tab_detail_res">
+						<div>
+							<section class="basic_article">
+								<p><span class="gd_u_title">资源名称</span><span class="gd_u_type">分类</span><span class="gd_u_time">分享时间</span></p>	
+							</section>
+							#if( $data.size() > 0)
+							#foreach($elem in ${data})
+							<section class="mouse_hover basic_article">
+								<p class="article_title">
+									<span class="gd_u_title"><a href="#">${elem.resname}</a></span>
+									<span class="gd_u_type">${elem.restype}</span> 
+									<span class="gd_u_time">$date.format($elem.date) </span>
+								</p>
+							</section>		
+							#end
+							#else
+								<section class="basic_article">
+									<p>暂无数据</p>
+								</section>
+							#end
+						</div>
+						
+					</section>
+						
+				</section>
+			</article>
+		</section>
+	
+#parse("/vm/footer.vm")	

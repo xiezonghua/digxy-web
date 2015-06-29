@@ -1,7 +1,7 @@
 package com.huayu.constant;
 
 public enum ResourceAuditStatusEnum {
-	PASSED(0), NO_PASS(1), PENDING(2);
+	PASSED(1), NO_PASS(2), PENDING(3), PROCESSING(4) , CLASSIFY_INCORRECT(5) , UNCOMPLETENESS(6) ,SYSTEM_FAILURE(7)	;
 	
 	private byte value;
 	
@@ -11,6 +11,16 @@ public enum ResourceAuditStatusEnum {
 	
 	public byte getValue(){
 		return value;
+	}
+	
+	public ResourceAuditStatusEnum getAuditStatus(byte value){
+		for(ResourceAuditStatusEnum elem : ResourceAuditStatusEnum.values()){
+			if(elem.getValue() == value){
+				return elem;
+			}
+		}
+	
+		return null;
 	}
 }
 
