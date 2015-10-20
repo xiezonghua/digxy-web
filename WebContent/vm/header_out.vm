@@ -20,11 +20,13 @@
 	<div class="body_fixed_header">
 		<header>
 			<section id="title">
+			<a href="/digxy/index" style="  text-decoration:none;">	
 				<img src="images/yxylogo.png" alt="logo" title="logo" />
 				<h2>迪格学苑</h2>
+			</a>
 			</section>
 	
-			<nav class="menu bolder">
+			<nav class="menu bolder hidden">
 				<ul>
 					<li><a href="index">首页</a></li>
 					<li><a href="search?resType=1">学习</a></li>
@@ -32,7 +34,7 @@
 					<li><a href="search?resType=3">成才</a></li>
 				</ul>
 			</nav>
-			<form class="search" action="#" method="post">
+			<form class="search hidden" action="#" method="post">
 				<label for="search_content">Search</label> 
 				<input type="text" name="search_content" id="search_content" placeholder="Search" />
 			</form>

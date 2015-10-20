@@ -18,6 +18,7 @@
 }
 
 .text_left {
+	
 	text-align: left;
 }
 
@@ -40,6 +41,31 @@
 	visibility: hidden;
 	clear: both;
 }
+
+.link{
+	cursor: pointer;
+	color: #76f;
+	padding: 0 3px;
+}
+
+.link:HOVER{
+	text-decoration: underline;	
+}
+.article_p >h2,h3,h4{
+	line-height:3em;	
+}
+.article_p > p{
+	text-indent:2em;
+	padding:5px;
+	line-height:1.8em;	
+}
+
+.article_p img{
+	text-align: center;
+	max-width: 650px;
+	padding:2px;
+}
+
 
 body {
 	font-family: "Microsoft YaHei", "微软雅黑", "SimHei", "黑体";
@@ -831,6 +857,70 @@ dt{
 }
 
 /* page table end*/
+
+.basic_btn{
+	padding: 0.4em;
+	line-height: 2em;
+	background-color: #0099CC;
+	border-color: #3399CC;
+	border-radius: 3px 3px 3px 3px;
+	box-shadow: -2px 2px 1px #3399CC;
+	color:#fff;
+}
+
+.basic_btn:HOVER{
+	background-color: #336699;
+	border-color: #ccffff;
+	box-shadow: -2px 2px 1px #336699;
+}
+
+.sponsor_info p{
+	font-size:.9em;
+	line-height: 1.8em;
+}
+
+span.p_header{
+	font-weight: 700;
+}
+
+.tab_ul {
+  height: 58px;
+  border-bottom: 1px solid #CCC;
+}
+
+.tab_ul li {
+  float: left;
+  width: 131px;
+  height: 58px;
+  border-right: 1px solid #dedbdb;
+  background: #fafafa;
+  line-height: 58px;
+  text-align: center;
+  font-size: 16px;
+  font-family: "微软雅黑";
+  cursor: pointer;
+}
+
+.tab_ul .selected{
+	background: #FFF;
+	height: 59px;
+}
+
+li{
+	list-style-type: none;
+}
+
+.project_detail_section{
+	overflow:hidden;
+	margin:12px;
+	padding:12px;
+	border-bottom:1px solid #ccc;
+	font-size:.8em;
+}
+
+.project_detail_section p{
+	padding:0 12px 0 12px;
+}
 
 /*专家在线指导*/
 .mag{font-size:12px;}

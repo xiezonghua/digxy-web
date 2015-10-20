@@ -2,7 +2,7 @@ package com.huayu.constant;
 
 public class ProjectConst {
 	public enum RoleType{
-		SPONSOR((byte)1) , PARTICIPANT((byte)2);
+		SPONSOR((byte)1) , PARTICIPANT((byte)2) , PATRONAGE((byte)3);
 		
 		private Byte value;
 		
@@ -30,7 +30,7 @@ public class ProjectConst {
 	}
 	
 	public enum ProcessStatus{
-		STARTUP((byte)1) ,PROGRESSING((byte)2) , COMPLETED((byte)3)  ;
+		WAITING((byte)1) ,NOT_PASS((byte)2), STARTUP((byte)4) ,PROGRESSING((byte)5) , COMPLETED((byte)6)  ;
 		
 		private Byte value;
 		

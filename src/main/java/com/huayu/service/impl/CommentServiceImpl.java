@@ -84,7 +84,7 @@ public class CommentServiceImpl extends AbstractBasicService<Comment , Long> imp
 	public boolean hasComment(CommentModel model) {
 		Map<String , Object> query = new HashMap<String , Object>();
 		query.put("resId", model.getResId());
-		query.put("id", model.getId());
+		query.put("commenterId", model.getCommenterId());
 		Long count = queryCount(query);		
 		return count > 0 ? true: false;
 		

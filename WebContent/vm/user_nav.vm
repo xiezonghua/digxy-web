@@ -1,34 +1,37 @@
 <nav class="left_menu">
 	<ul>	
 		<li>
-			<a href="#">个人资料</a>
+			<a href="#">个人中心</a>
 			<ul>
 				<li $strUtils.equalsReturn('center', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/user/center')" >个人设置</a></li>
-				<li $strUtils.equalsReturn('myImage', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('')">修改头像</a></li>
-				<li $strUtils.equalsReturn('myattentive', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/user/attentive')">我的关注</a></li>
-				<li $strUtils.equalsReturn('mycollect', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/collecter/my')">我的收藏</a></li>
-				<li $strUtils.equalsReturn('myshared', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/res/myshared')">我的分享</a></li>
-				<li $strUtils.equalsReturn('myproject', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/project/me')">我的项目</a></li>
+				<li $strUtils.equalsReturn('myImage', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/upload/imageindex')">修改头像</a></li>
+				 <li $strUtils.equalsReturn('myattentive', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/user/attentive')">我的关注</a></li> 
+				<!-- <li $strUtils.equalsReturn('mycollect', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/collecter/my')">我的收藏</a></li> -->
+				<!--<li $strUtils.equalsReturn('myshared', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/res/myshared')">我的分享</a></li>
+				<li $strUtils.equalsReturn('myproject', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/p/me')">我的项目</a></li>-->
 				<li $strUtils.equalsReturn('mycomment', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/comment/my')" >我的评论</a></li>
 				<li $strUtils.equalsReturn('mymessage', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/message/myreceive')" >我的消息</a></li>
+				<li $strUtils.equalsReturn('myfiles', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/pr/me')" >我的文档</a></li>
+			<!--	<li $strUtils.equalsReturn('mydownload', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/res/mydownload')" >我的下载</a></li> -->
 			</ul>
 		</li>
-		<li>
+		<!--<li>
 			<a href="#">文档资料</a>
 			<ul>
-				<li $strUtils.equalsReturn('upload', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/res/new')" >我要上传</a></li>
-				<li $strUtils.equalsReturn('myfiles', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/res/passed')" >我的文档</a></li>
-				<li $strUtils.equalsReturn('mydownload', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/res/mydownload')" >我的下载</a></li>
+				 <li $strUtils.equalsReturn('upload', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/res/new')" >我要上传</a></li>
+				<li $strUtils.equalsReturn('myfiles', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/pr/me')" >我的文档</a></li>
+				<li $strUtils.equalsReturn('mydownload', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/res/mydownload')" >我的下载</a></li> 
 			</ul>
-		</li>
+		</li>-->
 		#if($urole != 1)
 		<li>
 			<a href="#">后台管理</a>
 			<ul>
 				<li $strUtils.equalsReturn('usermanage', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/user/m')" >会员管理</a></li>
-				<li $strUtils.equalsReturn('resmanage', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/res/manage')" >文档资源管理</a></li>
-				<li $strUtils.equalsReturn('projectmanage', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/project/m')" >项目管理</a></li>
+				<li $strUtils.equalsReturn('resmanage', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/pr/manage')" >文档资源管理</a></li>
+				<li $strUtils.equalsReturn('projectmanage', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/p/m')" >项目管理</a></li>
 				<li $strUtils.equalsReturn('mailmanage', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/message/m')" >消息管理</a></li>
+				<li $strUtils.equalsReturn('mailmanage', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/message/m')" >信息发布管理</a></li>
 				<li $strUtils.equalsReturn('commentmanage', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/comment/m')" >评论管理</a></li>
 				<li $strUtils.equalsReturn('link', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/link/index')" >友情链接</a></li>
 				<li $strUtils.equalsReturn('keyword', $curPage,"class='li_selected'") ><a href="#" onclick="site.redirect('/key/m')" >关键词管理</a></li>

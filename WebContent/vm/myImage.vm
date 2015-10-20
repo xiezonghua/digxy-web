@@ -1,0 +1,114 @@
+#parse("/vm/header.vm")
+<link style="text/css" rel="stylesheet" href="../css/jquery.Jcrop.min.css" />
+<link style="text/css" rel="stylesheet" href="../css/jquery.fileupload.css" />
+<script type="text/javascript" src="../js/jquery.Jcrop.min.js"></script>
+	
+<script type="text/javascript" src="../js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../js/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="../js/jquery.fileupload.js"></script>
+	<nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="index.html">迪格学院</a></li>
+				<li>我的文档</li>
+			</ul>
+		</nav>
+	<section class="aside_article">
+			<aside >
+				#set($curPage = "myImage")
+				#parse("/vm/user_nav.vm")		
+			</aside>
+	
+
+			<article>
+				<p style="font-size:1.1em;font-weight: 700;padding:5px;">设置新头像</p>
+				<form id="fileupload"  action="portrait" method="post" enctype="multipart/form-data">  
+			        <div class="fileupload-buttonbar">
+			    		<span class="btn btn-success fileinput-button">
+					        <i class="glyphicon glyphicon-plus"></i>
+					        <span>选择照片</span>
+					        <!-- The file input field used as target for the file upload widget -->
+					        <input class="photo-file" type="file" name="myFile"  onchange="readURL(this);" />  
+					    </span>
+					    <button type="submit" class="btn btn-primary start">
+		                    <i class="glyphicon glyphicon-upload"></i>
+		                    <span>Start upload</span>
+		                </button>
+		                 <span class="fileupload-process"></span>
+		                    <input type="hidden" id="originX" name="originX" />  
+				        <input type="hidden" id="originY" name="originY" />  
+				        <input type="hidden" id="destX" name="destX" />  
+				        <input type="hidden" id="destY" name="destY" />  
+				        <input type="hidden" id="busId" name="busId" value="1"/>
+				     </div>
+			    </form>	
+			       <p>使用真实照片，展现真我风采！支持jpg、jpeg、gif、png、bmp格式在大照片中裁剪最满意的部分。</p>
+				    <!-- The global progress bar -->
+				    <div id="progress" class="progress">
+				        <div class="progress-bar progress-bar-success"></div>
+				    </div>
+				    <div id="fileMsg">
+				    </div>
+			      
+			    <div style="width: 400px; height: 400px;" id="imageDiv">
+				    <img alt="" src="" id="displayImg" />  
+			    </div>
+			</article>
+		</section>
+		
+	</section>
+	  
+      
+    
+    <script type="text/javascript">
+    function readURL(input) {
+     	if(typeof FileReader==='undefined'){ 
+   			 $("#imageDiv").html( "抱歉，你的浏览器不支持 FileReader"); 
+   	   		 return ;
+   		}
+     	
+        if (input.files && input.files[0]) {
+       
+        	
+            var reader = new FileReader();
+			
+            reader.onload = function (e) {
+            	if(e.total > 2097152){
+            		window.alert("图片超过2M，请重新选择");
+            		return;
+            	}
+            	// $('#displayImg').removeAttr('src');
+               //  $('#displayImg').attr('src', e.target.result);
+                $("#imageDiv").html('<img  id="displayImg" src="'+this.result+'" alt=""/>'); 
+                var api = $('#displayImg').Jcrop({
+                	setSelect: [ 20, 20, 200, 200 ],
+                 	aspectRatio: 1,
+					onSelect: updateCoords,
+					boxWidth: 400,
+               		boxHeight:400
+					}
+	            );
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+        
+        
+    }
+    
+    function updateCoords(c){	
+		$('#originX').val(parseInt(c.x));
+		$('#originY').val(parseInt(c.y));
+		$('#destX').val(parseInt(c.w));
+		$('#destY').val(parseInt(c.h));
+	};
+	
+		
+		
+	
+		
+
+			
+	</script>
+	
+#parse("/vm/footer.vm")	

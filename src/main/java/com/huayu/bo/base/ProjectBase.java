@@ -4,39 +4,84 @@ import java.util.Date;
 
 public class ProjectBase {
 	/**
-	*  KEY ID
+	*  key id
 	*/
 	private Long id ; 
 
 	/**
-	*  resource id
+	*  project name
 	*/
-	private Long resId ; 
+	private String name ; 
 
 	/**
-	*  attender id
+	*  description
 	*/
-	private Long attenderId ; 
+	private String description ; 
 
 	/**
-	*  create date time
+	*  who upload the resource
 	*/
-	private Date applyDate ; 
+	private Long sponsor ; 
 
 	/**
-	*  attender role
+	*  upload date
 	*/
-	private Byte role ; 
+	private Date uploadDate ; 
 
 	/**
-	*  state , 1 apply , 2 : working 3:completed 
+	*  who check the resource
 	*/
-	private Byte state ; 
+	private Long checker ; 
 
 	/**
-	*  error info
+	*  check date
 	*/
-	private String msg ; 
+	private Date checkDate ; 
+
+	/**
+	*  passed , waiting , failure
+	*/
+	private Byte status ; 
+
+	/**
+	*  check message
+	*/
+	private String checkMsg ; 
+
+	/**
+	*  what time the project begin in plan
+	*/
+	private Date beginDatetime ; 
+
+	/**
+	*  what time the project end in plan
+	*/
+	private Date endDatetime ; 
+
+	/**
+	*  attender limit
+	*/
+	private Integer attenderLimit ; 
+
+	/**
+	*  plan document
+	*/
+	private String planDoc ; 
+
+	/**
+	*  foster plan document
+	*/
+	private String fosterDoc ; 
+
+	/**
+	*  talents document
+	*/
+	private String talentsDoc ; 
+
+	/**
+	*  project handle status
+	*/
+	private Byte processStatus ; 
 
 
 	public void setId(Long id){
@@ -47,52 +92,124 @@ public class ProjectBase {
 		return id;
 	}  
 
-	public void setResId(Long resId){
-		this.resId = resId;
+	public void setName(String name){
+		this.name = name;
 	} 
 
-	public Long getResId(){
-		return resId;
+	public String getName(){
+		return name;
 	}  
 
-	public void setAttenderId(Long attenderId){
-		this.attenderId = attenderId;
+	public void setDescription(String description){
+		this.description = description;
 	} 
 
-	public Long getAttenderId(){
-		return attenderId;
+	public String getDescription(){
+		return description;
 	}  
 
-	public void setApplyDate(Date applyDate){
-		this.applyDate = applyDate;
+	public void setSponsor(Long sponsor){
+		this.sponsor = sponsor;
 	} 
 
-	public Date getApplyDate(){
-		return applyDate;
+	public Long getSponsor(){
+		return sponsor;
 	}  
 
-	public void setRole(Byte role){
-		this.role = role;
+	public void setUploadDate(Date uploadDate){
+		this.uploadDate = uploadDate;
 	} 
 
-	public Byte getRole(){
-		return role;
+	public Date getUploadDate(){
+		return uploadDate;
 	}  
 
-	public void setState(Byte state){
-		this.state = state;
+	public void setChecker(Long checker){
+		this.checker = checker;
 	} 
 
-	public Byte getState(){
-		return state;
+	public Long getChecker(){
+		return checker;
 	}  
 
-	public void setMsg(String msg){
-		this.msg = msg;
+	public void setCheckDate(Date checkDate){
+		this.checkDate = checkDate;
 	} 
 
-	public String getMsg(){
-		return msg;
+	public Date getCheckDate(){
+		return checkDate;
+	}  
+
+	public void setStatus(Byte status){
+		this.status = status;
+	} 
+
+	public Byte getStatus(){
+		return status;
+	}  
+
+	public void setCheckMsg(String checkMsg){
+		this.checkMsg = checkMsg;
+	} 
+
+	public String getCheckMsg(){
+		return checkMsg;
+	}  
+
+	public void setBeginDatetime(Date beginDatetime){
+		this.beginDatetime = beginDatetime;
+	} 
+
+	public Date getBeginDatetime(){
+		return beginDatetime;
+	}  
+
+	public void setEndDatetime(Date endDatetime){
+		this.endDatetime = endDatetime;
+	} 
+
+	public Date getEndDatetime(){
+		return endDatetime;
+	}  
+
+	public void setAttenderLimit(Integer attenderLimit){
+		this.attenderLimit = attenderLimit;
+	} 
+
+	public Integer getAttenderLimit(){
+		return attenderLimit;
+	}  
+
+	public void setPlanDoc(String planDoc){
+		this.planDoc = planDoc;
+	} 
+
+	public String getPlanDoc(){
+		return planDoc;
+	}  
+
+	public void setFosterDoc(String fosterDoc){
+		this.fosterDoc = fosterDoc;
+	} 
+
+	public String getFosterDoc(){
+		return fosterDoc;
+	}  
+
+	public void setTalentsDoc(String talentsDoc){
+		this.talentsDoc = talentsDoc;
+	} 
+
+	public String getTalentsDoc(){
+		return talentsDoc;
+	}  
+
+	public void setProcessStatus(Byte processStatus){
+		this.processStatus = processStatus;
+	} 
+
+	public Byte getProcessStatus(){
+		return processStatus;
 	}  
 
 }

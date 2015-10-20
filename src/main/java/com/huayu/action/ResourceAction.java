@@ -17,7 +17,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.huayu.bo.Project;
+import com.huayu.bo.ProjectAttender;
 import com.huayu.bo.Resources;
 import com.huayu.constant.ProjectConst;
 import com.huayu.constant.ResourceAuditStatusEnum;
@@ -28,7 +28,7 @@ import com.huayu.platform.action.BasicModelAction;
 import com.huayu.platform.util.DateUtils;
 import com.huayu.platform.util.doc.DocConverter;
 import com.huayu.platform.util.doc.DocType;
-import com.huayu.service.ProjectService;
+import com.huayu.service.ProjectAttenderService;
 import com.huayu.service.ResourcesService;
 import com.huayu.utils.DigxyBoConverter;
 
@@ -44,8 +44,8 @@ public class ResourceAction extends BasicModelAction {
 	@Resource(name="resourcesService")
 	private ResourcesService service;
 	
-	@Resource(name="projectService")
-	private ProjectService pservice;
+	@Resource(name="projectAttenderService")
+	private ProjectAttenderService pAservice;
 	
 //	@Action(value="new" , results={@Result(type="velocity" , name=SUCCESS , location="/vm/upload.vm")})
 //	public String index(){
@@ -73,13 +73,13 @@ public class ResourceAction extends BasicModelAction {
 		service.addSelective(res);
 		
 		if(ResourceTypeEnum.STUDY.getCode().equals(resModel.getResType())){
-			Project  project = new Project();
-			project.setResId(res.getId());
+			ProjectAttender  project = new ProjectAttender();
+			project.setProjectId(res.getId());
 			project.setAttenderId(getUserId());
 			project.setApplyDate(new Date());
 			project.setRole(ProjectConst.RoleType.SPONSOR.getValue());
 			project.setState(ProjectConst.ApplyerStatus.PARTICIPATING.getValue());
-			pservice.add(project);
+			pAservice.add(project);
 			
 		}
 		

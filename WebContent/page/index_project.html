@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link style="text/css" rel="stylesheet" href="../css/menu.css" />
+<link style="text/css" rel="stylesheet" href="../css/main1.css" />
+<link style="text/css" rel="stylesheet" href="../css/imgPlayer.css" />
+
+<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../js/jQuery.imgPlayer.js"></script>
+<script type="text/javascript" src="../js/layer/layer.js"></script>
+<script type="text/javascript" src="../js/hy.com.js"></script>
+<script type="text/javascript" src="../js/hy.user.common.js"></script>		
+</head>
+
+<body>
+	<div class="body_fixed_header">
+		 <header>
+			<section id="title">
+				<img src="../images/yxylogo.png" alt="logo" title="logo" />
+				<h2>迪格学院</h2>
+			</section>
+	
+			<nav class="menu bolder">
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li><a href="#">学习</a></li>
+					<li><a href="#">研究</a></li>
+					<li><a href="#" style="cursor: pointer;">成才</a></li>
+				</ul>
+			</nav>
+			<form class="search" action="#" method="post">
+				<label for="search_content">Search</label> 
+				<input type="text" name="search_content" id="search_content" placeholder="Search" />
+			</form>
+			<section id="regist_login">
+				<ul>
+					<li><a href="#" onclick="hyUserCom.loginDialog();">登录</a></li>
+					<li><a href="#" onclick="hyUserCom.registDialog();">注册</a></li>
+				</ul>
+			</section>
+		</header>
+	</div>
+   
+	<div id="wrapper">
+		<section id="flow_area">
+			<article>
+			<div class="imgPlayer1">
+				<section>
+				<img src="../images/index/001.jpg" alt="#" title="#"/>
+				</section>
+				<section><img src="../images/index/002.jpg" alt="#" title="#"/>
+				</section>
+				<section>
+				
+				<img src="../images/index/003.jpg" alt="#" title="#"/>
+				</section>
+			</div>
+			<script>
+				$(".imgPlayer1").imgPlayer({
+					width: 630,
+				    showTitle:false,//不显示标题
+  			  	    bindEvent:'mouseover',//更改触发图片切换的鼠标事件为mouseover,默认为click
+  			  	    delay : 5000,
+				});
+					$('#test2').on('click', function(){
+	
+    layer.open({
+        type: 1,
+        area: ['600px', '360px'],
+        shadeClose: true, //点击遮罩关闭
+        content: '\<\div style="padding:20px;">自定义内容\<\/div>',
+        btn : ["确定" , "取消", "绑定" , "d"]
+    });
+});
+			function openInfo(title){
+				layer.open({
+					    type:1,
+					    title: "<strong>"+title+"</strong>",
+					    shadeClose: true,
+					    shade: 0.8,
+					    area: ['750px', '90%'],
+					    content: '<embed type="application/x-shockwave-flash" src="../upload/swf/14-55-50.swf" width="750px" height="990px" wmode="opaque">'
+					    //content: 'project_res.html' //iframe的url
+					}); 	
+			}
+			function attend(title){
+				layer.open({
+				    type: 2,
+				    title: "<strong>"+title+"</strong>",
+				    shadeClose: true,
+				    shade: 0.8,
+				    area: ['800px', '90%'],
+				    content: 'table.html' //iframe的url
+				});
+			}
+			
+			</script>
+			
+			
+			</article>
+			<aside>
+				<h1>搜录摘要：</h1>
+				<section>
+					<p><a href="#">历史：</a><em>1000</em>条</p>
+					<p><a href="#">历史：</a><em>1000</em>条</p>
+					<p><a href="#">历史：</a><em>1000</em>条</p>
+					<p><a href="#">历史：</a><em>1000</em>条</p>
+					<p><a href="#">历史：</a><em>1000</em>条</p>
+					<p><a href="#">历史：</a><em>1000</em>条</p>
+				</section>
+			</aside>
+		<!-- end flow_area -->
+		</section>
+
+		<section  class="clearfix">
+			<section>
+				<article>
+					<section>
+						<section  style="border:1px solid #CCCCCC;overflow: hidden;">
+							<section  style="overflow: hidden;line-height:30px;margin-bottom:5px;box-shadow:2px 4px 8px #aaa;background-color: #eee;border:1px solid #fff;">
+								<p class="layout_left" style="font-weight:700;font-size:1.2em;"><a href="project.html" style="color:#3399CC;">水下机器人</a></p>
+								<p class="layout_right" style="padding-right:12px;">预计于45天后开启</p>
+							</section>
+							<section class="layout_left" style="width: 70%;">
+							    <p class="layout_left" style="padding:0 5px 5px 5px;">	
+								<img alt="" src="../images/doc/default.png" style="width:150px;height: 200px;">
+								</p>
+								<p style="text-indent: 5em;">
+									<span>
+										<a href="#" onclick="openInfo('企划书')">企划书</a>
+										<a href="#" onclick="openInfo('人才资料')">人才资料</a>
+										<a href="#" onclick="openInfo('培养计划')">培养计划</a>
+									</span>		
+									<span style="padding:12px;">
+										<a class="basic_btn"  href="#" onclick="attend('项目申请(水下机器人)')" >我要参与</a>
+										<a class="basic_btn"  href="#">我要赞助</a>
+									</span>
+								</p>
+								<p style="text-indent: 2em;line-height: 1.5em;padding:12px;">
+									水下机器人是海洋等水下开发作业中的重要工具，在海洋石油工程、水下采矿、水产养殖、水下维修、水下搜寻、水下科研等方面有重要应用价值。随着中国海洋强国战略的实施，水下机器人将得到越来越广泛的应用，其重要性也必将越来越突出，因此水下机器人的研制具有重大科学技术价值和经济价值。水下机器人根据运行方式分为自治型（AUV）（无缆自航）和遥控型（ROV）（缆绳控制），AUV通过安装在机器人上的计算机自动控制，而ROV通过线缆连接到水面，由操作人员在水面控制。这两种机器人都具有广泛的应用价值，其中水下机器人密封设计、编程控制技术等是其核心技术，是制约先进水下机器人研制的瓶颈。本项目将对其展开深入系统的科学研究，形成切实可行的技术文件，并完成缆绳控制模型样机的研制。该项目旨在突破水下机器人研制的核心技术，并探索出一套新型、高效的产学研模式，因此具有重要的工业价值和社会效益。
+								</p>
+							</section>							
+							<section>
+								<p class="layout_right" style="width:100px;">
+									<img alt="" src="../images/portrait1/default.jpg" style="width:80px;height: 90px;">
+								</p>	
+								<section class="sponsor_info">	
+									<p><span class="p_header">发起人：</span><span>张三</span></p>
+									<p><span class="p_header">学历：</span><span>博士</span></p>
+									<p><span class="p_header">研究领域：</span><span>物理力学</span></p>
+									<p><span class="p_header">单位：</span><span>中科院</span></p>
+									<p style="text-indent: 2em;">
+										水下机器人是海洋等水下开发作业中的重要工具，在海洋石油工程、水下采矿、水产养殖、水下维修、水下搜寻、水下科研等
+									</p>
+								</section>
+							</section>
+						</section>
+						<section>
+						</section>
+					</section>
+				</article>
+				<aside>
+				</aside>
+			</section>
+		</section>
+		
+		<footer>
+			<section class="foot_li clearfix">
+					<label>友情链接：</label>
+					<section >
+						<ul>
+							<li><a href="http://www.baidu.com" target="_blank">baidu</a></li>
+							<li><a href="http://www.baidu.com">百度</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+						</ul>
+					</section>
+			</section>
+			
+			<section class="foot_li clearfix">
+					<label>帮助中心：</label>
+					<section>
+						<ul>
+							<li><a href="http://www.baidu.com" target="_blank">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+						</ul>
+					</section>
+			</section>
+			
+			<section class="foot_law  ">
+			<p>迪格学苑&nbsp;版权所有&nbsp;&nbsp;©2014-2016 DiGe&nbsp;&nbsp;
+				京ICP备14054744号&nbsp;&nbsp; 京公网安备11010802016759号 &nbsp;&nbsp;</p>
+			<nav>
+				<ul>
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Contact Charles</a></li>
+				</ul>
+			</nav>
+			</section>
+		</footer>
+
+	</div>
+</body>
+</html>

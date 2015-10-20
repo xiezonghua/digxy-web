@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huayu.dao.mapper.NotificationMapper">
+	<resultMap id="NewBaseResultMap" type="com.huayu.bo.Notification">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="bus_id" property="busId" jdbcType="BIGINT" />
+		<result column="content" property="content" jdbcType="VARCHAR" />
+		<result column="add_date" property="addDate"  />
+		<result column="add_user_id" property="addUserId" jdbcType="BIGINT" />
+		<result column="type" property="type" jdbcType="TINYINT" />
+		<result column="status" property="status" jdbcType="TINYINT" />
+		<result column="is_main" property="isMain" jdbcType="TINYINT" />
+		<result column="addUserName" property="addUserName" jdbcType="VARCHAR" />
+
+	</resultMap>
+	
+	 <sql id="New_Base_Column_List">
+		n.id, n.bus_id, n.content, n.add_date, n.add_user_id, n.type, n.status, n.is_main 
+	 </sql>
+	<sql id="Query_Condition">
+		<where>
+			<if test="id != null">
+				and n.id = #{id}
+			</if>
+			<if test="busId != null">
+				and n.bus_id = #{busId}
+			</if>
+			<if test="content != null">
+				and n.content = #{content}
+			</if>
+			<if test="addDate != null">
+				and n.add_date = #{addDate}
+			</if>
+			<if test="addUserId != null">
+				and n.add_user_id = #{addUserId}
+			</if>
+			<if test="type != null">
+				and n.type = #{type}
+			</if>
+			<if test="status != null">
+				and n.status = #{status}
+			</if>
+			<if test="isMain != null">
+				and n.is_main = #{isMain}
+			</if>
+		</where>
+		<if test="orderBy != null">
+	    	order by ${orderBy}
+	    </if>
+	    <if test="orderType != null">
+	    	 ${orderType}
+	    </if>
+		<if test="beginNum != null and offset != null">
+		    limit #{beginNum} , #{offset}
+	    </if>
+	</sql>
+	
+	 <select id="selectList"  resultMap="NewBaseResultMap" >
+		select 
+			<include refid="New_Base_Column_List"></include>	
+			, u.nic  addUserName
+			from tb_notification n left join tb_user u on n.add_user_id = u.id 
+		<include refid="Query_Condition"></include>
+	 </select>
+	 
+	  <select id="selectListCount"  resultType="java.lang.Long" >
+		select count(id) from tb_notification n
+		<include refid="Query_Condition"></include>
+	 </select>
+	 
+	 
+	  <update id="updateSection" parameterType="com.huayu.bo.Notification">
+	
+    update tb_notification
+    <set>
+			<if test="id != null">
+				id = #{id ,jdbcType= BIGINT} ,
+				</if>
+       		<if test="busId != null">
+				bus_id = #{busId ,jdbcType= BIGINT} ,
+				</if>
+       		<if test="content != null">
+				content = #{content ,jdbcType= VARCHAR} ,
+				</if>
+       		<if test="addDate != null">
+				add_date = #{addDate} ,
+				</if>
+       		<if test="addUserId != null">
+				add_user_id = #{addUserId ,jdbcType= BIGINT} ,
+				</if>
+       		<if test="type != null">
+				type = #{type ,jdbcType= TINYINT} ,
+				</if>
+       		<if test="status != null">
+				status = #{status ,jdbcType= TINYINT} ,
+				</if>
+       		<if test="isMain != null">
+				is_main = #{isMain ,jdbcType= TINYINT} ,
+				</if>
+       	</set>
+       where 		
+       			<if test="busId != null">
+				bus_id = #{busId ,jdbcType= BIGINT} 
+				</if>
+				<if test="isMainParam != null">
+				 and is_main = #{isMainParam ,jdbcType= TINYINT} 
+				</if>
+  
+  </update>
+</mapper>

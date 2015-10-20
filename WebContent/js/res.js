@@ -17,9 +17,11 @@ if ("undefined" == typeof (res)) {
 		        	var acceptFileTypes =  /(\.|\/)(pdf|doc|docx|xsl)$/i;
 		        	if(data.files.length > 1){
 		        		alert("只能选择一个文件");
+		        		return ;
 		        	}
 		        	if(!acceptFileTypes.test(data.files[0].name)){
 		        		alert("只能上传pdf/doc/docx/xsl文件");
+		        		return ;
 		        	}
 		        	data.submit(); 
 		        },

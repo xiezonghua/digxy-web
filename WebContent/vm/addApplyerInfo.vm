@@ -3,6 +3,7 @@
 			<h2>当前位置:</h2>
 			<ul>
 				<li><a href="index.html">迪格学院</a></li>
+				<li><a href="../pindex?id=${data.projectId}">$data.projectName</a></li>
 				<li>项目申请</li>
 			</ul>
 		</nav>
@@ -206,8 +207,9 @@ function applyForProject(){
 			jq("#protocol_agree_msg").html("").removeClass("validate_msg");
 		}
         
-		hyCom.request("/project/join", dataParam, function(data){
-			
+		hyCom.request("/pa/join", dataParam, function(data){
+			hyCom.msg("申请已提交，我们将返回项目页");
+			hyCom.redirect("/pindex?id="+ jq("#docid").val());
 		} , function(){
 			hyCom.msg("申请失败");
 		})

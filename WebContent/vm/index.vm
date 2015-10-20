@@ -159,5 +159,6 @@
 		</div>
 	</section>
 	<script type="text/javascript" src="js/hy.user.common.js"></script>							
+	<script type="text/javascript" src="js/helper.js"></script>							
 </body>
 </html>

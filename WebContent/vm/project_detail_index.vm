@@ -1,0 +1,270 @@
+#parse("/vm/header.vm")
+ 	<script type="text/javascript" src="../flex/flexpaper.js"></script>
+   	<script type="text/javascript" src="../flex/flexpaper_handlers.js"></script>
+		</section>
+			<script>
+				$(".imgPlayer1").imgPlayer({
+					width: 630,
+				    showTitle:false,//不显示标题
+  			  	    bindEvent:'mouseover',//更改触发图片切换的鼠标事件为mouseover,默认为click
+  			  	    delay : 5000,
+				});
+				
+				function openInfo(title , url){
+				layer.open({
+					    type:1,
+					    title: "<strong>"+title+"</strong>",
+					    shadeClose: true,
+					    shade: 0.8,
+					    area: ['750px', '90%'],
+					    content: '<div style="height: 900px;"  id="flashcontent" > </div>'
+					}); 
+				
+                                jq('#flashcontent').FlexPaperViewer(
+						            { config : {
+						                SWFFile : url,
+						                Scale : 1,
+						                ZoomTransition : 'easeOut',
+						                ZoomTime : 0.5,
+						                ZoomInterval : 0.2,
+						                FitPageOnLoad : true,
+						                FitWidthOnLoad : true,
+						                FullScreenAsMaxWindow : false,
+						                ProgressiveLoading : true,
+						                MinZoomSize : 0.2,
+						                MaxZoomSize : 5,
+						                SearchMatchAll : false,
+						                InitViewMode : 'Portrait',
+						                RenderingOrder : 'flash',
+						                StartAtPage : '',
+										jsDirectory : '../tools/flex/',
+						                ViewModeToolsVisible : true,
+						                ZoomToolsVisible : true,
+						                NavToolsVisible : true,
+						                CursorToolsVisible : true,
+						                SearchToolsVisible : true,
+						                WMode : 'window',
+						                localeChain: 'en_US'
+						            }}
+						    );
+						    
+			}
+			
+			function attend(title , url){
+				layer.open({
+				    type: 2,
+				    title: "<strong>"+title+"</strong>",
+				    shadeClose: true,
+				    shade: 0.8,
+				    area: ['800px', '90%'],
+				    content: url //iframe的url
+				});
+			}
+			</script>	
+			
+		<section>
+			<section>	
+				<section  style="border:1px solid #CCCCCC;overflow: hidden;">
+					<section  style="overflow: hidden;line-height:40px; border-bottom:1px solid #ccc;margin-bottom: 5px; ">
+						<h1 style="float:left;padding-left:12px;font-size: 25px; color: #2a2a2a; margin-bottom: 2px; font-family: 'Microsoft Yahei';">$data.pInfo.name</h1>
+						<p style="float:right;padding-right:12px;text-indent: 3em;font-size:.7em;color:red;letter-spacing:.13em;">预计于45天后开启</p>
+					</section>
+					<section class="layout_left" style="width: 70%;">
+					    <p class="layout_left" style="padding:0 5px 5px 5px;">	
+<img alt="" src="../images/index/chuzhuang.png" style="width:150px;height: 200px;">						</p>
+						<p style="text-indent: 5em;">
+							<span>
+								<a href="#" onclick="openInfo('企划书' , '../upload/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.planDoc}.swf' )">企划书</a>
+								<a href="#" onclick="openInfo('人才资料' , '../upload/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.fosterDoc}.swf' )">人才资料</a>
+								<a href="#" onclick="openInfo('培养计划' , '../upload/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.talentsDoc}.swf')">培养计划</a>
+							</span>		
+						</p>
+						<p style="text-indent: 2em;line-height: 1.5em;padding:12px;">
+							$data.pInfo.description
+						</p>
+					</section>							
+					<section>
+					    <p style="padding:5px;font-size:12px;"><span>$data.pInfo.sponsorName</span><span style="color:red;">(发起人)</span></p>
+						<p class="layout_right" style="width:100px;">
+							<img alt="" src="../images/portrait/$strUtils.toStr($data.pInfo.portrait , 'default.jpg')" style="width:80px;height: 90px;padding:5px;">
+						</p>	
+						<section class="sponsor_info">	
+							<p><span class="p_header">学历：</span><span></span></p>
+									<p><span class="p_header">研究领域：</span><span>$data.pInfo.major</span></p>
+									<p><span class="p_header">单位：</span><span>$data.pInfo.company</span></p>
+									<p style="text-indent: 2em;">
+										$data.pInfo.sponsorResume	
+									</p>
+						</section>
+					</section>
+				</section>
+				<script>
+			 var attenderStatus = $strUtils.toJson($data.projectAttenderStatus);
+			 </script>
+				<section class="clearfix"  >
+					<article style="width:660px;border:1px solid #ccc;float:left;background:#FFF;">
+						<section>
+							<ul class="tab_ul" id="tab_header_project">
+								<li  class="selected"   onclick="hyCom.selectedTab('project',0)">消息</li>
+								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',1)">资料</li>
+								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',2)">评论</li>
+								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',3)">参与者/支持者</li>
+							</ul>
+							
+						<section id="tab_detail_project">
+							<div>
+								<section  class="project_detail_section">
+									<p style="padding:5px;">
+										<textarea rows="8" cols="80" id="content" placeholder="发布信息~"  ></textarea>
+										<sub style="position: relative;left:530px;top:-22px;">100个字</sub>
+									</p>
+									<p ><span><input id="isMain" type="checkbox" value="1" name="isMain"/> 作为新公告 </span><span class="layout_right">
+									<a class="basic_btn" onclick="hy.notify.add($data.pInfo.id)"  href="#">发布</a></span></p>
+								</section>
+								<div id="notifyListDiv">
+								#if( $data.notifyList.size() > 0)
+ 								#foreach($elem in ${data.notifyList})
+								<section class="project_detail_section">
+									<p> ${elem.content} 
+										#if( $elem.isMain == 1)
+										<span style="color:red;">[公告]<span>
+										#end
+										<span class="link" onclick="hy.notify.del(${elem.id} , ${elem.busId})">删除</span>
+										<sub class="layout_right"> ---- ${elem.addUserName} </sub>
+									</p>	
+								</section>
+								#end
+								#else
+									<section class="project_detail_section">
+									<p>暂无消息</p>
+									</section>
+								#end
+								</div>
+							</div>					
+							<div class="hidden">
+								<!-- project resource list --> 
+								#if( $data.resList.size() > 0)
+ 								#foreach($elem in ${data.resList})
+								<section class="project_detail_section">
+									<p>
+										<span class="link" onclick="openInfo('$elem.name' , '../upload/${elem.docFloder}/swf/${elem.docName}.swf')">$elem.name</span>
+										<span class="layout_right">
+											<img src="../images/portrait/$strUtils.toStr($elem.portrait , 'default.jpg')"  style="width:40px;height: 40px; padding:3px;" />
+											<span>
+												分享于 $date.format($elem.uploadDate) 
+											</span>
+										</span>
+									</p>	
+								</section>
+								#end
+								#else
+									<section class="project_detail_section">
+									<p>暂无资料分享</p>
+									</section>
+								#end
+							
+							</div>
+							<div class="hidden">
+							 <!-- comment list wrapper -->
+								
+								#if( $data.comList.size() > 0)
+ 								#foreach($elem in ${data.comList})
+								<section class="project_detail_section">
+									<p  class="layout_left">
+										<span>
+											<img src="../images/portrait/$strUtils.toStr($elem.portraitSrc , 'default.jpg')"  style="width:40px;height: 40px;" />
+										</span>
+									</p>	
+									<p> <span>$elem.commenter $date.format($elem.commentDate) </span> </p>
+									<p>
+										$elem.content
+									</p>
+								</section>
+								#end
+								#else
+									<section class="project_detail_section">
+									<p>暂无评论</p>
+									</section>
+								#end
+							</div>
+							
+							<div class="hidden">
+								<!-- the attend and the helper list wrapper -->
+								<section class="project_detail_section">
+									<section>
+										<p style="margin-bottom:12px;font-size:1.2em;font-weight: 700;">参与者列表</p>
+									</section>
+									#if( $data.attList.size() > 0)
+ 									#foreach($elem in ${data.attList})
+										<p class="layout_left" style="text-align:center;">
+											<span class="link" onclick='attend("${elem.attenderPetName} -- 个人信息" , "../pa/applyer?userModel.id=${elem.id}")'>
+											<img src="../images/portrait/$strUtils.toStr($elem.portraitSrc , 'default.jpg')"  style="width:80px;height: 80px;" /><br/>
+											<span>${elem.attenderPetName}(<span style="color:red;" id="attenderStatus_${elem.id}">$mapUtils.getValue($data.projectAttenderStatus , ${elem.state}).typeName</span>)</span>
+											</span><br/>
+											<span class="link" style="color:red;" onclick="hy.project.attenderAudit(${elem.id} ,2)">通过</span><span class="link" style="color:red;" onclick="hy.project.attenderAudit(${elem.id} ,4)">拒绝</span>
+										<p>
+									#end 
+									#else
+									<p>暂时无人报名。。。</p>
+									#end
+								</section>
+								
+								<section class="project_detail_section">
+									<section>
+										<p style="margin-bottom:12px;font-size:1.2em;font-weight: 700;">赞助列表</p>
+									</section>
+									#if( $data.patronageList.size() > 0)
+ 									#foreach($elem in ${data.patronageList})
+									<p class="layout_left">
+										<img src="../images/portrait/$strUtils.toStr($elem.portraitSrc , 'default.jpg')"  style="width:40px;height: 40px;" /><br/>
+										<span>${elem.attenderPetName}(<span style="color:red;">100</span>)</span><br/>
+									<p>
+									#end
+									#else
+										<p> <a class="basic_btn"  href="#">赞助第一人</a> </p>
+									#end
+								</section>
+							</div>
+						</section>
+						</section>
+					</article>
+					<aside style="width:30%;float:right;">
+						<section  style="border:1px solid #ccc;background:#FFF;padding-bottom:12px;text-align: center;margin-bottom: 15px;">
+							<p style="  border:1px solid #ccc;background: #fafafa;line-height: 58px; text-align: center;">项目公告</p>
+							<section>
+								<p>项目将开始了，请参与者及时做好准备。</p>
+							</section>
+						</section>
+						
+						<section  style="border:1px solid #ccc;background:#FFF;padding-bottom:12px;text-align: center;margin-bottom: 15px;">
+
+							<p style=" border:1px solid #ccc; background: #fafafa;  line-height: 58px; text-align: center;">企业赞助</p>
+							<section>
+								<p>项目将开始了，请参与者及时做好准备。</p>
+							</section>	
+							<p>
+							<a class="basic_btn" href="#">支持一下</a>
+							</p>
+						</section>	
+						
+						<section  style="border:1px solid #ccc;background:#FFF;padding-bottom:12px;text-align: center;">
+
+							<p style=" border:1px solid #ccc; background: #fafafa;  line-height: 58px; text-align: center;">个人赞助</p>
+							<section>
+								<p>项目将开始了，请参与者及时做好准备。</p>
+							</section>	
+							<p>
+							<a class="basic_btn" href="#">支持一下</a>
+							</p>
+						</section>	
+						
+					</aside>
+				</section>
+			</section>
+			<section>
+			</section>
+		</section>	
+		
+	<script type="text/javascript" src="../js/hy.project.js"></script>		
+	<script type="text/javascript" src="../js/hy.notify.js"></script>		
+#parse("/vm/footer.vm")

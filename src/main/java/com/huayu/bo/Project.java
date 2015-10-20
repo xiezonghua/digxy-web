@@ -1,7 +1,5 @@
 package com.huayu.bo;
 
-import java.util.Date;
-
 import com.huayu.bo.base.ProjectBase;
 
 /**
@@ -9,77 +7,55 @@ import com.huayu.bo.base.ProjectBase;
 *
 */
 public class Project extends ProjectBase {
-	private String attenderName;
-	private String attenderPetName;
-	private String resName;
-	private Date createDate;
-	private Byte projectStatus;
-	private String filePath;
-	private String fileName;
-	private String attenderCount;
+	private String sponsorName;
 
-	public String getAttenderName() {
-		return attenderName;
+	private String major;
+
+	private String company;
+
+	private String sponsorResume;
+	
+	private String portrait;
+
+	public String getSponsorName() {
+		return sponsorName;
 	}
 
-	public void setAttenderName(String attenderName) {
-		this.attenderName = attenderName;
+	public void setSponsorName(String sponsorName) {
+		this.sponsorName = sponsorName;
 	}
 
-	public String getAttenderPetName() {
-		return attenderPetName;
+	public String getMajor() {
+		return major;
 	}
 
-	public void setAttenderPetName(String attenderPetName) {
-		this.attenderPetName = attenderPetName;
+	public void setMajor(String major) {
+		this.major = major;
 	}
 
-	public String getResName() {
-		return resName;
+	public String getCompany() {
+		return company;
 	}
 
-	public void setResName(String resName) {
-		this.resName = resName;
+	public void setCompany(String company) {
+		this.company = company;
 	}
 
-	public Date getCreateDate() {
-		return createDate;
+	public String getSponsorResume() {
+		return sponsorResume;
 	}
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+	public void setSponsorResume(String sponsorResume) {
+		this.sponsorResume = sponsorResume;
 	}
 
-	public Byte getProjectStatus() {
-		return projectStatus;
+	public String getPortrait() {
+		return portrait;
 	}
 
-	public void setProjectStatus(Byte projectStatus) {
-		this.projectStatus = projectStatus;
+	public void setPortrait(String portrait) {
+		this.portrait = portrait;
 	}
 
-	public String getFilePath() {
-		return filePath;
-	}
-
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
-
-	public String getFileName() {
-		return fileName;
-	}
-
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-
-	public String getAttenderCount() {
-		return attenderCount;
-	}
-
-	public void setAttenderCount(String attenderCount) {
-		this.attenderCount = attenderCount;
-	}
-
+	
 }

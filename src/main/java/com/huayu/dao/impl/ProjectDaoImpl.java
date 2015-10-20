@@ -23,22 +23,17 @@ public class ProjectDaoImpl extends AbstractDBBasicDao<Project , Long> implement
 	}
 
 	@Override
-	public List<Project> selectProjectAttenders(Map<String, Object> query) {
-		return projectMapper.selectProjectAttenders(query);
+	public List<Project> selectList(Map<String, Object> query) {
+		return projectMapper.selectList(query);
 	}
 
 	@Override
-	public List<Project> selectProjects(Map<String, Object> query) {
-		return projectMapper.selectProjects(query);
+	public long selectListCount(Map<String, Object> query) {
+		return projectMapper.selectListCount(query);
 	}
 
 	@Override
-	public Long selectProjectsCount(Map<String, Object> query) {
-		return projectMapper.selectProjectsCount(query);
-	}
-
-	@Override
-	public List<Project> selectProjectsSub(Map<String, Object> query) {
-		return projectMapper.selectProjectsSub(query);
+	public List<Project> selectDetailList(Map<String, Object> query) {
+		return projectMapper.selectDetailList(query);
 	}
 }

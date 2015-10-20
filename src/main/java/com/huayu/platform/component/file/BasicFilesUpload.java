@@ -11,9 +11,9 @@ import org.apache.struts2.ServletActionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.huayu.platform.action.BasicAction;
 
-public  class BasicFilesUpload extends ActionSupport {
+public  class BasicFilesUpload extends BasicAction{
 	private static final long serialVersionUID = 1L;
 	
 	private static final Logger logger = LoggerFactory.getLogger(BasicFilesUpload.class.getCanonicalName());

@@ -30,28 +30,42 @@ if ("undefined" == typeof(hyCom)) {
 			jq.ajax(setting);
 		},
 		
-		upload : function(url, dataParam, fileId , success ,failure){
-			var setting = { 
-					url: url ,
-					data: dataParam ,
-					type : "POST", 
-					dataType : "json",
-					context: jq("#"+fileId)[0],
-					contentType: "multipart/form-data;boundary=---addd",
-					success: function(data , textStatus , jqXHR){
-						success(data);
-					},
-					error: function(XMLHttpRequest, textStatus, errorThrown){
-						
-					},
-					statusCode:{
-						404: function(){
-							
-						}
-					}
-			};
-			
-			jq.ajax(setting);
+		upload : function(id , contextId , success ,failure , url){
+			var urlAd = url ? url : "/digxy/upload";
+			jq('#' + id).fileupload({
+		        url: urlAd,
+		        dataType: 'json',
+		        singleFileUploads : false,
+		        limitMultiFileUploads : 2,
+		        maxFileSize: 5000000 ,
+		        disableValidation : true,
+		        add:function(e, data){
+		        	var acceptFileTypes =  /(\.|\/)(pdf|doc|docx|xsl)$/i;
+		        	if(data.files.length > 1){
+		        		alert("只能选择一个文件");
+		        		return ;
+		        	}
+		        	if(!acceptFileTypes.test(data.files[0].name)){
+		        		alert("只能上传pdf/doc/docx/xsl文件");
+		        		return ;
+		        	}
+		        	data.submit(); 
+		        },
+		        done: function (e, data) {
+		            jq.each(data.files, function (index, file) {
+		               jq("#"+ contextId).val(file.name);
+		            });
+		            success && success(data);
+		        },
+		        progressall: function (e, data) {
+		            var progress = parseInt(data.loaded / data.total * 100, 10);
+		            jq('#progress .progress-bar').css(
+		                'width',
+		                progress + '%'
+		            );
+		        }
+		    }).prop('disabled', !$.support.fileInput)
+	        .parent().addClass($.support.fileInput ? undefined : 'disabled');
 		},
 
 		// show dialog common function begin
@@ -94,6 +108,9 @@ if ("undefined" == typeof(hyCom)) {
 	// show dialog common function end
 		selectedTab : function(prefixed ,tabNum){
 			var tab_header = jq("#tab_header_"+prefixed + "> span" );
+			if(tab_header.length == 0){
+				tab_header = jq("#tab_header_"+prefixed + "> li" );
+			}
 			tab_header.removeClass("selected").addClass("unselected");
 			jq(tab_header[tabNum]).removeClass("unselected").addClass("selected");
 			

@@ -1,4 +1,12 @@
 #parse("/vm/header.vm")
+	<nav class="navigation">
+		<h2>当前位置:</h2>
+		<ul>
+			<li><a href="index">迪格学苑</a></li>
+			<li><a href="../pindex?id=${data.projectId}">$data.projectName</a></li>
+			<li>资料分享</li>
+		</ul>
+	</nav>
 	<link style="text/css" rel="stylesheet" href="../css/jquery.fileupload.css" />
 	
 	<script type="text/javascript" src="../js/jquery.ui.widget.js"></script>
@@ -64,6 +72,11 @@
 						<p id="resDesc_msg"></p>
 					</section>
 
+					<section>
+						<label for="projectName">项目：</label>
+						<input class="un-editable" id="projectName" name="projectName" disabled="disabled" value="${data.projectName}"/> 
+					</section>
+					
 					<section>
 						<label for="resType">分类：</label> 
 						<select id="resType" name="resType">

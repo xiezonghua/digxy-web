@@ -9,7 +9,11 @@ public class DictConst {
 	
 	public final static Byte PROJECT_STATUS = 4;
 	
-	public final static Byte PROJECT_APPLYER_STATUS = 5;
+//	public final static Byte PROJECT_AUDIT_STATUS = 5;
 	
-	public final static Byte PREJECT_ATTENDER_ROLE_TYPE = 6;
+	public final static Byte PROJECT_APPLYER_STATUS = 6;
+	
+	public final static Byte PREJECT_ATTENDER_ROLE_TYPE = 7;
+	
+	public final static Byte USER_SEX_TYPE = 8;
 }

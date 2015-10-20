@@ -1,0 +1,391 @@
+#parse("/vm/header_out.vm")
+	<script type="text/javascript" src="js/jQuery.imgPlayer.js"></script>
+ 	<script type="text/javascript" src="flex/flexpaper.js"></script>
+   	<script type="text/javascript" src="flex/flexpaper_handlers.js"></script>
+		<section id="flow_area">
+			<article>
+			<div class="imgPlayer1">
+				<section>
+				<img src="images/index/test2.1.png" alt="#" title="#"/>
+				</section>
+				<section><img src="images/index/underwater-1.jpg" alt="#" title="#"/>
+				</section>
+				<section>
+				
+				<img src="images/index/underwater-2.png" alt="#" title="#"/>
+				</section>
+			</div>
+			<script>
+				$(".imgPlayer1").imgPlayer({
+					width: 630,
+				    showTitle:false,//不显示标题
+  			  	    bindEvent:'mouseover',//更改触发图片切换的鼠标事件为mouseover,默认为click
+  			  	    delay : 5000,
+				});
+				
+				function openInfo(title , url){
+				layer.open({
+					    type:1,
+					    title: "<strong>"+title+"</strong>",
+					    shadeClose: true,
+					    shade: 0.8,
+					    area: ['750px', '90%'],
+					    content: '<div style="height: 900px;"  id="flashcontent" > </div>'
+					}); 
+				
+                                jq('#flashcontent').FlexPaperViewer(
+						            { config : {
+						                SWFFile : url,
+						                Scale : 1,
+						                ZoomTransition : 'easeOut',
+						                ZoomTime : 0.5,
+						                ZoomInterval : 0.2,
+						                FitPageOnLoad : true,
+						                FitWidthOnLoad : true,
+						                FullScreenAsMaxWindow : false,
+						                ProgressiveLoading : true,
+						                MinZoomSize : 0.2,
+						                MaxZoomSize : 5,
+						                SearchMatchAll : false,
+						                InitViewMode : 'Portrait',
+						                RenderingOrder : 'flash',
+						                StartAtPage : '',
+										jsDirectory : 'tools/flex/',
+						                ViewModeToolsVisible : true,
+						                ZoomToolsVisible : true,
+						                NavToolsVisible : true,
+						                CursorToolsVisible : true,
+						                SearchToolsVisible : true,
+						                WMode : 'window',
+						                localeChain: 'en_US'
+						            }}
+						    );
+						    
+			}
+			
+			function attend(title , url){
+				layer.open({
+				    type: 2,
+				    title: "<strong>"+title+"</strong>",
+				    shadeClose: true,
+				    shade: 0.8,
+				    area: ['800px', '90%'],
+				    content: url //iframe的url
+				});
+			}
+			</script>
+			</article>
+		<aside>
+				<h1>项目公告：</h1>
+				<section>
+					<p>$strUtils.toStr(${data.notifyMain.content} , "")</p>
+					<p><sub class="layout_right">--- $strUtils.toStr(${data.notifyMain.addUserName}, "")</sub></p>	
+				</section>
+			</aside>
+		<!-- end flow_area -->
+		</section>
+			
+		<section>
+			<section>	
+				<section  style="border:1px solid #CCCCCC;overflow: hidden;">
+					<section  style="overflow: hidden;line-height:40px; border-bottom:1px solid #ccc;margin-bottom: 5px; ">
+						<h1 style="float:left;padding-left:12px;font-size: 25px; color: #2a2a2a; margin-bottom: 2px; font-family: 'Microsoft Yahei';">$data.pInfo.name</h1>
+						<p style="float:right;padding-right:12px;text-indent: 3em;font-size:.7em;color:red;letter-spacing:.13em;">预计于45天后开启</p>
+					</section>
+					<section class="layout_left" style="width: 70%;">
+					    <p class="layout_left" style="padding:0 5px 5px 5px;">	
+						<img alt="" src="images/index/chuzhuang.png" style="width:150px;height: 200px;">
+						</p>
+						<p style="text-indent: 5em;">
+							<span>
+										<a href="#" onclick="openInfo('企划书' , 'upload/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.planDoc}.swf' )">企划书</a>
+										<a href="#" onclick="openInfo('人才资料' , 'upload/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.fosterDoc}.swf' )">人才资料</a>
+										<a href="#" onclick="openInfo('培养计划' , 'upload/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.talentsDoc}.swf')">培养计划</a>
+									</span>		
+									<span style="padding:12px;">
+										<a class="basic_btn"  href="pa/apply?id=${data.pInfo.id}&name=${data.pInfo.name}" >我要参与</a>
+										<!-- <a class="basic_btn"  href="#">我要赞助</a> -->
+									</span>
+						</p>
+						<p style="text-indent: 2em;line-height: 1.5em;padding:12px;">
+							$data.pInfo.description
+						</p>
+					</section>							
+					<section>
+					    <p style="padding:5px;font-size:12px;"><span>$data.pInfo.sponsorName</span><span style="color:red;">(发起人)</span></p>
+						<p class="layout_right" style="width:100px;">
+							<img alt="" src="images/portrait/$strUtils.toStr($data.pInfo.portrait , 'default.jpg')" style="width:80px;height: 90px;padding:5px;">
+						</p>	
+						<section class="sponsor_info">	
+							<p><span class="p_header">学历：</span><span></span></p>
+									<p><span class="p_header">研究领域：</span><span>$data.pInfo.major</span></p>
+									<p><span class="p_header">单位：</span><span>$data.pInfo.company</span></p>
+									<p style="text-indent: 2em;">
+										$data.pInfo.sponsorResume	
+									</p>
+							<p style="text-align:center">
+								<a class="basic_btn"  href="pr/new?id=${data.pInfo.id}&name=${data.pInfo.name}">项目分享资料上传</a>
+							</p>
+						</section>
+					</section>
+				</section>
+				
+				<section class="clearfix"  >
+					<article style="width:660px;border:1px solid #ccc;float:left;background:#FFF;">
+						<section>
+							<ul class="tab_ul" id="tab_header_project">
+								<li class="selected"  onclick="hyCom.selectedTab('project',0)">主页</li>
+								<li   onclick="hyCom.selectedTab('project',1)">消息</li>
+								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',2)">资料</li>
+								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',3)">评论</li>
+								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',4)">参与者/支持者</li>
+							</ul>
+							
+						<section id="tab_detail_project">
+							<div >
+								<div class="article_p">
+								<h3  style="text-align:center;">水下机器人成长记</h3>
+								<p  style="text-align:center;">
+									<sub>曾霞光，2015年9月22日星期二</sub>
+								</p>
+								<p style="text-indent: 2em;">
+									 公元2014年10月的北京秋高气爽，非常适合进行各种有趣的户外活动。在奥林匹克森林公园附近的某个小区里5个快乐的小伙伴燃起了探索水下世界的小火苗，然后开始了一段奇妙的征程。
+								</p>
+									<div style="text-align: center;"> <img src="images/index/first.png"/></div> 
+									
+								
+								<p style="text-indent: 2em;">
+									 工欲善其事必先利其器，探索水下世界必然需要水下机器人，小伙伴们兴冲冲的上网搜寻，百度之，谷歌之，淘宝之，无奈囊中羞涩，最后一合计，于是决定响应毛主席的号召：自己动手！说干就干，小伙伴们风风火火的操练了起来。感谢伟大的互联网和分享者，通过参考网上资料，小伙伴们购买了必要的组件进行安装、调试。
+									 
+								</p>
+								<div>
+									 <img src="images/index/shiyan.png"/> 
+								</div>
+								
+    
+								<p style="text-indent: 2em;">
+									不断牺牲一个个周末，不断遇到问题，不断解决问题，在6个月后的某一天下午，小伙伴们终于打造出了属于他们的第一个水下机器人（ROV）：
+								</p>
+								<div style="text-align: center;">
+ 									 <img src="images/index/chuzhuang.png"/>  
+								</div>
+    
+								<p style="text-indent: 2em;"> 
+									终于，小伙伴们开始了水下世界的探索！先来个小小的测试，这个测试小到万一不行还可以挽起袖子把辛辛苦苦打造的小小ROV捞起来，哈哈！
+								</p>
+								<h4>1、奥森公园水池初试（公元2014年4月12日下午）</h4>
+								<p>
+								 	水密性测试，软件调控测试等都一一通过，小小的ROV取得了小小的成功！
+ 									<img src="images/index/test1.png"/> 									 
+								</p>
+								
+								<h4>2、黄花水长城水库探险（公元2014年5月3日）</h4>
+								<p style="text-indent: 2em;">
+	小小的ROV一路向下到了水下10余米深，水密性、承压力等一一通过验证。同时，小伙伴们看到了水中摇曳的水草，嬉戏的小鱼，柔软的淤泥和古老的水下城墙，也看到了这款机器人的局限和不足，取得了不少宝贵的野外水下探索经验！
+ 									<img src="images/index/test2.png"/> 									 
+ 									<img src="images/index/test2.1.png"/> 									 
+ 									<img src="images/index/test2.2.png"/> 									 
+								</p>
+								
+								<h4>3、北京古井水下勘察（筹划中，正在开启）</h4>
+								<div style="text-align: center;">
+ 									<img src="images/index/test3.png"/> 									 
+								</div>		
+								<p style="text-indent: 2em;">
+									我们几个小伙伴把我们的故事点滴记录下来，在此与你分享，也在此等待新的小伙伴加入，我们真诚的希望在未来的水下世界探索中有你的参与和支持！
+									 参与和支持我们请联系digxy@163.com或QQ。
+								</p>
+							</div>	
+							</div>
+							<div>
+								<!-- project notification list  -->
+								#if( $data.notifyList.size() > 0)
+ 								#foreach($elem in ${data.notifyList})
+								<section class="project_detail_section">
+									<p> ${elem.content} 
+										<sub class="layout_right"> ---- ${elem.addUserName} </sub>
+									</p>	
+								</section>
+								#end
+								#else
+									<section class="project_detail_section">
+									<p>暂无消息</p>
+									</section>
+								#end
+							
+							</div>					
+							<div class="hidden">
+								<!-- project resource list --> 
+								#if( $data.resList.size() > 0)
+ 								#foreach($elem in ${data.resList})
+								<section class="project_detail_section">
+									<p>
+										<span class="link" onclick="openInfo('$elem.name' , 'upload/${elem.docFloder}/swf/${elem.docName}.swf')">$elem.name</span>
+										<span class="layout_right">
+											<img src="images/portrait/$strUtils.toStr($elem.portrait , 'default.jpg')"  style="width:40px;height: 40px; padding:3px;" />
+											<span>
+												分享于 $date.format($elem.uploadDate) 
+											</span>
+										</span>
+									</p>	
+								</section>
+								#end
+								#else
+									<section class="project_detail_section">
+									<p>暂无资料分享</p>
+									</section>
+								#end
+							
+							</div>
+							<div class="hidden">
+							 <!-- comment list wrapper -->
+								<section  class="project_detail_section">
+									<p style="padding:5px;">
+										<textarea rows="8" cols="80" id="content" placeholder="写点自己的意见~"  ></textarea>
+										<sub style="position: relative;left:530px;top:-22px;">100个字</sub>
+									</p>
+									<p class="layout_right"><a class="basic_btn" onclick="comment.add($data.pInfo.id)"  href="#">我发个言</a></p>
+								</section>
+								
+								<section class="project_detail_section hidden" id="myComment">
+									<p  class="layout_left">
+										<span style="color:red;">
+											我刚刚说:	
+										</span>
+									</p>	
+									<p> <span></span> </p>
+									<p id="myCommentInfo">
+										
+									</p>
+								</section>
+								
+								#if( $data.comList.size() > 0)
+ 								#foreach($elem in ${data.comList})
+								<section class="project_detail_section">
+									<p  class="layout_left">
+										<span>
+											<img src="images/portrait/$strUtils.toStr($elem.portraitSrc , 'default.jpg')"  style="width:40px;height: 40px;" />
+										</span>
+									</p>	
+									<p> <span>$elem.commenter $date.format($elem.commentDate) </span> </p>
+									<p>
+										$elem.content
+									</p>
+								</section>
+								#end
+								#else
+									<section class="project_detail_section">
+									<p>暂无评论</p>
+									</section>
+								#end
+							</div>
+							
+							<div class="hidden">
+								<!-- the attend and the helper list wrapper -->
+								<section class="project_detail_section">
+									<section>
+										<p style="margin-bottom:12px;font-size:1.2em;font-weight: 700;">参与者列表</p>
+									</section>
+									#if( $data.attList.size() > 0)
+ 									#foreach($elem in ${data.attList})
+										<p class="layout_left"><img src="images/portrait/$strUtils.toStr($elem.portraitSrc , 'default.jpg')"  style="width:40px;height: 40px;" /><br/><span>$elem.attenderPetName</span><p>
+									#end 
+									#else
+									<p>正在报名中。。。</p>
+									#end
+								</section>
+								
+								<section class="project_detail_section">
+									<section>
+										<p style="margin-bottom:12px;font-size:1.2em;font-weight: 700;">赞助列表</p>
+									</section>
+									#if( $data.patronageList.size() > 0)
+ 									#foreach($elem in ${data.patronageList})
+									<p class="layout_left">
+										<img src="images/portrait/$strUtils.toStr($elem.portraitSrc , 'default.jpg')"  style="width:40px;height: 40px;" /><br/>
+										<span>${elem.attenderPetName}(<span style="color:red;">100</span>)</span><br/>
+									<p>
+									#end
+									#else
+										<p> <a class="basic_btn"  href="#">我要做赞助第一人</a> </p>
+									#end
+								</section>
+							</div>
+						</section>
+						</section>
+					</article>
+					<aside style="width:30%;float:right;">
+						<section  style="border:1px solid #ccc;background:#FFF;padding:12px;margin-bottom: 15px;">
+							<p style="  border:1px solid #ccc;background: #fafafa;line-height: 58px; text-align: center;">程光明（骨干成员）</p>
+							<section>
+									<p class="layout_right" style="width:100px;">
+							<img alt="" src="images/portrait/$strUtils.toStr("guangming.png" , 'default.jpg')" style="width:80px;height: 90px;padding:5px;">
+						</p>	
+						<section class="sponsor_info">	
+							<p><span class="p_header">学历：</span><span>博士</span></p>
+									<p><span class="p_header">研究领域：</span><span>石油机械和海洋石油设施设计研发、有限元分析；桩基-土作用有限元分析。</span></p>
+									<p><span class="p_header">单位：</span><span>$data.pInfo.company</span></p>
+									<p style="text-indent: 2em;">
+										2009.1-2010.4    井下过电缆封隔器和安全阀设计(企业立项)<br/>
+										2010.8-2010.12    水下管汇成橇设计方案第三方审核(及对比方案设计)(国家科技重大专项)<br/>
+										2011.1- 2014.6    深水水下应急维修方法研究与半物理仿真系统研制(国家科技重大专项);<br/>
+										2012.1- 2013.12  水下采油树关键技术研究及成套设备研制(863项目);<br/>
+										2013.9-2014.6   吸力锚设计研究(中海油服项目)<br/>
+									</p>
+							
+						</section>
+							</section>
+						</section>
+						
+						<section  style="border:1px solid #ccc;background:#FFF;padding:12px;margin-bottom: 15px;">
+							<p style="  border:1px solid #ccc;background: #fafafa;line-height: 58px; text-align: center;">周鑫（骨干成员）</p>
+							<section>
+									<p class="layout_right" style="width:100px;">
+							<img alt="" src="images/portrait/$strUtils.toStr("" , 'default.jpg')" style="width:80px;height: 90px;padding:5px;">
+						</p>	
+						<section class="sponsor_info">	
+							<p><span class="p_header">学历：</span><span>博士</span></p>
+									<p><span class="p_header">研究领域：</span><span>流体与动力机械工作理论</span></p>
+									<p><span class="p_header">单位：</span><span>$data.pInfo.company</span></p>
+									<p style="text-indent: 2em;">
+										2009. 1  ~  2011.11	高性能泵叶轮数值研发关键技术基础研究
+	基于二元流动理论的离心泵叶轮设计，并结合数值模拟方法对比分析设计离心泵全流场空化及水力性能，再引入涡动力学对叶片进行诊断，指导叶片优化。<br/>
+2010. 3  ~  2011. 3	材料和安全特性技术研究（高压管汇）<br/>
+	采用欧拉－拉格郎日数值模拟方法，预测颗粒对设备的冲蚀并制定相应的减弱冲蚀措施。<br/>
+2010. 4  ~  2011. 3	加热炉工艺模拟及热效率和NOx排放研究<br/>
+	利用数值模拟技术建立相应的计算模型，综合分析排烟温度，过剩空气系数，燃料不完全燃烧及炉体的散热四种因素的相互作用及影响，结合实际炉型给出其提高效率的最佳方案。<br/>
+2012. 9  ~  2014.9	带预旋调节的高效节能离心泵关键技术研究<br/>
+	基于空间导叶设计理论，设计出满足水力要求的新型导流叶栅并利用遗传算法进行优化，数值模拟及性能预测，并搭建试验台，进行试验研究及节能效果评估。<br/>
+2013. 5  ~  2014. 8	西部管道530/440型输油泵换大叶轮项目<br/>
+	基于三元水力设计方法进行替代叶轮设计，并完成其它各过流部件水力设计，采用数值模拟方法对设计结果进行预测分析。<br/>
+2014. 5  ~  至今	大型LNG储罐内潜液泵关键技术校核优化和安全可靠性研究项目<br/>
+	基于遗传算法的潜液泵叶轮三元水力设计，并建立几何模型及相应的计算模型，进行数值模拟研究及分析。<br/>
+2014. 5  ~  至今	加氢进料燃烧炉运行优化研究<br/>
+	利用涡耗散燃烧模型进行次氧燃烧模拟，探讨不同操作工况参数对出口温度及生成物组分浓度的影响规律，并分析炉内温度场、压力场、组分浓度场。<br/>
+										
+									</p>
+							
+						</section>
+							</section>
+						</section>
+						
+						<section  style="border:1px solid #ccc;background:#FFF;padding-bottom:12px;text-align: center;">
+
+							<p style=" border:1px solid #ccc; background: #fafafa;  line-height: 58px; text-align: center;">个人赞助</p>
+							<section>
+								<p>项目将开始了，请参与者及时做好准备。</p>
+							</section>	
+							<p>
+							<a class="basic_btn" href="#">支持一下</a>
+							</p>
+						</section>	
+						
+					</aside>
+				</section>
+			</section>
+			<section>
+			</section>
+		</section>	
+		
+
+#parse("/vm/footer.vm")

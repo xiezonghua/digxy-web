@@ -32,7 +32,7 @@ if ("undefined" == typeof (helper)) {
 				layer.open({
 					type: 1,
 				    skin: 'layui-layer-rim', //加上边框
-				    area: ['420px', '240px'], //宽高
+				    area: ['620px', '440px'], //宽高
 				    content: data[type] 
 				});	
 			});

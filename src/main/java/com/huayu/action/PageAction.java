@@ -11,24 +11,34 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
 
+import com.huayu.bo.Comment;
 import com.huayu.bo.Keyword;
+import com.huayu.bo.Notification;
 import com.huayu.bo.Project;
+import com.huayu.bo.ProjectAttender;
+import com.huayu.bo.ProjectResource;
 import com.huayu.bo.Resources;
 import com.huayu.bo.Share;
 import com.huayu.bo.User;
 import com.huayu.bo.Yqlink;
+import com.huayu.constant.ProjectConst;
 import com.huayu.constant.ResourceAuditStatusEnum;
-import com.huayu.constant.ResourceTypeEnum;
+import com.huayu.model.CommentModel;
 import com.huayu.platform.Pagination;
 import com.huayu.platform.action.BasicModelAction;
 import com.huayu.service.CommentService;
 import com.huayu.service.KeywordService;
+import com.huayu.service.NotificationService;
+import com.huayu.service.ProjectAttenderService;
+import com.huayu.service.ProjectResourceService;
 import com.huayu.service.ProjectService;
 import com.huayu.service.ResourcesService;
 import com.huayu.service.ShareService;
 import com.huayu.service.UserService;
 import com.huayu.service.YqlinkService;
 import com.huayu.utils.DigxyBoConverter;
+
+
 
 @Namespace("/")
 public class PageAction extends BasicModelAction {
@@ -60,34 +70,103 @@ public class PageAction extends BasicModelAction {
 	@Resource(name="keywordService")
 	private KeywordService keywordService;
 	
+	@Resource(name="projectAttenderService")
+	private ProjectAttenderService projectAttenderService;
+	
+	
 	@Resource(name="projectService")
 	private ProjectService projectService;
 	
+	@Resource(name="projectResourceService")
+	private ProjectResourceService projectResService ;
 	
+	@Resource(name="notificationService")
+	private NotificationService notifyService ;
 	
-	@Action(value="index" , results = { @Result(type = "velocity", location = "/vm/index.vm") })
+	@Action(value="index" , results = { @Result(type = "velocity", location = "/vm/index_project.vm") })
 	@Override
 	public String execute() throws Exception {
 		Pagination pageInfo = new Pagination();
 		pageInfo.setOffset(5);
 		pageInfo.setOrderBy("clickTimes");
 		
-		List<Resources> resHots = service.queryResources(pageInfo , null);
-		List<Resources> resStudys = service.queryResources(pageInfo, ResourceTypeEnum.STUDY.getCode());
-		List<Resources> resResearchs = service.queryResources(pageInfo, ResourceTypeEnum.RESEARCH.getCode());
-		List<Resources> resGrowers = service.queryResources(pageInfo, ResourceTypeEnum.GROWER.getCode());
-
+		Map<String , Object> query = pageInfo.toMap();
+		query.put("includingStatus", new Byte[]{ProjectConst.ProcessStatus.STARTUP.getValue() , 
+				ProjectConst.ProcessStatus.PROGRESSING.getValue() , ProjectConst.ProcessStatus.COMPLETED.getValue()});
+		List<Project> pInfo = projectService.queryDetailList(query);
 		List<Yqlink> links = linkService.queryAll();
 		
 		Map<String , Object> result = new HashMap<String , Object>(3);
-		result.put("hots", resHots);
-		result.put("studys", resStudys);
-		result.put("researchs", resResearchs);
-		result.put("growers", resGrowers);
-		
+		result.put("pInfo", pInfo);
+	
 		result.put("links", links);
 		
 		setData(result);
+		return SUCCESS;
+	}
+	
+	@Action(value="pindex" , results = { @Result(type = "velocity", location = "/vm/project_index.vm") })
+	public String pIndex(){
+		Map<String , Object> query = new HashMap<String, Object>();
+		query.put("includingIds", new Long[]{id});
+		List<Project> project = projectService.queryDetailList(query);
+		if( project.size() == 0 ){
+			return setStautsInfo("项目不存在");
+		}
+		
+		query.clear();
+		query.put("projectId", id);
+		List<ProjectResource> resList = projectResService.queryList(query);
+		
+		query.clear();
+		query.put("projectId", id);
+		query.put("state", ProjectConst.ApplyerStatus.APPLYING.getValue());
+		query.put("role", ProjectConst.RoleType.PARTICIPANT.getValue());
+		List<ProjectAttender>  attList = projectAttenderService.queryProjectAttenders(query);
+		
+		query.put("role", ProjectConst.RoleType.PATRONAGE.getValue());
+		List<ProjectAttender>  attPatronageList = projectAttenderService.queryProjectAttenders(query);
+		
+		
+		CommentModel cmodel = new CommentModel();
+		cmodel.setResId(id);
+		query.clear();
+		query.put("resId", id);
+		Long count = commentService.queryCount(query);
+		List<Comment> commentList = new ArrayList<Comment>();
+		
+		query.clear();
+		query.put("busId", id);
+		query.put("isMain", 1);
+		query.put("status" , 1);
+		List<Notification> notifyMainList= notifyService.queryList(query);
+		
+		query.put("isMain", null);
+		query.put("orderBy", "n.add_date");
+		query.put("orderType" , "desc");
+		List<Notification> notifyList = notifyService.queryList(query);
+	
+
+		
+		if(count > 0 ){
+			commentList = commentService.queryList(cmodel, this.getPagination());
+		}
+		
+		Map<String , Object> result = new HashMap<String , Object>();
+		result.put("pInfo", project.get(0));
+		result.put("resList",resList);
+		result.put("attList", attList);
+		if(notifyMainList.size() == 0){
+			result.put("notifyMain" , new Notification());
+		}else{
+			result.put("notifyMain" , notifyMainList.get(0));
+		}
+		result.put("notifyList" , notifyList);
+		result.put("patronageList", attPatronageList);
+		result.put("comList", commentList);
+	
+		setData(result);
+		
 		return SUCCESS;
 	}
 
@@ -149,7 +228,7 @@ public class PageAction extends BasicModelAction {
 		
 		Pagination pageInfo = getPagination();
 		pageInfo.setOffset(5);
-		List<Project> attenders = projectService.queryProjectAttenders(query);
+		List<ProjectAttender> attenders = projectAttenderService.queryProjectAttenders(query);
 		
 		pageInfo.setOrderBy("clickTimes");
 		pageInfo.setExpectIds(getId().toString());

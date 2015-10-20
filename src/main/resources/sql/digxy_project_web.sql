@@ -5,6 +5,65 @@ CREATE DATABASE digxy DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
 USE digxy;
 
 /**
+* Project information
+*/
+Drop table if exists tb_project;
+create table tb_project(
+	id BIGINT NOT NULL AUTO_INCREMENT COMMENT 'key id',
+	name varchar(50) not null comment 'project name' , 
+	description varchar(500) comment 'description' ,
+	sponsor bigint comment 'who upload the resource' ,
+	upload_date datetime comment 'upload date' ,
+	checker bigint comment 'who check the resource' ,
+	check_date datetime comment 'check date' ,
+	status tinyint comment 'passed , waiting , failure',
+	check_msg varchar(500) comment 'check message' ,
+	begin_datetime datetime comment 'what time the project begin in plan' ,
+	end_datetime datetime comment 'what time the project end in plan',
+	attender_limit int comment 'attender limit' ,
+	plan_doc varchar(300) comment 'plan document' , 
+	foster_doc varchar(300) comment 'foster plan document' , 
+	talents_doc varchar(300) comment 'talents document',
+	process_status tinyint comment 'project handle status', 
+	primary key(id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8; 
+
+
+/**
+* project shared resource 
+**/
+drop table if exists tb_project_resource;
+create table tb_project_resource(
+	id bigint not null auto_increment comment 'key id',
+	name varchar(50) not null comment 'resource name' , 
+	res_desc varchar(500) comment 'resource description' , 
+	doc_name varchar(200) not null comment 'file name , including the doc , swf ,image' ,
+	doc_floder varchar(200) comment 'where the file store .',
+	star tinyint default 0 comment 'level',
+	upload_date datetime comment 'upload time' ,
+	uploader bigint comment 'who upload' ,
+	project_id bigint comment 'who belong to ',
+	label varchar(50)  comment 'some tag  ' , 
+	click_times int comment 'click it times' ,
+	download_times int comment 'download times' ,
+	status tinyint default 0 comment ''	,
+	primary key(id)
+)engine=innodb default charset=utf8; 
+
+drop table if exists tb_notification;
+create table tb_notification(
+	id bigint not null AUTO_INCREMENT comment 'key id',
+	bus_id bigint comment 'business id' ,
+	content varchar(500) comment 'detail',
+	add_date datetime comment 'add date',
+	add_user_id bigint comment 'add user id' ,
+	`type` tinyint default 0 comment ' 0 : information , 1: notify all',
+	`status` tinyint default 1 comment '0 : unavailable , 1 : available',
+	is_main tinyint default 0  comment '1 : main  ' , 
+	primary key(id)
+)engine=innodb default charset=utf8;
+
+/**
 *	collector information
 **/
 DROP TABLE if exists tb_collection;
@@ -62,10 +121,10 @@ CREATE TABLE tb_message(
 /**
  * project 
  */
-DROP TABLE IF EXISTS tb_project;
-CREATE TABLE tb_project(
+DROP TABLE IF EXISTS tb_project_attender;
+CREATE TABLE tb_project_attender(
 	id BIGINT NOT NULL AUTO_INCREMENT COMMENT 'KEY ID',
-	res_id BIGINT NULL COMMENT 'resource id',
+	project_id BIGINT NULL COMMENT 'prorject id',
 	attender_id BIGINT NULL COMMENT 'attender id',
 	apply_date DATETIME NULL COMMENT 'create date time',
 	role TINYINT NULL COMMENT 'attender role' ,  
@@ -209,9 +268,9 @@ INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  V
 INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 3 , '成才' , '资源类型' , 1);
 
 /* resource audit status */
-INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 1 , '审核通过' , '资源处理' , 2);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 1 , '待审核' , '资源处理' , 2);
 INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 2 , '审核未通过' , '资源处理' , 2);
-INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 3 , '待审核' , '资源处理' , 2);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 3 , '审核通过' , '资源处理' , 2);
 INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 4 , '正在处理' , '资源处理' , 2);
 INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 5 , '标题或分类不准确' , '资源处理' , 2);
 INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 6 , '信息不完整' , '资源处理' , 2);
@@ -223,24 +282,32 @@ INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  V
 INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 101 , '超级用户' , '用户类型' , 3);
 											 
 /* project status */
-INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 1 , '启动中' , '项目状态' , 4);
-INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 2 , '进行中' , '项目状态' , 4);
-INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 3 , '完成' , '项目状态' , 4);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 1 , '待审核' , '项目审核状态' , 4);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 2 , '审核通过' , '项目审核状态' , 4);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 3 , '审核失败' , '项目审核状态' , 4);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 4 , '启动中' , '项目执行状态' , 4);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 5 , '进行中' , '项目执行状态' , 4);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 6 , '完成' , '项目执行状态' , 4);
 
+/* project audit status
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 1 , '待审核' , '项目审核状态' , 5);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 2 , '审核通过' , '项目审核状态' , 5);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 3 , '审核失败' , '项目审核状态' , 5);
+ */
 
 /* project applyer status */
-INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 1 , '申请中' , '项目申请人状态' , 5);
-INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 2 , '审核通过，参与中' , '项目申请人状态' , 5);
-INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 3 , '完成' , '项目申请人状态' , 5);
-INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 4 , '拒绝' , '项目申请人状态' , 5);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 1 , '申请中' , '项目申请人状态' , 6);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 2 , '审核通过，参与中' , '项目申请人状态' , 6);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 3 , '完成' , '项目申请人状态' , 6);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 4 , '拒绝' , '项目申请人状态' , 6);
 
 /* project attender role */
-INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 1 , '发起人' , '项目参与者角色类型', 6);
-INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 2 , '参与人' , '项目参与者角色类型' , 6);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 1 , '发起人' , '项目参与者角色类型', 7);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 2 , '参与人' , '项目参与者角色类型' , 7);
 
 /* user sex */
-INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 1 , '男' , '性别', 7);
-INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 0 , '女' , '性别' , 7);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 1 , '男' , '性别', 8);
+INSERT INTO tb_system_dictionary(type_id , type_name , type_desc , type_code)  VALUES( 0 , '女' , '性别' , 8);
 
 DROP TABLE if exists tb_system_user;
 CREATE TABLE tb_system_user(

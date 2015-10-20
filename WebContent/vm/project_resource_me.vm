@@ -1,0 +1,75 @@
+#parse("/vm/header.vm")
+<nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="./index">迪格学院</a></li>
+				<li>文档管理</li>
+			</ul>
+		</nav>
+<section class="aside_article">
+			<aside  >
+				#set($curPage = "myfiles")
+				#parse("/vm/user_nav.vm")			
+			</aside>
+			<article>
+				<section>
+					<p class="clearfix" id="tab_header_res">
+						<span class="tab1 tab_selected">文档管理</span>
+					</p>
+					<div class="result_header">
+						 共计 <span style="color:blue;font-style:italic;font-size:0.8em;">${data.count}</span> 条消息
+					</div>
+					<section id="tab_detail_res">
+						<div>
+							<section class="basic_article">
+								<p>
+									<span class="gd_u_title">资源名称</span>
+									<span class="gd_u_type">归属项目</span>
+									<span class="gd_u_type" >状态</span>
+									<span class="gd_u_time">上传时间</span>
+									<span class="gd_handler">操作</span>
+								</p>	
+							</section>
+							<script>
+							 var auditStatus = $strUtils.toJson($data.auditStatus);
+							</script>
+							#if( $data.list.size() > 0)
+							#foreach($elem in ${data.list})
+							<section class="mouse_hover basic_article">
+								<section class="article_title">
+									<span class="gd_u_title"><a href="../result?id=${elem.id}">${elem.name}</a></span>
+									<span class="gd_u_type">${elem.projectName}</span> 
+									<span class="gd_u_type "  style="color:#FF6666;"  id="status_${elem.id}">$mapUtils.getValue(${data.auditStatus},${elem.status}).typeName</span>
+									<span class="gd_u_time">$date.format($elem.uploadDate) </span>
+									<span class="gd_handler">
+											<a href="#" onclick="hy.res.del($elem.id);" >删除</a>
+										
+									</span>
+								</section>
+							</section>		
+							#end
+							#else
+								<section class="basic_article">
+									<p>暂无数据</p>
+								</section>
+							#end
+						</div>
+					
+							<div id="page" class="page"></div>
+<script type="text/javascript">
+paginate.init("page",{
+	selectedNum: $pageNum,
+	count: ${data.count},
+	searchKey : "",
+	url : "manage?"
+});
+</script>
+					</section>
+						
+				</section>
+			</article>
+		</section>
+	
+	
+<script type="text/javascript" src="../js/hy.res.js"></script>
+#parse("/vm/footer.vm")	

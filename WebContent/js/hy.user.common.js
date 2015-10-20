@@ -49,7 +49,7 @@ if ("undefined" == typeof (hyUserCom)) {
 			});
 		},
 		notSignIn: function(){
-			if(!jq("#userLogin").val()){
+			if(!jq("#userLogin").html()){
 				hyUserCom.loginDialog("#", 0);
 				return true;
 			}

@@ -91,7 +91,7 @@ public class HelperAction extends BasicModelAction{
 			model.setDocLaw(sys.getDocupload());
 		}else if(helperModel.getHelperType().equals("userLaw")){
 			model.setUserLaw(sys.getHyzc());
-		}else if(helperModel.getHelperType().equals("contact")){
+		}else if(helperModel.getHelperType().equals("contactInfo")){
 			model.setContactInfo(sys.getLxwm());
 		}
 		

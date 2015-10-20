@@ -19,7 +19,10 @@ if ("undefined" == typeof (comment)) {
 	    	var dataParam = {"commentModel.resId":id , "commentModel.content": content  };
 	    	
 	    	hyCom.request(this.url.add , dataParam, function(data){
-	    		callback();
+	    		jq("#myComment").show();
+	    		jq("#myCommentInfo").html(content);
+	    		jq("#content").val("");
+	    		callback & callback();
 	    	});
 	    },  
 	    
