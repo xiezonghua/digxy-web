@@ -192,6 +192,8 @@ CREATE TABLE tb_user(
 	PRIMARY KEY(id) 
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 
+insert into tb_user ( yhm , pwd , email , zcsj , nic , lev , role ) values ( 'digxy2014@163.com' , 'b87a3ace74e8ce852eda2eabb04ad0' , 'digxy2014@163.com' , '2015-10-27 21:36:12.803' , 'digxyAdmin' , 1 , 101 );
+
 DROP TABLE IF EXISTS tb_system_dictionary;
 CREATE TABLE tb_system_dictionary(
 	id INTEGER NOT NULL AUTO_INCREMENT COMMENT 'KEY ID', 

@@ -37,7 +37,7 @@ public class BasicAction extends ActionSupport {
 	}
 
 	public String getPassword() {
-		return "";
+		return (String)getSession().get(SessionHelper.SESSION_PASSWORD);
 	}
 
 	protected void hasManagerAuthority() {

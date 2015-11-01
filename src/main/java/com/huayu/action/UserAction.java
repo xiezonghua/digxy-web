@@ -129,9 +129,10 @@ public class UserAction extends BasicModelAction {
 	
 	@Action(value="updatePwd" , results={@Result(type="json" , name=SUCCESS)})
 	public String updatePwd(){
-		if(getPassword().equals(userModel.getOldPassword())){
-			setStautsInfo("用户密码不正确");
+		if(!getPassword().equals(userModel.getOldPassword())){
+			return setStautsInfo("用户密码不正确");
 		}
+		userModel.setId(getUserId());
 		
 		service.updateByPrimaryKeySelective(DigxyBoConverter.toUser(userModel));
 		
