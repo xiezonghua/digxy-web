@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link style="text/css" rel="stylesheet" href="../css/menu.css" />
+<link style="text/css" rel="stylesheet" href="../css/main1.css" />
+<link style="text/css" rel="stylesheet" href="../css/user.css" />
+
+<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../js/jQuery.imgPlayer.js"></script>
+<script type="text/javascript" src="../js/layer/layer.js"></script>
+<script type="text/javascript" src="../js/hy.com.js"></script>
+<script type="text/javascript" src="../js/hy.user.common.js"></script>		
+<script>
+function openInfo(title){
+	layer.open({
+		    type: 2,
+		    title: "<strong>"+title+"</strong>",
+		    shadeClose: true,
+		    shade: 0.8,
+		    area: ['750px', '90%'],
+		    content: 'project_res.html' //iframe的url
+		}); 	
+}
+function attend(title){
+	layer.open({
+	    type: 2,
+	    title: "<strong>"+title+"</strong>",
+	    shadeClose: true,
+	    shade: 0.8,
+	    area: ['800px', '90%'],
+	    content: 'table.html' //iframe的url
+	});
+}
+</script>
+</head>
+
+<body>
+	<div class="body_fixed_header">
+		 <header>
+			<section id="title">
+				<img src="../images/yxylogo.png" alt="logo" title="logo" />
+				<h2>迪格学院</h2>
+			</section>
+	
+			<nav class="menu bolder">
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li><a href="#">学习</a></li>
+					<li><a href="#">研究</a></li>
+					<li><a href="#" style="cursor: pointer;">成才</a></li>
+				</ul>
+			</nav>
+			<form class="search" action="#" method="post">
+				<label for="search_content">Search</label> 
+				<input type="text" name="search_content" id="search_content" placeholder="Search" />
+			</form>
+			<section id="regist_login">
+				<ul>
+					<li><a href="#" onclick="hyUserCom.loginDialog();">登录</a></li>
+					<li><a href="#" onclick="hyUserCom.registDialog();">注册</a></li>
+				</ul>
+			</section>
+		</header>
+	</div>
+   
+	<div id="wrapper">
+		<nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="index_project.html">迪格学院</a></li>
+				<li>OpenRV</li>
+			</ul>
+		</nav>
+		<section>
+			<section>
+				<section  style="border:1px solid #CCCCCC;overflow: hidden;">
+					<section  style="overflow: hidden;line-height:40px; border-bottom:1px solid #ccc;margin-bottom: 5px; ">
+						<h1 style="float:left;padding-left:12px;font-size: 25px; color: #2a2a2a; margin-bottom: 2px; font-family: 'Microsoft Yahei';">水下机器人</h1>
+						<p style="float:right;padding-right:12px;text-indent: 3em;font-size:.7em;color:red;letter-spacing:.13em;">预计于45天后开启</p>
+					</section>
+									
+				<section id="tab_detail_project" >
+							<div class="article_p">
+								在广阔的中国大地，同样发生着很多其他精彩的故事。
+								<h3  style="text-align:center;">故事一：国产OPENROV的故事</h3>
+								<p style="text-indent: 2em;">
+									2013年，太平洋彼岸的美国两个小伙伴推出了一款名为OPENROV的水下机器人，详情请看他们的官网：
+									<a href="http://www.openrov.com/">http://www.openrov.com/</a>。
+								</p>
+								<p>
+								受此启发，大约始于2014年初，在六朝古都南京城，一位年轻的庄先生开始了国产OPENROV的研制过程，经过不断地努力，最终取得成功。废话不多说，有图有真相：
+								</p>
+								<div style="text-align: center;"> <img src="../images/index/first.png"/></div> 
+								<p>
+								目前庄先生开了一个国产OPENROV及相关配件的淘宝小店，下面是这个小店的链接：
+								<a href="https://item.taobao.com/item.htm?spm=a230r.1.14.20.1873M3&id=522097342089&ns=1&abbucket=7#detail">
+									https://item.taobao.com/item.htm?spm=a230r.1.14.20.1873M3&id=522097342089&ns=1&abbucket=7#detail
+								</a>
+
+								</p>
+								<p>
+								与此同时，庄先生的一个小伙伴小刀，发起了一个制作水下机器人的QQ讨论群，目前有200多成员，里面不少人是相关领域的技术专家和DIY高手。他们经常讨论，偶尔淡扯，氛围不错，而且群中提供不少有用的制作水下机器人技术资料，值得水下机器人爱好者加入，群号是297539273。
+								</p>
+								<p>
+								最新消息是，美国的OPENROV团队推出了一款全新的水下机器人产品OpenROV Trident，外观和性能都有极大改观，国内同行要加油啦！
+								</p>
+								
+									<h3  style="text-align:center;">故事二：魏建仓的故事</h3>
+								<p style="text-indent: 2em;">
+									这个故事还得从2013年5月的一天说起。那一天，在北京金海湖中，一个水下机器人团队在测深新研发的水下机器人，但是它突然被水中的渔网缠住。如果人去捞，可能十分危险，但是如果不去抢救机器人，这个团队的全部家产都会搭进去。此时，他们的英雄出现了，一位熟识水性的合伙人，冒死跳入水中把机器人捞了回来，故事得以延续。
+								</p>	
+								<div style="text-align: center;"> <img src="../images/index/first.png"/></div> 
+								<p>
+									这个团队的带头人名叫魏建仓，是一个怀抱着远大梦想的80后。故事由他开篇，随后他带领团队不断克服困难，奋力书写更精彩的篇章。据说，在北京十三陵水库60多米深的地方，有一个闸门十几年来总关不上，是库区工作人员的心头大患，而他们的机器人下去，顺利关上了闸门，解决了这个问题。
+								</p>
+								<div style="text-align: center;"> <img src="../images/index/first.png"/></div> 
+								<p>
+								有代表产品，有研发能力，又有成功案例，这样的创业者很受投资人的青睐，魏建仓团队很快获得了500万人民币的投资，挖掘了越来越多的同学，校友，朋友等等中具有创业精神和斗志的资源，拉拢了越来越多的专业大咖和政府支持。
+								</p>
+								<p>
+								在随后的2014年3月，他们在天津成立了一家从事全系列水下机器人研发、生产和销售的高科技企业——深之蓝。
+								</p>
+								<p>
+								他们的故事上了中央电视台，感兴趣可以点开下面的链接观看，当然，这个故事正在展开新的篇章，祝福他们的未来更加美好!
+								<a href="http://tv.cntv.cn/video/VSET100219823041/d46fce799362478686a694481644216f"> http://tv.cntv.cn/video/VSET100219823041/d46fce799362478686a694481644216f </a>
+								<a href="http://fxsczx.cntv.cn/2015/07/02/VIDE1435835382011301.shtml">http://fxsczx.cntv.cn/2015/07/02/VIDE1435835382011301.shtml</a>
+								</p>
+								
+							
+							</div>
+							
+						</section>
+				</section>
+				
+				
+			</section>
+			<section>
+			</section>
+		</section>	
+		
+		<footer>
+			<section class="foot_li clearfix">
+					<label>友情链接：</label>
+					<section >
+						<ul>
+							<li><a href="http://www.baidu.com" target="_blank">baidu</a></li>
+							<li><a href="http://www.baidu.com">百度</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+						</ul>
+					</section>
+			</section>
+			
+			<section class="foot_li clearfix">
+					<label>帮助中心：</label>
+					<section>
+						<ul>
+							<li><a href="http://www.baidu.com" target="_blank">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+							<li><a href="http://www.baidu.com">baidu</a></li>
+						</ul>
+					</section>
+			</section>
+			
+			<section class="foot_law  ">
+			<p>迪格学苑&nbsp;版权所有&nbsp;&nbsp;©2014-2016 DiGe&nbsp;&nbsp;
+				京ICP备14054744号&nbsp;&nbsp; 京公网安备11010802016759号 &nbsp;&nbsp;</p>
+			<nav>
+				<ul>
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Contact Charles</a></li>
+				</ul>
+			</nav>
+			</section>
+		</footer>
+
+	</div>
+</body>
+</html>

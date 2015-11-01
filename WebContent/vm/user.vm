@@ -3,7 +3,7 @@
 		<nav class="navigation">
 			<h2>当前位置:</h2>
 			<ul>
-				<li><a href="index.html">迪格学院</a></li>
+				<li><a href="../index">迪格学院</a></li>
 				<li>个人信息</li>
 			</ul>
 		</nav>
@@ -67,24 +67,25 @@
 						
 						
 					<div class="hidden">
-						<form>
+						<form id="passwordForm">
 							<section>
 								<label for="oldPassword">密码：</label>
-								<input type="text" id="oldPassword" />
+								<input type="password" id="oldPassword" />
 								<p id="oldPassword_msg"></p>
 							</section>
+							</br>
 							<section>
 								<label for="password">修改密码：</label>
-								<input type="text" 	id="password"  />
+								<input type="password" 	id="password"  />
 								<p id="password_msg"></p>
 							</section>
-							
+							</br>
 							<section>
 								<label for="password2">修改密码确认：</label>
-								<input type="text" id="password2"/>
+								<input type="password" id="password2"/>
 								<p id="password2_msg"></p>
 							</section>
-							
+							</br>
 							<section>
 								<p id="pwd_update_msg"></p>
 								<input type="button" value="确认" onclick="user.updatePassword()">

@@ -1,0 +1,104 @@
+#parse("/vm/header.vm")
+
+<section class="aside_article">
+			<aside  >
+				<nav class="left_menu">
+					<ul>	
+						<li>
+							<a href="#">个人资料</a>
+							<ul>
+								<li><a href="#">个人设置</a></li>
+								<li><a href="#">修改密码</a></li>
+								<li><a href="#">修改头像</a></li>
+								<li><a href="#">我的关注</a></li>
+								<li><a href="#">我的收藏</a></li>
+								<li><a href="#">我的分享</a></li>
+								<li><a href="#">我的项目</a></li>
+								<li><a href="#">我的评论</a></li>
+								<li><a href="#">我的消息</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">文档资料</a>
+							<ul>
+								<li><a href="#">我要上传</a></li>
+								<li class="li_selected"><a href="res/list.self">已上传文档</a></li>
+								<li><a href="#">已下载文档</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">后台管理</a>
+							<ul>
+								<li><a href="#">会员管理</a></li>
+								<li><a href="#">文档资源管理</a></li>
+								<li><a href="#">项目管理</a></li>
+								<li><a href="#">邮件管理</a></li>
+								<li><a href="#">评论管理</a></li>
+								<li><a href="#">友情链接</a></li>
+								<li><a href="#">帮助中心</a></li>
+								<li><a href="#">成才管理</a></li>
+							</ul>
+						</li>
+					</ul>
+				
+				</nav>
+			</aside>
+			<article>
+				<section>
+					<p class="clearfix" id="tab_header_res">
+						<span class="tab1 tab_selected" onclick="site.selectedTab('res',0)">审核通过</span>
+						<span class="tab1 tab_unselected" onclick="site.selectedTab('res',1)">待审核</span>
+						<span class="tab1 tab_unselected" onclick="site.selectedTab('res',2)">未通过</span>
+						<span class="tab1 tab_unselected" onclick="site.selectedTab('res',3)">被下载文档</span>
+					</p>
+					<section id="tab_detail_res">
+						<div>
+							<section class="basic_article">
+								<p class="article_title"><a href="#">Pull-in of a pipeline lying directly on</a><span>分类：学习     格式：pdf 上传时间：2015-1-7 21:12</span></p>
+								<p class="article_context">立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件。</p>
+							</section>		
+							<section class="basic_article">
+								<p class="article_title"><a href="#">Pull-in of a pipeline lying directly on</a><span>分类：学习     格式：pdf 上传时间：2015-1-7 21:12</span></p>
+								<p class="article_context">立管分析实例，源自ABAQUS帮助文件。</p>
+							</section>		
+						</div>
+						
+						<div class="hidden">
+							<section class="basic_article">
+								<p class="article_title"><a href="#">Pull-in of a pipeline lying directly on1</a><span>分类：学习     格式：pdf 上传时间：2015-1-7 21:12</span></p>
+								<p class="article_context">立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件。</p>
+							</section>		
+							<section class="basic_article">
+								<p class="article_title"><a href="#">Pull-in of a pipeline lying directly on</a><span>分类：学习     格式：pdf 上传时间：2015-1-7 21:12</span></p>
+								<p class="article_context">立管分析实例，源自ABAQUS帮助文件。</p>
+							</section>		
+						</div>
+						
+						<div class="hidden">
+							<section class="basic_article">
+								<p class="article_title"><a href="#">Pull-in of a pipeline lying directly on2</a><span>分类：学习     格式：pdf 上传时间：2015-1-7 21:12</span></p>
+								<p class="article_context">立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件。</p>
+							</section>		
+							<section class="basic_article">
+								<p class="article_title"><a href="#">Pull-in of a pipeline lying directly on</a><span>分类：学习     格式：pdf 上传时间：2015-1-7 21:12</span></p>
+								<p class="article_context">立管分析实例，源自ABAQUS帮助文件。</p>
+							</section>		
+						</div>
+						
+						<div class="hidden">
+							<section class="basic_article">
+								<p class="article_title"><a href="#">Pull-in of a pipeline lying directly on3</a><span>分类：学习     格式：pdf 上传时间：2015-1-7 21:12</span></p>
+								<p class="article_context">立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件立管分析实例，源自ABAQUS帮助文件。</p>
+							</section>		
+							<section class="basic_article">
+								<p class="article_title"><a href="#">Pull-in of a pipeline lying directly on</a><span>分类：学习     格式：pdf 上传时间：2015-1-7 21:12</span></p>
+								<p class="article_context">立管分析实例，源自ABAQUS帮助文件。</p>
+							</section>		
+						</div>
+					</section>
+						
+				</section>
+			</article>
+		</section>
+		
+#parse("/vm/footer.vm")	

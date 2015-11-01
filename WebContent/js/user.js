@@ -62,9 +62,10 @@ if ("undefined" == typeof (user)) {
 				jq("#password2_msg").html("前后密码不一致").addClass("validate_msg");
 				return;
 			}
-			
+			var requestData = site.modelConverter("userModel" , ["oldPassword" , "password"]);
 			hyCom.request(user.url.updatePwd , requestData, function(data){
 				hyCom.msg("更新成功");
+				jq("#passwordForm")[0].reset();
 //				jq("#pwd_update_msg").html("更新成功").addClass("validate_msg");
 			});
 		},
@@ -125,7 +126,7 @@ if ("undefined" == typeof (user)) {
 		init : "/user/getById",
 		reg: "/user/regist"	,
 		update: "/user/update",
-		updatePwd: "/user/",
+		updatePwd: "/user/updatePwd",
 		getById : "/user/getById" , 
 		attentive : "/attentive/add"
 		
