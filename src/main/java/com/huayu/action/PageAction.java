@@ -83,7 +83,8 @@ public class PageAction extends BasicModelAction {
 	@Resource(name="notificationService")
 	private NotificationService notifyService ;
 	
-	@Action(value="index" , results = { @Result(type = "velocity", location = "/vm/index_project.vm") })
+//	@Action(value="index" , results = { @Result(type = "velocity", location = "/vm/index_project.vm") })
+	@Action(value="index" , results = { @Result(type = "redirect", location = "pindex?id=${id}") })
 	@Override
 	public String execute() throws Exception {
 		Pagination pageInfo = new Pagination();
@@ -100,7 +101,7 @@ public class PageAction extends BasicModelAction {
 		result.put("pInfo", pInfo);
 	
 		result.put("links", links);
-		
+		setId(pInfo.get(0).getId());
 		setData(result);
 		return SUCCESS;
 	}

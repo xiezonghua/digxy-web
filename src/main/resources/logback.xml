@@ -12,9 +12,9 @@
 	<appender name="file"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<Encoding>UTF-8</Encoding>
-		<File>D://log/digxy-web/test.log</File>
+		<File>log/digxy-web/test.log</File>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<FileNamePattern>D://log/digxy-web/test-%d{yyyy-MM-dd}.log</FileNamePattern>
+			<FileNamePattern>log/digxy-web/test-%d{yyyy-MM-dd}.log</FileNamePattern>
 			<MaxHistory>10</MaxHistory>
 			<TimeBasedFileNamingAndTriggeringPolicy
 				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">

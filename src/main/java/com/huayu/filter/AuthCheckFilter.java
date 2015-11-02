@@ -29,7 +29,7 @@ public class AuthCheckFilter extends AbstractInterceptor{
 
 	private static final long serialVersionUID = 1L;
 	
-	private String excludedPatter = "^(index|result|search).*|.*(login|regist)$" ;
+	private String excludedPatter = "^(index|result|search|pindex).*|.*(login|regist)$" ;
 	
 	private final static Logger logger = LoggerFactory.getLogger( AuthCheckFilter.class.getCanonicalName());
 	
