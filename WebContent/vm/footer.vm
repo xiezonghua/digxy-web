@@ -22,14 +22,15 @@
 		    </div>
 		    <script >
 		        	 //在线客服___主窗口
-	jq("#magFloatingBarTab").toggle(function () {
-        jq("#magFloatingBarTab").css({ "right": "162px" }).show();
-        jq("#magFloatingBarContent").show();
-    } , function () {
-     	jq("#magFloatingBarTab").css({ "right": "0px" }).show();
-        jq("#magFloatingBarContent").hide();
-       
-    });
+	jq("#magFloatingBarTab").click(function(){
+		if(jq("#magFloatingBarContent:hidden").length > 0){
+			 jq("#magFloatingBarTab").css({ "right": "162px" }).show();
+		     jq("#magFloatingBarContent").show();
+		}else{
+			jq("#magFloatingBarTab").css({ "right": "0px" }).show();
+	        jq("#magFloatingBarContent").hide();
+		}
+	});
 		
     
 		    	
