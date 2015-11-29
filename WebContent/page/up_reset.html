@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link style="text/css" rel="stylesheet" href="../css/menu.css" />
+<link style="text/css" rel="stylesheet" href="../css/main1.css" />
+<link style="text/css" rel="stylesheet" href="../css/user.css" />
+
+<link rel="shortcut icon" href="../images/yxylogo.png">
+
+<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../js/jQuery.imgPlayer.js"></script>
+<script type="text/javascript" src="../js/layer/layer.js"></script>
+<script type="text/javascript" src="../js/hy.com.js"></script>
+<script type="text/javascript" src="../js/hy.user.common.js"></script>
+</head>
+
+<body>
+	<div class="body_fixed_header">
+		<header>
+			<section id="title">
+				<img src="../images/yxylogo.png" alt="logo" title="logo" />
+				<h2>迪格学院</h2>
+			</section>
+
+
+		</header>
+	</div>
+
+	<div id="wrapper">
+		<nav class="navigation">
+			<h2>当前位置:</h2>
+			<ul>
+				<li><a href="../index">迪格学院</a></li>
+				<li>密码重置</li>
+			</ul>
+		</nav>
+			<section>
+				<form>
+					<section>
+					<label for="password">密码: </label>
+					 <input type="password" id="password" name="password" placeholder="password" />
+					 <span id="password_msg"></span>
+				</section>
+				<br/>
+				<section>
+					<label for="password2">确认密码: </label>
+					 <input type="password" id="password2" name="password2" placeholder="password" />
+					 <span id="password2_msg"></span>
+				</section>
+				<section>
+					<span>&nbsp;&nbsp;</span>
+					<input type="button" value="重置" onclick="hyUserCom.resetPwd()">
+				</section>
+				</form>
+				
+			</section>
+
+			<footer>
+				<section class="foot_law  ">
+					<p>迪格学苑&nbsp;版权所有&nbsp;&nbsp;©2014-2016 DiGe&nbsp;&nbsp;
+						京ICP备14054744号&nbsp;&nbsp; 京公网安备11010802016759号 &nbsp;&nbsp;</p>
+					<nav>
+						<ul>
+							<li><a href="#">Privacy Policy</a></li>
+							<li><a href="#">Contact Charles</a></li>
+						</ul>
+					</nav>
+				</section>
+			</footer>
+	</div>
+</body>
+</html>
