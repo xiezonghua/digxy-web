@@ -1,8 +1,8 @@
 <footer>
 		#if( $exports.size() > 0 )
-		<div class="mag">
+		<div class="mag" >
 		        <div id="magFloatingBar">
-		            <div id="magFloatingBarTab" title="专家在线指导" style="right: 0px;">
+		            <div id="magFloatingBarTab" title="专家在线指导" style="right: 0px;display:none;" >
 		                <span>专</span><span>家</span><span>指</span><span>导</span></div>
 		            <div id="magFloatingBarContent" style="display:none;" >
 		                <div class="item">

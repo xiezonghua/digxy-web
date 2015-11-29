@@ -31,7 +31,7 @@ if ("undefined" == typeof(hyCom)) {
 		},
 		
 		upload : function(id , contextId , success ,failure , url){
-			var urlAd = url ? url : "/digxy/upload";
+			var urlAd = url ? url : "/upload";
 			jq('#' + id).fileupload({
 		        url: urlAd,
 		        dataType: 'json',
@@ -77,9 +77,9 @@ if ("undefined" == typeof(hyCom)) {
 			layer.msg(msg);
 		},
 
-		openHtml : function(content , title) {
+		openHtml : function(content , title , type) {
 			var index = layer.open({
-				type : 1,
+				type : type ? type : 1,
 				area : [ '600px', '360px' ],
 				shadeClose : true, // 点击遮罩关闭
 				content : content,
@@ -127,13 +127,24 @@ if ("undefined" == typeof(hyCom)) {
 					jq("#"+data[i]+"_msg").html("此项不能为空").addClass("validate_msg");
 					validateBool = false;
 				}else{
-					if(data[i] == "email" || data[i] == "mail"){
-			
-					}
 					jq("#"+data[i]+"_msg").html("").removeClass();
+					
+					if(data[i] == "email" || data[i] == "mail"){
+						if(!hyCom.validateMail(jq("#"+data[i]).val())){
+							jq("#"+data[i]+"_msg").html("邮件格式不正确").addClass("validate_msg");
+							validateBool = false;
+						}
+					}
 				}
 			}
 			return validateBool; 
+		},
+		validateMail : function(mail){
+			 var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+			 if(filter.test(mail)){
+				 return true;
+			 }
+			 return false;
 		},
 		
 		modelConverter:function(prefixed , data){
@@ -145,8 +156,13 @@ if ("undefined" == typeof(hyCom)) {
 			return convertData;
 		},
 		redirect:function( url ){
-			window.location = "/digxy"+url;
+			window.location = url;
 		},
+		 getUrlParam: function(name) {
+	            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+	            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+	            if (r != null) return unescape(r[2]); return null; //返回参数值
+	        },
 	};
 };
 

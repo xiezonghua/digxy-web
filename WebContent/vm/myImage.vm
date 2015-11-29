@@ -28,11 +28,11 @@
 					        <i class="glyphicon glyphicon-plus"></i>
 					        <span>选择照片</span>
 					        <!-- The file input field used as target for the file upload widget -->
-					        <input class="photo-file" type="file" name="myFile"  onchange="readURL(this);" />  
+					        <input class="photo-file" type="file" name="myFile" id="myFile" onchange="readURL(this);" />  
 					    </span>
-					    <button type="submit" class="btn btn-primary start">
+					    <button type="button" onclick="formSubmit();" class="btn btn-primary start">
 		                    <i class="glyphicon glyphicon-upload"></i>
-		                    <span>Start upload</span>
+		                    <span>开始上传</span>
 		                </button>
 		                 <span class="fileupload-process"></span>
 		                    <input type="hidden" id="originX" name="originX" />  
@@ -103,6 +103,15 @@
 		$('#destY').val(parseInt(c.h));
 	};
 	
+	function formSubmit(){
+		if($("#myFile").val()){
+			$("#fileupload").submit();
+		}else{
+			window.alert("请选择要上传的图片...");
+    		return;
+		}
+	
+	};
 		
 		
 	

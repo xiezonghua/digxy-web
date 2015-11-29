@@ -7,6 +7,7 @@
 <link style="text/css" rel="stylesheet" href="../css/user.css" />
 <link style="text/css" rel="stylesheet" href="../css/page.css" />
 <link href="../umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+<link rel="shortcut icon" href="../images/yxylogo.png" >
 
 <script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="../js/layer/layer.js"></script>
@@ -47,9 +48,9 @@
 					</ul>
 				#else
 					<ul>
-						<li><a href="#" onclick="hyUserCom.loginDialog('', 0);">登录</a></li>
-						<li><a href="#" onclick="hyUserCom.loginDialog('', 1);">注册</a></li>
-					</ul>
+					 	<li><span class="link" style="letter-spacing: 0.05em;color: #fff;" onclick="hyUserCom.loginDialog('', 0);">登录</span></li>
+						<li><span class="link" style="letter-spacing: 0.05em;color: #fff;"  onclick="hyUserCom.loginDialog('', 1);">注册</span></li>
+			 		</ul>
 				#end
 				<!-- end login regist -->
 			</section>

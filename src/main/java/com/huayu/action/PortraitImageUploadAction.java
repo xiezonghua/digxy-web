@@ -34,7 +34,7 @@ public class PortraitImageUploadAction extends ImageUploadAction {
 
 	@Override
 	public String getStoreFileName() {
-		return busId + "." + FilenameUtils.getExtension(this.getMyFileFileName().get(0));
+		return getUserId() + "." + FilenameUtils.getExtension(this.getMyFileFileName().get(0));
 	}
 
 	public Long getBusId() {

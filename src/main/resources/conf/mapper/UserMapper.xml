@@ -16,6 +16,9 @@
 			<if test="role != null">
 			 	and role = #{role} 
 			</if>
+			<if test="email != null">
+			 	and email = #{email} 
+			</if>
 			<if test="zcsj != null">
 		 		and zcsj = #{zcsj} 
 			</if>
@@ -53,6 +56,9 @@
 			<if test="pwd != null">
 				and	pwd = #{password}
 			</if>	
+			<if test="email != null">
+			 	and email = #{email} 
+			</if>
 			<if test="role != null">
 			 	and role = #{role} 
 			</if>

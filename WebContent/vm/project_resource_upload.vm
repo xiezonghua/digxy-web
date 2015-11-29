@@ -2,7 +2,7 @@
 	<nav class="navigation">
 		<h2>当前位置:</h2>
 		<ul>
-			<li><a href="index">迪格学苑</a></li>
+			<li><a href="../index">迪格学苑</a></li>
 			<li><a href="../pindex?id=${data.projectId}">$data.projectName</a></li>
 			<li>资料分享</li>
 		</ul>

@@ -1,12 +1,12 @@
 package com.huayu.action;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.mail.MessagingException;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -17,9 +17,11 @@ import org.slf4j.LoggerFactory;
 import com.huayu.bo.User;
 import com.huayu.constant.DictConst;
 import com.huayu.model.UserModel;
-import com.huayu.platform.AuthorityType;
 import com.huayu.platform.action.BasicModel;
 import com.huayu.platform.action.BasicModelAction;
+import com.huayu.platform.exception.ActionRuntimeException;
+import com.huayu.platform.mail.MailProperties;
+import com.huayu.platform.mail.MailServer;
 import com.huayu.platform.util.validate.ValidateUtils;
 import com.huayu.service.UserService;
 import com.huayu.utils.DictionaryHelper;
@@ -34,6 +36,9 @@ public class UserAction extends BasicModelAction {
 	private final static Logger logger = LoggerFactory.getLogger(UserAction.class.getCanonicalName());
 	
 	private UserModel userModel = new UserModel();
+	
+	private Long resetTime ;
+	private String oldPwd ;
 	
 	@Resource(name="userService")	
 	private UserService service;
@@ -81,10 +86,14 @@ public class UserAction extends BasicModelAction {
 		String[] validateValues = new String[]{userModel.getUserName() , userModel.getPassword() , userModel.getPetName() , userModel.getEmail()};
 		if(!validate(validateNames, validateValues)) return SUCCESS;
 		User user = DigxyBoConverter.toUser(userModel);
-		user.setZcsj(new Date());
-		user.setRole(AuthorityType.MEMBER.getValue());
-		user.setLev("1");
-		service.addSelective(user);
+		
+		Map<String , Object> query = new HashMap<String,Object>();
+		query.put("email", user.getEmail());
+		Long userCount = service.queryUsersCount(query);
+		if(userCount > 0 ){
+			throw new ActionRuntimeException("邮箱已经被注册过了，请使用其他邮箱。");
+		}
+		service.register(user);
 		return SUCCESS;
 	}
 	
@@ -138,6 +147,54 @@ public class UserAction extends BasicModelAction {
 		
 		return SUCCESS;
 	}
+	
+	@Action(value="findPwd" , results={@Result(type="json" , name=SUCCESS)})
+	public String findPwd(){
+		Map<String , Object> query = new HashMap<String,Object>();
+		query.put("email", userModel.getEmail());
+		List<User> user = service.queryUsers(query);
+		if(user.size() != 1 ){
+			logger.warn("Find {} user by the email " , user.size());
+			throw new ActionRuntimeException("邮箱存在问题，请确认；否则请联系管理员。");
+		}
+		MailProperties mailProp = MailServer.getDefaultProperties();
+		mailProp.setReceiver(userModel.getEmail());
+		mailProp.setSubject("迪格学苑密码找回");
+		String resetUrl = "http://www.digxy.cn/page/up_reset.html?email="+userModel.getEmail() +"&t="+System.currentTimeMillis() +"&p=" + user.get(0).getPwd() ;
+		mailProp.setContent("请使用当前地址一个小时内重置密码, <a href='"+resetUrl+"'>"+resetUrl+"</a>");
+		
+		try {
+			MailServer.sendSimpleMail(mailProp);
+		} catch (MessagingException e) {
+			logger.info("The mail {} send failure , In password find action , exception: {}" , userModel.getEmail() , e);
+			throw new ActionRuntimeException("邮件发送失败，请重试！");
+		}
+		return SUCCESS;
+	}
+	
+	@Action(value="resetPwd" , results={@Result(type="json" , name=SUCCESS)})
+	public String resetPwd(){
+		if(System.currentTimeMillis() - this.getResetTime() > 60*60*1000){
+			logger.info("the user{} modify password url have outtime.", userModel.getEmail());
+		}
+		Map<String, Object> query = new HashMap<String,Object>();
+		query.put("email", userModel.getEmail());
+		query.put("password", oldPwd);
+		List<User> userList = service.queryUsers(query);
+		
+		if(userList.size() != 1){
+			logger.warn("the user{} exist more than one" , userModel.getEmail());
+			throw new ActionRuntimeException("该用户存在安全问题，暂时无法修改密码，请联系管理员");
+		}
+		
+		User user = new User();
+		user.setPwd(userModel.getPassword());
+		user.setId(userList.get(0).getId());
+		
+		service.updateByPrimaryKeySelective(user);
+		
+		return SUCCESS;
+	}
 
 	@Action(value="getById" , results={@Result(type="json" , name=SUCCESS)})
 	public String getById(){
@@ -181,5 +238,23 @@ public class UserAction extends BasicModelAction {
 	public void setUserModel(UserModel userModel) {
 		this.userModel = userModel;
 	}
+
+	public Long getResetTime() {
+		return resetTime;
+	}
+
+	public void setResetTime(Long resetTime) {
+		this.resetTime = resetTime;
+	}
+
+	public String getOldPwd() {
+		return oldPwd;
+	}
+
+	public void setOldPwd(String oldPwd) {
+		this.oldPwd = oldPwd;
+	}
+	
+	
 
 }

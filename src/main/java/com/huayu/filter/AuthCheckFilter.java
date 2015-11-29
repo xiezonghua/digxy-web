@@ -29,7 +29,7 @@ public class AuthCheckFilter extends AbstractInterceptor{
 
 	private static final long serialVersionUID = 1L;
 	
-	private String excludedPatter = "^(index|result|search|pindex).*|.*(login|regist)$" ;
+	private String excludedPatter = "^(index|result|search|pindex).*|.*(login|regist|findPwd|resetPwd)$" ;
 	
 	private final static Logger logger = LoggerFactory.getLogger( AuthCheckFilter.class.getCanonicalName());
 	
@@ -46,17 +46,23 @@ public class AuthCheckFilter extends AbstractInterceptor{
 		String userName = (String) session.getAttribute(SessionHelper.SESSION_USERNAME);
 		
 		try{
+	
+			boolean isCorrect = false; 
 			if (StringUtils.isNotBlank(userName)) {
 				String password = (String) session.getAttribute(SessionHelper.SESSION_PASSWORD);
-				boolean isCorrect = isCorrectAccount(userName, password, request);
+				isCorrect = isCorrectAccount(userName, password, request);
 				if (isCorrect) {
 					return invocation.invoke();
 				}
+		
 			}
-
+			
 			if (urlCheck(request.getServletPath())) {
 				return invocation.invoke();
 			}
+			
+	
+			
 		}catch(ActionRuntimeException ex){
 			handleRuntimeException(invocation, ex, "Action : ");
 			return Action.SUCCESS; 
@@ -97,6 +103,7 @@ public class AuthCheckFilter extends AbstractInterceptor{
 		}
 		
 		User user = userService.userLogin(userName, password);	
+		logger.info("user information , name {}" , user.getNic());
 		if( null != user ){
 			isCorrect = true ;			
 			request.setAttribute("uname", user.getNic());

@@ -2,6 +2,7 @@
 	<script type="text/javascript" src="js/jQuery.imgPlayer.js"></script>
  	<script type="text/javascript" src="flex/flexpaper.js"></script>
    	<script type="text/javascript" src="flex/flexpaper_handlers.js"></script>
+   	   	<script type="text/javascript" src="js/comment.js"></script>
 		<section id="flow_area">
 			<article>
 			<div class="imgPlayer1">
@@ -75,12 +76,17 @@
 			}
 			</script>
 			</article>
-		<aside>
+		<aside style="height:210px;">
+				<div style="height:160px;">
 				<h1>项目公告：</h1>
 				<section>
 					<p>$strUtils.toStr(${data.notifyMain.content} , "")</p>
 					<p><sub class="layout_right">--- $strUtils.toStr(${data.notifyMain.addUserName}, "")</sub></p>	
 				</section>
+				</div>
+				</br>
+				
+				
 			</aside>
 		<!-- end flow_area -->
 		</section>
@@ -90,13 +96,15 @@
 				<section  style="border:1px solid #CCCCCC;overflow: hidden;">
 					<section  style="overflow: hidden;line-height:40px; border-bottom:1px solid #ccc;margin-bottom: 5px; ">
 						<h1 style="float:left;padding-left:12px;font-size: 25px; color: #2a2a2a; margin-bottom: 2px; font-family: 'Microsoft Yahei';">$data.pInfo.name</h1>
-						<p style="float:right;padding-right:12px;text-indent: 3em;font-size:.7em;color:red;letter-spacing:.13em;">预计于45天后开启</p>
+						
+						
+						<p style="float:right;padding-right:12px;text-indent: 3em;font-size:.7em;color:red;letter-spacing:.13em;display:none;">预计于45天后开启</p>
 					</section>
 					<section class="layout_left" style="width: 70%;">
 					    <p class="layout_left" style="padding:0 5px 5px 5px;">	
 						<img alt="" src="images/index/chuzhuang.png" style="width:150px;height: 200px;">
 						</p>
-						<p style="text-indent: 5em;">
+						<p style="text-indent: 5em;display:none;">
 							<span>
 										<a href="#" onclick="openInfo('企划书' , 'upload/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.planDoc}.swf' )">企划书</a>
 										<a href="#" onclick="openInfo('人才资料' , 'upload/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.fosterDoc}.swf' )">人才资料</a>
@@ -123,7 +131,10 @@
 									<p style="text-indent: 2em;">
 										$data.pInfo.sponsorResume	
 									</p>
+							</br>
 							<p style="text-align:center">
+								<a  class="basic_btn"  href="pa/apply?id=${data.pInfo.id}&name=${data.pInfo.name}" >我要参与</a>
+								&nbsp;&nbsp;
 								<a class="basic_btn"  href="pr/new?id=${data.pInfo.id}&name=${data.pInfo.name}">项目分享资料上传</a>
 							</p>
 						</section>
@@ -195,6 +206,7 @@
 									我们几个小伙伴把我们的故事点滴记录下来，在此与你分享，也在此等待新的小伙伴加入，我们真诚的希望在未来的水下世界探索中有你的参与和支持！
 									 参与和支持我们请联系digxy@163.com或QQ。
 								</p>
+									<p><a target="_blank" href="page/new_story.html">更多故事</a></p>
 							</div>	
 							</div>
 							<div>
@@ -244,7 +256,7 @@
 										<textarea rows="8" cols="80" id="content" placeholder="写点自己的意见~"  ></textarea>
 										<sub style="position: relative;left:530px;top:-22px;">100个字</sub>
 									</p>
-									<p class="layout_right"><a class="basic_btn" onclick="comment.add($data.pInfo.id)"  href="#">我发个言</a></p>
+									<p class="layout_right"><span class="basic_btn link" onclick="comment.add($data.pInfo.id)"  >我发个言</span></p>
 								</section>
 								
 								<section class="project_detail_section hidden" id="myComment">
@@ -364,7 +376,7 @@
 	利用涡耗散燃烧模型进行次氧燃烧模拟，探讨不同操作工况参数对出口温度及生成物组分浓度的影响规律，并分析炉内温度场、压力场、组分浓度场。<br/>
 										
 									</p>
-							
+						
 						</section>
 							</section>
 						</section>

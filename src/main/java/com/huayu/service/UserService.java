@@ -17,4 +17,6 @@ public interface UserService extends BasicService<User, Long> {
 	List<User> queryUsers(Map<String, Object> query);
 	
 	Long queryUsersCount(Map<String , Object> query);
+	
+	void register(User user); 
 }

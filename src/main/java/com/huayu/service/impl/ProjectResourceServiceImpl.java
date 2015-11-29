@@ -23,6 +23,7 @@ import com.huayu.dao.ProjectResourceDao;
 import com.huayu.platform.db.DBBasicDao;
 import com.huayu.platform.service.impl.AbstractBasicService;
 import com.huayu.platform.util.DateUtils;
+import com.huayu.platform.util.OfficeXDocConverter;
 import com.huayu.platform.util.doc.DocConverter;
 import com.huayu.platform.util.doc.DocType;
 import com.huayu.service.ProjectResourceService;
@@ -62,10 +63,12 @@ public class ProjectResourceServiceImpl extends AbstractBasicService<ProjectReso
 		String fileAbs = ServletActionContext.getServletContext().getRealPath("/tmp/")+"/" + tmpName;
 		String destdocFile = realPath + docName + "." + extension;
 		String destPdfFile = realPath + docName + ".pdf";
+		String destHtmlFile = realPath + "html/"+ docName +".html";
 		String destSwfFile = realPath +"swf/" + docName + ".swf";
 		String destImageFile = realPath +"images/" + docName ;
 		DocConverter convert = new DocConverter(fileAbs);
 		
+		OfficeXDocConverter.doGenerateHTMLFile(destdocFile, destHtmlFile);
 		convert.setSwfFile(destSwfFile);
 		if(!DocType.PDF.getValue().equals(extension)){
 			try {

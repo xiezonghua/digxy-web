@@ -4,6 +4,8 @@ if ("undefined" == typeof (hyUserCom)) {
 			reg: "/user/regist",
 			login: "/user/login",
 			signout :"/user/signout",
+			findPwd : "/user/findPwd",
+			resetPwd : "/user/resetPwd" ,
 		},
 		
 		init : function(config){
@@ -20,16 +22,16 @@ if ("undefined" == typeof (hyUserCom)) {
 			hyCom.request(this.url.login, requestData,function(data) {
 				hyCom.selectedTab("login", 0);
 				hyCom.dialogClose("page");
-				window.location = window.location.pathname;
+				window.location = "/index";
 			});
 		},
 		signout : function(){
 			hyCom.request(this.url.signout, {},function(data) {
-				window.location = "/digxy/index";
+				window.location = "/index";
 			});
 		},
 		register : function(){
-			if(!hyCom.validate(["petName" , "userName" , "password" , "password2"])) return;
+			if(!hyCom.validate(["petName" , "email" , "password" , "password2"])) return;
 			if(jq("#password").val() != jq("#password2").val()){
 				jq("#password2_msg").html("前后密码不一致").addClass("validate_msg");
 				return ;
@@ -40,14 +42,52 @@ if ("undefined" == typeof (hyUserCom)) {
 				return;
 			}else{jq("#protocol_msg").html("").removeClass();}
 			
-			var requestData = hyCom.modelConverter("userModel" , ["petName" , "userName" , "password"]);
-			requestData["userModel.email"] = jq("#userName").val();
+			var requestData = hyCom.modelConverter("userModel" , ["petName" , "email" , "password"]);
+			requestData["userModel.userName"] = jq("#email").val();
 			
 			hyCom.request(this.url.reg, requestData, function(data) {
-				hyCom.msg("注册成功,请登陆邮箱激活。");
+				hyCom.msg("注册成功,请登陆。");
 				hyCom.selectedTab("login", 0);
 			});
 		},
+		findMyPwd : function(){
+			jq("#myEmail_msg").html("").removeClass();
+			if(jq("#myEmail").val() == "" ){
+				jq("#myEmail_msg").html("此项不能为空").addClass("validate_msg");
+				return;	
+			}
+			if(!hyCom.validateMail(jq("#myEmail").val())){
+				jq("#myEmail_msg").html("邮箱格式不正确").addClass("validate_msg");
+			}
+			
+			var requestData = {};
+			requestData["userModel.email"] = jq("#myEmail").val() ;
+			hyCom.request(this.url.findPwd, requestData, function(data) {
+				hyCom.msg("邮件已经发送，请查收");
+				setTimeout(function(){
+				window.location = "/index";} , 3000);
+				
+			});
+		},
+		resetPwd : function(){
+			var email = hyCom.getUrlParam("email");
+			var time = hyCom.getUrlParam("t");
+			var opwd = hyCom.getUrlParam("p");
+			
+			if(jq("#password").val() != jq("#password2").val()){
+				jq("#password2_msg").html("前后密码不一致").addClass("validate_msg");
+				return ;
+			}
+			
+			var requestData = {"resetTime": time , "oldPwd": opwd};
+			requestData["userModel.email"] = email;
+			requestData["userModel.password"] = jq("#password").val();
+			hyCom.request(this.url.resetPwd, requestData, function(data) {
+				hyCom.msg("修改成功");
+				window.location = "/index";
+			});
+		},
+		
 		notSignIn: function(){
 			if(!jq("#userLogin").html()){
 				hyUserCom.loginDialog("#", 0);
@@ -65,9 +105,10 @@ if ("undefined" == typeof (hyUserCom)) {
 			html.push('					<section>');
 			// html.push(' <label for="login_name">用户名: </label>');
 			html.push('						<input type="text" id="myEmail" name="myEmail" placeholder="请输入注册邮箱"/>');
+			html.push('				<span id="myEmail_msg"></span>');
 			html.push('					</section>');
 			html.push('					<section>');
-			html.push('						<input type="button" value="找回" onclick="">');
+			html.push('						<input type="button" value="找回" onclick="hyUserCom.findMyPwd();">');
 			html.push('						<p >');
 			html.push('							<em>请到您注册的邮箱，获取重置连接</em>');
 			html.push('						</p>');
@@ -121,8 +162,8 @@ if ("undefined" == typeof (hyUserCom)) {
 			html.push('			<form class="login" method="post" action="/user/regist">');
 			html.push('			<section>');
 			// html.push(' <label for="userName">用户ID</label>');
-			html.push('				<input type="text" id="userName" name="userModel.userName" placeholder="请输入邮箱"/>');
-			html.push('				<span id="userName_msg"></span>');
+			html.push('				<input type="text" id="email" name="userModel.email" placeholder="请输入邮箱"/>');
+			html.push('				<span id="email_msg"></span>');
 			html.push('			</section>');
 			html.push('			<section>');
 			// html.push(' <label for="petName">昵称</label>');
@@ -143,7 +184,7 @@ if ("undefined" == typeof (hyUserCom)) {
 			html.push('				<p>');
 			html.push('				<input type="checkbox" id="readLicense" name="readLicense" >');
 			html.push('				<span id="protocol_msg"></span>');
-			html.push('				<label >我已阅读并接受<a href="about_protocol.html">《用户协议》</a></label>');
+			html.push('				<label >我已阅读并接受<span class="link"  onclick="hyCom.openHtml(\'page/about_protocol.html\' , \'用户协议\' , 2);">《用户协议》</a></label>');
 			html.push('				</p>');
 			html.push('			</section>');
 			html.push('			<section>');
