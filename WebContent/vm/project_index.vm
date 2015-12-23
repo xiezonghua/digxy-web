@@ -78,10 +78,12 @@
 			</article>
 		<aside style="height:210px;">
 				<div style="height:160px;">
-				<h1>项目公告：</h1>
+				<h1>公告：</h1>
 				<section>
 					<p>$strUtils.toStr(${data.notifyMain.content} , "")</p>
+					<!--
 					<p><sub class="layout_right">--- $strUtils.toStr(${data.notifyMain.addUserName}, "")</sub></p>	
+					-->
 				</section>
 				</div>
 				</br>
@@ -118,27 +120,41 @@
 						<p style="text-indent: 2em;line-height: 1.5em;padding:12px;">
 							$data.pInfo.description
 						</p>
-					</section>							
-					<section>
-					    <p style="padding:5px;font-size:12px;"><span>$data.pInfo.sponsorName</span><span style="color:red;">(发起人)</span></p>
+					</section>
+					
+				    <!-- The sponsor information -->
+					<section class="layout_right" style="width:260px;padding: 12px;">
+							<p style="  border:1px solid #ccc;background: #fafafa;line-height: 58px; text-align: center;">曾霞光（实验室创始人）</p>
+						<section>
 						<p class="layout_right" style="width:100px;">
-							<img alt="" src="images/portrait/$strUtils.toStr($data.pInfo.portrait , 'default.jpg')" style="width:80px;height: 90px;padding:5px;">
+							<img alt="" src="images/portrait/$strUtils.toStr("10.jpg" , 'default.jpg')" style="width:80px;height: 90px;padding:5px;">
 						</p>	
 						<section class="sponsor_info">	
-							<p><span class="p_header">学历：</span><span></span></p>
-									<p><span class="p_header">研究领域：</span><span>$data.pInfo.major</span></p>
-									<p><span class="p_header">单位：</span><span>$data.pInfo.company</span></p>
-									<p style="text-indent: 2em;">
-										$data.pInfo.sponsorResume	
+							<p><span class="p_header">学历：</span><span>博士</span></p>
+									<p><span class="p_header">研究领域：</span><span>海洋工程，固体力学，断裂力学，力学问题数值模拟</span></p>
+									<p><span class="p_header">职责：</span><span>负责实验室整体规划和运营，分管水下机器人研发过程中的力学问题，具体包括力学模型抽象，有限元模拟等</span></p>					
+									<p><span class="p_header">单位：</span><span>中国科学院力学研究所</span></p>
+									<p><span class="p_header">职务：</span><span>博士后</span></p>
+									<p><span class="p_header">项目经验：</span></p>
+									<p >
+										（1）油气井温度场有限元计算（FEPG二次开发）；<br/>
+										（2）开发全新示功图识别算法；<br/>
+										（3）开发油气水井管柱受力分析及优化软件算法；<br/>
+										（4）负责深水海底管道铺设技术（ 863 项目）中力学分析软件的核心算法设计和编程工作；<br/> 
+										（5）海洋管道整体屈曲有限元分析；<br/>
+										（6）完成国家自然科学基金项目深水双层海底管道的热屈曲特性及控制；<br/>
+										（7）进行深海工程结构的极端环境作用与全寿命服役安全项目中（973）的海底管道整体屈曲问题研究；<br/>
+										（8）研究含多条随机分布裂缝页岩的本构模型；<br/>
+										（9）研究含天然裂缝页岩水力压裂过程中裂缝的扩展机制和规律。<br/>
 									</p>
-							</br>
-							<p style="text-align:center">
-								<a  class="basic_btn"  href="pa/apply?id=${data.pInfo.id}&name=${data.pInfo.name}" >我要参与</a>
-								&nbsp;&nbsp;
-								<a class="basic_btn"  href="pr/new?id=${data.pInfo.id}&name=${data.pInfo.name}">项目分享资料上传</a>
-							</p>
+							
 						</section>
-					</section>
+						</section>
+						<section style="position:fixed; top:80%;left:82%;">
+							<p><a  class="basic_btn"  href="pa/apply?id=${data.pInfo.id}&name=${data.pInfo.name}" >我要参与</a></p>
+							<p><a class="basic_btn"  href="pr/new?id=${data.pInfo.id}&name=${data.pInfo.name}">分享资料上传</a></p>
+						</section>
+					
 				</section>
 				
 				<section class="clearfix"  >
@@ -146,14 +162,52 @@
 						<section>
 							<ul class="tab_ul" id="tab_header_project">
 								<li class="selected"  onclick="hyCom.selectedTab('project',0)">主页</li>
-								<li   onclick="hyCom.selectedTab('project',1)">消息</li>
+								<li   onclick="hyCom.selectedTab('project',1)">故事</li>
 								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',2)">资料</li>
-								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',3)">评论</li>
-								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',4)">参与者/支持者</li>
+								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',3)">讨论</li>
+								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',4)">参与者</li>
 							</ul>
 							
-						<section id="tab_detail_project">
-							<div >
+						<section id="tab_detail_project" style="min-height:600px;">
+							<div>
+								<section class="article_p">
+								<h3  style="text-align:center;">结构设计及优化</h3>
+								<p style="text-indent: 2em;">
+									水下机器人模型样机主体仓结构设计：于芳芳 
+								</p>
+								<div style="text-align: center;"> <img src="images/index/mainPage1.png"/></div> 
+															
+								</section>
+										<section class="article_p">
+								<h3  style="text-align:center;">关键部件强度分析</h3>
+								<p style="text-indent: 2em;">
+									水下机器人盖板过线部位应力分析：曾霞光
+								</p>
+								<div style="text-align: center;"> <img src="images/index/mainPage2.png"/></div> 
+								<p style="text-indent: 2em;">									
+									水下机器人主体仓密封圈应力分析：曾霞光
+								</p>
+								<div style="text-align: center;"> <img src="images/index/SetUp_00_00_00__00_00_14.gif"/></div> 
+								</section>
+								
+								<section class="article_p">
+								<h3  style="text-align:center;">控制硬件及编程</h3>
+								<p style="text-indent: 2em;">
+									基本电子硬件选配：周鑫
+								</p>
+								<div style="text-align: center;"> <img src="images/index/mainPage3.png"/></div> 
+								<div style="text-align: center;"> <img src="images/index/mainPage4.png"/></div>
+								<div style="text-align: center;"> <img src="images/index/mainPage5.png"/></div> 
+								
+								<p style="text-indent: 2em;">
+									水下机器人控制编程：周鑫
+								</p>
+								<div style="text-align: center;"> <img src="images/index/mainPage6.jpg"/></div> 	
+								<div style="text-align: center;"> <img src="images/index/mainPage7.png"/></div> 										
+								</section>
+								
+							</div>				
+							<div class="hidden" >
 								<div class="article_p">
 								<h3  style="text-align:center;">水下机器人成长记</h3>
 								<p  style="text-align:center;">
@@ -209,23 +263,7 @@
 									<p><a target="_blank" href="page/new_story.html">更多故事</a></p>
 							</div>	
 							</div>
-							<div>
-								<!-- project notification list  -->
-								#if( $data.notifyList.size() > 0)
- 								#foreach($elem in ${data.notifyList})
-								<section class="project_detail_section">
-									<p> ${elem.content} 
-										<sub class="layout_right"> ---- ${elem.addUserName} </sub>
-									</p>	
-								</section>
-								#end
-								#else
-									<section class="project_detail_section">
-									<p>暂无消息</p>
-									</section>
-								#end
-							
-							</div>					
+								
 							<div class="hidden">
 								<!-- project resource list --> 
 								#if( $data.resList.size() > 0)
@@ -307,7 +345,7 @@
 									#end
 								</section>
 								
-								<section class="project_detail_section">
+								<section class="project_detail_section hidden">
 									<section>
 										<p style="margin-bottom:12px;font-size:1.2em;font-weight: 700;">赞助列表</p>
 									</section>
@@ -327,7 +365,7 @@
 						</section>
 					</article>
 					<aside style="width:30%;float:right;">
-						<section  style="border:1px solid #ccc;background:#FFF;padding:12px;margin-bottom: 15px;">
+						<section  style="padding:12px;margin-bottom: 15px;">
 							<p style="  border:1px solid #ccc;background: #fafafa;line-height: 58px; text-align: center;">程光明（骨干成员）</p>
 							<section>
 									<p class="layout_right" style="width:100px;">
@@ -335,53 +373,53 @@
 						</p>	
 						<section class="sponsor_info">	
 							<p><span class="p_header">学历：</span><span>博士</span></p>
-									<p><span class="p_header">研究领域：</span><span>石油机械和海洋石油设施设计研发、有限元分析；桩基-土作用有限元分析。</span></p>
-									<p><span class="p_header">单位：</span><span>$data.pInfo.company</span></p>
-									<p style="text-indent: 2em;">
-										2009.1-2010.4    井下过电缆封隔器和安全阀设计(企业立项)<br/>
-										2010.8-2010.12    水下管汇成橇设计方案第三方审核(及对比方案设计)(国家科技重大专项)<br/>
-										2011.1- 2014.6    深水水下应急维修方法研究与半物理仿真系统研制(国家科技重大专项);<br/>
-										2012.1- 2013.12  水下采油树关键技术研究及成套设备研制(863项目);<br/>
-										2013.9-2014.6   吸力锚设计研究(中海油服项目)<br/>
-									</p>
-							
+							<p><span class="p_header">研究领域：</span><span>机械工程，石油机械和海洋石油设施设计研发，桩基-土作用有限元分析</span></p>
+							<p><span class="p_header">职责：</span><span>负责水下机器人结构设计和制造工艺</span></p>
+							<p><span class="p_header">单位：</span><span>中国石化石油工程技术研究院</span></p>
+							<p><span class="p_header">职务：</span><span>博士后</span></p>
+							<p><span class="p_header">项目经验：</span></p>
+						
+							<p >
+								（1）井下过电缆封隔器和安全阀设计(企业立项) <br/>
+								（2）水下管汇成橇设计方案第三方审核及对比方案设计(国家科技重大专项)<br/>
+								（3）深水水下应急维修方法研究与半物理仿真系统研制(国家科技重大专项)<br/>
+								（4）水下采油树关键技术研究及成套设备研制(863项目)<br/>
+								（5）吸力锚设计研究(中海油服项目)<br/>
+							</p>
+					
 						</section>
-							</section>
+					
+						</section>
 						</section>
 						
-						<section  style="border:1px solid #ccc;background:#FFF;padding:12px;margin-bottom: 15px;">
+						<section  style="padding:12px;margin-bottom: 15px;">
 							<p style="  border:1px solid #ccc;background: #fafafa;line-height: 58px; text-align: center;">周鑫（骨干成员）</p>
 							<section>
 									<p class="layout_right" style="width:100px;">
 							<img alt="" src="images/portrait/$strUtils.toStr("" , 'default.jpg')" style="width:80px;height: 90px;padding:5px;">
 						</p>	
-						<section class="sponsor_info">	
-							<p><span class="p_header">学历：</span><span>博士</span></p>
-									<p><span class="p_header">研究领域：</span><span>流体与动力机械工作理论</span></p>
-									<p><span class="p_header">单位：</span><span>$data.pInfo.company</span></p>
-									<p style="text-indent: 2em;">
-										2009. 1  ~  2011.11	高性能泵叶轮数值研发关键技术基础研究
-	基于二元流动理论的离心泵叶轮设计，并结合数值模拟方法对比分析设计离心泵全流场空化及水力性能，再引入涡动力学对叶片进行诊断，指导叶片优化。<br/>
-2010. 3  ~  2011. 3	材料和安全特性技术研究（高压管汇）<br/>
-	采用欧拉－拉格郎日数值模拟方法，预测颗粒对设备的冲蚀并制定相应的减弱冲蚀措施。<br/>
-2010. 4  ~  2011. 3	加热炉工艺模拟及热效率和NOx排放研究<br/>
-	利用数值模拟技术建立相应的计算模型，综合分析排烟温度，过剩空气系数，燃料不完全燃烧及炉体的散热四种因素的相互作用及影响，结合实际炉型给出其提高效率的最佳方案。<br/>
-2012. 9  ~  2014.9	带预旋调节的高效节能离心泵关键技术研究<br/>
-	基于空间导叶设计理论，设计出满足水力要求的新型导流叶栅并利用遗传算法进行优化，数值模拟及性能预测，并搭建试验台，进行试验研究及节能效果评估。<br/>
-2013. 5  ~  2014. 8	西部管道530/440型输油泵换大叶轮项目<br/>
-	基于三元水力设计方法进行替代叶轮设计，并完成其它各过流部件水力设计，采用数值模拟方法对设计结果进行预测分析。<br/>
-2014. 5  ~  至今	大型LNG储罐内潜液泵关键技术校核优化和安全可靠性研究项目<br/>
-	基于遗传算法的潜液泵叶轮三元水力设计，并建立几何模型及相应的计算模型，进行数值模拟研究及分析。<br/>
-2014. 5  ~  至今	加氢进料燃烧炉运行优化研究<br/>
-	利用涡耗散燃烧模型进行次氧燃烧模拟，探讨不同操作工况参数对出口温度及生成物组分浓度的影响规律，并分析炉内温度场、压力场、组分浓度场。<br/>
-										
-									</p>
+							<section class="sponsor_info">	
+								<p><span class="p_header">学历：</span><span>博士</span></p>
+								<p><span class="p_header">研究领域：</span><span>流体与动力机械工作理论，机器人与自动化技术</span></p>
+								<p><span class="p_header">职责：</span><span>水下机器人控制硬件设计和编程</span></p>
+								<p><span class="p_header">单位：</span><span>中国科学院工程热物理研究所</span></p>
+								<p><span class="p_header">职务：</span><span>博士后</span></p>
+								<p><span class="p_header">项目经验：</span></p>
+							
+								<p >
+									（1）足球机器人平衡控制研究 <br/>
+									（2）便携式水下机器人控制技术<br/>
+									（3）高性能泵叶轮数值研发关键技术基础研究；<br/>
+									（4）带预旋调节的高效节能离心泵关键技术研究；<br/>
+									（5）西部管道530/440型输油泵换大叶轮项目；<br/>
+									（6）大型LNG储罐内潜液泵关键技术校核优化和安全可靠性研究项目<br/>
+								</p>
 						
-						</section>
+							</section>
 							</section>
 						</section>
 						
-						<section  style="border:1px solid #ccc;background:#FFF;padding-bottom:12px;text-align: center;">
+						<section  style="border:1px solid #ccc;background:#FFF;padding-bottom:12px;text-align: center;" class="hidden">
 
 							<p style=" border:1px solid #ccc; background: #fafafa;  line-height: 58px; text-align: center;">个人赞助</p>
 							<section>

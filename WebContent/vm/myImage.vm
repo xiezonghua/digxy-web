@@ -9,7 +9,7 @@
 	<nav class="navigation">
 			<h2>当前位置:</h2>
 			<ul>
-				<li><a href="../index">迪格学院</a></li>
+				<li><a href="../index">迪格学苑</a></li>
 				<li>我的文档</li>
 			</ul>
 		</nav>
@@ -82,7 +82,7 @@
                 $("#imageDiv").html('<img  id="displayImg" src="'+this.result+'" alt=""/>'); 
                 var api = $('#displayImg').Jcrop({
                 	setSelect: [ 20, 20, 200, 200 ],
-                 	aspectRatio: 1,
+              //   	aspectRatio: 1,
 					onSelect: updateCoords,
 					boxWidth: 400,
                		boxHeight:400

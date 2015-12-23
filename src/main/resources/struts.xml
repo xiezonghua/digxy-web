@@ -9,7 +9,7 @@
 	<constant name="struts.convention.default.parent.package"
 		value="back-default" />
 
-	<package name="back-default" namespace="back" extends="struts-default">
+	<package name="back-default" namespace="/" extends="struts-default">
 		<result-types>
 			<result-type name="json" class="org.apache.struts2.json.JSONResult" />
 		</result-types>

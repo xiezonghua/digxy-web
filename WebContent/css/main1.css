@@ -62,7 +62,7 @@
 
 .article_p img{
 	text-align: center;
-	max-width: 650px;
+	max-width: 550px;
 	padding:2px;
 }
 
@@ -108,7 +108,7 @@ header {
 
 header section#title {
 	position: absolute;
-	width: 230px;
+	width: 430px;
 	height: 36px;
 	left: 0px;
 	top: 0;
@@ -226,10 +226,10 @@ section#flow_area {
 }
 
 #flow_area aside p {
-	font-size: 0.6em;
+	font-size: 0.9em;
 	line-height: 1.5;
-	padding: 0 0 0 30px;
-	letter-spacing: .5em;
+	letter-spacing: .1em;
+	text-indent: 1.8em;
 }
 /* flow area css document end*/
 
@@ -379,6 +379,7 @@ footer {
 	background: #fff;
 	box-shadow: 0 12px 8px -9px #555;
 	margin-bottom: 12px;
+	text-align: center;
 }
 
 footer p { /*文本行的样式*/
@@ -386,6 +387,7 @@ footer p { /*文本行的样式*/
 	font-size: .85em;
 	letter-spacing: -.05em;
 	color: #555;
+	
 }
 
 footer p a { /*文本行中的链接*/
