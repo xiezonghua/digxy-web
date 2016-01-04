@@ -117,6 +117,7 @@ public class PageAction extends BasicModelAction {
 		
 		query.clear();
 		query.put("projectId", id);
+		query.put("status", ResourceAuditStatusEnum.PASSED.getValue());
 		List<ProjectResource> resList = projectResService.queryList(query);
 		
 		query.clear();

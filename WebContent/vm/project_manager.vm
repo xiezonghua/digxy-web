@@ -39,7 +39,7 @@
 							#foreach($elem in ${data.list})
 							<section class="mouse_hover basic_article">
 								<section class="article_title">
-									<!-- <p><img  style="width:100px;height:120px;" src="../upload/${elem.filePath}images/${elem.fileName}.png"/></p>-->
+									<!-- <p><img  style="width:100px;height:120px;" src="../uploadfile/${elem.filePath}images/${elem.fileName}.png"/></p>-->
 									<span class="gd_u_title"><a href="../result?id=${elem.resId}" target="_blank">${elem.resName}</a></span>
 									<span class="gd_u_type"><a href="#" onclick="project.attenderInfo(${elem.resId})">${elem.attenderCount}</a></span> 
 									<span class="gd_u_type "  style="color:#FF6666;"  id="status_${elem.resId}">$mapUtils.getValue($data.projectStatus , ${elem.projectStatus}).typeName</span>

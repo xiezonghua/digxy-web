@@ -108,9 +108,9 @@
 						</p>
 						<p style="text-indent: 5em;display:none;">
 							<span>
-										<a href="#" onclick="openInfo('企划书' , 'upload/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.planDoc}.swf' )">企划书</a>
-										<a href="#" onclick="openInfo('人才资料' , 'upload/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.fosterDoc}.swf' )">人才资料</a>
-										<a href="#" onclick="openInfo('培养计划' , 'upload/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.talentsDoc}.swf')">培养计划</a>
+										<a href="#" onclick="openInfo('企划书' , 'uploadfile/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.planDoc}.swf' )">企划书</a>
+										<a href="#" onclick="openInfo('人才资料' , 'uploadfile/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.fosterDoc}.swf' )">人才资料</a>
+										<a href="#" onclick="openInfo('培养计划' , 'uploadfile/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.talentsDoc}.swf')">培养计划</a>
 									</span>		
 									<span style="padding:12px;">
 										<a class="basic_btn"  href="pa/apply?id=${data.pInfo.id}&name=${data.pInfo.name}" >我要参与</a>
@@ -161,19 +161,24 @@
 					<article style="width:660px;border:1px solid #ccc;float:left;background:#FFF;">
 						<section>
 							<ul class="tab_ul" id="tab_header_project">
-								<li class="selected"  onclick="hyCom.selectedTab('project',0)">主页</li>
+								<li class="selected"  onclick="hyCom.selectedTab('project',0)">成果展示</li>
 								<li   onclick="hyCom.selectedTab('project',1)">故事</li>
 								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',2)">资料</li>
-								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',3)">讨论</li>
-								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',4)">参与者</li>
+							<!--	<li class="tab1 unselected" onclick="hyCom.selectedTab('project',3)">讨论</li> -->
+								<li class="tab1 unselected" onclick="hyCom.selectedTab('project',3)">参与者</li>
 							</ul>
 							
 						<section id="tab_detail_project" style="min-height:600px;">
 							<div>
 								<section class="article_p">
+								<p style="text-indent: 2em;">									迪格学苑水下机器人实验室于2015年4月组建，2016年4月上线，截止到2016年4月总计承担1个企业的2个研究项目委托，下面是相关成果的展示（获得企业许可）：
+								</p>															
+								</section>
+								
+								<section class="article_p">
 								<h3  style="text-align:center;">结构设计及优化</h3>
 								<p style="text-indent: 2em;">
-									水下机器人模型样机主体仓结构设计：于芳芳 
+									水下机器人样机结构设计：程光明，黄永德，李志刚
 								</p>
 								<div style="text-align: center;"> <img src="images/index/mainPage1.png"/></div> 
 															
@@ -181,11 +186,11 @@
 										<section class="article_p">
 								<h3  style="text-align:center;">关键部件强度分析</h3>
 								<p style="text-indent: 2em;">
-									水下机器人盖板过线部位应力分析：曾霞光
+									水下机器人盖板过线部位应力分析：曾霞光，罗科
 								</p>
 								<div style="text-align: center;"> <img src="images/index/mainPage2.png"/></div> 
 								<p style="text-indent: 2em;">									
-									水下机器人主体仓密封圈应力分析：曾霞光
+									水下机器人主体仓密封圈应力分析：曾霞光，郭来未，刘强
 								</p>
 								<div style="text-align: center;"> <img src="images/index/SetUp_00_00_00__00_00_14.gif"/></div> 
 								</section>
@@ -193,14 +198,14 @@
 								<section class="article_p">
 								<h3  style="text-align:center;">控制硬件及编程</h3>
 								<p style="text-indent: 2em;">
-									基本电子硬件选配：周鑫
+									控制系统基本电子硬件选配：周鑫
 								</p>
 								<div style="text-align: center;"> <img src="images/index/mainPage3.png"/></div> 
 								<div style="text-align: center;"> <img src="images/index/mainPage4.png"/></div>
 								<div style="text-align: center;"> <img src="images/index/mainPage5.png"/></div> 
 								
 								<p style="text-indent: 2em;">
-									水下机器人控制编程：周鑫
+									水下机器人控制编程：周鑫，冯宗玉，吴伟
 								</p>
 								<div style="text-align: center;"> <img src="images/index/mainPage6.jpg"/></div> 	
 								<div style="text-align: center;"> <img src="images/index/mainPage7.png"/></div> 										
@@ -209,58 +214,61 @@
 							</div>				
 							<div class="hidden" >
 								<div class="article_p">
-								<h3  style="text-align:center;">水下机器人成长记</h3>
-								<p  style="text-align:center;">
-									<sub>曾霞光，2015年9月22日星期二</sub>
-								</p>
-								<p style="text-indent: 2em;">
-									 公元2014年10月的北京秋高气爽，非常适合进行各种有趣的户外活动。在奥林匹克森林公园附近的某个小区里5个快乐的小伙伴燃起了探索水下世界的小火苗，然后开始了一段奇妙的征程。
+								<h3  style="text-align:center;">水下机器人“小水母”成长记</h3>
+							
+								<p style="text-indent: 2em;">									 公元2014年10月的北京秋高气爽，非常适合进行各种有趣的户外探索活动。在奥林匹克森林公园附近的一个小区里两个小伙伴燃起了探索水下世界的小火苗，然后开始了一段奇妙的征程。 
 								</p>
 									<div style="text-align: center;"> <img src="images/index/first.png"/></div> 
 									
 								
-								<p style="text-indent: 2em;">
-									 工欲善其事必先利其器，探索水下世界必然需要水下机器人，小伙伴们兴冲冲的上网搜寻，百度之，谷歌之，淘宝之，无奈囊中羞涩，最后一合计，于是决定响应毛主席的号召：自己动手！说干就干，小伙伴们风风火火的操练了起来。感谢伟大的互联网和分享者，通过参考网上资料，小伙伴们购买了必要的组件进行安装、调试。
-									 
+								<p style="text-indent: 2em;">									 工欲善其事必先利其器，探索水下世界必然需要水下机器人，两个小伙伴兴冲冲的上网搜寻，百度之，谷歌之，淘宝之，通过参考网上资料，最后一合计，他们决定响应毛主席的号召：DIY（自己动手）！									 
 								</p>
-								<div>
+											
+								<p style="text-indent: 2em;">									 随后，两个小伙伴有一搭没一搭的操练了起来。感谢伟大的互联网和分享者，两个小伙伴发现大洋彼岸的美帝已经有人在销售他们设计和研发的智能小微水下机器人——OPENROV及其组件。综合考虑成本、时间和难度，小伙伴俩在他们那里购买了必要的组件来进行组装和调试。								 
+								</p>
+								<div style="text-align: center;">
 									 <img src="images/index/shiyan.png"/> 
 								</div>
 								
     
 								<p style="text-indent: 2em;">
-									不断牺牲一个个周末，不断遇到问题，不断解决问题，在6个月后的某一天下午，小伙伴们终于打造出了属于他们的第一个水下机器人（ROV）：
+									不断牺牲一个个周末，不断遇到问题，不断解决问题，在几个月后的某天下午，两个小伙伴终于打造出了属于他们的第一台水下机器人：
 								</p>
 								<div style="text-align: center;">
  									 <img src="images/index/chuzhuang.png"/>  
 								</div>
     
-								<p style="text-indent: 2em;"> 
-									终于，小伙伴们开始了水下世界的探索！先来个小小的测试，这个测试小到万一不行还可以挽起袖子把辛辛苦苦打造的小小ROV捞起来，哈哈！
+								<p style="text-indent: 2em;"> 									两个小伙伴可以开始水下世界的探索了！先来个小小的水中测试，这个测试小到万一不行还可以挽起袖子把辛苦打造的水下机器人捞起来
 								</p>
-								<h4>1、奥森公园水池初试（公元2014年4月12日下午）</h4>
+								<h4>奥森公园水池初试（公元2014年4月12日下午）</h4>
 								<p>
-								 	水密性测试，软件调控测试等都一一通过，小小的ROV取得了小小的成功！
- 									<img src="images/index/test1.png"/> 									 
+ 									<img src="images/index/test1.png"/> 							
+									
 								</p>
-								
-								<h4>2、黄花水长城水库探险（公元2014年5月3日）</h4>
-								<p style="text-indent: 2em;">
-	小小的ROV一路向下到了水下10余米深，水密性、承压力等一一通过验证。同时，小伙伴们看到了水中摇曳的水草，嬉戏的小鱼，柔软的淤泥和古老的水下城墙，也看到了这款机器人的局限和不足，取得了不少宝贵的野外水下探索经验！
- 									<img src="images/index/test2.png"/> 									 
+								<p style="text-indent: 2em;"> 	
+							浅水水密性测试，前进、后退、下潜、上浮、左拐、右拐、探照灯、激光灯等软件调控测试都一一通过，小小的水下机器人取得了小小的成功！	
+							</p>
+								<p style="text-indent: 2em;"> 								水下世界那么大，小伙伴们接下来去到北京城郊的黄花水长城水库探险（公元2015年5月3日）。当把机器人放入一片汪洋的水库中，它像一条鱼一样一路游行，慢慢的下潜到了水下10余米深——水库最深处。此时，深水水密性、承压能力、压力传感器等也一一通过验证。同时，小伙伴们看到了水中摇曳的水草、嬉戏的小鱼、水底柔软的淤泥、埋藏的树杈和古老的水下城墙，实在是不可思议！但是，小伙伴们也看到了这款水下机器人的局限和不足，取得了不少宝贵的野外水下探索经验！
+								</p>
+								<h4>黄花水长城水库探险（公元2014年5月3日）</h4>
+								<p style="text-align: center;">									 
  									<img src="images/index/test2.1.png"/> 									 
- 									<img src="images/index/test2.2.png"/> 									 
+ 																 
 								</p>
-								
-								<h4>3、北京古井水下勘察（筹划中，正在开启）</h4>
-								<div style="text-align: center;">
- 									<img src="images/index/test3.png"/> 									 
-								</div>		
-								<p style="text-indent: 2em;">
-									我们几个小伙伴把我们的故事点滴记录下来，在此与你分享，也在此等待新的小伙伴加入，我们真诚的希望在未来的水下世界探索中有你的参与和支持！
-									 参与和支持我们请联系digxy@163.com或QQ。
+								<p style="text-align: center;">	
+									<img src="images/index/test2.2.png"/> 		
 								</p>
-									<p><a target="_blank" href="page/new_story.html">更多故事</a></p>
+								<p style="text-indent: 2em;"> 									由于看到了这款水下机器人的不足，两个小伙伴想要一个更好用的水下机器人，于是他们有了研制新型水下机器人的想法，之后他们更是决定创立一家专业生产和销售小型水下机器人的企业。然而，万事开头难，仔细分析了现状后，他们发现除了资金方面似乎有点优势，人才和技术上都有不足，于是他们决定扬长避短：控制产品设计方向、把握生产组装和销售等环节，而把对他们来说比较困难的技术研发工作，例如密封设计分析、控制程序编写等交给专业人员去做。通过任务分解和调研，他们决定把两个重要的技术研究项目委托给几个相关专业领域的同学和朋友，而刚好这些人也正在谋划用互联网来实现技术人员和生产企业更好的配合和对接。两队人马一拍即合，于是开始了紧密合作。
+								</p>
+								<p style="text-indent: 2em;"> 									通过精诚合作，属于他们的第一代水下机器人——“小水母”顺利问世，这款水下机器人小巧实用，性价比极高！她拥有两双明亮的眼睛，可以同时平视和俯视。她可以前后左右上下自由移动，而且在竖直方向上有相对大的提升力，非常适合深渊探险。下面即是这款水下机器人的销售网址，感兴趣的客官们赶紧看看吧。<br/>
+								<a href="https://item.taobao.com/item.htm?spm=a230r.1.14.121.oGZyRx&id=41930199389&ns=1&abbucket=8#detail" target="_blank">
+								https://item.taobao.com/item.htm?spm=a230r.1.14.121.oGZyRx&id=41930199389&ns=1&abbucket=8#detail</a>
+								</p>
+								<p style="text-indent: 2em;"> 											其实，我们就是那几个与他们合作的技术研发人员，通过与他们合作，我们也更坚定了自己的前进方向，随后也创立了这个平台：迪格学苑水下机器人实验室。在此我们把几个小伙伴的故事记录下来与您分享，也在此呼唤新的小伙伴加入未来的水下世界探索！
+								</p>
+								<p style="text-indent: 2em;"> 										同时，我们做一个自我宣传，请大家多多支持：迪格学苑水下机器人实验室提供专业的结构设计、有限元分析和控制技术研究服务，并旨在为相关企业培养一流的水下机器人技术研发人才！
+								</p>
+								<p><a target="_blank" href="page/new_story.html">更多故事</a></p>
 							</div>	
 							</div>
 								
@@ -270,7 +278,7 @@
  								#foreach($elem in ${data.resList})
 								<section class="project_detail_section">
 									<p>
-										<span class="link" onclick="openInfo('$elem.name' , 'upload/${elem.docFloder}/swf/${elem.docName}.swf')">$elem.name</span>
+										<span class="link" onclick="openInfo('$elem.name' , 'uploadfile/${elem.docFloder}/swf/${elem.docName}.swf')">$elem.name</span>
 										<span class="layout_right">
 											<img src="images/portrait/$strUtils.toStr($elem.portrait , 'default.jpg')"  style="width:40px;height: 40px; padding:3px;" />
 											<span>
@@ -287,8 +295,9 @@
 								#end
 							
 							</div>
-							<div class="hidden">
 							 <!-- comment list wrapper -->
+							<!-- div class="hidden">
+							
 								<section  class="project_detail_section">
 									<p style="padding:5px;">
 										<textarea rows="8" cols="80" id="content" placeholder="写点自己的意见~"  ></textarea>
@@ -328,7 +337,7 @@
 									<p>暂无评论</p>
 									</section>
 								#end
-							</div>
+							</div -->
 							
 							<div class="hidden">
 								<!-- the attend and the helper list wrapper -->
@@ -341,8 +350,89 @@
 										<p class="layout_left"><img src="images/portrait/$strUtils.toStr($elem.portraitSrc , 'default.jpg')"  style="width:40px;height: 40px;" /><br/><span>$elem.attenderPetName</span><p>
 									#end 
 									#else
-									<p>正在报名中。。。</p>
+									<p class="hidden">正在报名中。。。</p>
 									#end
+									<p>
+										<table style="color:black;">
+											<thead>
+											<tr style="font-weight: 700;">
+												<td>姓名</td>
+												<td>性别</td>
+												<td>年级</td>
+												<td>学校</td>
+												<td>专业</td>
+											</tr>
+											</thead>
+											<tbody>
+											<tr>
+												<td>黄德永</td>
+												<td>男</td>
+												<td>大学一年级</td>
+												<td>南华大学</td>
+												<td>机械设计</td>
+											</tr>
+												<tr>
+												<td>李志刚</td>
+												<td>男</td>
+												<td>大学二年级</td>
+												<td>武汉理工大学</td>
+												<td>机械设计</td>
+											</tr>
+												<tr>
+												<td>冯玉</td>
+												<td>女</td>
+												<td>大学一年级</td>
+												<td>中国石油大学（北京）</td>
+												<td>机械设计</td>
+											</tr>
+												<tr>
+												<td>刘强</td>
+												<td>男</td>
+												<td>大学一年级</td>
+												<td>东南大学</td>
+												<td>自动化</td>
+											</tr>
+											<tr>
+												<td>罗科</td>
+												<td>男</td>
+												<td>大学二年级</td>
+												<td>中山大学</td>
+												<td>工程力学</td>
+											</tr>
+											<tr style="color:red;">
+												<td>郭来未</td>
+												<td>男</td>
+												<td>大学四年级</td>
+												<td>中北大学</td>
+												<td>工程力学</td>
+											</tr>
+											<tr>
+												<td>吴伟</td>
+												<td>男</td>
+												<td>大学三年级</td>
+												<td>南昌大学</td>
+												<td>土木工程</td>
+											</tr>
+											</tbody>
+										</table>
+										
+									</p>
+									
+								</section>
+								
+								<section class="project_detail_section" style="font-size:0.9em;">
+									<section>
+										<p style="margin-bottom:12px;font-size:1.2em;font-weight: 700;">优秀学员</p>
+									</section>
+									<p>“小水母”项目产生优秀学员一名，获得奖学金1000元，以下是相关信息：</p>
+									<p><span class="font_bold">姓名：</span>郭来未
+									  <!--	<span class="font_bold">性别：</span>男；<span class="font_bold">年级：</span>大学四年级；<span class="font_bold">学校：</span>中北大学；<span class="font_bold">专业：</span>工程力学。
+										-->
+									</p>
+									<p>
+<span class="font_bold">学习任务完成情况：</span>在1个月的时间里，在导师指导下学习了有限元分析软件ABAQUS的基本操作，并利用其独立进行了5个完整的实例操作练习。在学习过程中遇到了一些自己难以解决的问题时，能及时主动通过迪格学苑平台寻求帮助，学习自觉性强。提交了规范的学习报告，其中谈到了学习技巧和感悟，较好的总结了学习过程和问题解决过程。通过学习较好的掌握了ABAQUS的操作方法和使用技巧，初步具备了利用ABAQUS对实际问题进行力学分析的能力。
+								   </p>
+<p><span class="font_bold">研究任务完成情况：</span>完成基本学习任务之后的2个月时间里，在导师指导下完成了项目“智能小微水下机器人的密封设计”中的有限元分析工作，提交了比较规范的研究报告，其中研究了密封圈压缩和密封能力的关系以及密封摩擦系数对装配力的影响，给出了不同设计参数下密封圈的优选方案。报告能较好的指导水下机器人密封圈的选择，具有技术应用价值。 </p>
 								</section>
 								
 								<section class="project_detail_section hidden">
@@ -396,7 +486,7 @@
 							<p style="  border:1px solid #ccc;background: #fafafa;line-height: 58px; text-align: center;">周鑫（骨干成员）</p>
 							<section>
 									<p class="layout_right" style="width:100px;">
-							<img alt="" src="images/portrait/$strUtils.toStr("" , 'default.jpg')" style="width:80px;height: 90px;padding:5px;">
+							<img alt="" src="images/portrait/$strUtils.toStr("zhouxin.png" , 'default.jpg')" style="width:80px;height: 90px;padding:5px;">
 						</p>	
 							<section class="sponsor_info">	
 								<p><span class="p_header">学历：</span><span>博士</span></p>

@@ -70,7 +70,7 @@
 				    shadeClose: true,
 				    shade: 0.8,
 				    area: ['800px', '90%'],
-				    content: '/digxy/page/table.html' //iframe的url
+				    content: '/page/table.html' //iframe的url
 				});
 			}
 			</script>
@@ -102,14 +102,14 @@
 							<section class="layout_left" style="width: 70%;">
 							    <p class="layout_left" style="padding:0 5px 5px 5px;">	
 							    <a href="pindex?id=$elem.id">
-								<img alt="" src="upload/$elem.id/$date.format($elem.uploadDate)/images/${elem.planDoc}.png" style="width:150px;height: 200px;">
+								<img alt="" src="uploadfile/$elem.id/$date.format($elem.uploadDate)/images/${elem.planDoc}.png" style="width:150px;height: 200px;">
 								</a>
 								</p>
 								<p style="text-indent: 5em;">
 									<span>
-										<span class="link" onclick="openInfo('企划书' , 'upload/$elem.id/$date.format($elem.uploadDate)/swf/${elem.planDoc}.swf' )">企划书</span>
-										<span class="link" onclick="openInfo('人才资料' , 'upload/$elem.id/$date.format($elem.uploadDate)/swf/${elem.fosterDoc}.swf' )">人才资料</span>
-										<span class="link" onclick="openInfo('培养计划' , 'upload/$elem.id/$date.format($elem.uploadDate)/swf/${elem.talentsDoc}.swf')">培养计划</span>
+										<span class="link" onclick="openInfo('企划书' , 'uploadfile/$elem.id/$date.format($elem.uploadDate)/swf/${elem.planDoc}.swf' )">企划书</span>
+										<span class="link" onclick="openInfo('人才资料' , 'uploadfile/$elem.id/$date.format($elem.uploadDate)/swf/${elem.fosterDoc}.swf' )">人才资料</span>
+										<span class="link" onclick="openInfo('培养计划' , 'uploadfile/$elem.id/$date.format($elem.uploadDate)/swf/${elem.talentsDoc}.swf')">培养计划</span>
 									</span>		
 									<span style="padding:12px;">
 										<a class="basic_btn" target="_blank" href="pa/apply?id=${elem.id}&name=${elem.name}"  >我要参与</a>

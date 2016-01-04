@@ -62,7 +62,7 @@ public class ProjectServiceImpl extends AbstractBasicService<Project , Long> imp
 		String dateFolder = projectId + "/" + DateUtils.format(new Date()) + "/";
 		String extension = FilenameUtils.getExtension(filename).toLowerCase();
 		
-		String realPath = ServletActionContext.getServletContext().getRealPath("/upload/") + "/" + dateFolder;
+		String realPath = ServletActionContext.getServletContext().getRealPath("/uploadfile/") + "/" + dateFolder;
 		String fileAbs = ServletActionContext.getServletContext().getRealPath("/tmp/")+"/" + filename;
 		String destdocFile = realPath + docName + "." + extension;
 		String destPdfFile = realPath + docName + ".pdf";

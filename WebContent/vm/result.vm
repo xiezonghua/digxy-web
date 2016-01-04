@@ -23,7 +23,7 @@
 					 <script type="text/javascript">
                                 jq('#flashcontent').FlexPaperViewer(
 						            { config : {
-						                SWFFile : 'upload/${data.res.respath}/swf/${data.res.ressrc}.swf',
+						                SWFFile : 'uploadfile/${data.res.respath}/swf/${data.res.ressrc}.swf',
 						                Scale : 0.6,
 						                ZoomTransition : 'easeOut',
 						                ZoomTime : 0.5,

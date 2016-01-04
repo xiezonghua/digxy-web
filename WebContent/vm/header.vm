@@ -22,7 +22,7 @@
 	<div class="body_fixed_header">
 		<header>
 			<section id="title">
-				<a href="/digxy/index" style="  text-decoration:none;">
+				<a href="/index" style="  text-decoration:none;">
 				<img src="../images/yxylogo.png" alt="logo" title="logo" />
 				<h2>迪格学苑</h2>
 				<sub style="color:white;">开放式学习，个性化学习，探索性学习</sub>

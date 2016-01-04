@@ -1,7 +1,7 @@
 package com.huayu.constant;
 
 public enum ResourceAuditStatusEnum {
-	PASSED(1), NO_PASS(2), PENDING(3), PROCESSING(4) , CLASSIFY_INCORRECT(5) , UNCOMPLETENESS(6) ,SYSTEM_FAILURE(7)	;
+	PASSED(3), NO_PASS(2), PENDING(1), PROCESSING(4) , CLASSIFY_INCORRECT(5) , UNCOMPLETENESS(6) ,SYSTEM_FAILURE(7)	;
 	
 	private byte value;
 	

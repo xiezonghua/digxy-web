@@ -25,7 +25,7 @@ if ("undefined" == typeof (collecter)) {
 	
 		
 		url :{
-			upload : "/digxy/upload" , 
+			upload : "/upload" , 
 			add: "/collecter/add",
 			del: "/collecter/del"
 		}

@@ -95,7 +95,7 @@ if ("undefined" == typeof (hy.res)) {
 		},
 		
 		url :{
-			upload : "/digxy/upload" , 
+			upload : "/upload" , 
 			add: "/pr/add",
 			audit : "/pr/audit" ,
 			del : "pr/del",

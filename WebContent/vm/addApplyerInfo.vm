@@ -25,7 +25,7 @@
 					</p>
 				</section>
 				<section>
-					<table cellpadding="1" cellspacing="0">
+					<table cellpadding="1" cellspacing="0" style="color:#00822B">
 						<tbody>
 							<tr>
 								<td id="a" colspan="4" class="field_title">基本资料</td>

@@ -74,9 +74,9 @@
 <img alt="" src="../images/index/chuzhuang.png" style="width:150px;height: 200px;">						</p>
 						<p style="text-indent: 5em;">
 							<span>
-								<a href="#" onclick="openInfo('企划书' , '../upload/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.planDoc}.swf' )">企划书</a>
-								<a href="#" onclick="openInfo('人才资料' , '../upload/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.fosterDoc}.swf' )">人才资料</a>
-								<a href="#" onclick="openInfo('培养计划' , '../upload/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.talentsDoc}.swf')">培养计划</a>
+								<a href="#" onclick="openInfo('企划书' , '../uploadfile/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.planDoc}.swf' )">企划书</a>
+								<a href="#" onclick="openInfo('人才资料' , '../uploadfile/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.fosterDoc}.swf' )">人才资料</a>
+								<a href="#" onclick="openInfo('培养计划' , '../uploadfile/${data.pInfo.id}/$date.format(${data.pInfo.uploadDate})/swf/${data.pInfo.talentsDoc}.swf')">培养计划</a>
 							</span>		
 						</p>
 						<p style="text-indent: 2em;line-height: 1.5em;padding:12px;">
@@ -147,7 +147,7 @@
  								#foreach($elem in ${data.resList})
 								<section class="project_detail_section">
 									<p>
-										<span class="link" onclick="openInfo('$elem.name' , '../upload/${elem.docFloder}/swf/${elem.docName}.swf')">$elem.name</span>
+										<span class="link" onclick="openInfo('$elem.name' , '../uploadfile/${elem.docFloder}/swf/${elem.docName}.swf')">$elem.name</span>
 										<span class="layout_right">
 											<img src="../images/portrait/$strUtils.toStr($elem.portrait , 'default.jpg')"  style="width:40px;height: 40px; padding:3px;" />
 											<span>

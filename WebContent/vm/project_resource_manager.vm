@@ -47,8 +47,8 @@
 											<a href="#" onclick="hy.res.opt($elem.id);" >处理</a>
 										<section id="op${elem.id}" class="op">	
 											<ul class="dropDown">
-											 <li><a href="#" onclick="hy.res.audit($elem.id, 1)">审核通过</a></li>
-											 <li><a href="#" onclick="hy.res.audit($elem.id, 3)">待审核</a></li>
+											 <li><a href="#" onclick="hy.res.audit($elem.id, 3)">审核通过</a></li>
+											 <li><a href="#" onclick="hy.res.audit($elem.id, 1)">待审核</a></li>
 											 <li><a href="#" onclick="hy.res.audit($elem.id, 4)">正在处理</a></li>
 											 <li><a href="#" onclick="hy.res.audit($elem.id, 2)">审核未通过</a></li>
 											 <li><a href="#" onclick="hy.res.audit($elem.id, 5)">标题或分类不准确</a></li>

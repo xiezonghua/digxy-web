@@ -230,7 +230,7 @@
 					<scanIntervalSeconds>10</scanIntervalSeconds>
 					<webAppSourceDirectory>${project.basedir}/WebContent</webAppSourceDirectory>
 					<webApp>
-						<contextPath>/digxy</contextPath>
+						<contextPath>/</contextPath>
 					</webApp>
 					<httpConnector>
 						<port>8080</port>

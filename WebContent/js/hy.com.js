@@ -3,7 +3,7 @@ if ("undefined" == typeof(hyCom)) {
 	var hyCom = {
 		request : function(url, dataParam, success, failure) {
 			var setting = {
-				url : "/digxy" + url,
+				url : url,
 				data : dataParam,
 				type : "POST",
 				dataType : "json",

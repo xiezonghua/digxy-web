@@ -23,7 +23,7 @@
 					<section id="tab_detail_user">
 					<div >
 						<section class="layout_right">
-						<img  class="portrait" src="/digxy/images/portrait/$strUtils.toStr($data.imgSrc , 'default.jpg')" />	
+						<img  class="portrait" src="/images/portrait/$strUtils.toStr($data.imgSrc , 'default.jpg')" />	
 						<p>${data.userName}</p>
 						</section>
 						<form action="#">

@@ -59,7 +59,7 @@ public class ProjectResourceServiceImpl extends AbstractBasicService<ProjectReso
 		resource.setStatus(ResourceAuditStatusEnum.PENDING.getValue());//wait for judgement.
 		projectResourceDao.addSelective(resource);
 		
-		String realPath = ServletActionContext.getServletContext().getRealPath("/upload/") + "/" + dateFolder;
+		String realPath = ServletActionContext.getServletContext().getRealPath("/uploadfile/") + "/" + dateFolder;
 		String fileAbs = ServletActionContext.getServletContext().getRealPath("/tmp/")+"/" + tmpName;
 		String destdocFile = realPath + docName + "." + extension;
 		String destPdfFile = realPath + docName + ".pdf";

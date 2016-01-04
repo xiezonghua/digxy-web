@@ -93,7 +93,7 @@ if ("undefined" == typeof (res)) {
 		},
 		
 		url :{
-			upload : "/digxy/upload" , 
+			upload : "/upload" , 
 			add: "/res/add",
 			audit : "/res/audit" ,
 			del : "res/del",

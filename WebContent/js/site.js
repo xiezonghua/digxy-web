@@ -3,7 +3,7 @@ if( "undefined" == typeof(site) ){
 	var site = {
 		request : function(url , dataParam , success , failure){
 			var setting = { 
-					url: "/digxy"+url ,
+					url: url ,
 					data: dataParam ,
 					type : "POST", 
 					dataType : "json",
@@ -79,7 +79,7 @@ if( "undefined" == typeof(site) ){
 		},
 		
 		redirect:function( url ){
-			window.location = "/digxy"+url;
+			window.location = url;
 		},
 		
 		validate : function(data){
@@ -118,7 +118,7 @@ if( "undefined" == typeof(site) ){
 			 jq('#flashcontent').FlexPaperViewer(
 			            { config : {
 
-			                SWFFile : 'upload/',
+			                SWFFile : 'uploadfile/',
 
 			                Scale : 0.6,
 			                ZoomTransition : 'easeOut',
