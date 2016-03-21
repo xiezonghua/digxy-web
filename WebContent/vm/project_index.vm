@@ -96,8 +96,8 @@
 		<section>
 			<section>	
 				<section  style="border:1px solid #CCCCCC;overflow: hidden;">
-					<section  style="overflow: hidden;line-height:40px; border-bottom:1px solid #ccc;margin-bottom: 5px; ">
-						<h1 style="float:left;padding-left:12px;font-size: 25px; color: #2a2a2a; margin-bottom: 2px; font-family: 'Microsoft Yahei';">$data.pInfo.name</h1>
+					<section  style="overflow: hidden;line-height:40px; border-bottom:1px solid #ccc;margin-bottom: 5px;background: rgba(25, 169, 123, 0.58); ">
+						<h1 >$data.pInfo.name</h1>
 						
 						
 						<p style="float:right;padding-right:12px;text-indent: 3em;font-size:.7em;color:red;letter-spacing:.13em;display:none;">预计于45天后开启</p>
@@ -124,7 +124,7 @@
 					
 				    <!-- The sponsor information -->
 					<section class="layout_right" style="width:260px;padding: 12px;">
-							<p style="  border:1px solid #ccc;background: #fafafa;line-height: 58px; text-align: center;">曾霞光（实验室创始人）</p>
+							<p class="person_title">曾霞光（实验室创始人）</p>
 						<section>
 						<p class="layout_right" style="width:100px;">
 							<img alt="" src="images/portrait/$strUtils.toStr("10.jpg" , 'default.jpg')" style="width:80px;height: 90px;padding:5px;">
@@ -150,7 +150,7 @@
 							
 						</section>
 						</section>
-						<section style="position:fixed; top:80%;left:82%;">
+						<section style="position:fixed; top:80%;left:86%;">
 							<p><a  class="basic_btn"  href="pa/apply?id=${data.pInfo.id}&name=${data.pInfo.name}" >我要参与</a></p>
 							<p><a class="basic_btn"  href="pr/new?id=${data.pInfo.id}&name=${data.pInfo.name}">分享资料上传</a></p>
 						</section>
@@ -158,7 +158,7 @@
 				</section>
 				
 				<section class="clearfix"  >
-					<article style="width:660px;border:1px solid #ccc;float:left;background:#FFF;">
+					<article style="width:660px;border:1px solid #ccc;float:left;">
 						<section>
 							<ul class="tab_ul" id="tab_header_project">
 								<li class="selected"  onclick="hyCom.selectedTab('project',0)">成果展示</li>
@@ -353,9 +353,9 @@
 									<p class="hidden">正在报名中。。。</p>
 									#end
 									<p>
-										<table style="color:black;">
+										<table style="">
 											<thead>
-											<tr style="font-weight: 700;">
+											<tr style="font-weight: 800;color: rgba(255, 230, 147, 0.81);">
 												<td>姓名</td>
 												<td>性别</td>
 												<td>年级</td>
@@ -425,14 +425,14 @@
 										<p style="margin-bottom:12px;font-size:1.2em;font-weight: 700;">优秀学员</p>
 									</section>
 									<p>“小水母”项目产生优秀学员一名，获得奖学金1000元，以下是相关信息：</p>
-									<p><span class="font_bold">姓名：</span>郭来未
-									  <!--	<span class="font_bold">性别：</span>男；<span class="font_bold">年级：</span>大学四年级；<span class="font_bold">学校：</span>中北大学；<span class="font_bold">专业：</span>工程力学。
+									<p><span class="p_header">姓名：</span>郭来未
+									  <!--	<span class="p_header">性别：</span>男；<span class="font_bold">年级：</span>大学四年级；<span class="font_bold">学校：</span>中北大学；<span class="font_bold">专业：</span>工程力学。
 										-->
 									</p>
 									<p>
-<span class="font_bold">学习任务完成情况：</span>在1个月的时间里，在导师指导下学习了有限元分析软件ABAQUS的基本操作，并利用其独立进行了5个完整的实例操作练习。在学习过程中遇到了一些自己难以解决的问题时，能及时主动通过迪格学苑平台寻求帮助，学习自觉性强。提交了规范的学习报告，其中谈到了学习技巧和感悟，较好的总结了学习过程和问题解决过程。通过学习较好的掌握了ABAQUS的操作方法和使用技巧，初步具备了利用ABAQUS对实际问题进行力学分析的能力。
+<span class="p_header">学习任务完成情况：</span>在1个月的时间里，在导师指导下学习了有限元分析软件ABAQUS的基本操作，并利用其独立进行了5个完整的实例操作练习。在学习过程中遇到了一些自己难以解决的问题时，能及时主动通过迪格学苑平台寻求帮助，学习自觉性强。提交了规范的学习报告，其中谈到了学习技巧和感悟，较好的总结了学习过程和问题解决过程。通过学习较好的掌握了ABAQUS的操作方法和使用技巧，初步具备了利用ABAQUS对实际问题进行力学分析的能力。
 								   </p>
-<p><span class="font_bold">研究任务完成情况：</span>完成基本学习任务之后的2个月时间里，在导师指导下完成了项目“智能小微水下机器人的密封设计”中的有限元分析工作，提交了比较规范的研究报告，其中研究了密封圈压缩和密封能力的关系以及密封摩擦系数对装配力的影响，给出了不同设计参数下密封圈的优选方案。报告能较好的指导水下机器人密封圈的选择，具有技术应用价值。 </p>
+<p><span class="p_header">研究任务完成情况：</span>完成基本学习任务之后的2个月时间里，在导师指导下完成了项目“智能小微水下机器人的密封设计”中的有限元分析工作，提交了比较规范的研究报告，其中研究了密封圈压缩和密封能力的关系以及密封摩擦系数对装配力的影响，给出了不同设计参数下密封圈的优选方案。报告能较好的指导水下机器人密封圈的选择，具有技术应用价值。 </p>
 								</section>
 								
 								<section class="project_detail_section hidden">
@@ -456,7 +456,7 @@
 					</article>
 					<aside style="width:30%;float:right;">
 						<section  style="padding:12px;margin-bottom: 15px;">
-							<p style="  border:1px solid #ccc;background: #fafafa;line-height: 58px; text-align: center;">程光明（骨干成员）</p>
+							<p class="person_title" >程光明（骨干成员）</p>
 							<section>
 									<p class="layout_right" style="width:100px;">
 							<img alt="" src="images/portrait/$strUtils.toStr("guangming.png" , 'default.jpg')" style="width:80px;height: 90px;padding:5px;">
@@ -483,7 +483,7 @@
 						</section>
 						
 						<section  style="padding:12px;margin-bottom: 15px;">
-							<p style="  border:1px solid #ccc;background: #fafafa;line-height: 58px; text-align: center;">周鑫（骨干成员）</p>
+							<p class="person_title">周鑫（骨干成员）</p>
 							<section>
 									<p class="layout_right" style="width:100px;">
 							<img alt="" src="images/portrait/$strUtils.toStr("zhouxin.png" , 'default.jpg')" style="width:80px;height: 90px;padding:5px;">

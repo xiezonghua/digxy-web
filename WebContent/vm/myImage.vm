@@ -21,7 +21,9 @@
 	
 
 			<article>
-				<p style="font-size:1.1em;font-weight: 700;padding:5px;">设置新头像</p>
+				<section>
+				<p >设置新头像</p>
+				<div style="margin:12px;">
 				<form id="fileupload"  action="portrait" method="post" enctype="multipart/form-data">  
 			        <div class="fileupload-buttonbar">
 			    		<span class="btn btn-success fileinput-button">
@@ -42,7 +44,7 @@
 				        <input type="hidden" id="busId" name="busId" value="1"/>
 				     </div>
 			    </form>	
-			       <p>使用真实照片，展现真我风采！支持jpg、jpeg、gif、png、bmp格式在大照片中裁剪最满意的部分。</p>
+			       <div>使用真实照片，展现真我风采！支持jpg、jpeg、gif、png、bmp格式在大照片中裁剪最满意的部分。</div>
 				    <!-- The global progress bar -->
 				    <div id="progress" class="progress">
 				        <div class="progress-bar progress-bar-success"></div>
@@ -53,6 +55,8 @@
 			    <div style="width: 400px; height: 400px;" id="imageDiv">
 				    <img alt="" src="" id="displayImg" />  
 			    </div>
+			   <div>
+			    </section>
 			</article>
 		</section>
 		

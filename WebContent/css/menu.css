@@ -116,7 +116,7 @@ nav.left_menu > ul{	 }
 nav.left_menu > ul > li > a{
 	font-weight: 600;
 	line-height:2.2;
-	background-color: #fff;
+	background-color: rgba(25, 169, 123, 0.58);
 	border-bottom:1px solid;
 }
 
@@ -126,14 +126,14 @@ nav.left_menu li {
 
 nav.left_menu li > a{
 	text-decoration: none;
-	color:#000;
+
 	letter-spacing: .1em;
 	display:block;
 	padding:0 12px;
 }
 
 nav.left_menu li >a:hover{
-	background-color: #aff;
+	background-color: rgba(0, 0, 0, 0.51);
 }
 
 nav.left_menu li ul{

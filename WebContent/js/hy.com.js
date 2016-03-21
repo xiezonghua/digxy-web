@@ -1,3 +1,7 @@
+layer.config({
+    skin: 'demo-class'
+})
+
 if ("undefined" == typeof(hyCom)) {
 	var jq = $; // JQuery alias define.
 	var hyCom = {

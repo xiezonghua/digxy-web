@@ -18,7 +18,7 @@
 						<span class="tab1 tab_selected"><a href="attend">参与的项目</a></span>
 					</p>
 					<div class="result_header">
-						 共计 <span style="color:blue;font-style:italic;font-size:0.8em;">${data.count}</span> 条
+						 共计 <span class="data_list_summary">${data.count}</span> 条
 					</div>
 					<section id="tab_detail_res">
 						<div>

@@ -8,7 +8,7 @@ if ("undefined" == typeof (project)) {
 			hyCom.request(project.url.g, {"projectModel.projectId": projectId} , function(data){
 				var html = new Array();
 				html.push('<div class="result_header"> <span class="font-weight:700"> </span>');
-				html.push('	 共计  <span style="color:blue;font-style:italic;font-size:0.8em;">');
+				html.push('	 共计  <span class="data_list_summary">');
 				html.push(data.length);
 				html.push('</span>&nbsp;位参与人');
 				html.push('	</div> <div> <section class="basic_article"> <p>');

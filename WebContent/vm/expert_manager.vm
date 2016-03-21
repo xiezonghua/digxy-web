@@ -13,7 +13,7 @@
 					<section>
 						<section>
 						<div class="result_header">
-							 共计 <span style="color:blue;font-style:italic;font-size:0.8em;">$data.size()</span> 条
+							 共计 <span class="data_list_summary">$data.size()</span> 条
 							 <span class="layout_right" style="margin-top:-5px;"><input type="button" value="添加" onclick="expert.toAddPage();"/></span>
 						</div>
 							<p></p>

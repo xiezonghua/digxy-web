@@ -17,7 +17,7 @@
 						<span class="tab1 tab_selected">项目管理</span>
 					</p>
 					<div class="result_header">
-						 共计 <span style="color:blue;font-style:italic;font-size:0.8em;">${data.count}</span> 条
+						 共计 <span class="data_list_summary">${data.count}</span> 条
 						 <a href="n" target="_blank" class="  layout_right">发起新的项目</a>
 					</div>
 					<section id="tab_detail_res">

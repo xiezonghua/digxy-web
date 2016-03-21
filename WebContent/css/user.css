@@ -32,8 +32,8 @@ section.aside_article article>section {
 }
 
 section.aside_article article>section>p {
-	line-height: 2;
-	background:#f3f3f3;
+	line-height: 2.2;
+	background:rgba(25, 169, 123, 0.58);
 }
 
 section.aside_article .tab1 {
@@ -51,11 +51,11 @@ section.aside_article .tab1 {
 }
 
 section.aside_article .tab_selected {
-	background: #fff;
+	background: rgba(0, 0 , 0, 0.3);;
 }
 
 section.aside_article .tab_unselected {
-	background:#eee;
+	background:"";
 }
 
 .un-editable{
@@ -70,12 +70,14 @@ textarea{
 }
 
 .portrait{
-	max-height: 180px;
-	max-width: 200px;	
+	height: 120px;
+	width: 120px;	
+	border: 2px solid #cccccc;
+    padding: 1px;
 }
 
 .li_selected{
-	background-color: #aff;
+	background-color:rgba(0, 0, 0, 0.51);
 }
 
 /* reg page begin*/

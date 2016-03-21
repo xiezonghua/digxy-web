@@ -19,7 +19,7 @@
 					</p>
 					<section id="tab_detail_res">
 						<div class="result_header">
-								 共计 <span style="color:blue;font-style:italic;font-size:0.8em;">${data.count}</span> 条消息
+								 共计 <span class="data_list_summary">${data.count}</span> 条消息
 						</div>
 						<div>
 							#if( $data.list.size() > 0)

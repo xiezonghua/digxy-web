@@ -26,7 +26,7 @@
 	</div> 
    #end
 	<div class="result_header">
-		共计 <span style="color:blue;font-style:italic;font-size:0.8em;">${data.count}</span> 条评论
+		共计 <span class="data_list_summary">${data.count}</span> 条评论
 	</div>
 	
 	

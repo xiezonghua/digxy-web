@@ -5,6 +5,15 @@
 	padding: 0;
 }
 
+h1{
+	font-size: 1.5em;
+	margin:3px 5px;
+}
+
+a{
+	color:#ffffaa;
+}
+
 .layout_right {
 	float: right;
 }
@@ -44,7 +53,7 @@
 
 .link{
 	cursor: pointer;
-	color: #76f;
+	color: #ffffaa;
 	padding: 0 3px;
 }
 
@@ -68,10 +77,17 @@
 
 
 body {
-	font-family: "Microsoft YaHei", "微软雅黑", "SimHei", "黑体";
-	background-image:url('../images/bg.png');
+	font-family: 'Microsoft YaHei', 微软雅黑, Arial, Verdana, sans-serif;
+	background-image:url('../images/bg2.png');
 	background-repeat: repeat;
 	margin: 0;
+	color:#dfdfdf;
+	font-size:0.9em;
+	letter-spacing:.0.03em;
+	/*filter:alpha(opacity=50); IE滤镜，透明度50%*/
+	/*-moz-opacity:0.5; Firefox私有，透明度50%*/
+	/*opacity:0.5;其他，透明度50%*/
+
 }
 
 a { /*链接文本*/
@@ -200,10 +216,6 @@ section#flow_area {
 #flow_area article {
 	float: left;
 	width: 66%;
-	padding: 12px;
-	background: #fff;
-	border-radius: 12px 0 12px 0;
-	box-shadow: 0 12px 8px -9px #555;
 }
 
 #flow_area article img {
@@ -213,11 +225,7 @@ section#flow_area {
 
 #flow_area aside {
 	float: right;
-	width: 28%;
-	background: #fff;
-	padding: 2px 12px 12px 12px;
-	border-radius: 12px 0 12px 0;
-	box-shadow: 0 12px 8px -9px #555;
+	width: 30%;
 }
 
 #flow_area aside h1 {
@@ -226,6 +234,7 @@ section#flow_area {
 }
 
 #flow_area aside p {
+	color: rgba(255, 230, 147,1);
 	font-size: 0.9em;
 	line-height: 1.5;
 	letter-spacing: .1em;
@@ -376,17 +385,17 @@ section#resource_repository section:last-child article {
 footer {
 	padding: .5em 0 .35em 0; /*内容上下的间距*/
 	border-radius: 10px 0px 10px 0px;
-	background: #fff;
 	box-shadow: 0 12px 8px -9px #555;
 	margin-bottom: 12px;
 	text-align: center;
+
 }
 
 footer p { /*文本行的样式*/
 	font-weight: 400;
 	font-size: .85em;
 	letter-spacing: -.05em;
-	color: #555;
+
 	
 }
 
@@ -422,7 +431,6 @@ footer li+li a {
 
 footer li a {
 	text-decoration: none; /*去掉链接默认的下划线*/
-	color: #444;
 	padding: 0 5px; /*链接间距*/
 }
 
@@ -485,12 +493,11 @@ nav.navigation {
 }
 
 .mouse_hover:HOVER {
-	background-color: #dfdfdd;
+	background-color: rgba(0, 0, 0, 0.51);
 }
 
 .article_title span {
-	color: #888;
-	font-size: .8em;
+	font-size: .9em;
 }
 
 .gd_u_title {
@@ -621,9 +628,10 @@ nav.navigation {
 .result_header {
 	padding: 5px;
 	margin-bottom: 5px;
-	border: 1px solid #fff;
-	background-color: #e5eef8;
+
 	font-size: 0.9em;
+	text-align: right;
+	color:#DBF521;
 }
 
 .user_comment {
@@ -716,7 +724,7 @@ form.login {
 	text-align: right;
 	font-size: .8em;
 	line-height: 1.2;
-	color: #555;
+
 }
 
 .login section p a {
@@ -740,7 +748,7 @@ form.login {
 }
 
 span.selected {
-	background-color: #19A97B;
+	background-color: #017cb8;
 	color: #EAEAEA;
 	font-weight: 700;
 }
@@ -808,11 +816,10 @@ table{
 	width: 100%;
 }
 table ,tr, td{
-	border: 1px solid #ccc;
+	
 }
 
 table td{
-	font-size:.9em;
 	line-height:1.5em;
 	text-align: center;
 	padding:5px;
@@ -862,10 +869,10 @@ dt{
 .basic_btn{
 	padding: 0.4em;
 	line-height: 2em;
-	background-color: #0099CC;
+	background-color: rgba(0, 0, 0, 0.51);
 	border-color: #3399CC;
 	border-radius: 3px 3px 3px 3px;
-	box-shadow: -2px 2px 1px #3399CC;
+	box-shadow: -2px 2px 1px rgba(0, 0, 0, 0.3);
 	color:#fff;
 }
 
@@ -882,6 +889,8 @@ dt{
 
 span.p_header{
 	font-weight: 700;
+	letter-spacing:0.3em;
+	color:rgba(255, 230, 147, 0.81);
 }
 
 .tab_ul {
@@ -894,7 +903,6 @@ span.p_header{
   width: 131px;
   height: 58px;
   border-right: 1px solid #dedbdb;
-  background: #fafafa;
   line-height: 58px;
   text-align: center;
   font-size: 16px;
@@ -903,7 +911,7 @@ span.p_header{
 }
 
 .tab_ul .selected{
-	background: #FFF;
+	background: rgba(0, 0, 0, 0.51);
 	height: 59px;
 }
 
@@ -920,9 +928,23 @@ li{
 }
 
 .project_detail_section p{
-	padding:0 12px 0 12px;
+	padding:3px 12px 3px 12px;
 }
 
+.person_title {
+	border:1px solid #ccc;
+	background: rgba(0, 0, 0, 0.51);
+	line-height: 58px; 
+	text-align: center;
+	font-size: 1.2em;
+}
+
+.data_list_summary{
+	font-style:italic;
+	font-size:1.3em;
+	font-weight:700;
+	color:#ffffff;
+}
 /*专家在线指导*/
 .mag{font-size:12px;}
 .mag #magFloatingBar {position: fixed;right: 0;z-index: 7;top: 200px;}
@@ -939,3 +961,11 @@ li{
 .panelList_zj ul li{ height:25px; line-height:25px; list-style:none; width:180px; margin:2px 2px 2px 5px; font-size:13px;}
 .panelList_zj ul li:hover{ text-decoration:none; cursor:pointer; color:#0066CC; background-color:#ddd;}
 #searchUser_zj{border: 0px solid #3366cc;color: Black; width: 165px; height: 20px; line-height:15px; font-size: 12px; padding:3px 0 0 0; color:#ccc;}
+
+
+/* layer tips class*/
+body .demo-class .layui-layer-title{background:#017CB8; color:#fff; border: none;}
+body .demo-class .layui-layer-content{background:#555555;}
+body .demo-class .layui-layer-btn{border-top:1px solid #E9E7E7}
+body .demo-class .layui-layer-btn a{background:#333;}
+body .demo-class .layui-layer-btn .layui-layer-btn1{background:#999;}

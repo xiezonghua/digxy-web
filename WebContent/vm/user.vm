@@ -22,7 +22,7 @@
 					</p>
 					<section id="tab_detail_user">
 					<div >
-						<section class="layout_right">
+						<section class="layout_right" style="padding:20px 30px;">
 						<img  class="portrait" src="/images/portrait/$strUtils.toStr($data.imgSrc , 'default.jpg')" />	
 						<p>${data.userName}</p>
 						</section>

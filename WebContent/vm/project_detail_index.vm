@@ -65,9 +65,9 @@
 		<section>
 			<section>	
 				<section  style="border:1px solid #CCCCCC;overflow: hidden;">
-					<section  style="overflow: hidden;line-height:40px; border-bottom:1px solid #ccc;margin-bottom: 5px; ">
-						<h1 style="float:left;padding-left:12px;font-size: 25px; color: #2a2a2a; margin-bottom: 2px; font-family: 'Microsoft Yahei';">$data.pInfo.name</h1>
-						<p style="float:right;padding-right:12px;text-indent: 3em;font-size:.7em;color:red;letter-spacing:.13em;">预计于45天后开启</p>
+					<section  style="overflow: hidden;line-height:40px; border-bottom:1px solid #ccc;margin-bottom: 5px;background: rgba(25, 169, 123, 0.58);  ">
+						<h1 style="float:left;">$data.pInfo.name</h1>
+						<p style="float:right;padding-right:12px;text-indent: 3em;font-size:.7em;color:#B0FF00;letter-spacing:.13em;">预计于45天后开启</p>
 					</section>
 					<section class="layout_left" style="width: 70%;">
 					    <p class="layout_left" style="padding:0 5px 5px 5px;">	
@@ -102,7 +102,7 @@
 			 var attenderStatus = $strUtils.toJson($data.projectAttenderStatus);
 			 </script>
 				<section class="clearfix"  >
-					<article style="width:660px;border:1px solid #ccc;float:left;background:#FFF;">
+					<article style="width:660px;border:1px solid #ccc;float:left;">
 						<section>
 							<ul class="tab_ul" id="tab_header_project">
 								<li  class="selected"   onclick="hyCom.selectedTab('project',0)">消息</li>
@@ -229,16 +229,16 @@
 						</section>
 					</article>
 					<aside style="width:30%;float:right;">
-						<section  style="border:1px solid #ccc;background:#FFF;padding-bottom:12px;text-align: center;margin-bottom: 15px;">
-							<p style="  border:1px solid #ccc;background: #fafafa;line-height: 58px; text-align: center;">项目公告</p>
+						<section  style="border:1px solid #ccc;padding-bottom:12px;text-align: center;margin-bottom: 15px;">
+							<p class="person_title">项目公告</p>
 							<section>
 								<p>项目将开始了，请参与者及时做好准备。</p>
 							</section>
 						</section>
 						
-						<section  style="border:1px solid #ccc;background:#FFF;padding-bottom:12px;text-align: center;margin-bottom: 15px;">
+						<section  style="border:1px solid #ccc;padding-bottom:12px;text-align: center;margin-bottom: 15px;">
 
-							<p style=" border:1px solid #ccc; background: #fafafa;  line-height: 58px; text-align: center;">企业赞助</p>
+							<p class="person_title">企业赞助</p>
 							<section>
 								<p>项目将开始了，请参与者及时做好准备。</p>
 							</section>	
@@ -247,9 +247,9 @@
 							</p>
 						</section>	
 						
-						<section  style="border:1px solid #ccc;background:#FFF;padding-bottom:12px;text-align: center;">
+						<section  style="border:1px solid #ccc;padding-bottom:12px;text-align: center;">
 
-							<p style=" border:1px solid #ccc; background: #fafafa;  line-height: 58px; text-align: center;">个人赞助</p>
+							<p class="person_title">个人赞助</p>
 							<section>
 								<p>项目将开始了，请参与者及时做好准备。</p>
 							</section>	
